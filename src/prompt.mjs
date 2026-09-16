@@ -1,6 +1,14 @@
 import { sha256 } from './hash.mjs';
+
+export function validateTask(task) {
+  if (!task || typeof task !== 'object' || Array.isArray(task) || typeof task.task !== 'string' || !task.task.trim()) {
+    throw new Error('task must contain a non-empty string task prompt');
+  }
+  return task.task;
+}
+
 export function buildPrompt(task, protocol, arm) {
-  const taskText = typeof task.task === 'string' ? task.task : JSON.stringify(task.task ?? task);
+  const taskText = validateTask(task);
   if (arm === 'B0') return taskText;
   if (arm === 'B1') return `${protocol.trigger}. ${taskText}`;
   if (arm === 'B2') return `Analyze the task carefully, use available tools when useful, verify important assumptions, complete the task, and check your work before finishing.\n\n${taskText}`;

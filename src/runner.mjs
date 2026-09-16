@@ -1,7 +1,7 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import { loadJson, validateRegistry, root, protocolFile, baselineFile } from './registry.mjs';
-import { buildPrompt } from './prompt.mjs';
+import { buildPrompt, validateTask } from './prompt.mjs';
 import { sha256 } from './hash.mjs';
 import { executeAdapter, writeCapture } from './execute.mjs';
 
@@ -9,6 +9,7 @@ function prng(seed) { let x = (Number(seed) >>> 0) || 1; return () => (x = Math.
 function shuffle(a, seed) { const r = prng(seed); for (let i=a.length-1;i>0;i--) { const j=Math.floor(r()*(i+1)); [a[i],a[j]]=[a[j],a[i]]; } return a; }
 function args(argv) { const o={protocols:'all',arms:'B0,B1,B2,FULL',trials:3,seed:1,out:'out',adapter:'config/adapter.example.json'}; for(let i=2;i<argv.length;i++){const x=argv[i]; if(x==='--dry-run')o.dryRun=true; else if(x.startsWith('--'))o[x.slice(2)]=argv[++i];} return o; }
 export async function plan(task, opts) {
+  validateTask(task);
   const reg=validateRegistry(), selected=opts.protocols==='all'?reg.protocols:String(opts.protocols).split(',').map(id=>reg.protocols.find(p=>p.id===id)).filter(Boolean), arms=String(opts.arms).split(',');
   if (arms.some(arm => !['B0','B1','B2','FULL'].includes(arm))) throw new Error('unknown arm');
   if (!selected.length || selected.length !== (opts.protocols==='all'?20:String(opts.protocols).split(',').length)) throw new Error('unknown protocol selection');
@@ -17,7 +18,8 @@ export async function plan(task, opts) {
 }
 export async function run(argv=process.argv) {
   const opts=args(argv); if(!opts.task) throw new Error('--task is required');
-  const task=loadJson(path.resolve(opts.task)), cells=await plan(task,opts), out=path.resolve(opts.out), config=loadJson(path.resolve(opts.adapter));
+  const task=loadJson(path.resolve(opts.task)); validateTask(task);
+  const cells=await plan(task,opts), out=path.resolve(opts.out), config=loadJson(path.resolve(opts.adapter));
   await fs.mkdir(out,{recursive:true}); const hashes={taskHash:sha256(task),protocolHash:sha256(loadJson(protocolFile)),baselineHash:sha256(loadJson(baselineFile)),configHash:sha256(config)};
   if(opts.dryRun){const result={version:'0.1',seed:Number(opts.seed),cells,planHash:sha256(cells),hashes}; await fs.writeFile(path.join(out,'plan.json'),JSON.stringify(result,null,2)); console.log(JSON.stringify(result,null,2)); return result;}
   const reg=validateRegistry();
