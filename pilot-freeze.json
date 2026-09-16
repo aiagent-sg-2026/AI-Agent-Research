@@ -1,0 +1,127 @@
+{
+  "version": "pilot-v1",
+  "scope": "task specs, visible fixtures, evaluator-owned hidden graders, protocol registry, pilot protocol scripts",
+  "entries": [
+    {
+      "file": "dataset/evaluator/graders/T01-invoice-tax-rounding.mjs",
+      "sha256": "8317194918b4b869d1699235e7369b85e3f9dee42632874c24c2d4b3cd525c98"
+    },
+    {
+      "file": "dataset/evaluator/graders/T02-approval-permission.mjs",
+      "sha256": "4b540610eb7baad8d5bdf26a8385c6732e78bd5d3dc576d33973973b3392ec99"
+    },
+    {
+      "file": "dataset/evaluator/graders/T03-inventory-reservation.mjs",
+      "sha256": "f76f84a1c0b619d9750db27f358d8f9bb2e5ddb0633e5f1a5d3ab363a55649a7"
+    },
+    {
+      "file": "dataset/evaluator/graders/T04-query-filter.mjs",
+      "sha256": "ecc696500bec09bd6d6a7c48e57d8073ad9e29d73b838dcf77ce8de5b088858d"
+    },
+    {
+      "file": "dataset/evaluator/graders/T05-retry-backoff.mjs",
+      "sha256": "7f95a0fc3662b7ddf031729b4fd8cf1abad81bee0435c361c63c98641997465c"
+    },
+    {
+      "file": "dataset/fixtures/T01-invoice-tax-rounding/package.json",
+      "sha256": "6792db63afb044d0d2bd0087b94d40bbb08d62131dae258934222af161988a7a"
+    },
+    {
+      "file": "dataset/fixtures/T01-invoice-tax-rounding/src/invoice.mjs",
+      "sha256": "877b495d3abb420fffdf56579ea5727adf7652b08407911bfbcb97e0d8b62c7d"
+    },
+    {
+      "file": "dataset/fixtures/T01-invoice-tax-rounding/test/invoice.test.mjs",
+      "sha256": "71388b2c9d2b62886f30db5e28caa30d555a584e08714df4fc313c4135203124"
+    },
+    {
+      "file": "dataset/fixtures/T02-approval-permission/package.json",
+      "sha256": "9d0040f1640e74d64b25a2cf79218ec4696850b7511084bb818552b32b3ef416"
+    },
+    {
+      "file": "dataset/fixtures/T02-approval-permission/src/approval.mjs",
+      "sha256": "e8d36220a6346c778f1e9ce978f8f13dae489d9a15e41e8ef76a0a1615468780"
+    },
+    {
+      "file": "dataset/fixtures/T02-approval-permission/test/approval.test.mjs",
+      "sha256": "3d16adb30def2e5c47b9bebae8275b74d45295df185ce0983d50eda8081b3e15"
+    },
+    {
+      "file": "dataset/fixtures/T03-inventory-reservation/package.json",
+      "sha256": "2d6d45e1d4ca2f1fd6b8f3770c3ee9f2fbd43e8626913ed5338819c6e8af3c86"
+    },
+    {
+      "file": "dataset/fixtures/T03-inventory-reservation/src/inventory.mjs",
+      "sha256": "2f45a167915853554f20bca97f16c264c51e3a5263b6a707aca8f1dd3041353f"
+    },
+    {
+      "file": "dataset/fixtures/T03-inventory-reservation/test/inventory.test.mjs",
+      "sha256": "d3922bd6b352fe3403e91c4ccbfbd5aaff063803b97e16a604aadb06a611b9e8"
+    },
+    {
+      "file": "dataset/fixtures/T04-query-filter/package.json",
+      "sha256": "370cc2e93c8c1eb67b5b2f650cf2c1f11ecb5327d754e96b3137e7889c170811"
+    },
+    {
+      "file": "dataset/fixtures/T04-query-filter/src/query.mjs",
+      "sha256": "e92b7f486226af4261e784c427047f3d245801e55ee9a0180cfea4e057d14a48"
+    },
+    {
+      "file": "dataset/fixtures/T04-query-filter/test/query.test.mjs",
+      "sha256": "f522a4b601f06d20565fa249167afda7e67f1e60d65c3d9ffb43b790468837a1"
+    },
+    {
+      "file": "dataset/fixtures/T05-retry-backoff/package.json",
+      "sha256": "c64123acd42999a8c1b36ad2b1b97c7222a633f2af205f65def9a59660fb9a60"
+    },
+    {
+      "file": "dataset/fixtures/T05-retry-backoff/src/retry.mjs",
+      "sha256": "a6b97dcdf810ce4269fc1cbe60caa5f6ca8ecd29c7d70ea96e55569d898595f0"
+    },
+    {
+      "file": "dataset/fixtures/T05-retry-backoff/test/retry.test.mjs",
+      "sha256": "f492a75b9ffa6611df2e317b73b8a896764e2b1dafc90ca153b2c9164897ca33"
+    },
+    {
+      "file": "dataset/tasks.json",
+      "sha256": "969561e32b2e560ab7097f7898e5c7c8d0e54c7a99bdde1adb1e922e4b2f1ee4"
+    },
+    {
+      "file": "registry/baselines.json",
+      "sha256": "d1680fa9671f9cfa33ffb0b7e8d4a260364068e07befe4f5d5828bdea86fb4ab"
+    },
+    {
+      "file": "registry/protocols.json",
+      "sha256": "8c0af515f9f5ad52ed89b663fab04d34b392daab2ed5ab6715447bd88a44f881"
+    },
+    {
+      "file": "scripts/pilot-qa.mjs",
+      "sha256": "42c3f7de0bd44b7d424fe0c5f9fb3ca09cd5dff7fa8827401e1d7587845bd877"
+    },
+    {
+      "file": "src/codex-luna-adapter.mjs",
+      "sha256": "7efe926cadd5c69991cf2dc3c68a7e8a93cae136d41ef9ddcda8dc53e261051d"
+    },
+    {
+      "file": "src/execute.mjs",
+      "sha256": "b201eb499d8020cbd6474f2efb214dfebda9dfbfb668e557099abd16ef0dfc7c"
+    },
+    {
+      "file": "src/hash.mjs",
+      "sha256": "ddcb996da5fceabcf70d389ef1a7725f72b081da3214600b371dcff8d0b35343"
+    },
+    {
+      "file": "src/pilot.mjs",
+      "sha256": "7fee27e38863ab8f1540c40ff174feba7a0807df617c03b7d5ab40818192a905"
+    },
+    {
+      "file": "src/prompt.mjs",
+      "sha256": "583f8f42520c2692fb612d40057e52a485c75bb2ced4fb84801b6b08d5485597"
+    },
+    {
+      "file": "src/registry.mjs",
+      "sha256": "1749950cac0fc037e7037c8258439a32404a6e0489137ad92d8545e6e268d0b9"
+    }
+  ],
+  "manifestSha256": "8e0152be26537ff45012cc7aeaa4189695820466698ac2f94197591005a2cb72"
+}

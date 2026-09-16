@@ -58,6 +58,6 @@ test('Codex invocation contract ignores user config and explicitly pins Luna med
   const config=JSON.parse(await fs.readFile('config/adapter.codex-luna.vm.json','utf8'));
   const args=buildCodexExecArgs(config, '/benchmark/repo');
   assert.deepEqual(args, [
-    'exec','--json','--ignore-user-config','--model','gpt-5.6-luna','-c','model_reasoning_effort="medium"','-C','/benchmark/repo','-'
+    'exec','--json','--ignore-user-config','--ignore-rules','--sandbox','workspace-write','--model','gpt-5.6-luna','-c','model_reasoning_effort="medium"','-C','/benchmark/repo','-'
   ]);
 });

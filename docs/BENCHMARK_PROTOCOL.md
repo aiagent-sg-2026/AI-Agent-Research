@@ -22,6 +22,10 @@ Default screening is 3 trials per task/protocol; confirmation is 10. Track mean,
 
 This release defers real model trials, hidden graders, a 20-task production dataset, and protocol composition. The included stub is a local no-network execution proof, not a model benchmark.
 
+## Pilot V1 boundary
+
+The Pilot V1 harness adds five visible fixtures and evaluator-owned prompt-hidden graders. A one-cell run copies only the fixture into a fresh local git repository, requires the untouched baseline to fail its hidden grader via AssertionError, invokes the configured adapter in that candidate root, then records sanitized grader outcomes, token usage, latency, changed files, and diff scope. Infrastructure-invalid cells are separate from valid task failures. The 20-cell Luna experiment is not run during harness, QA, freeze, verify, plan, or summary commands. The formal runner verifies frozen inputs first, runs the seeded cells sequentially, persists evidence, and rejects reuse of non-empty output. One trial per task/arm is preliminary descriptive evidence and supports no causal or universal conclusion. Visible tests are minimal smoke tests; prompt-hidden graders are not an OS-level secrecy guarantee.
+
 ## Codex GPT-5.6 Luna adapter
 
 Use `config/adapter.codex-luna.vm.json` for the configured VM. The adapter is explicit and fail-closed: it ignores user configuration, requests model `gpt-5.6-luna` with reasoning effort `medium`, verifies `codex-cli 0.153.4`, and requires a matching `thread.started` JSON event and persisted session under `$CODEX_HOME/sessions`. It verifies only session metadata fields needed for provenance (`threadId`, model, effort, provider, and CLI version), never copies session prompts or authentication data, and records verified provenance in `manifest.json`. A missing or mismatched field is classified as infrastructure-invalid. Other adapter configs continue to use the generic executable/argv path.

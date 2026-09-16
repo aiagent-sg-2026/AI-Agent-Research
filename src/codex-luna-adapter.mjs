@@ -20,7 +20,8 @@ export function validateCodexLunaConfig(config) {
 
 export function buildCodexExecArgs(config, repoRoot) {
   validateCodexLunaConfig(config);
-  return ['exec', '--json', '--ignore-user-config', '--model', config.model, '-c', `model_reasoning_effort="${config.reasoningEffort}"`, '-C', repoRoot, '-'];
+  if (!path.isAbsolute(repoRoot)) throw new Error('Codex candidate workspace must be an absolute path');
+  return ['exec', '--json', '--ignore-user-config', '--ignore-rules', '--sandbox', 'workspace-write', '--model', config.model, '-c', `model_reasoning_effort="${config.reasoningEffort}"`, '-C', repoRoot, '-'];
 }
 
 const jsonLines = text => text.split(/\r?\n/).filter(Boolean).flatMap(line => {
@@ -109,6 +110,16 @@ function publicAgentOutput(events) {
   }).join('\n');
 }
 
+function tokenUsage(events) {
+  const completed = jsonLines(events).filter(x => x?.type === 'turn.completed').at(-1);
+  const u = completed?.usage ?? completed?.payload?.usage;
+  if (!u || typeof u !== 'object') return null;
+  const inputTokens = u.input_tokens ?? u.inputTokens;
+  const outputTokens = u.output_tokens ?? u.outputTokens;
+  const totalTokens = u.total_tokens ?? u.totalTokens ?? (Number.isFinite(inputTokens) && Number.isFinite(outputTokens) ? inputTokens + outputTokens : undefined);
+  return [inputTokens, outputTokens, totalTokens].every(x => Number.isFinite(x)) ? { inputTokens, outputTokens, totalTokens } : null;
+}
+
 export async function runCodexLunaAdapter(config, vars, { timeoutMs = 30000, maxOutputBytes = 1000000 } = {}) {
   const started = Date.now();
   let provenance, stdout = '', stderr = '', exitCode = null, signal = null, infrastructureError;
@@ -121,7 +132,8 @@ export async function runCodexLunaAdapter(config, vars, { timeoutMs = 30000, max
     if (version.error || version.code !== 0 || version.stdout.trim() !== `codex-cli ${config.cliVersion}`) infrastructureError = `Codex CLI version is not exactly ${config.cliVersion}`;
   }
   if (!infrastructureError) {
-    const result = await command(executable, buildCodexExecArgs(config, vars.repoRoot), await fs.readFile(vars.promptFile, 'utf8'), { timeoutMs, maxOutputBytes, cwd: vars.runDir, env });
+    const candidateRoot = vars.candidateRoot || vars.repoRoot;
+    const result = await command(executable, buildCodexExecArgs(config, candidateRoot), await fs.readFile(vars.promptFile, 'utf8'), { timeoutMs, maxOutputBytes, cwd: vars.runDir, env });
     const eventOutput = result.stdout;
     ({ stderr, code: exitCode, signal } = result);
     try {
@@ -136,9 +148,10 @@ export async function runCodexLunaAdapter(config, vars, { timeoutMs = 30000, max
         ...observed
       };
       stdout = publicAgentOutput(eventOutput);
+      var usage = tokenUsage(eventOutput);
     } catch (error) { infrastructureError = error.message; }
   }
   if (provenance) await fs.writeFile(path.join(vars.runDir, 'codex-provenance.json'), JSON.stringify(provenance, null, 2));
   const classification = infrastructureError ? 'infrastructure-error' : exitCode === 0 ? 'valid-agent-result' : 'agent-failure';
-  return { infrastructureError, exitCode, signal, classification, stdout, stderr, durationMs: Date.now() - started, provenance };
+  return { infrastructureError, exitCode, signal, classification, stdout, stderr, durationMs: Date.now() - started, provenance, tokenUsage: usage ?? null };
 }

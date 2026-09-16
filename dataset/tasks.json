@@ -1,0 +1,45 @@
+{
+  "version": "pilot-v1",
+  "tasks": [
+    {
+      "id": "T01-invoice-tax-rounding",
+      "task": "In the existing implementation, fix the invoice total calculation so tax is rounded per line item to two decimal places before summing, while preserving the existing discount behavior and numeric return type. The visible scope is the existing source implementation; do not edit tests or package metadata. Verify the existing test command if useful.",
+      "allowedTarget": "src/invoice.mjs",
+      "fixture": "dataset/fixtures/T01-invoice-tax-rounding",
+      "grader": "dataset/evaluator/graders/T01-invoice-tax-rounding.mjs",
+      "expectedFailure": "line tax is accumulated before rounding"
+    },
+    {
+      "id": "T02-approval-permission",
+      "task": "In the existing implementation, fix approval permission resolution so a user who belongs to a department inherits that department's approver role, while an explicit user deny still wins. Preserve the public resolver API. The visible scope is the existing source implementation; do not edit tests or package metadata.",
+      "allowedTarget": "src/approval.mjs",
+      "fixture": "dataset/fixtures/T02-approval-permission",
+      "grader": "dataset/evaluator/graders/T02-approval-permission.mjs",
+      "expectedFailure": "department membership is ignored"
+    },
+    {
+      "id": "T03-inventory-reservation",
+      "task": "In the existing implementation, fix inventory reservation so a request cannot reserve more units than the available quantity, including when the requested quantity is a string from an HTTP payload. Preserve the returned result shape. The visible scope is the existing source implementation; do not edit tests or package metadata.",
+      "allowedTarget": "src/inventory.mjs",
+      "fixture": "dataset/fixtures/T03-inventory-reservation",
+      "grader": "dataset/evaluator/graders/T03-inventory-reservation.mjs",
+      "expectedFailure": "string quantity is concatenated"
+    },
+    {
+      "id": "T04-query-filter",
+      "task": "In the existing implementation, fix the customer query builder so filter values are encoded as URL query components. Preserve page, and if the base URL already has query parameters such as limit=25, preserve them when appending page and filter. Preserve the returned URL shape beyond the corrected encoding/query joining. The visible scope is the existing source implementation; do not edit tests or package metadata.",
+      "allowedTarget": "src/query.mjs",
+      "fixture": "dataset/fixtures/T04-query-filter",
+      "grader": "dataset/evaluator/graders/T04-query-filter.mjs",
+      "expectedFailure": "filter value is interpolated without encoding"
+    },
+    {
+      "id": "T05-retry-backoff",
+      "task": "In the existing implementation, fix retry delay calculation so attempt one has the base delay and each later attempt doubles it, capped at the configured maximum. Preserve the function's numeric return type. The visible scope is the existing source implementation; do not edit tests or package metadata.",
+      "allowedTarget": "src/retry.mjs",
+      "fixture": "dataset/fixtures/T05-retry-backoff",
+      "grader": "dataset/evaluator/graders/T05-retry-backoff.mjs",
+      "expectedFailure": "attempt number is treated as zero-based"
+    }
+  ]
+}
