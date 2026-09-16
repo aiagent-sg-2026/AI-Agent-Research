@@ -170,8 +170,8 @@
     },
     {
       "file": "src/v2-delivery.mjs",
-      "sha256": "3645e3b9efe1846c5304ad6c0b73564b1df428826c64048e7e179f0d207f97db"
+      "sha256": "8688e93964385515cfc22d30d101d06fde33bcf0d1cbb4f312237f311282240b"
     }
   ],
-  "manifestSha256": "ce3af60ba0a52c9729b58a34d75a8ce7e154a2fc3e91043e0bd7147c9c5a40ad"
+  "manifestSha256": "84ba18e989fd645ba70287a40c4d959388b75a41b02619fd173f699ba2aa65c7"
 }

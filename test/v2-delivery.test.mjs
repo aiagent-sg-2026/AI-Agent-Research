@@ -3,14 +3,32 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs/promises';
 import os from 'node:os';
 import path from 'node:path';
+import { spawn } from 'node:child_process';
 import { armPrompt, deliveryContract, freezeV2, runV2Cell, summarizeV2, validateV2Plan, v2Plan, V2_ARMS, V2_INSTRUCTION, V2_PROTOCOL } from '../src/v2-delivery.mjs';
 import { loadDataset } from '../src/pilot.mjs';
 import { sha256 } from '../src/hash.mjs';
+
+const runCli = (args, cwd) => new Promise(resolve => {
+  const child = spawn(process.execPath, [path.resolve('src/v2-delivery.mjs'), ...args], { cwd });
+  let stdout = '', stderr = '';
+  child.stdout.on('data', b => stdout += b);
+  child.stderr.on('data', b => stderr += b);
+  child.on('close', code => resolve({ code, stdout, stderr }));
+});
 
 test('V2 delivery matrix is exactly 5 tasks × 4 arms × 3 unique trials', () => {
   const plan = v2Plan(91); assert.equal(plan.length, 60); assert.equal(new Set(plan.map(x => x.cellId)).size, 60); validateV2Plan(plan);
   for (const task of loadDataset()) for (const arm of V2_ARMS) assert.equal(plan.filter(x => x.taskId === task.id && x.arm === arm).length, 3);
   assert.deepEqual(v2Plan(91), v2Plan(91)); assert.notDeepEqual(v2Plan(91), v2Plan(92));
+});
+test('--run takes precedence over --freeze without starting a formal run', async () => {
+  const dir = await fs.mkdtemp(path.join(os.tmpdir(), 'aqb-v2-cli-')), out = path.join(dir, 'out'), freeze = path.join(dir, 'freeze.json');
+  await fs.writeFile(freeze, '{}');
+  const result = await runCli(['--run', out, '--freeze', freeze], path.resolve('.'));
+  assert.equal(result.code, 1);
+  assert.match(result.stderr, /invalid V2 freeze manifest/);
+  assert.equal(await fs.readFile(freeze, 'utf8'), '{}');
+  await assert.rejects(() => fs.access(out));
 });
 test('A1/A2/A3 share the frozen semantic instruction and A0 has none', () => {
   const task = loadDataset()[0], contract = deliveryContract();
