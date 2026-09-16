@@ -6,6 +6,10 @@ Run `npm test`, `npm run validate`, then the sample command in `docs/BENCHMARK_P
 
 The VM Codex adapter is `config/adapter.codex-luna.vm.json`. It invokes the `codex` executable with `--ignore-user-config`, requests `gpt-5.6-luna` and medium reasoning, and requires the exact `codex-cli 0.153.4` version. `CODEX_HOME` must be set to the authenticated Codex home; sessions must be persisted below `$CODEX_HOME/sessions`. The adapter locates the exact thread from JSON events, reads only the session metadata records needed for provenance, and writes verified model, effort, provider, CLI version, and thread ID to each trial manifest. Missing or mismatched evidence is infrastructure-invalid. Portability requires the pinned absolute CLI path (or a separate reviewed config for another environment) and an equivalent `CODEX_HOME` session layout; the example config is intentionally VM-specific.
 
+## Public site
+
+The educational GitHub Pages site is built from `docs/` and is deployed by `.github/workflows/pages.yml`. It explains the research question, prompt/context/behavior engineering, the B0/B1/B2/FULL comparison, the 20-protocol registry, R0 rejection, R1’s descriptive results, and the methodology boundary without publishing evaluator-owned content or ignored run evidence. Run `npm run site:check` for static site checks. The public site is intended to be hosted at the repository’s GitHub Pages URL; the source repository is [github.com/aiagent-sg-2026/AI-Agent-Research](https://github.com/aiagent-sg-2026/AI-Agent-Research).
+
 ## Pilot V1
 
 Pilot V1 is dataset and harness only. It contains exactly five deterministic application/backend bugfix fixtures and evaluator-owned hidden graders. Candidate workspaces receive only a fresh copy of the visible fixture and the task contract; graders, answer keys, expected patches, competitor output, and prior outcomes are not copied or included in prompts. This is prompt/workspace isolation, not an OS-level secrecy guarantee: a process with broader filesystem access could potentially discover evaluator files.
