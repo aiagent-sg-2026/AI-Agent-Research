@@ -1,0 +1,1 @@
+{"version":"0.1","baselines":[{"id":"B0","name":"PLAIN","template":"{TASK}"},{"id":"B1","name":"MAGIC_WORD","template":"<TRIGGER>. <TASK>"},{"id":"B2","name":"GENERIC_STRONG","template":"Analyze the task carefully, use available tools when useful, verify important assumptions, complete the task, and check your work before finishing. followed by task."}]}

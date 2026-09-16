@@ -1,0 +1,10 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import fs from 'node:fs/promises';
+import os from 'node:os';
+import path from 'node:path';
+import { plan, run } from '../src/runner.mjs';
+import { loadJson } from '../src/registry.mjs';
+const task=loadJson('examples/tasks/sample-task.json');
+test('same seed produces identical plan and dry-run makes no adapter call', async()=>{ const a=await plan(task,{protocols:'P01,P02',arms:'B0,FULL',trials:2,seed:77}); const b=await plan(task,{protocols:'P01,P02',arms:'B0,FULL',trials:2,seed:77}); assert.deepEqual(a,b); const out=await fs.mkdtemp(path.join(os.tmpdir(),'air-dry-')); await run(['node','runner','--task','examples/tasks/sample-task.json','--protocols','P01','--arms','B0','--trials','1','--seed','77','--out',out,'--dry-run']); assert.ok((await fs.stat(path.join(out,'plan.json'))).isFile()); });
+test('stub run captures observable execution and manifest', async()=>{ const out=await fs.mkdtemp(path.join(os.tmpdir(),'air-run-')); await run(['node','runner','--task','examples/tasks/sample-task.json','--protocols','P01','--arms','FULL','--trials','1','--seed','4','--out',out,'--adapter','config/adapter.example.json']); const dirs=await fs.readdir(out); const dir=path.join(out,dirs.find(x=>x.includes('P01-FULL'))); const m=JSON.parse(await fs.readFile(path.join(dir,'manifest.json'))); const e=JSON.parse(await fs.readFile(path.join(dir,'execution.json'))); assert.equal(m.execution.classification,'valid-agent-result'); assert.equal(e.exitCode,0); assert.equal(e.stdout.includes('sample-task'),true); assert.match(m.promptHash,/^[a-f0-9]{64}$/); });

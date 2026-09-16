@@ -1,0 +1,1 @@
+{"id":"sample-task","task":"For sample-task, return a concise JSON object with keys ok and observed. Set ok to true and observed to the task id."}
