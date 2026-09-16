@@ -11,7 +11,7 @@
     },
     {
       "id": "T02-approval-permission",
-      "task": "In the existing implementation, fix approval permission resolution so a user who belongs to a department inherits that department's approver role, while an explicit user deny still wins. Preserve the public resolver API. The visible scope is the existing source implementation; do not edit tests or package metadata.",
+      "task": "In the existing implementation, fix approval permission resolution so user.departments is an array of department objects such as {id:'finance', roles:['approver']}, and a user inherits the approver role only from the department whose id matches request.department. An explicit user deny still wins. Preserve the public resolver API. The visible scope is the existing source implementation; do not edit tests or package metadata.",
       "allowedTarget": "src/approval.mjs",
       "fixture": "dataset/fixtures/T02-approval-permission",
       "grader": "dataset/evaluator/graders/T02-approval-permission.mjs",
@@ -35,11 +35,11 @@
     },
     {
       "id": "T05-retry-backoff",
-      "task": "In the existing implementation, fix retry delay calculation so attempt one has the base delay and each later attempt doubles it, capped at the configured maximum. Preserve the function's numeric return type. The visible scope is the existing source implementation; do not edit tests or package metadata.",
+      "task": "In the existing implementation, fix retry delay calculation so attempt numbers are 1-based: attempt 1 has the base delay and each later attempt doubles it, capped at the configured maximum. Reject non-positive attempt numbers with a RangeError. Preserve the function's numeric return type for valid attempts. The visible scope is the existing source implementation; do not edit tests or package metadata.",
       "allowedTarget": "src/retry.mjs",
       "fixture": "dataset/fixtures/T05-retry-backoff",
       "grader": "dataset/evaluator/graders/T05-retry-backoff.mjs",
-      "expectedFailure": "attempt number is treated as zero-based"
+      "expectedFailure": "non-positive attempt is accepted"
     }
   ]
 }

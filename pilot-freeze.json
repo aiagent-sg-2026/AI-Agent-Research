@@ -8,7 +8,7 @@
     },
     {
       "file": "dataset/evaluator/graders/T02-approval-permission.mjs",
-      "sha256": "4b540610eb7baad8d5bdf26a8385c6732e78bd5d3dc576d33973973b3392ec99"
+      "sha256": "116a0364ef21ef5aebf6cf76265a62f97418e0f59bc829766a84696e71f90875"
     },
     {
       "file": "dataset/evaluator/graders/T03-inventory-reservation.mjs",
@@ -20,7 +20,7 @@
     },
     {
       "file": "dataset/evaluator/graders/T05-retry-backoff.mjs",
-      "sha256": "7f95a0fc3662b7ddf031729b4fd8cf1abad81bee0435c361c63c98641997465c"
+      "sha256": "e2f853cba823a48127071d8e5216d6008f81084d0ae689b1877d4f61afa5db70"
     },
     {
       "file": "dataset/fixtures/T01-invoice-tax-rounding/package.json",
@@ -76,15 +76,15 @@
     },
     {
       "file": "dataset/fixtures/T05-retry-backoff/src/retry.mjs",
-      "sha256": "a6b97dcdf810ce4269fc1cbe60caa5f6ca8ecd29c7d70ea96e55569d898595f0"
+      "sha256": "69bdd06e89c18b3417ad3c0306cef5cec92471afddac272d07cb9a9ddb0d8062"
     },
     {
       "file": "dataset/fixtures/T05-retry-backoff/test/retry.test.mjs",
-      "sha256": "f492a75b9ffa6611df2e317b73b8a896764e2b1dafc90ca153b2c9164897ca33"
+      "sha256": "dc22ce52d0561fc8b8cf2866b46508a18943471cb5852da3fdcbe606a372a6b6"
     },
     {
       "file": "dataset/tasks.json",
-      "sha256": "969561e32b2e560ab7097f7898e5c7c8d0e54c7a99bdde1adb1e922e4b2f1ee4"
+      "sha256": "e130028e77991e3db4a02a880f11948acf9611ecfb8f7303092bd717c7c0cb0c"
     },
     {
       "file": "registry/baselines.json",
@@ -96,7 +96,7 @@
     },
     {
       "file": "scripts/pilot-qa.mjs",
-      "sha256": "42c3f7de0bd44b7d424fe0c5f9fb3ca09cd5dff7fa8827401e1d7587845bd877"
+      "sha256": "a0f77be9f8e5614961982e28d820c54a5814f4622dc6899108fde2801c1b29c8"
     },
     {
       "file": "src/codex-luna-adapter.mjs",
@@ -123,5 +123,5 @@
       "sha256": "1749950cac0fc037e7037c8258439a32404a6e0489137ad92d8545e6e268d0b9"
     }
   ],
-  "manifestSha256": "8e0152be26537ff45012cc7aeaa4189695820466698ac2f94197591005a2cb72"
+  "manifestSha256": "3d2ad3e778e6d511fc1ec85a8f3b7dc045b513920c616402c4840f7d5beede1b"
 }
