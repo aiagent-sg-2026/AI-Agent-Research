@@ -1,0 +1,177 @@
+{
+  "version": "AQB-V2-DM-001",
+  "taskIds": [
+    "T01-invoice-tax-rounding",
+    "T02-approval-permission",
+    "T03-inventory-reservation",
+    "T04-query-filter",
+    "T05-retry-backoff"
+  ],
+  "trials": 3,
+  "arms": [
+    "A0",
+    "A1",
+    "A2",
+    "A3"
+  ],
+  "taskHashes": {
+    "T01-invoice-tax-rounding": "2ebe683b8374ed282b41a8a240f614cb76e21bfc7b757a59b6a775d02f4d8f2a",
+    "T02-approval-permission": "d970aebb798199faece41f3efbf0d1d3162a6738c9436564d32216556b4edcfc",
+    "T03-inventory-reservation": "1fbae3429b61bc138570eedadef302fcecf0dd76c192e9e59eb14693d4deaf67",
+    "T04-query-filter": "aecb4a191a0bf41cccc20f14ff2f34fab850bd96b93ba27b023502afff1270d8",
+    "T05-retry-backoff": "4390a601b746b74e31ebc2b8d3cad665b17b78801ed61d6fa4db695b029b7864"
+  },
+  "evaluatorHashes": {
+    "T01-invoice-tax-rounding": "8317194918b4b869d1699235e7369b85e3f9dee42632874c24c2d4b3cd525c98",
+    "T02-approval-permission": "116a0364ef21ef5aebf6cf76265a62f97418e0f59bc829766a84696e71f90875",
+    "T03-inventory-reservation": "f76f84a1c0b619d9750db27f358d8f9bb2e5ddb0633e5f1a5d3ab363a55649a7",
+    "T04-query-filter": "ecc696500bec09bd6d6a7c48e57d8073ad9e29d73b838dcf77ce8de5b088858d",
+    "T05-retry-backoff": "e2f853cba823a48127071d8e5216d6008f81084d0ae689b1877d4f61afa5db70"
+  },
+  "instructionHash": "fa2d40ef2a5a2d099c566dfbe57b5dbb18cf62c6777ce19e6fd2350154426d71",
+  "contract": {
+    "version": "AQB-V2-DM-001",
+    "arms": [
+      {
+        "id": "A0",
+        "channel": "plain task prompt",
+        "instructionHash": "fa2d40ef2a5a2d099c566dfbe57b5dbb18cf62c6777ce19e6fd2350154426d71",
+        "semantics": null
+      },
+      {
+        "id": "A1",
+        "channel": "user prompt",
+        "instructionHash": "fa2d40ef2a5a2d099c566dfbe57b5dbb18cf62c6777ce19e6fd2350154426d71",
+        "semantics": "fa2d40ef2a5a2d099c566dfbe57b5dbb18cf62c6777ce19e6fd2350154426d71"
+      },
+      {
+        "id": "A2",
+        "channel": "candidate AGENTS.md",
+        "instructionHash": "fa2d40ef2a5a2d099c566dfbe57b5dbb18cf62c6777ce19e6fd2350154426d71",
+        "semantics": "fa2d40ef2a5a2d099c566dfbe57b5dbb18cf62c6777ce19e6fd2350154426d71"
+      },
+      {
+        "id": "A3",
+        "channel": "candidate-visible skill plus explicit invocation directive",
+        "instructionHash": "fa2d40ef2a5a2d099c566dfbe57b5dbb18cf62c6777ce19e6fd2350154426d71",
+        "semantics": "fa2d40ef2a5a2d099c566dfbe57b5dbb18cf62c6777ce19e6fd2350154426d71"
+      }
+    ],
+    "asymmetry": "A3 requires a short prompt directive because the pinned Codex adapter has no native custom-skill invocation API; the substantive instruction is delivered only by the candidate-visible skill. A2 enables candidate AGENTS.md loading in the V2 Codex invocation; A0/A1/A3 retain --ignore-rules."
+  },
+  "entries": [
+    {
+      "file": "config/adapter.codex-luna.vm.json",
+      "sha256": "d383d3c46f18302e72f13d590368453b87d74979031707f1ca138ea88ae9ad82"
+    },
+    {
+      "file": "dataset/evaluator/graders/T01-invoice-tax-rounding.mjs",
+      "sha256": "8317194918b4b869d1699235e7369b85e3f9dee42632874c24c2d4b3cd525c98"
+    },
+    {
+      "file": "dataset/evaluator/graders/T02-approval-permission.mjs",
+      "sha256": "116a0364ef21ef5aebf6cf76265a62f97418e0f59bc829766a84696e71f90875"
+    },
+    {
+      "file": "dataset/evaluator/graders/T03-inventory-reservation.mjs",
+      "sha256": "f76f84a1c0b619d9750db27f358d8f9bb2e5ddb0633e5f1a5d3ab363a55649a7"
+    },
+    {
+      "file": "dataset/evaluator/graders/T04-query-filter.mjs",
+      "sha256": "ecc696500bec09bd6d6a7c48e57d8073ad9e29d73b838dcf77ce8de5b088858d"
+    },
+    {
+      "file": "dataset/evaluator/graders/T05-retry-backoff.mjs",
+      "sha256": "e2f853cba823a48127071d8e5216d6008f81084d0ae689b1877d4f61afa5db70"
+    },
+    {
+      "file": "dataset/fixtures/T01-invoice-tax-rounding/package.json",
+      "sha256": "6792db63afb044d0d2bd0087b94d40bbb08d62131dae258934222af161988a7a"
+    },
+    {
+      "file": "dataset/fixtures/T01-invoice-tax-rounding/src/invoice.mjs",
+      "sha256": "877b495d3abb420fffdf56579ea5727adf7652b08407911bfbcb97e0d8b62c7d"
+    },
+    {
+      "file": "dataset/fixtures/T01-invoice-tax-rounding/test/invoice.test.mjs",
+      "sha256": "71388b2c9d2b62886f30db5e28caa30d555a584e08714df4fc313c4135203124"
+    },
+    {
+      "file": "dataset/fixtures/T02-approval-permission/package.json",
+      "sha256": "9d0040f1640e74d64b25a2cf79218ec4696850b7511084bb818552b32b3ef416"
+    },
+    {
+      "file": "dataset/fixtures/T02-approval-permission/src/approval.mjs",
+      "sha256": "e8d36220a6346c778f1e9ce978f8f13dae489d9a15e41e8ef76a0a1615468780"
+    },
+    {
+      "file": "dataset/fixtures/T02-approval-permission/test/approval.test.mjs",
+      "sha256": "3d16adb30def2e5c47b9bebae8275b74d45295df185ce0983d50eda8081b3e15"
+    },
+    {
+      "file": "dataset/fixtures/T03-inventory-reservation/package.json",
+      "sha256": "2d6d45e1d4ca2f1fd6b8f3770c3ee9f2fbd43e8626913ed5338819c6e8af3c86"
+    },
+    {
+      "file": "dataset/fixtures/T03-inventory-reservation/src/inventory.mjs",
+      "sha256": "2f45a167915853554f20bca97f16c264c51e3a5263b6a707aca8f1dd3041353f"
+    },
+    {
+      "file": "dataset/fixtures/T03-inventory-reservation/test/inventory.test.mjs",
+      "sha256": "d3922bd6b352fe3403e91c4ccbfbd5aaff063803b97e16a604aadb06a611b9e8"
+    },
+    {
+      "file": "dataset/fixtures/T04-query-filter/package.json",
+      "sha256": "370cc2e93c8c1eb67b5b2f650cf2c1f11ecb5327d754e96b3137e7889c170811"
+    },
+    {
+      "file": "dataset/fixtures/T04-query-filter/src/query.mjs",
+      "sha256": "e92b7f486226af4261e784c427047f3d245801e55ee9a0180cfea4e057d14a48"
+    },
+    {
+      "file": "dataset/fixtures/T04-query-filter/test/query.test.mjs",
+      "sha256": "f522a4b601f06d20565fa249167afda7e67f1e60d65c3d9ffb43b790468837a1"
+    },
+    {
+      "file": "dataset/fixtures/T05-retry-backoff/package.json",
+      "sha256": "c64123acd42999a8c1b36ad2b1b97c7222a633f2af205f65def9a59660fb9a60"
+    },
+    {
+      "file": "dataset/fixtures/T05-retry-backoff/src/retry.mjs",
+      "sha256": "69bdd06e89c18b3417ad3c0306cef5cec92471afddac272d07cb9a9ddb0d8062"
+    },
+    {
+      "file": "dataset/fixtures/T05-retry-backoff/test/retry.test.mjs",
+      "sha256": "dc22ce52d0561fc8b8cf2866b46508a18943471cb5852da3fdcbe606a372a6b6"
+    },
+    {
+      "file": "dataset/tasks.json",
+      "sha256": "e130028e77991e3db4a02a880f11948acf9611ecfb8f7303092bd717c7c0cb0c"
+    },
+    {
+      "file": "registry/benchmark-v2.json",
+      "sha256": "1030d0e6a61f077f1f328d84e4c9ac88c3787f9bf3dd2e932890e1ae4ee9ef01"
+    },
+    {
+      "file": "src/codex-luna-adapter.mjs",
+      "sha256": "53d4208cd5042223c899b8b54140ce71c35a368fcc2899d757b06d2c8092bf88"
+    },
+    {
+      "file": "src/execute.mjs",
+      "sha256": "b201eb499d8020cbd6474f2efb214dfebda9dfbfb668e557099abd16ef0dfc7c"
+    },
+    {
+      "file": "src/hash.mjs",
+      "sha256": "ddcb996da5fceabcf70d389ef1a7725f72b081da3214600b371dcff8d0b35343"
+    },
+    {
+      "file": "src/pilot.mjs",
+      "sha256": "7fee27e38863ab8f1540c40ff174feba7a0807df617c03b7d5ab40818192a905"
+    },
+    {
+      "file": "src/v2-delivery.mjs",
+      "sha256": "3645e3b9efe1846c5304ad6c0b73564b1df428826c64048e7e179f0d207f97db"
+    }
+  ],
+  "manifestSha256": "ce3af60ba0a52c9729b58a34d75a8ce7e154a2fc3e91043e0bd7147c9c5a40ad"
+}

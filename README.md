@@ -21,3 +21,7 @@ Pilot V1 is dataset and harness only. It contains exactly five deterministic app
 The planned design is exactly P01 ROOT-CAUSE × B0/B1/B2/FULL × five tasks × one trial, or 20 formal cells. `npm run pilot:qa`, `npm run pilot:freeze`, `npm run pilot:verify`, and `npm run pilot:plan` validate or materialize the seeded plan. `npm run pilot:run` is the executable formal runner and `npm run pilot:summary` writes JSON and Markdown summaries; it verifies the freeze first, runs cells sequentially, and refuses to reuse a non-empty output directory. The real Luna experiment is intentionally not run by QA, freeze, verify, plan, or summary commands.
 
 Visible tests are minimal smoke tests supplied in each candidate fixture. Hidden graders are evaluator-owned and prompt-hidden, so they are not copied into candidate workspaces or prompts; this is a harness boundary, not an OS-level secrecy guarantee. A formal success requires hidden-grader PASS and the only changed file to be the task's `allowedTarget`; unrelated edits are recorded separately.
+
+## Agent Quality Benchmark V2 delivery experiment
+
+The first V2 harness is `src/v2-delivery.mjs`: five frozen representative tasks × A0/A1/A2/A3 × three trials = 60 cells. Use `npm run v2:freeze`, `npm run v2:verify`, and `npm run v2:plan` for freeze/verification/planning; `npm run v2:run` is the formal model command and is intentionally not run in implementation sessions. `npm run v2:summary` summarizes recorded evidence. A3's explicit skill directive is a documented adapter limitation, not an extra substantive instruction.

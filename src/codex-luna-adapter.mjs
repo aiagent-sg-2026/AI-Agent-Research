@@ -21,7 +21,9 @@ export function validateCodexLunaConfig(config) {
 export function buildCodexExecArgs(config, repoRoot) {
   validateCodexLunaConfig(config);
   if (!path.isAbsolute(repoRoot)) throw new Error('Codex candidate workspace must be an absolute path');
-  return ['exec', '--json', '--ignore-user-config', '--ignore-rules', '--sandbox', 'workspace-write', '--model', config.model, '-c', `model_reasoning_effort="${config.reasoningEffort}"`, '-C', repoRoot, '-'];
+  const args = ['exec', '--json', '--ignore-user-config'];
+  if (config.useCandidateRules !== true) args.push('--ignore-rules');
+  return [...args, '--sandbox', 'workspace-write', '--model', config.model, '-c', `model_reasoning_effort="${config.reasoningEffort}"`, '-C', repoRoot, '-'];
 }
 
 const jsonLines = text => text.split(/\r?\n/).filter(Boolean).flatMap(line => {

@@ -12,6 +12,11 @@
     "pilot:plan": "node src/pilot.mjs --plan pilot-plan --seed 20260916",
     "pilot:run": "node src/pilot.mjs --run pilot-out-r1 --seed 20260916 --freeze pilot-freeze.json --adapter config/adapter.codex-luna.vm.json",
     "pilot:summary": "node src/pilot.mjs --summary pilot-out-r1",
+    "v2:freeze": "node src/v2-delivery.mjs --freeze v2-delivery-freeze.json",
+    "v2:verify": "node src/v2-delivery.mjs --verify v2-delivery-freeze.json",
+    "v2:plan": "node src/v2-delivery.mjs --plan v2-delivery-plan --seed 20260917",
+    "v2:run": "node src/v2-delivery.mjs --run v2-delivery-out --seed 20260917 --freeze v2-delivery-freeze.json --adapter config/adapter.codex-luna.vm.json",
+    "v2:summary": "node src/v2-delivery.mjs --summary v2-delivery-out",
     "site:check": "node scripts/site-check.mjs"
   },
   "engines": {
