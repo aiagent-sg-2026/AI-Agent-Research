@@ -1,0 +1,12 @@
+{
+  "type": "codex-luna",
+  "executable": "/home/ai-agent/.nvm/versions/node/v24.20.0/bin/codex",
+  "cliVersion": "0.153.4",
+  "model": "gpt-5.6-luna",
+  "reasoningEffort": "medium",
+  "portability": {
+    "codexHome": "CODEX_HOME environment variable",
+    "sessions": "$CODEX_HOME/sessions",
+    "executable": "VM-pinned absolute path; create a separate environment config if the CLI path differs"
+  }
+}

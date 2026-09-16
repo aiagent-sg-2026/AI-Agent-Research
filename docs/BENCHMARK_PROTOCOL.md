@@ -21,3 +21,7 @@ Default screening is 3 trials per task/protocol; confirmation is 10. Track mean,
 `node src/runner.mjs --task examples/tasks/sample-task.json --arms B0,FULL --protocols P01 --trials 1 --adapter config/adapter.example.json --out out/run` executes cells. Add `--dry-run` for a zero-process deterministic plan. Adapter configs contain an executable and argv template; placeholders are substituted into argv and spawned with `shell:false`. Output and timeout bounds are enforced.
 
 This release defers real model trials, hidden graders, a 20-task production dataset, and protocol composition. The included stub is a local no-network execution proof, not a model benchmark.
+
+## Codex GPT-5.6 Luna adapter
+
+Use `config/adapter.codex-luna.vm.json` for the configured VM. The adapter is explicit and fail-closed: it ignores user configuration, requests model `gpt-5.6-luna` with reasoning effort `medium`, verifies `codex-cli 0.153.4`, and requires a matching `thread.started` JSON event and persisted session under `$CODEX_HOME/sessions`. It verifies only session metadata fields needed for provenance (`threadId`, model, effort, provider, and CLI version), never copies session prompts or authentication data, and records verified provenance in `manifest.json`. A missing or mismatched field is classified as infrastructure-invalid. Other adapter configs continue to use the generic executable/argv path.
