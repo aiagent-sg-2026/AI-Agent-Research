@@ -7,5 +7,7 @@ pilot-evidence/
 pilot-output/
 v2-delivery-plan/
 v2-delivery-out/
+v3-screening-out/
+v3-screening-plan/
 coverage/
 *.log

@@ -1,0 +1,1 @@
+export async function requestWithRetry(operation, options = {}) { const attempts = options.attempts ?? 3; for (let attempt = 1; attempt <= attempts; attempt++) { try { return await operation(); } catch (error) { if (attempt === attempts) throw error; if (options.delay) await options.delay(attempt); } } }

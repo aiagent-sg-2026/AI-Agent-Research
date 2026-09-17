@@ -1,0 +1,2 @@
+const committed = new Map();
+export function submitPayment(account, request) { if (!request.key || !Number.isFinite(request.amount) || request.amount <= 0) throw new RangeError('invalid payment'); const prior = committed.get(request.key); if (prior) return prior; account.balance -= request.amount; const result = { key: request.key, status: 'committed', balance: account.balance }; committed.set(request.key, result); return result; }

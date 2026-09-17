@@ -1,0 +1,268 @@
+{
+  "version": "AQB-V3-SCREEN-001",
+  "tasks": [
+    "V3-01-dependency",
+    "V3-02-contract",
+    "V3-03-idempotency",
+    "V3-04-async-recovery",
+    "V3-05-api-discovery",
+    "V3-06-scope-regression"
+  ],
+  "trials": 3,
+  "arms": [
+    "A0",
+    "A1",
+    "A2",
+    "A3"
+  ],
+  "instructionHash": "fa2d40ef2a5a2d099c566dfbe57b5dbb18cf62c6777ce19e6fd2350154426d71",
+  "contract": {
+    "version": "AQB-V3-SCREEN-001",
+    "instructionHash": "fa2d40ef2a5a2d099c566dfbe57b5dbb18cf62c6777ce19e6fd2350154426d71",
+    "arms": [
+      {
+        "id": "A0",
+        "semantics": null,
+        "channel": "plain task prompt"
+      },
+      {
+        "id": "A1",
+        "semantics": "fa2d40ef2a5a2d099c566dfbe57b5dbb18cf62c6777ce19e6fd2350154426d71",
+        "channel": "user prompt"
+      },
+      {
+        "id": "A2",
+        "semantics": "fa2d40ef2a5a2d099c566dfbe57b5dbb18cf62c6777ce19e6fd2350154426d71",
+        "channel": "scoped candidate AGENTS.md"
+      },
+      {
+        "id": "A3",
+        "semantics": "fa2d40ef2a5a2d099c566dfbe57b5dbb18cf62c6777ce19e6fd2350154426d71",
+        "channel": "candidate-visible skill plus explicit invocation directive"
+      }
+    ],
+    "asymmetry": "A3 has an explicit prompt invocation because the pinned adapter exposes no native custom-skill invocation API; substantive text is only in the candidate-visible skill. A2 enables candidate AGENTS.md loading; A0/A1/A3 use --ignore-rules."
+  },
+  "taskHashes": {
+    "V3-01-dependency": "2c3c3be3f111e1b7d3a98786d8ef63529fd8c8213d67ce7ab18d858aeee9e33f",
+    "V3-02-contract": "a899b0e9fcbe1dae8e21d506698b4f607260373217cfcb001041accbcdf79091",
+    "V3-03-idempotency": "f79408af01838f0411a554a2ca3b2b61045c9bb13ae6032de31c805aed95a32d",
+    "V3-04-async-recovery": "af1e5e4da109073ce2ec9cb61a2bb4e8403392c53ed80144775c3e271f1861c9",
+    "V3-05-api-discovery": "263784a3e9bcfa13bf94444b9dcac4cc505024deb3681d75fa430409c526ff9b",
+    "V3-06-scope-regression": "ed9708655f29963051d85ea5be9aa6e60e69e4591a396f8cc2911902e24daa30"
+  },
+  "evaluatorHashes": {
+    "V3-01-dependency": "ddece9981396068fc9aee635bdeb04e4605610b06ec0b458c5ba46d6012389a3",
+    "V3-02-contract": "dbafb1e35d184ad80f8e33da05d2871fd9a68c0106d578e9044b2c319d173c26",
+    "V3-03-idempotency": "19be25ca0613051e7d8c37537cf3d0bd39df2f26f903dfa6263f3081a2c03c2e",
+    "V3-04-async-recovery": "d697d938aa0787379499e70ce9550d27e75df6e44b2790a575b6c8243e608786",
+    "V3-05-api-discovery": "779bdd236404d02a27bf284babf8faead7b61a60a25b8a5eb84cc94fb8bcecb1",
+    "V3-06-scope-regression": "6c2ea76f0d1441550a57705cc7c0d83f1c88cbdeb0465b8ad8313ce33118b935"
+  },
+  "adapter": {
+    "file": "config/adapter.codex-luna.vm.json",
+    "sha256": "d383d3c46f18302e72f13d590368453b87d74979031707f1ca138ea88ae9ad82",
+    "model": "gpt-5.6-luna",
+    "reasoningEffort": "medium",
+    "cliVersion": "0.153.4"
+  },
+  "entries": [
+    {
+      "file": "config/adapter.codex-luna.vm.json",
+      "sha256": "d383d3c46f18302e72f13d590368453b87d74979031707f1ca138ea88ae9ad82"
+    },
+    {
+      "file": "dataset-v3/evaluator/graders/V3-01-dependency.mjs",
+      "sha256": "ddece9981396068fc9aee635bdeb04e4605610b06ec0b458c5ba46d6012389a3"
+    },
+    {
+      "file": "dataset-v3/evaluator/graders/V3-02-contract.mjs",
+      "sha256": "dbafb1e35d184ad80f8e33da05d2871fd9a68c0106d578e9044b2c319d173c26"
+    },
+    {
+      "file": "dataset-v3/evaluator/graders/V3-03-idempotency.mjs",
+      "sha256": "19be25ca0613051e7d8c37537cf3d0bd39df2f26f903dfa6263f3081a2c03c2e"
+    },
+    {
+      "file": "dataset-v3/evaluator/graders/V3-04-async-recovery.mjs",
+      "sha256": "d697d938aa0787379499e70ce9550d27e75df6e44b2790a575b6c8243e608786"
+    },
+    {
+      "file": "dataset-v3/evaluator/graders/V3-05-api-discovery.mjs",
+      "sha256": "779bdd236404d02a27bf284babf8faead7b61a60a25b8a5eb84cc94fb8bcecb1"
+    },
+    {
+      "file": "dataset-v3/evaluator/graders/V3-06-scope-regression.mjs",
+      "sha256": "6c2ea76f0d1441550a57705cc7c0d83f1c88cbdeb0465b8ad8313ce33118b935"
+    },
+    {
+      "file": "dataset-v3/fixtures/V3-01-dependency/docs/pricing-contract.md",
+      "sha256": "028379f578e42e66efd6d51e3a6191a7348260f510760e3f4885be872d5af8ac"
+    },
+    {
+      "file": "dataset-v3/fixtures/V3-01-dependency/package.json",
+      "sha256": "6ff1bf9f4c73f061e7ff706aa8aea16ac9a43adc906fbc51ec84bd90428b9404"
+    },
+    {
+      "file": "dataset-v3/fixtures/V3-01-dependency/src/discount.mjs",
+      "sha256": "bc708592a9266787dfd8c9d80238e31b9a4bde3ec8884475e0eafd9f15b520a4"
+    },
+    {
+      "file": "dataset-v3/fixtures/V3-01-dependency/src/order.mjs",
+      "sha256": "08c1cc5618b79ec7b881a68a929e22361b6d94a64dc6f41f26a5a7067574c412"
+    },
+    {
+      "file": "dataset-v3/fixtures/V3-01-dependency/src/tax.mjs",
+      "sha256": "4a457a21e5de1cc7ad5c72733cfd88a495832b6cc4d0a25f2a74b8d2d79e3394"
+    },
+    {
+      "file": "dataset-v3/fixtures/V3-01-dependency/test/order.test.mjs",
+      "sha256": "542583fbae6cc648769d3394326859aede63d8065b11c51a1ea76f705e43c67c"
+    },
+    {
+      "file": "dataset-v3/fixtures/V3-02-contract/docs/access-contract.md",
+      "sha256": "038cf360da5beeb96e72c62d1a0776abbf24ff35f699df697fee76bdf3ec03f1"
+    },
+    {
+      "file": "dataset-v3/fixtures/V3-02-contract/package.json",
+      "sha256": "6ff1bf9f4c73f061e7ff706aa8aea16ac9a43adc906fbc51ec84bd90428b9404"
+    },
+    {
+      "file": "dataset-v3/fixtures/V3-02-contract/src/access.mjs",
+      "sha256": "6776a77a1954a57850861a9ae8edfbb4c70148c71e8a774c848b33d748bd69cd"
+    },
+    {
+      "file": "dataset-v3/fixtures/V3-02-contract/src/role-rules.mjs",
+      "sha256": "67027d4b5517abd7f04b2800cb08fbab9163c24214afeba786c3ad571c9341b4"
+    },
+    {
+      "file": "dataset-v3/fixtures/V3-02-contract/test/access.test.mjs",
+      "sha256": "e73fd51a792cc419108963c333116d07b944f56360e99d44094f64ea7759d325"
+    },
+    {
+      "file": "dataset-v3/fixtures/V3-03-idempotency/docs/payment-contract.md",
+      "sha256": "2899a1327b1e13b2a0235529d8e060dcbfcc07ede0e61aff9e99325aeaf841fc"
+    },
+    {
+      "file": "dataset-v3/fixtures/V3-03-idempotency/package.json",
+      "sha256": "6ff1bf9f4c73f061e7ff706aa8aea16ac9a43adc906fbc51ec84bd90428b9404"
+    },
+    {
+      "file": "dataset-v3/fixtures/V3-03-idempotency/src/payments.mjs",
+      "sha256": "b90f024e87d4df64f58c5896c0b853810c2afb87fa81064c797b279e986991e7"
+    },
+    {
+      "file": "dataset-v3/fixtures/V3-03-idempotency/test/payments.test.mjs",
+      "sha256": "5e59bf76a77ff5509f36d992555e767f1af5cc6fc50c4294a0e09302973595b7"
+    },
+    {
+      "file": "dataset-v3/fixtures/V3-04-async-recovery/docs/retry-contract.md",
+      "sha256": "b3fba3dcf1281f201f907d7650b21d77931ed8ba54634c221fea1e62e4b016f4"
+    },
+    {
+      "file": "dataset-v3/fixtures/V3-04-async-recovery/package.json",
+      "sha256": "6ff1bf9f4c73f061e7ff706aa8aea16ac9a43adc906fbc51ec84bd90428b9404"
+    },
+    {
+      "file": "dataset-v3/fixtures/V3-04-async-recovery/src/request.mjs",
+      "sha256": "3d9b424416cd8d07c6eefef170e9394b8459bf530e88d5fa9d36837857ba3d1b"
+    },
+    {
+      "file": "dataset-v3/fixtures/V3-04-async-recovery/test/request.test.mjs",
+      "sha256": "5807cb01e4b3e6585cf0e168124e4f1b48a777b740a952a37b736070be0c7d04"
+    },
+    {
+      "file": "dataset-v3/fixtures/V3-05-api-discovery/docs/adapter-contract.md",
+      "sha256": "2ca68a9d46e10a28dbf4c5401d6665d14c235bfdb7a8d252b0903ce5a0572d85"
+    },
+    {
+      "file": "dataset-v3/fixtures/V3-05-api-discovery/package.json",
+      "sha256": "6ff1bf9f4c73f061e7ff706aa8aea16ac9a43adc906fbc51ec84bd90428b9404"
+    },
+    {
+      "file": "dataset-v3/fixtures/V3-05-api-discovery/src/adapter.mjs",
+      "sha256": "e072a0f08105b28704e51821c95d38cae819ca0d8141f2e6b6bbc872dfac3d97"
+    },
+    {
+      "file": "dataset-v3/fixtures/V3-05-api-discovery/src/export.mjs",
+      "sha256": "14afc92053c1e268f9d73f24311f45547a67985dd17e3a9251aa5d2a865b72ca"
+    },
+    {
+      "file": "dataset-v3/fixtures/V3-05-api-discovery/test/export.test.mjs",
+      "sha256": "1a3acabfd507b2058bd99eb820ccb32a644f7b1e0872da8b973a7594b4f408cf"
+    },
+    {
+      "file": "dataset-v3/fixtures/V3-06-scope-regression/docs/archive-format.md",
+      "sha256": "56b6ad4ba8dce7410fe26bccae7d9acd65a0132cb6c0832a20cf196ed86bdbe4"
+    },
+    {
+      "file": "dataset-v3/fixtures/V3-06-scope-regression/docs/migration-notes.md",
+      "sha256": "b2933840dd871c509b52049b56eaa5cce6b282cf01cfdbb4403c4410fbbced92"
+    },
+    {
+      "file": "dataset-v3/fixtures/V3-06-scope-regression/docs/report-contract.md",
+      "sha256": "0ec88abe4ae8514f7dc119c47bfe054df088aec38866f533edfbe13c82318d1a"
+    },
+    {
+      "file": "dataset-v3/fixtures/V3-06-scope-regression/package.json",
+      "sha256": "6ff1bf9f4c73f061e7ff706aa8aea16ac9a43adc906fbc51ec84bd90428b9404"
+    },
+    {
+      "file": "dataset-v3/fixtures/V3-06-scope-regression/src/legacy.mjs",
+      "sha256": "7b299f11f543102a5fbd916ec73d84739b7575ade5d41953e3866f9003982deb"
+    },
+    {
+      "file": "dataset-v3/fixtures/V3-06-scope-regression/src/report.mjs",
+      "sha256": "1f6475ce802acda7059c97421767106681f86d4c36c7488b52fc83cbd09ac2a4"
+    },
+    {
+      "file": "dataset-v3/fixtures/V3-06-scope-regression/test/report.test.mjs",
+      "sha256": "5c30ae6d2ec3bbf9d587eeb2d8362b09911b8bfa03cdeab12679c8e055b0f9c5"
+    },
+    {
+      "file": "dataset-v3/tasks.json",
+      "sha256": "f7cd810960b99f4e7979f322de56f8af95b3dd0f1007c475c4bbe4681723bd96"
+    },
+    {
+      "file": "docs/AGENT_QUALITY_BENCHMARK_V3.md",
+      "sha256": "b27878a5d577644429e9e70ba7a02da6cff6d8055041f2bba6e10875c6dd7d0f"
+    },
+    {
+      "file": "package.json",
+      "sha256": "5c2aa9017020826cf46ec6c0120808ec4fa6c8225fca28bd154c087b498f42b1"
+    },
+    {
+      "file": "registry/benchmark-v3.json",
+      "sha256": "1d20e834aab9bd6f372b2e11791365beb03fe22c83da3c6b8199519f9eb25c5a"
+    },
+    {
+      "file": "schemas/benchmark-v3.schema.json",
+      "sha256": "08b0da52e279945a760a48f08e6792b9e830dfd937570c6ce1cdab47f3105b89"
+    },
+    {
+      "file": "src/benchmark-v3.mjs",
+      "sha256": "b010d8fa502288ce8c99d49be5e99a4ff568c5c3c543083157e7139c07dbe6dc"
+    },
+    {
+      "file": "src/codex-luna-adapter.mjs",
+      "sha256": "53d4208cd5042223c899b8b54140ce71c35a368fcc2899d757b06d2c8092bf88"
+    },
+    {
+      "file": "src/execute.mjs",
+      "sha256": "b201eb499d8020cbd6474f2efb214dfebda9dfbfb668e557099abd16ef0dfc7c"
+    },
+    {
+      "file": "src/hash.mjs",
+      "sha256": "ddcb996da5fceabcf70d389ef1a7725f72b081da3214600b371dcff8d0b35343"
+    },
+    {
+      "file": "src/pilot.mjs",
+      "sha256": "7fee27e38863ab8f1540c40ff174feba7a0807df617c03b7d5ab40818192a905"
+    },
+    {
+      "file": "src/v2-delivery.mjs",
+      "sha256": "8688e93964385515cfc22d30d101d06fde33bcf0d1cbb4f312237f311282240b"
+    }
+  ],
+  "manifestSha256": "522af9eccb795f0aea72480153bd1cd62692b184df7ecf2ba3dfc5bfdd4f0516"
+}

@@ -1,0 +1,63 @@
+{
+  "version": "benchmark-v3-screening",
+  "tasks": [
+    {
+      "id": "V3-01-dependency",
+      "mechanism": "multi-file dependency reasoning",
+      "task": "Fix the order total workflow to follow the local pricing helpers and pricing contract. Member discount is applied before tax, tax-exempt orders add no tax, and currency totals use the existing rounding helper. Preserve all exported APIs. Inspect the adjacent implementation/docs instead of duplicating business rules. Allowed implementation scope: src/order.mjs, src/discount.mjs, src/tax.mjs. Do not edit tests, docs, package metadata, or unrelated files.",
+      "allowedTarget": [
+        "src/order.mjs",
+        "src/discount.mjs",
+        "src/tax.mjs"
+      ],
+      "fixture": "dataset-v3/fixtures/V3-01-dependency",
+      "grader": "dataset-v3/evaluator/graders/V3-01-dependency.mjs",
+      "expectedFailure": "order bypasses shared discount/tax helpers"
+    },
+    {
+      "id": "V3-02-contract",
+      "mechanism": "ambiguous-but-resolvable local contract",
+      "task": "Implement decideAccess from the local access contract and role rules. Resolve precedence, defaults, inactive accounts, explicit decisions, and role-specific restrictions while preserving the public result shape. Allowed implementation scope: src/access.mjs. Do not edit docs, role rules, tests, package metadata, or unrelated files.",
+      "allowedTarget": "src/access.mjs",
+      "fixture": "dataset-v3/fixtures/V3-02-contract",
+      "grader": "dataset-v3/evaluator/graders/V3-02-contract.mjs",
+      "expectedFailure": "access precedence/default/role rules are incomplete"
+    },
+    {
+      "id": "V3-03-idempotency",
+      "mechanism": "state/idempotency correctness",
+      "task": "Make submitPayment satisfy docs/payment-contract.md: validate before mutation, commit once per account+idempotency key, append the exact committed result once, and isolate identical keys across different accounts. Preserve the exported API/result shape. Allowed implementation scope: src/payments.mjs. Do not edit tests, docs, or package metadata.",
+      "allowedTarget": "src/payments.mjs",
+      "fixture": "dataset-v3/fixtures/V3-03-idempotency",
+      "grader": "dataset-v3/evaluator/graders/V3-03-idempotency.mjs",
+      "expectedFailure": "global idempotency state and commit recording are incorrect"
+    },
+    {
+      "id": "V3-04-async-recovery",
+      "mechanism": "async retry/cancellation/recovery",
+      "task": "Complete requestWithRetry according to docs/retry-contract.md. Retry only transient failures, preserve the attempt/delay contract, stop on cancellation before another operation, and throw the final/non-transient error. Preserve Promise behavior and add no dependencies. Allowed implementation scope: src/request.mjs. Do not edit docs, tests, or package metadata.",
+      "allowedTarget": "src/request.mjs",
+      "fixture": "dataset-v3/fixtures/V3-04-async-recovery",
+      "grader": "dataset-v3/evaluator/graders/V3-04-async-recovery.mjs",
+      "expectedFailure": "retry loop ignores error class and cancellation boundaries"
+    },
+    {
+      "id": "V3-05-api-discovery",
+      "mechanism": "unfamiliar local API/contract discovery",
+      "task": "Implement exportRows using the local adapter contract. Consume the handle rows as an async iterable, map adapter field names to the public shape, and close the handle exactly once on success or iteration failure. Preserve the exported API. Allowed implementation scope: src/export.mjs. Do not edit adapter, docs, tests, or package metadata.",
+      "allowedTarget": "src/export.mjs",
+      "fixture": "dataset-v3/fixtures/V3-05-api-discovery",
+      "grader": "dataset-v3/evaluator/graders/V3-05-api-discovery.mjs",
+      "expectedFailure": "implementation assumes an array adapter and does not guarantee cleanup"
+    },
+    {
+      "id": "V3-06-scope-regression",
+      "mechanism": "regression-sensitive long-context/scope selection",
+      "task": "Fix summarizeReport for the current v2 report contract while preserving legacy v1 behavior and public exports. The fixture contains adjacent modules and archived notes; select the authoritative current contract, preserve section order, and keep empty sections deterministic. Allowed implementation scope: src/report.mjs. Do not edit docs, tests, adjacent modules, or package metadata.",
+      "allowedTarget": "src/report.mjs",
+      "fixture": "dataset-v3/fixtures/V3-06-scope-regression",
+      "grader": "dataset-v3/evaluator/graders/V3-06-scope-regression.mjs",
+      "expectedFailure": "current format is unsupported without preserving legacy behavior"
+    }
+  ]
+}

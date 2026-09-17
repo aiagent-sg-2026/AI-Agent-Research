@@ -1,0 +1,2 @@
+# Retry contract
+`requestWithRetry(operation, options)` uses `attempts` (default 3). Before each operation, if `signal.aborted` is true, throw an Error whose message contains `cancel`. Call `operation(attempt)` with 1-based attempt. Retry only errors with `transient === true`. Before each retry, await optional `delay(attempt)` where attempt is the failed attempt number; after delay, re-check cancellation before the next operation. Non-transient errors and the final transient error are thrown unchanged.

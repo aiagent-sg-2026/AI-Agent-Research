@@ -17,6 +17,11 @@
     "v2:plan": "node src/v2-delivery.mjs --plan v2-delivery-plan --seed 20260917",
     "v2:run": "node src/v2-delivery.mjs --run v2-delivery-out --seed 20260917 --freeze v2-delivery-freeze.json --adapter config/adapter.codex-luna.vm.json",
     "v2:summary": "node src/v2-delivery.mjs --summary v2-delivery-out",
+    "v3:freeze": "node src/benchmark-v3.mjs --freeze v3-screening-freeze.json",
+    "v3:verify": "node src/benchmark-v3.mjs --verify v3-screening-freeze.json",
+    "v3:plan": "node src/benchmark-v3.mjs --plan v3-screening-plan --seed 20260917",
+    "v3:run": "node src/benchmark-v3.mjs --run v3-screening-out --seed 20260917 --freeze v3-screening-freeze.json --adapter config/adapter.codex-luna.vm.json",
+    "v3:summary": "node src/benchmark-v3.mjs --summary v3-screening-out",
     "site:check": "node scripts/site-check.mjs"
   },
   "engines": {

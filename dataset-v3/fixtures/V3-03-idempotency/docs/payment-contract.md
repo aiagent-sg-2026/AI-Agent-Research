@@ -1,0 +1,2 @@
+# Payment contract
+Validate key, positive finite amount, sufficient balance, and account state before any mutation. A committed request is scoped to the account and idempotency key, debits once, and is appended once to `account.payments` as the exact returned result object. Repeating that account+key returns the original object with no mutation. The same key on another account is independent. Missing `payments` starts as an empty list.

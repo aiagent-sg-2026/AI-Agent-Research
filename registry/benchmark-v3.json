@@ -1,0 +1,8 @@
+{
+  "version":"benchmark-v3-screening",
+  "protocol":"AQB-V3-SCREEN-001",
+  "matrix":{"tasks":6,"arms":["A0","A1","A2","A3"],"trials":3,"cells":72,"randomization":"seeded paired-blocked"},
+  "taskMechanisms":["multi-file dependency reasoning","ambiguous-but-resolvable local contract","state/idempotency correctness","async retry/cancellation/recovery","unfamiliar local API/contract discovery","regression-sensitive long-context/scope selection"],
+  "claims":"screening/descriptive only; apparent arm effects require later held-out confirmation",
+  "adapter":{"config":"config/adapter.codex-luna.vm.json","model":"gpt-5.6-luna","reasoningEffort":"medium","cliVersion":"0.153.4"}
+}
