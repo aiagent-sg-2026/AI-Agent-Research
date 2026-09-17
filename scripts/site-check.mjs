@@ -15,9 +15,18 @@ assert.match(css, /prefers-reduced-motion/);
 assert.match(css, /@media\(max-width/);
 assert.equal((js.match(/\['P\d{2}'/g) ?? []).length, 20);
 assert.match(js, /P20/);
-assert.match(index, /5\/5/); // the visible site copy must preserve the all-arms result
+assert.match(index, /V2/);
+assert.match(index, /60 cells/);
+assert.match(index, /5 tasks.*4 arms.*3 trials/s);
+for (const arm of ['A0', 'A1', 'A2', 'A3']) assert.match(index + js, new RegExp(arm));
+for (const marker of ['15\/15', '78,769\.4', '82,060\.3', '76,564\.6', '88,825\.9', '40,383\.8', '41,442\.1', '38,821\.5', '41,444\.3', '4,893,303']) assert.match(index + js, new RegExp(marker));
+assert.match(index + js, /WHERE/); assert.match(index + js, /WHAT THE AGENT RECEIVES/); assert.match(index + js, /V2 OBSERVED METRICS/);
+assert.match(index, /A0 adds no behavior instruction/); assert.match(index, /aria-pressed="true"/); assert.match(index, /Token Δ vs A0/);
+assert.match(index + js, /explicit.*prompt directive|explicit.*directive/i); // A3 invocation asymmetry is visible and accurate
+assert.match(index, /R1 remains useful context/); assert.match(index, /R1-results\.md/);
+assert.match(index, /data-quiz/); assert.match(index, /aria-live="polite"/);
 assert.match(workflow, /actions\/configure-pages@v5/);
 assert.match(workflow, /actions\/upload-pages-artifact@v3/);
 assert.match(workflow, /actions\/deploy-pages@v4/);
-assert.doesNotMatch(index + css + js, /pilot-out|dataset\/evaluator|answer key|expected patch|competitor output|CODEX_HOME/);
-console.log('site checks passed: semantic shell, source link, registry/chart hooks, responsive/reduced-motion CSS, Pages actions, no private evidence markers');
+assert.doesNotMatch(index + css + js, /pilot-out|dataset\/evaluator|answer key|expected patch|competitor output|candidate outputs|grader content|CODEX_HOME|\/srv\/agent-workstation|\/home\/|private workspace/);
+console.log('site checks passed: V2 markers, interactive hooks, registry, responsive/reduced-motion CSS, Pages actions, no private evidence leakage');
