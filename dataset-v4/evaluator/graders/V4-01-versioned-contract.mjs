@@ -1,0 +1,4 @@
+import assert from 'node:assert/strict'; const r=process.argv[2]; const {resolvePolicy}=await import(`file://${r}/src/policy.mjs?x=${Date.now()}`);
+const safe=resolvePolicy({},'xx'); assert.equal(safe.mode,'safe'); assert.equal(safe.limits.burst,4); assert.equal(safe.limits.windowMs,1000);
+const fast=resolvePolicy({mode:'fast'},'sg'); assert.equal(fast.mode,'fast'); assert.equal(fast.limits.burst,7); assert.equal(fast.limits.windowMs,1000);
+assert.equal(resolvePolicy({mode:'unknown'},'sg').mode,'safe'); assert.equal(resolvePolicy(null,'sg').mode,'safe'); assert.deepEqual(resolvePolicy({mode:'fast'},'xx').limits,{burst:7,windowMs:1000}); assert.deepEqual(resolvePolicy({},'sg').limits,{burst:7,windowMs:1000}); assert.notStrictEqual(resolvePolicy({},'xx').limits,resolvePolicy({},'xx').limits); assert.equal(resolvePolicy({mode:'fast'},'sg').region,'sg');

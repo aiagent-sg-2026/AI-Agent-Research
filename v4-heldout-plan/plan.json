@@ -1,0 +1,655 @@
+{
+  "version": "AQB-V4-HELDOUT-001",
+  "seed": 20260918,
+  "cells": [
+    {
+      "version": "AQB-V4-HELDOUT-001",
+      "taskId": "V4-04-stream-cancellation",
+      "arm": "A3",
+      "trial": 1,
+      "seed": 20260918,
+      "ordinal": 1,
+      "cellId": "001-V4-04-stream-cancellation-A3-trial-1"
+    },
+    {
+      "version": "AQB-V4-HELDOUT-001",
+      "taskId": "V4-04-stream-cancellation",
+      "arm": "A2",
+      "trial": 3,
+      "seed": 20260918,
+      "ordinal": 2,
+      "cellId": "002-V4-04-stream-cancellation-A2-trial-3"
+    },
+    {
+      "version": "AQB-V4-HELDOUT-001",
+      "taskId": "V4-06-legacy-compatibility",
+      "arm": "A0",
+      "trial": 1,
+      "seed": 20260918,
+      "ordinal": 3,
+      "cellId": "003-V4-06-legacy-compatibility-A0-trial-1"
+    },
+    {
+      "version": "AQB-V4-HELDOUT-001",
+      "taskId": "V4-02-migration-rollback",
+      "arm": "A1",
+      "trial": 2,
+      "seed": 20260918,
+      "ordinal": 4,
+      "cellId": "004-V4-02-migration-rollback-A1-trial-2"
+    },
+    {
+      "version": "AQB-V4-HELDOUT-001",
+      "taskId": "V4-06-legacy-compatibility",
+      "arm": "A0",
+      "trial": 3,
+      "seed": 20260918,
+      "ordinal": 5,
+      "cellId": "005-V4-06-legacy-compatibility-A0-trial-3"
+    },
+    {
+      "version": "AQB-V4-HELDOUT-001",
+      "taskId": "V4-04-stream-cancellation",
+      "arm": "A0",
+      "trial": 2,
+      "seed": 20260918,
+      "ordinal": 6,
+      "cellId": "006-V4-04-stream-cancellation-A0-trial-2"
+    },
+    {
+      "version": "AQB-V4-HELDOUT-001",
+      "taskId": "V4-03-interleaving-cache",
+      "arm": "A1",
+      "trial": 1,
+      "seed": 20260918,
+      "ordinal": 7,
+      "cellId": "007-V4-03-interleaving-cache-A1-trial-1"
+    },
+    {
+      "version": "AQB-V4-HELDOUT-001",
+      "taskId": "V4-03-interleaving-cache",
+      "arm": "A0",
+      "trial": 3,
+      "seed": 20260918,
+      "ordinal": 8,
+      "cellId": "008-V4-03-interleaving-cache-A0-trial-3"
+    },
+    {
+      "version": "AQB-V4-HELDOUT-001",
+      "taskId": "V4-06-legacy-compatibility",
+      "arm": "A1",
+      "trial": 3,
+      "seed": 20260918,
+      "ordinal": 9,
+      "cellId": "009-V4-06-legacy-compatibility-A1-trial-3"
+    },
+    {
+      "version": "AQB-V4-HELDOUT-001",
+      "taskId": "V4-02-migration-rollback",
+      "arm": "A2",
+      "trial": 1,
+      "seed": 20260918,
+      "ordinal": 10,
+      "cellId": "010-V4-02-migration-rollback-A2-trial-1"
+    },
+    {
+      "version": "AQB-V4-HELDOUT-001",
+      "taskId": "V4-01-versioned-contract",
+      "arm": "A2",
+      "trial": 1,
+      "seed": 20260918,
+      "ordinal": 11,
+      "cellId": "011-V4-01-versioned-contract-A2-trial-1"
+    },
+    {
+      "version": "AQB-V4-HELDOUT-001",
+      "taskId": "V4-05-capability-negotiation",
+      "arm": "A0",
+      "trial": 1,
+      "seed": 20260918,
+      "ordinal": 12,
+      "cellId": "012-V4-05-capability-negotiation-A0-trial-1"
+    },
+    {
+      "version": "AQB-V4-HELDOUT-001",
+      "taskId": "V4-01-versioned-contract",
+      "arm": "A0",
+      "trial": 2,
+      "seed": 20260918,
+      "ordinal": 13,
+      "cellId": "013-V4-01-versioned-contract-A0-trial-2"
+    },
+    {
+      "version": "AQB-V4-HELDOUT-001",
+      "taskId": "V4-03-interleaving-cache",
+      "arm": "A3",
+      "trial": 1,
+      "seed": 20260918,
+      "ordinal": 14,
+      "cellId": "014-V4-03-interleaving-cache-A3-trial-1"
+    },
+    {
+      "version": "AQB-V4-HELDOUT-001",
+      "taskId": "V4-04-stream-cancellation",
+      "arm": "A3",
+      "trial": 2,
+      "seed": 20260918,
+      "ordinal": 15,
+      "cellId": "015-V4-04-stream-cancellation-A3-trial-2"
+    },
+    {
+      "version": "AQB-V4-HELDOUT-001",
+      "taskId": "V4-01-versioned-contract",
+      "arm": "A3",
+      "trial": 2,
+      "seed": 20260918,
+      "ordinal": 16,
+      "cellId": "016-V4-01-versioned-contract-A3-trial-2"
+    },
+    {
+      "version": "AQB-V4-HELDOUT-001",
+      "taskId": "V4-06-legacy-compatibility",
+      "arm": "A3",
+      "trial": 1,
+      "seed": 20260918,
+      "ordinal": 17,
+      "cellId": "017-V4-06-legacy-compatibility-A3-trial-1"
+    },
+    {
+      "version": "AQB-V4-HELDOUT-001",
+      "taskId": "V4-01-versioned-contract",
+      "arm": "A1",
+      "trial": 1,
+      "seed": 20260918,
+      "ordinal": 18,
+      "cellId": "018-V4-01-versioned-contract-A1-trial-1"
+    },
+    {
+      "version": "AQB-V4-HELDOUT-001",
+      "taskId": "V4-04-stream-cancellation",
+      "arm": "A0",
+      "trial": 3,
+      "seed": 20260918,
+      "ordinal": 19,
+      "cellId": "019-V4-04-stream-cancellation-A0-trial-3"
+    },
+    {
+      "version": "AQB-V4-HELDOUT-001",
+      "taskId": "V4-06-legacy-compatibility",
+      "arm": "A0",
+      "trial": 2,
+      "seed": 20260918,
+      "ordinal": 20,
+      "cellId": "020-V4-06-legacy-compatibility-A0-trial-2"
+    },
+    {
+      "version": "AQB-V4-HELDOUT-001",
+      "taskId": "V4-04-stream-cancellation",
+      "arm": "A3",
+      "trial": 3,
+      "seed": 20260918,
+      "ordinal": 21,
+      "cellId": "021-V4-04-stream-cancellation-A3-trial-3"
+    },
+    {
+      "version": "AQB-V4-HELDOUT-001",
+      "taskId": "V4-03-interleaving-cache",
+      "arm": "A2",
+      "trial": 3,
+      "seed": 20260918,
+      "ordinal": 22,
+      "cellId": "022-V4-03-interleaving-cache-A2-trial-3"
+    },
+    {
+      "version": "AQB-V4-HELDOUT-001",
+      "taskId": "V4-05-capability-negotiation",
+      "arm": "A2",
+      "trial": 2,
+      "seed": 20260918,
+      "ordinal": 23,
+      "cellId": "023-V4-05-capability-negotiation-A2-trial-2"
+    },
+    {
+      "version": "AQB-V4-HELDOUT-001",
+      "taskId": "V4-01-versioned-contract",
+      "arm": "A3",
+      "trial": 3,
+      "seed": 20260918,
+      "ordinal": 24,
+      "cellId": "024-V4-01-versioned-contract-A3-trial-3"
+    },
+    {
+      "version": "AQB-V4-HELDOUT-001",
+      "taskId": "V4-01-versioned-contract",
+      "arm": "A3",
+      "trial": 1,
+      "seed": 20260918,
+      "ordinal": 25,
+      "cellId": "025-V4-01-versioned-contract-A3-trial-1"
+    },
+    {
+      "version": "AQB-V4-HELDOUT-001",
+      "taskId": "V4-05-capability-negotiation",
+      "arm": "A3",
+      "trial": 1,
+      "seed": 20260918,
+      "ordinal": 26,
+      "cellId": "026-V4-05-capability-negotiation-A3-trial-1"
+    },
+    {
+      "version": "AQB-V4-HELDOUT-001",
+      "taskId": "V4-05-capability-negotiation",
+      "arm": "A1",
+      "trial": 3,
+      "seed": 20260918,
+      "ordinal": 27,
+      "cellId": "027-V4-05-capability-negotiation-A1-trial-3"
+    },
+    {
+      "version": "AQB-V4-HELDOUT-001",
+      "taskId": "V4-03-interleaving-cache",
+      "arm": "A0",
+      "trial": 1,
+      "seed": 20260918,
+      "ordinal": 28,
+      "cellId": "028-V4-03-interleaving-cache-A0-trial-1"
+    },
+    {
+      "version": "AQB-V4-HELDOUT-001",
+      "taskId": "V4-02-migration-rollback",
+      "arm": "A2",
+      "trial": 2,
+      "seed": 20260918,
+      "ordinal": 29,
+      "cellId": "029-V4-02-migration-rollback-A2-trial-2"
+    },
+    {
+      "version": "AQB-V4-HELDOUT-001",
+      "taskId": "V4-03-interleaving-cache",
+      "arm": "A2",
+      "trial": 1,
+      "seed": 20260918,
+      "ordinal": 30,
+      "cellId": "030-V4-03-interleaving-cache-A2-trial-1"
+    },
+    {
+      "version": "AQB-V4-HELDOUT-001",
+      "taskId": "V4-01-versioned-contract",
+      "arm": "A2",
+      "trial": 3,
+      "seed": 20260918,
+      "ordinal": 31,
+      "cellId": "031-V4-01-versioned-contract-A2-trial-3"
+    },
+    {
+      "version": "AQB-V4-HELDOUT-001",
+      "taskId": "V4-05-capability-negotiation",
+      "arm": "A2",
+      "trial": 1,
+      "seed": 20260918,
+      "ordinal": 32,
+      "cellId": "032-V4-05-capability-negotiation-A2-trial-1"
+    },
+    {
+      "version": "AQB-V4-HELDOUT-001",
+      "taskId": "V4-03-interleaving-cache",
+      "arm": "A1",
+      "trial": 2,
+      "seed": 20260918,
+      "ordinal": 33,
+      "cellId": "033-V4-03-interleaving-cache-A1-trial-2"
+    },
+    {
+      "version": "AQB-V4-HELDOUT-001",
+      "taskId": "V4-03-interleaving-cache",
+      "arm": "A0",
+      "trial": 2,
+      "seed": 20260918,
+      "ordinal": 34,
+      "cellId": "034-V4-03-interleaving-cache-A0-trial-2"
+    },
+    {
+      "version": "AQB-V4-HELDOUT-001",
+      "taskId": "V4-05-capability-negotiation",
+      "arm": "A1",
+      "trial": 1,
+      "seed": 20260918,
+      "ordinal": 35,
+      "cellId": "035-V4-05-capability-negotiation-A1-trial-1"
+    },
+    {
+      "version": "AQB-V4-HELDOUT-001",
+      "taskId": "V4-03-interleaving-cache",
+      "arm": "A3",
+      "trial": 3,
+      "seed": 20260918,
+      "ordinal": 36,
+      "cellId": "036-V4-03-interleaving-cache-A3-trial-3"
+    },
+    {
+      "version": "AQB-V4-HELDOUT-001",
+      "taskId": "V4-02-migration-rollback",
+      "arm": "A0",
+      "trial": 3,
+      "seed": 20260918,
+      "ordinal": 37,
+      "cellId": "037-V4-02-migration-rollback-A0-trial-3"
+    },
+    {
+      "version": "AQB-V4-HELDOUT-001",
+      "taskId": "V4-02-migration-rollback",
+      "arm": "A3",
+      "trial": 2,
+      "seed": 20260918,
+      "ordinal": 38,
+      "cellId": "038-V4-02-migration-rollback-A3-trial-2"
+    },
+    {
+      "version": "AQB-V4-HELDOUT-001",
+      "taskId": "V4-01-versioned-contract",
+      "arm": "A1",
+      "trial": 3,
+      "seed": 20260918,
+      "ordinal": 39,
+      "cellId": "039-V4-01-versioned-contract-A1-trial-3"
+    },
+    {
+      "version": "AQB-V4-HELDOUT-001",
+      "taskId": "V4-06-legacy-compatibility",
+      "arm": "A1",
+      "trial": 2,
+      "seed": 20260918,
+      "ordinal": 40,
+      "cellId": "040-V4-06-legacy-compatibility-A1-trial-2"
+    },
+    {
+      "version": "AQB-V4-HELDOUT-001",
+      "taskId": "V4-02-migration-rollback",
+      "arm": "A1",
+      "trial": 3,
+      "seed": 20260918,
+      "ordinal": 41,
+      "cellId": "041-V4-02-migration-rollback-A1-trial-3"
+    },
+    {
+      "version": "AQB-V4-HELDOUT-001",
+      "taskId": "V4-05-capability-negotiation",
+      "arm": "A0",
+      "trial": 2,
+      "seed": 20260918,
+      "ordinal": 42,
+      "cellId": "042-V4-05-capability-negotiation-A0-trial-2"
+    },
+    {
+      "version": "AQB-V4-HELDOUT-001",
+      "taskId": "V4-04-stream-cancellation",
+      "arm": "A1",
+      "trial": 3,
+      "seed": 20260918,
+      "ordinal": 43,
+      "cellId": "043-V4-04-stream-cancellation-A1-trial-3"
+    },
+    {
+      "version": "AQB-V4-HELDOUT-001",
+      "taskId": "V4-05-capability-negotiation",
+      "arm": "A1",
+      "trial": 2,
+      "seed": 20260918,
+      "ordinal": 44,
+      "cellId": "044-V4-05-capability-negotiation-A1-trial-2"
+    },
+    {
+      "version": "AQB-V4-HELDOUT-001",
+      "taskId": "V4-06-legacy-compatibility",
+      "arm": "A2",
+      "trial": 2,
+      "seed": 20260918,
+      "ordinal": 45,
+      "cellId": "045-V4-06-legacy-compatibility-A2-trial-2"
+    },
+    {
+      "version": "AQB-V4-HELDOUT-001",
+      "taskId": "V4-01-versioned-contract",
+      "arm": "A1",
+      "trial": 2,
+      "seed": 20260918,
+      "ordinal": 46,
+      "cellId": "046-V4-01-versioned-contract-A1-trial-2"
+    },
+    {
+      "version": "AQB-V4-HELDOUT-001",
+      "taskId": "V4-02-migration-rollback",
+      "arm": "A3",
+      "trial": 1,
+      "seed": 20260918,
+      "ordinal": 47,
+      "cellId": "047-V4-02-migration-rollback-A3-trial-1"
+    },
+    {
+      "version": "AQB-V4-HELDOUT-001",
+      "taskId": "V4-06-legacy-compatibility",
+      "arm": "A3",
+      "trial": 3,
+      "seed": 20260918,
+      "ordinal": 48,
+      "cellId": "048-V4-06-legacy-compatibility-A3-trial-3"
+    },
+    {
+      "version": "AQB-V4-HELDOUT-001",
+      "taskId": "V4-04-stream-cancellation",
+      "arm": "A2",
+      "trial": 1,
+      "seed": 20260918,
+      "ordinal": 49,
+      "cellId": "049-V4-04-stream-cancellation-A2-trial-1"
+    },
+    {
+      "version": "AQB-V4-HELDOUT-001",
+      "taskId": "V4-01-versioned-contract",
+      "arm": "A0",
+      "trial": 1,
+      "seed": 20260918,
+      "ordinal": 50,
+      "cellId": "050-V4-01-versioned-contract-A0-trial-1"
+    },
+    {
+      "version": "AQB-V4-HELDOUT-001",
+      "taskId": "V4-02-migration-rollback",
+      "arm": "A3",
+      "trial": 3,
+      "seed": 20260918,
+      "ordinal": 51,
+      "cellId": "051-V4-02-migration-rollback-A3-trial-3"
+    },
+    {
+      "version": "AQB-V4-HELDOUT-001",
+      "taskId": "V4-06-legacy-compatibility",
+      "arm": "A2",
+      "trial": 1,
+      "seed": 20260918,
+      "ordinal": 52,
+      "cellId": "052-V4-06-legacy-compatibility-A2-trial-1"
+    },
+    {
+      "version": "AQB-V4-HELDOUT-001",
+      "taskId": "V4-02-migration-rollback",
+      "arm": "A0",
+      "trial": 2,
+      "seed": 20260918,
+      "ordinal": 53,
+      "cellId": "053-V4-02-migration-rollback-A0-trial-2"
+    },
+    {
+      "version": "AQB-V4-HELDOUT-001",
+      "taskId": "V4-03-interleaving-cache",
+      "arm": "A3",
+      "trial": 2,
+      "seed": 20260918,
+      "ordinal": 54,
+      "cellId": "054-V4-03-interleaving-cache-A3-trial-2"
+    },
+    {
+      "version": "AQB-V4-HELDOUT-001",
+      "taskId": "V4-03-interleaving-cache",
+      "arm": "A2",
+      "trial": 2,
+      "seed": 20260918,
+      "ordinal": 55,
+      "cellId": "055-V4-03-interleaving-cache-A2-trial-2"
+    },
+    {
+      "version": "AQB-V4-HELDOUT-001",
+      "taskId": "V4-05-capability-negotiation",
+      "arm": "A2",
+      "trial": 3,
+      "seed": 20260918,
+      "ordinal": 56,
+      "cellId": "056-V4-05-capability-negotiation-A2-trial-3"
+    },
+    {
+      "version": "AQB-V4-HELDOUT-001",
+      "taskId": "V4-04-stream-cancellation",
+      "arm": "A0",
+      "trial": 1,
+      "seed": 20260918,
+      "ordinal": 57,
+      "cellId": "057-V4-04-stream-cancellation-A0-trial-1"
+    },
+    {
+      "version": "AQB-V4-HELDOUT-001",
+      "taskId": "V4-06-legacy-compatibility",
+      "arm": "A1",
+      "trial": 1,
+      "seed": 20260918,
+      "ordinal": 58,
+      "cellId": "058-V4-06-legacy-compatibility-A1-trial-1"
+    },
+    {
+      "version": "AQB-V4-HELDOUT-001",
+      "taskId": "V4-04-stream-cancellation",
+      "arm": "A1",
+      "trial": 2,
+      "seed": 20260918,
+      "ordinal": 59,
+      "cellId": "059-V4-04-stream-cancellation-A1-trial-2"
+    },
+    {
+      "version": "AQB-V4-HELDOUT-001",
+      "taskId": "V4-01-versioned-contract",
+      "arm": "A0",
+      "trial": 3,
+      "seed": 20260918,
+      "ordinal": 60,
+      "cellId": "060-V4-01-versioned-contract-A0-trial-3"
+    },
+    {
+      "version": "AQB-V4-HELDOUT-001",
+      "taskId": "V4-06-legacy-compatibility",
+      "arm": "A3",
+      "trial": 2,
+      "seed": 20260918,
+      "ordinal": 61,
+      "cellId": "061-V4-06-legacy-compatibility-A3-trial-2"
+    },
+    {
+      "version": "AQB-V4-HELDOUT-001",
+      "taskId": "V4-05-capability-negotiation",
+      "arm": "A3",
+      "trial": 3,
+      "seed": 20260918,
+      "ordinal": 62,
+      "cellId": "062-V4-05-capability-negotiation-A3-trial-3"
+    },
+    {
+      "version": "AQB-V4-HELDOUT-001",
+      "taskId": "V4-05-capability-negotiation",
+      "arm": "A0",
+      "trial": 3,
+      "seed": 20260918,
+      "ordinal": 63,
+      "cellId": "063-V4-05-capability-negotiation-A0-trial-3"
+    },
+    {
+      "version": "AQB-V4-HELDOUT-001",
+      "taskId": "V4-01-versioned-contract",
+      "arm": "A2",
+      "trial": 2,
+      "seed": 20260918,
+      "ordinal": 64,
+      "cellId": "064-V4-01-versioned-contract-A2-trial-2"
+    },
+    {
+      "version": "AQB-V4-HELDOUT-001",
+      "taskId": "V4-04-stream-cancellation",
+      "arm": "A2",
+      "trial": 2,
+      "seed": 20260918,
+      "ordinal": 65,
+      "cellId": "065-V4-04-stream-cancellation-A2-trial-2"
+    },
+    {
+      "version": "AQB-V4-HELDOUT-001",
+      "taskId": "V4-02-migration-rollback",
+      "arm": "A2",
+      "trial": 3,
+      "seed": 20260918,
+      "ordinal": 66,
+      "cellId": "066-V4-02-migration-rollback-A2-trial-3"
+    },
+    {
+      "version": "AQB-V4-HELDOUT-001",
+      "taskId": "V4-02-migration-rollback",
+      "arm": "A0",
+      "trial": 1,
+      "seed": 20260918,
+      "ordinal": 67,
+      "cellId": "067-V4-02-migration-rollback-A0-trial-1"
+    },
+    {
+      "version": "AQB-V4-HELDOUT-001",
+      "taskId": "V4-04-stream-cancellation",
+      "arm": "A1",
+      "trial": 1,
+      "seed": 20260918,
+      "ordinal": 68,
+      "cellId": "068-V4-04-stream-cancellation-A1-trial-1"
+    },
+    {
+      "version": "AQB-V4-HELDOUT-001",
+      "taskId": "V4-02-migration-rollback",
+      "arm": "A1",
+      "trial": 1,
+      "seed": 20260918,
+      "ordinal": 69,
+      "cellId": "069-V4-02-migration-rollback-A1-trial-1"
+    },
+    {
+      "version": "AQB-V4-HELDOUT-001",
+      "taskId": "V4-06-legacy-compatibility",
+      "arm": "A2",
+      "trial": 3,
+      "seed": 20260918,
+      "ordinal": 70,
+      "cellId": "070-V4-06-legacy-compatibility-A2-trial-3"
+    },
+    {
+      "version": "AQB-V4-HELDOUT-001",
+      "taskId": "V4-05-capability-negotiation",
+      "arm": "A3",
+      "trial": 2,
+      "seed": 20260918,
+      "ordinal": 71,
+      "cellId": "071-V4-05-capability-negotiation-A3-trial-2"
+    },
+    {
+      "version": "AQB-V4-HELDOUT-001",
+      "taskId": "V4-03-interleaving-cache",
+      "arm": "A1",
+      "trial": 3,
+      "seed": 20260918,
+      "ordinal": 72,
+      "cellId": "072-V4-03-interleaving-cache-A1-trial-3"
+    }
+  ],
+  "planHash": "96ad91a3c73dcdc15f31936d2471023354ca150d48f60b9e3e20e0f68c873341"
+}

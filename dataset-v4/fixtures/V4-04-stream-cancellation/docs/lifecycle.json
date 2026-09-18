@@ -1,0 +1,1 @@
+{"rules":["stop pulls after cancellation","close source exactly once","release on error or completion","respect ack backpressure"]}

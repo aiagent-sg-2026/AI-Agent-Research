@@ -1,0 +1,276 @@
+{
+  "version": "AQB-V4-HELDOUT-001",
+  "tasks": [
+    "V4-01-versioned-contract",
+    "V4-02-migration-rollback",
+    "V4-03-interleaving-cache",
+    "V4-04-stream-cancellation",
+    "V4-05-capability-negotiation",
+    "V4-06-legacy-compatibility"
+  ],
+  "trials": 3,
+  "arms": [
+    "A0",
+    "A1",
+    "A2",
+    "A3"
+  ],
+  "instructionHash": "fa2d40ef2a5a2d099c566dfbe57b5dbb18cf62c6777ce19e6fd2350154426d71",
+  "contract": {
+    "version": "AQB-V4-HELDOUT-001",
+    "instructionHash": "fa2d40ef2a5a2d099c566dfbe57b5dbb18cf62c6777ce19e6fd2350154426d71",
+    "arms": [
+      {
+        "id": "A0",
+        "semantics": null,
+        "channel": "plain task prompt"
+      },
+      {
+        "id": "A1",
+        "semantics": "fa2d40ef2a5a2d099c566dfbe57b5dbb18cf62c6777ce19e6fd2350154426d71",
+        "channel": "user prompt"
+      },
+      {
+        "id": "A2",
+        "semantics": "fa2d40ef2a5a2d099c566dfbe57b5dbb18cf62c6777ce19e6fd2350154426d71",
+        "channel": "scoped candidate AGENTS.md"
+      },
+      {
+        "id": "A3",
+        "semantics": "fa2d40ef2a5a2d099c566dfbe57b5dbb18cf62c6777ce19e6fd2350154426d71",
+        "channel": "candidate-visible skill plus explicit invocation directive"
+      }
+    ],
+    "asymmetry": "A3 explicit invocation remains because pinned adapter exposes no native custom-skill API; A2 enables candidate AGENTS.md loading; A0/A1/A3 use --ignore-rules."
+  },
+  "taskHashes": {
+    "V4-01-versioned-contract": "6562ab0b938df0ca04f52a988d16d05c3e87ce5c7159b4dce8c87bee861df85a",
+    "V4-02-migration-rollback": "7e9d57d1124e0648bf97249b6638cdc2048baedee4bbacda3975dbf23a3f6d52",
+    "V4-03-interleaving-cache": "0194cd9d83290c55b0aaeec5dc6bca6e6860489d49cf0650394d3af198430c6a",
+    "V4-04-stream-cancellation": "a0df955be5f41efeb136a17879d58b23f60ffaa91ffb89f335a4149399cd1022",
+    "V4-05-capability-negotiation": "c9c9cfa51928ff53d3fa3c048957fd8afd96706870113d271f582101de26d95d",
+    "V4-06-legacy-compatibility": "c5d647deed2ab8967b4a29a3ae5c2310d73971869716a845375b10f408e147e5"
+  },
+  "evaluatorHashes": {
+    "V4-01-versioned-contract": "6199901ec084536283897f227c6a8d7d8ae80834bc0ddeb259a74cee29a67528",
+    "V4-02-migration-rollback": "927c778bf1b6335a8e6217e7fd18f74ac7bc2beabd12819ef1292917329c96d4",
+    "V4-03-interleaving-cache": "cea0c8f88b762d0813d295ce99a9fcf9835ecd315f9260f04445cfe8ad017c2e",
+    "V4-04-stream-cancellation": "81c38663ecd36328ada31cd16fe6ee260ebbebfde5b93cd16f94cc85afcd0692",
+    "V4-05-capability-negotiation": "dc5ec33b2a17fe81237117a77062787164be2c28ac26747d01aec8a246096038",
+    "V4-06-legacy-compatibility": "a0816a7d5a8de8608daae1ae53db24cb40eeace5c142736da3390bf69f12fa47"
+  },
+  "adapter": {
+    "file": "config/adapter.codex-luna.vm.json",
+    "sha256": "d383d3c46f18302e72f13d590368453b87d74979031707f1ca138ea88ae9ad82",
+    "model": "gpt-5.6-luna",
+    "reasoningEffort": "medium",
+    "cliVersion": "0.153.4"
+  },
+  "entries": [
+    {
+      "file": "config/adapter.codex-luna.vm.json",
+      "sha256": "d383d3c46f18302e72f13d590368453b87d74979031707f1ca138ea88ae9ad82"
+    },
+    {
+      "file": "dataset-v4/evaluator/graders/V4-01-versioned-contract.mjs",
+      "sha256": "6199901ec084536283897f227c6a8d7d8ae80834bc0ddeb259a74cee29a67528"
+    },
+    {
+      "file": "dataset-v4/evaluator/graders/V4-02-migration-rollback.mjs",
+      "sha256": "927c778bf1b6335a8e6217e7fd18f74ac7bc2beabd12819ef1292917329c96d4"
+    },
+    {
+      "file": "dataset-v4/evaluator/graders/V4-03-interleaving-cache.mjs",
+      "sha256": "cea0c8f88b762d0813d295ce99a9fcf9835ecd315f9260f04445cfe8ad017c2e"
+    },
+    {
+      "file": "dataset-v4/evaluator/graders/V4-04-stream-cancellation.mjs",
+      "sha256": "81c38663ecd36328ada31cd16fe6ee260ebbebfde5b93cd16f94cc85afcd0692"
+    },
+    {
+      "file": "dataset-v4/evaluator/graders/V4-05-capability-negotiation.mjs",
+      "sha256": "dc5ec33b2a17fe81237117a77062787164be2c28ac26747d01aec8a246096038"
+    },
+    {
+      "file": "dataset-v4/evaluator/graders/V4-06-legacy-compatibility.mjs",
+      "sha256": "a0816a7d5a8de8608daae1ae53db24cb40eeace5c142736da3390bf69f12fa47"
+    },
+    {
+      "file": "dataset-v4/fixtures/V4-01-versioned-contract/docs/current/contract.json",
+      "sha256": "bdfe9358aa1b207413aefd0de56b106919fd4a71a9b05eb829f480cddd1bf75e"
+    },
+    {
+      "file": "dataset-v4/fixtures/V4-01-versioned-contract/docs/notes-old.txt",
+      "sha256": "6f05ea16b77baf258995842478ede92735753ef7578e294552acca1e6d9b33ef"
+    },
+    {
+      "file": "dataset-v4/fixtures/V4-01-versioned-contract/package.json",
+      "sha256": "6ff1bf9f4c73f061e7ff706aa8aea16ac9a43adc906fbc51ec84bd90428b9404"
+    },
+    {
+      "file": "dataset-v4/fixtures/V4-01-versioned-contract/src/limits.mjs",
+      "sha256": "445d7e4082ed8c1d221946d15e9e7d8ad304a3b48b39a6b43244098ecc50588f"
+    },
+    {
+      "file": "dataset-v4/fixtures/V4-01-versioned-contract/src/policy.mjs",
+      "sha256": "31901b653e5ab9fa75d52b897e6a8fee35fbf88077890a9b273e02b447dc105e"
+    },
+    {
+      "file": "dataset-v4/fixtures/V4-01-versioned-contract/test/public.mjs",
+      "sha256": "6f8bed0011e35b38533bdd4cf1fe1f4365c3160bb9c215343e28b86ddb238b00"
+    },
+    {
+      "file": "dataset-v4/fixtures/V4-02-migration-rollback/docs/schema.json",
+      "sha256": "df97e87fa88514b76cb41bbdae850a7de8f8aefaa0e29cd1e66577c6fd74d5c7"
+    },
+    {
+      "file": "dataset-v4/fixtures/V4-02-migration-rollback/docs/stale.txt",
+      "sha256": "433d582028201e336fc4e1c959283eed95bc77394d48426090fb9ad24db28c05"
+    },
+    {
+      "file": "dataset-v4/fixtures/V4-02-migration-rollback/package.json",
+      "sha256": "6ff1bf9f4c73f061e7ff706aa8aea16ac9a43adc906fbc51ec84bd90428b9404"
+    },
+    {
+      "file": "dataset-v4/fixtures/V4-02-migration-rollback/src/journal.mjs",
+      "sha256": "1c52187e622eb866cf1096b8a5d5cbcfcba83213a1dcb0998cfd34f75d939016"
+    },
+    {
+      "file": "dataset-v4/fixtures/V4-02-migration-rollback/src/migration.mjs",
+      "sha256": "4d7c80bf7d63d59fee11ddd71ff8c9f64d597b22170c2b578a3b94fcdb6df476"
+    },
+    {
+      "file": "dataset-v4/fixtures/V4-02-migration-rollback/test/public.mjs",
+      "sha256": "9ac2708e15ff63e8d22051f226605bcac5748d92318c8d2621550bddbcd54e77"
+    },
+    {
+      "file": "dataset-v4/fixtures/V4-03-interleaving-cache/docs/consistency.json",
+      "sha256": "fc7c330355278ec42db47940215621352b06566cd0ed1f464fb3f4363de9b8d7"
+    },
+    {
+      "file": "dataset-v4/fixtures/V4-03-interleaving-cache/docs/old-note.txt",
+      "sha256": "029a9f5eb03b508e42602df0dbf96272365cf4eeba2b77540c6866cef39b6b22"
+    },
+    {
+      "file": "dataset-v4/fixtures/V4-03-interleaving-cache/package.json",
+      "sha256": "6ff1bf9f4c73f061e7ff706aa8aea16ac9a43adc906fbc51ec84bd90428b9404"
+    },
+    {
+      "file": "dataset-v4/fixtures/V4-03-interleaving-cache/src/cache.mjs",
+      "sha256": "4c14ae8dba549655d6adaa5cdb931a6305cd2273d0ea5899ee876617bde82b5f"
+    },
+    {
+      "file": "dataset-v4/fixtures/V4-03-interleaving-cache/test/public.mjs",
+      "sha256": "75050715d8976926abe9943b5b1a5a2f592c915d5157bc591c8fea4170628a80"
+    },
+    {
+      "file": "dataset-v4/fixtures/V4-04-stream-cancellation/docs/lifecycle.json",
+      "sha256": "546cf6990a3748150d82a5bef31f48fc73143f430fd50bb18b99b54060a5ce9d"
+    },
+    {
+      "file": "dataset-v4/fixtures/V4-04-stream-cancellation/docs/old.txt",
+      "sha256": "bcd129d81947e4c572b8e289b176f3bfc4cfadf9ac52bd9931d1d60c6147687a"
+    },
+    {
+      "file": "dataset-v4/fixtures/V4-04-stream-cancellation/package.json",
+      "sha256": "6ff1bf9f4c73f061e7ff706aa8aea16ac9a43adc906fbc51ec84bd90428b9404"
+    },
+    {
+      "file": "dataset-v4/fixtures/V4-04-stream-cancellation/src/stream.mjs",
+      "sha256": "8a5b06c5e49aedb82f3c840c35d1a6db2a4286a226d3c8fdac43300152c38bee"
+    },
+    {
+      "file": "dataset-v4/fixtures/V4-04-stream-cancellation/test/public.mjs",
+      "sha256": "661562c0fbcdad8a194221c24d935e941853eb1beb5361db9e9bdc496c575d65"
+    },
+    {
+      "file": "dataset-v4/fixtures/V4-05-capability-negotiation/docs/old.txt",
+      "sha256": "664724e5cd9bca9368535219fff9216c304591dedf90d8a61f9b0810c90d13e8"
+    },
+    {
+      "file": "dataset-v4/fixtures/V4-05-capability-negotiation/docs/protocol.json",
+      "sha256": "c00863d5a2319868cab5432f583a83d48c266cfff06091ad59402336136ceb7d"
+    },
+    {
+      "file": "dataset-v4/fixtures/V4-05-capability-negotiation/package.json",
+      "sha256": "6ff1bf9f4c73f061e7ff706aa8aea16ac9a43adc906fbc51ec84bd90428b9404"
+    },
+    {
+      "file": "dataset-v4/fixtures/V4-05-capability-negotiation/src/capability.mjs",
+      "sha256": "4db80181af20adde0388a64e64191a1039c16d022d14261a6e8f1955d5f741ae"
+    },
+    {
+      "file": "dataset-v4/fixtures/V4-05-capability-negotiation/src/resources.mjs",
+      "sha256": "d62154e70b6dc0380833d0759c0a5b246abf40902ee00dc1fc293bcca01be881"
+    },
+    {
+      "file": "dataset-v4/fixtures/V4-05-capability-negotiation/test/public.mjs",
+      "sha256": "87a17d5b5b465566928dba8f8fd96d7f104e4aef34baa5c01ee698c48648ed59"
+    },
+    {
+      "file": "dataset-v4/fixtures/V4-06-legacy-compatibility/docs/compat.json",
+      "sha256": "e06e4408b271ca6941ecdd88bfaf440b9c26667fb0f282e251a1667be509dc2a"
+    },
+    {
+      "file": "dataset-v4/fixtures/V4-06-legacy-compatibility/docs/old.txt",
+      "sha256": "3691315f28f5a114a59a0003bb867cfa03be5c70f1274ead0bc81e7a8809b9d6"
+    },
+    {
+      "file": "dataset-v4/fixtures/V4-06-legacy-compatibility/package.json",
+      "sha256": "6ff1bf9f4c73f061e7ff706aa8aea16ac9a43adc906fbc51ec84bd90428b9404"
+    },
+    {
+      "file": "dataset-v4/fixtures/V4-06-legacy-compatibility/src/compat.mjs",
+      "sha256": "569b38fe0bbd6c6c9e17ad2540cc9251962b91d2d18958affaf52a2e9f11c831"
+    },
+    {
+      "file": "dataset-v4/fixtures/V4-06-legacy-compatibility/test/public.mjs",
+      "sha256": "f94e3551985dfaef93234e41a5907dbff7196ed18f969eaa3817029691204cf3"
+    },
+    {
+      "file": "dataset-v4/tasks.json",
+      "sha256": "a235e03608581c75f93cf57590cc7a0804f40e21255fe0aa1f9a3e71d9c94735"
+    },
+    {
+      "file": "docs/AGENT_QUALITY_BENCHMARK_V4.md",
+      "sha256": "b1142840b3ff655118fca0ad969da2a4b9116fceb342c2796469f2e94041abdd"
+    },
+    {
+      "file": "package.json",
+      "sha256": "44aebcb57a4079dea1cae3e9dbb4becd4807777d6a599587a279177ef7b3b0e8"
+    },
+    {
+      "file": "registry/benchmark-v4.json",
+      "sha256": "a4514e3d7c594dc793bd4b5dc210a40a5bf064dea6d213a5a8d5f80082f1e08b"
+    },
+    {
+      "file": "schemas/benchmark-v4.schema.json",
+      "sha256": "b93024a6d9a3446b01b62a0dce34812e76e520bed90d1b6473c12c524d0d4e69"
+    },
+    {
+      "file": "src/benchmark-v4.mjs",
+      "sha256": "f5404865be19a5adcc3956ebcf38761370de2b15d5cf14362cb21ce29a8c6059"
+    },
+    {
+      "file": "src/codex-luna-adapter.mjs",
+      "sha256": "53d4208cd5042223c899b8b54140ce71c35a368fcc2899d757b06d2c8092bf88"
+    },
+    {
+      "file": "src/execute.mjs",
+      "sha256": "b201eb499d8020cbd6474f2efb214dfebda9dfbfb668e557099abd16ef0dfc7c"
+    },
+    {
+      "file": "src/hash.mjs",
+      "sha256": "ddcb996da5fceabcf70d389ef1a7725f72b081da3214600b371dcff8d0b35343"
+    },
+    {
+      "file": "src/pilot.mjs",
+      "sha256": "7fee27e38863ab8f1540c40ff174feba7a0807df617c03b7d5ab40818192a905"
+    },
+    {
+      "file": "src/v2-delivery.mjs",
+      "sha256": "8688e93964385515cfc22d30d101d06fde33bcf0d1cbb4f312237f311282240b"
+    }
+  ],
+  "manifestSha256": "d9c29c7fdd374848423a5da370d8b9b80321f207dd27f15f03c3c17060d07f89"
+}

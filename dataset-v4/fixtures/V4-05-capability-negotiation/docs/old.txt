@@ -1,0 +1,1 @@
+Old protocol memo: always select the highest version, even without required capabilities.

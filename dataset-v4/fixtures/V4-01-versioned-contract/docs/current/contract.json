@@ -1,0 +1,1 @@
+{"version":2,"defaults":{"mode":"safe","limits":{"burst":4,"windowMs":1000}},"regions":{"sg":{"limits":{"burst":7}}}}

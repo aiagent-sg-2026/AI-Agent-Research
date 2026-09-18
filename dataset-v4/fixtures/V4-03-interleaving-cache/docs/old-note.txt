@@ -1,0 +1,1 @@
+Old cache note: a resolved value may be reused forever.

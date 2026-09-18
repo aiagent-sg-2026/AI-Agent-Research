@@ -1,0 +1,1 @@
+{"versions":[{"name":"v2","requires":["stream"],"fallback":"v1"},{"name":"v1","requires":[]}] ,"lifecycle":"close rejected candidates and active session on failure"}

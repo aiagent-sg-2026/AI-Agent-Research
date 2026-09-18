@@ -1,0 +1,1 @@
+{"journal":"idempotency-key","effects":"each operation once","rollback":"reverse applied effects on failure"}
