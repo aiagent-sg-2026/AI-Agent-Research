@@ -170,7 +170,7 @@ export function selectFormalPairs(outcomes){
 async function hashFile(f){return sha256(await fs.readFile(f));}
 export async function freezeV5(out=path.join(root,'v5-scaffold-freeze.json')){
  const validation=await validateV5Corpus(),configFile='config/adapter.codex-luna.vm.json',config=loadJson(path.resolve(root,configFile));
- const files=['dataset-v5/manifest.json','registry/benchmark-v5.json','schemas/benchmark-v5.schema.json','docs/AGENT_QUALITY_BENCHMARK_V5.md','docs/BENCHMARK_PROTOCOL.md','package.json','src/benchmark-v5.mjs','src/hash.mjs','src/pilot.mjs','src/registry.mjs','src/codex-luna-adapter.mjs','scripts/v5-run-grader.mjs',configFile];
+ const files=['dataset-v5/manifest.json','registry/benchmark-v5.json','schemas/benchmark-v5.schema.json','docs/AGENT_QUALITY_BENCHMARK_V5.md','docs/BENCHMARK_PROTOCOL.md','package.json','src/benchmark-v5.mjs','src/hash.mjs','src/pilot.mjs','src/registry.mjs','src/codex-luna-adapter.mjs','src/execute.mjs','scripts/v5-run-grader.mjs','scripts/v5-calibrate.mjs',configFile];
  files.push(...(await walk(path.join(root,'dataset-v5'))).map(f=>path.relative(root,f)));
  const entries=[];for(const f of [...new Set(files)].sort())entries.push({file:f,sha256:await hashFile(path.resolve(root,f))});
  const manifest={version:V5_PROTOCOL,pairs:loadV5Manifest().pairs.map(p=>p.id),siblings:v5Tasks().map(t=>t.id),methodHash:sha256(V5_METHOD),delivery:deliveryContractV5(),selectionPolicy:loadJson(v5RegistryFile).selectionPolicy,adapter:{file:configFile,sha256:await hashFile(path.resolve(root,configFile)),model:config.model,reasoningEffort:config.reasoningEffort,cliVersion:config.cliVersion},validation,entries,manifestSha256:sha256(entries)};
