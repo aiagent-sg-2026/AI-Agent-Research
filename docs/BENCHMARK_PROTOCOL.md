@@ -39,3 +39,7 @@ A0 receives only the task contract and scope. A1 receives the frozen engineering
 ## V4 held-out boundary
 
 V4 is an isolated six-fixture held-out benchmark (`AQB-V4-HELDOUT-001`), exactly 6 × 4 × 3 = 72 seeded paired-block cells, pinned to gpt-5.6-luna / medium / Codex CLI 0.153.4. Its fixtures and graders are new and materially interaction-heavy; V3 evidence is preserved unchanged. V4 is descriptive only. No secondary observable quality metric is recorded (`secondaryMetricAvailable=false`), so mechanism claims require at least one valid task/arm correctness failure escaping the ceiling; no winner is manufactured. Token telemetry is a hard gate for efficiency comparisons: missing telemetry makes efficiency unavailable while leaving correctness evidence usable. Process/tool telemetry is reported as unavailable when the adapter cannot reliably extract it.
+
+## V5 calibrated held-out proposal
+
+V5 adds pre-formal corpus-validity and difficulty-calibration gates. Every hidden assertion must trace to a candidate-visible public rule; an evaluator-owned reference solution must pass visible and hidden suites; the untouched baseline must pass visible and fail hidden; and plausible partial mutants must fail the intended hidden rule groups. Difficulty is calibrated only on separate frozen sibling fixtures, never on the held-out formal siblings. The proposed formal matrix remains 6 tasks × 4 delivery arms × 3 trials = 72 cells. See `docs/AGENT_QUALITY_BENCHMARK_V5.md`.

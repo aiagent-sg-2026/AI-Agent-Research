@@ -1,3 +1,5 @@
+> **Retrospective status (2026-09-18): corpus validity audit found one direct visible/hidden contradiction and several underspecified hidden rules. Treat V4 as diagnostic execution evidence only; do not use it for delivery-mechanism conclusions. See `docs/experiments/V4-validity-postmortem.md`.**
+
 # Agent Quality Benchmark V4 — Formal Results
 
 ## Verification status
