@@ -1,0 +1,26 @@
+{
+  "version": "v5-contract-1",
+  "taskId": "V5-P08-CALIBRATION-retry",
+  "rules": [
+    {
+      "id": "C1",
+      "text": "attempt operation at most maxAttempts times; default maxAttempts is 3"
+    },
+    {
+      "id": "C2",
+      "text": "retry only when thrown error has transient===true"
+    },
+    {
+      "id": "C3",
+      "text": "call onDelay(nextAttempt) exactly once before each retry"
+    },
+    {
+      "id": "C4",
+      "text": "if signal is aborted before another attempt, throw AbortError without calling operation again"
+    },
+    {
+      "id": "C5",
+      "text": "return first success and rethrow final/non-transient error"
+    }
+  ]
+}

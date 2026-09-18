@@ -1,0 +1,26 @@
+{
+  "version": "v5-contract-1",
+  "taskId": "V5-P05-FORMAL-capability",
+  "rules": [
+    {
+      "id": "C1",
+      "text": "consider only peer-advertised codecs in local order c3 then c2"
+    },
+    {
+      "id": "C2",
+      "text": "c3 requires binary capability; c2 requires none"
+    },
+    {
+      "id": "C3",
+      "text": "transport open failure falls through to next compatible advertised codec"
+    },
+    {
+      "id": "C4",
+      "text": "mismatched channel.codec is closed and skipped"
+    },
+    {
+      "id": "C5",
+      "text": "no usable codec throws an error containing 'codec'"
+    }
+  ]
+}

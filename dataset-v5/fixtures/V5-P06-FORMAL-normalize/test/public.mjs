@@ -1,0 +1,1 @@
+import test from 'node:test';import assert from 'node:assert/strict';import {normalizeItem} from '../src/solution.mjs';test('current item',()=>assert.deepEqual(normalizeItem({sku:'A',qty:3,enabled:false}),{sku:'A',qty:3,enabled:false}));

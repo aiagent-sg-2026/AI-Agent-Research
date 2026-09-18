@@ -1,0 +1,1 @@
+import test from 'node:test';import assert from 'node:assert/strict';import {pipePackets} from '../src/solution.mjs';test('one packet',async()=>{let n=0;const r={i:0,async next(){return this.i++?{done:true}:{value:'a',done:false}}};assert.deepEqual(await pipePackets(r,{write:async()=>n++}),{released:false,count:1});assert.equal(n,1)});

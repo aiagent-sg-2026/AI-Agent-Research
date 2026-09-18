@@ -1,0 +1,1 @@
+import test from 'node:test';import assert from 'node:assert/strict';import {authorizeAction} from '../src/solution.mjs';test('locked wins',()=>assert.deepEqual(authorizeAction({locked:true,effect:'allow',role:'admin',action:'delete'}),{allowed:false,reason:'locked'}));

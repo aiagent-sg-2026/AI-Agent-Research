@@ -1,0 +1,26 @@
+{
+  "version": "v5-contract-1",
+  "taskId": "V5-P07-FORMAL-auth",
+  "rules": [
+    {
+      "id": "C1",
+      "text": "locked resource denies first with reason locked"
+    },
+    {
+      "id": "C2",
+      "text": "explicit effect deny is next"
+    },
+    {
+      "id": "C3",
+      "text": "role permissions are viewer=read, editor=read/write, admin=read/write/delete"
+    },
+    {
+      "id": "C4",
+      "text": "explicit allow succeeds only when role permits the action"
+    },
+    {
+      "id": "C5",
+      "text": "without effect, permitted role/action allows by role-default; otherwise deny"
+    }
+  ]
+}

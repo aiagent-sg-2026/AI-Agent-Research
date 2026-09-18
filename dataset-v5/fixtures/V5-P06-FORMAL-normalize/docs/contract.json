@@ -1,0 +1,26 @@
+{
+  "version": "v5-contract-1",
+  "taskId": "V5-P06-FORMAL-normalize",
+  "rules": [
+    {
+      "id": "C1",
+      "text": "input must be a non-array object with non-empty string sku"
+    },
+    {
+      "id": "C2",
+      "text": "qty accepts a non-negative integer or digit-only string and outputs a number"
+    },
+    {
+      "id": "C3",
+      "text": "enabled defaults to true when omitted and otherwise must be boolean"
+    },
+    {
+      "id": "C4",
+      "text": "unknown fields are not copied to output"
+    },
+    {
+      "id": "C5",
+      "text": "malformed sku/qty/enabled returns null"
+    }
+  ]
+}

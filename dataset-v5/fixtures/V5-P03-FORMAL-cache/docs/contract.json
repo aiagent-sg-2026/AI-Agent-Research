@@ -1,0 +1,22 @@
+{
+  "version": "v5-contract-1",
+  "taskId": "V5-P03-FORMAL-cache",
+  "rules": [
+    {
+      "id": "C1",
+      "text": "snapshot identity is name plus revision"
+    },
+    {
+      "id": "C2",
+      "text": "same snapshot concurrent misses share one loader promise"
+    },
+    {
+      "id": "C3",
+      "text": "revision changes create independent snapshots"
+    },
+    {
+      "id": "C4",
+      "text": "loader rejection leaves no cached value or in-flight entry"
+    }
+  ]
+}

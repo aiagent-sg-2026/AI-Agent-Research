@@ -1,0 +1,26 @@
+{
+  "version": "v5-contract-1",
+  "taskId": "V5-P01-FORMAL-config",
+  "rules": [
+    {
+      "id": "C1",
+      "text": "profile is steady or turbo; unknown/missing profile becomes steady"
+    },
+    {
+      "id": "C2",
+      "text": "steady defaults concurrency 2/timeoutMs 500; turbo defaults concurrency 5/timeoutMs 300"
+    },
+    {
+      "id": "C3",
+      "text": "zone edge overrides timeoutMs to 200 before explicit tuning"
+    },
+    {
+      "id": "C4",
+      "text": "positive integer tuning values override defaults and zone values"
+    },
+    {
+      "id": "C5",
+      "text": "result contains profile, tuning, zone and no extra input fields"
+    }
+  ]
+}

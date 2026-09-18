@@ -1,0 +1,1 @@
+import test from 'node:test';import assert from 'node:assert/strict';import {getSnapshot} from '../src/solution.mjs';test('snapshot hit',async()=>assert.equal(await getSnapshot(new Map([['n#4','ok']]),'n',4,async()=> 'bad'),'ok'));

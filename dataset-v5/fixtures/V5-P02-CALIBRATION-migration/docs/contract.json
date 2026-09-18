@@ -1,0 +1,26 @@
+{
+  "version": "v5-contract-1",
+  "taskId": "V5-P02-CALIBRATION-migration",
+  "rules": [
+    {
+      "id": "C1",
+      "text": "duplicate operation ids apply at most once per invocation"
+    },
+    {
+      "id": "C2",
+      "text": "success returns {ok:true,applied}"
+    },
+    {
+      "id": "C3",
+      "text": "on apply failure stop immediately and return {ok:false,applied,error,rollbackErrors}"
+    },
+    {
+      "id": "C4",
+      "text": "rollback every successfully applied operation in reverse order"
+    },
+    {
+      "id": "C5",
+      "text": "rollback errors are collected without replacing the original apply error"
+    }
+  ]
+}

@@ -1,0 +1,1 @@
+export async function applyBatch(ops,store){const seen=new Set(),a=[];try{for(const o of ops){if(seen.has(o.id))continue;seen.add(o.id);await store.apply(o);a.push(o)}return {ok:true,applied:a.length}}catch(e){for(const o of a)await store.rollback(o);return {ok:false,applied:a.length,error:e.message,rollbackErrors:[]}}}

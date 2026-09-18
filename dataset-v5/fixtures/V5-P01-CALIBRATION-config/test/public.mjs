@@ -1,0 +1,1 @@
+import test from 'node:test';import assert from 'node:assert/strict';import {resolveSettings} from '../src/solution.mjs';test('default shape',()=>assert.deepEqual(resolveSettings({},'xx'),{mode:'safe',limits:{burst:4,windowMs:1000},region:'xx'}));

@@ -1,0 +1,26 @@
+{
+  "version": "v5-contract-1",
+  "taskId": "V5-P07-CALIBRATION-auth",
+  "rules": [
+    {
+      "id": "C1",
+      "text": "inactive account denies with reason inactive before every other rule"
+    },
+    {
+      "id": "C2",
+      "text": "explicit decision deny is next and returns explicit-deny"
+    },
+    {
+      "id": "C3",
+      "text": "guest role always denies with role-deny"
+    },
+    {
+      "id": "C4",
+      "text": "explicit allow permits active member/auditor after higher-priority denies"
+    },
+    {
+      "id": "C5",
+      "text": "without explicit decision auditor defaults allow; member/default role denies"
+    }
+  ]
+}

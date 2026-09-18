@@ -1,0 +1,1 @@
+import test from 'node:test';import assert from 'node:assert/strict';import {normalizeRecord} from '../src/solution.mjs';test('current record',()=>assert.deepEqual(normalizeRecord({name:'x',count:2,active:true}),{name:'x',count:2,active:true}));

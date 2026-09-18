@@ -1,0 +1,26 @@
+{
+  "version": "v5-contract-1",
+  "taskId": "V5-P05-CALIBRATION-capability",
+  "rules": [
+    {
+      "id": "C1",
+      "text": "consider only peer-advertised versions, preferring local order v2 then v1"
+    },
+    {
+      "id": "C2",
+      "text": "v2 requires stream capability; v1 requires none"
+    },
+    {
+      "id": "C3",
+      "text": "if opening a compatible advertised version fails, try the next compatible advertised version"
+    },
+    {
+      "id": "C4",
+      "text": "a returned session must match the requested version; close mismatched session and continue"
+    },
+    {
+      "id": "C5",
+      "text": "if no compatible version opens, throw an error containing 'compatible'"
+    }
+  ]
+}

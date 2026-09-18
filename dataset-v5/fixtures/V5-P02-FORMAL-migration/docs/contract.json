@@ -1,0 +1,26 @@
+{
+  "version": "v5-contract-1",
+  "taskId": "V5-P02-FORMAL-migration",
+  "rules": [
+    {
+      "id": "C1",
+      "text": "steps with the same key execute once per run"
+    },
+    {
+      "id": "C2",
+      "text": "success returns {status:'committed',completed}"
+    },
+    {
+      "id": "C3",
+      "text": "execute failure returns {status:'rolled-back',completed,cause,undoErrors} and later steps do not run"
+    },
+    {
+      "id": "C4",
+      "text": "completed steps are undone newest-first"
+    },
+    {
+      "id": "C5",
+      "text": "undo failures are collected while preserving execute failure cause"
+    }
+  ]
+}

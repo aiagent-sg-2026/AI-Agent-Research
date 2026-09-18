@@ -1,0 +1,1 @@
+const D={steady:{concurrency:2,timeoutMs:500},turbo:{concurrency:5,timeoutMs:300}};export function buildThrottle(input={},zone='core'){const profile=['steady','turbo'].includes(input?.profile)?input.profile:'steady';const tuning={...D[profile],...(zone==='edge'?{timeoutMs:200}:{})};return {profile,tuning,zone};}

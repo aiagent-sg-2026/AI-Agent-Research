@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": ["version","protocol","pairCount","siblingCount","calibration","formal","method","selectionPolicy","adapter","execution"],
+  "properties": {
+    "version": {"const":"benchmark-v5-scaffold"},
+    "protocol": {"const":"AQB-V5-CALIBRATED-001"},
+    "pairCount": {"const":8},
+    "siblingCount": {"const":16},
+    "calibration": {
+      "type":"object",
+      "required":["arms","trials","cells","seed","randomization"],
+      "properties":{
+        "arms":{"const":["A0","A1"]},
+        "trials":{"const":1},
+        "cells":{"const":16},
+        "seed":{"type":"integer"},
+        "randomization":{"const":"seeded paired-blocked"}
+      }
+    },
+    "formal":{
+      "type":"object",
+      "required":["selectedPairs","arms","trials","cells","authorized"],
+      "properties":{
+        "selectedPairs":{"const":6},
+        "arms":{"const":["A0","A1","A2","A3"]},
+        "trials":{"const":3},
+        "cells":{"const":72},
+        "authorized":{"const":false}
+      }
+    }
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "version": "v5-contract-1",
+  "taskId": "V5-P04-FORMAL-stream",
+  "rules": [
+    {
+      "id": "C1",
+      "text": "await sink.write acknowledgement before reader.next again"
+    },
+    {
+      "id": "C2",
+      "text": "abort stops before another reader.next"
+    },
+    {
+      "id": "C3",
+      "text": "call reader.release exactly once on completion, abort, or sink error when available"
+    },
+    {
+      "id": "C4",
+      "text": "return {released,count}; released reflects whether release was called"
+    },
+    {
+      "id": "C5",
+      "text": "sink errors are rethrown after release"
+    }
+  ]
+}

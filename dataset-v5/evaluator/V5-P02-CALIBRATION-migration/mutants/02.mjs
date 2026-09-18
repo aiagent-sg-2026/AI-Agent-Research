@@ -1,0 +1,1 @@
+export async function applyBatch(ops,store){const applied=[];try{for(const o of ops){await store.apply(o);applied.push(o)}return {ok:true,applied:applied.length}}catch(e){for(const o of applied.reverse())await store.rollback(o);return {ok:false,applied:applied.length,error:e.message,rollbackErrors:[]}}}

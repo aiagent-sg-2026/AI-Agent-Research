@@ -1,0 +1,1 @@
+import test from 'node:test';import assert from 'node:assert/strict';import {connectPeer} from '../src/solution.mjs';test('legacy advertised v1',async()=>assert.equal((await connectPeer({versions:['v1'],capabilities:[]},{open:async v=>({version:v})})).version,'v1'));

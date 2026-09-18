@@ -1,0 +1,1 @@
+export function decideAccess(i={}){if(i.active===false)return {allowed:false,reason:'inactive'};if(i.role==='guest')return {allowed:false,reason:'role-deny'};if(i.decision==='allow')return {allowed:true,reason:'explicit-allow'};if(i.role==='auditor')return {allowed:true,reason:'role-default'};return {allowed:false,reason:'default-deny'}}

@@ -1,0 +1,1 @@
+export function normalizeItem(v){if(!v||typeof v!=='object'||Array.isArray(v)||typeof v.sku!=='string'||!v.sku)return null;let qty=v.qty;if(typeof qty==='string'&&!Number.isNaN(parseInt(qty)))qty=parseInt(qty);if(!Number.isInteger(qty)||qty<0)return null;const enabled=v.enabled===undefined?true:v.enabled;if(typeof enabled!=='boolean')return null;return {sku:v.sku,qty,enabled}}

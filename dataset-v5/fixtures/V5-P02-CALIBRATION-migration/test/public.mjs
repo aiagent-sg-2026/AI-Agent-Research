@@ -1,0 +1,1 @@
+import test from 'node:test';import assert from 'node:assert/strict';import {applyBatch} from '../src/solution.mjs';test('empty batch',async()=>assert.deepEqual(await applyBatch([],{apply:async()=>{}}),{ok:true,applied:0}));

@@ -1,0 +1,1 @@
+import test from 'node:test';import assert from 'node:assert/strict';import {runUpgrade} from '../src/solution.mjs';test('empty upgrade commits',async()=>assert.deepEqual(await runUpgrade([],{execute:async()=>{}}),{status:'committed',completed:0}));

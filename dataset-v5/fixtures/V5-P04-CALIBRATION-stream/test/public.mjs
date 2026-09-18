@@ -1,0 +1,1 @@
+import test from 'node:test';import assert from 'node:assert/strict';import {drain} from '../src/solution.mjs';test('simple values',async()=>assert.deepEqual(await drain([1,2],async()=>{}),{closed:false,count:2}));

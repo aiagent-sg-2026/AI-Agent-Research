@@ -1,0 +1,1 @@
+export async function applyBatch(ops,store){for(const op of ops)await store.apply(op);return {ok:true,applied:ops.length};}

@@ -1,0 +1,1 @@
+import test from 'node:test';import assert from 'node:assert/strict';import {openCodec} from '../src/solution.mjs';test('c2 peer',async()=>assert.equal((await openCodec({codecs:['c2'],capabilities:[]},{open:async c=>({codec:c})})).codec,'c2'));

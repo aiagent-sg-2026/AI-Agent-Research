@@ -1,0 +1,1 @@
+import test from 'node:test';import assert from 'node:assert/strict';import {buildThrottle} from '../src/solution.mjs';test('steady core baseline',()=>assert.deepEqual(buildThrottle({},'core'),{profile:'steady',tuning:{concurrency:2,timeoutMs:500},zone:'core'}));

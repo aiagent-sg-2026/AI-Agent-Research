@@ -1,0 +1,1 @@
+const D={safe:{burst:4,windowMs:1000},fast:{burst:7,windowMs:1000}};export function resolveSettings(i={},r='xx'){const mode=['safe','fast'].includes(i?.mode)?i.mode:'safe';return {mode,limits:{...D[mode],...(r==='sg'?{burst:6}:{})},region:r};}

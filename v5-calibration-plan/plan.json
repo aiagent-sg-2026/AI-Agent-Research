@@ -1,0 +1,183 @@
+{
+  "version": "AQB-V5-CALIBRATED-001",
+  "seed": 20260919,
+  "cells": [
+    {
+      "version": "AQB-V5-CALIBRATED-001",
+      "pairId": "V5-P08",
+      "taskId": "V5-P08-CALIBRATION-retry",
+      "siblingRole": "calibration",
+      "arm": "A1",
+      "trial": 1,
+      "seed": 20260919,
+      "ordinal": 1,
+      "cellId": "001-V5-P08-CALIBRATION-retry-A1"
+    },
+    {
+      "version": "AQB-V5-CALIBRATED-001",
+      "pairId": "V5-P08",
+      "taskId": "V5-P08-CALIBRATION-retry",
+      "siblingRole": "calibration",
+      "arm": "A0",
+      "trial": 1,
+      "seed": 20260919,
+      "ordinal": 2,
+      "cellId": "002-V5-P08-CALIBRATION-retry-A0"
+    },
+    {
+      "version": "AQB-V5-CALIBRATED-001",
+      "pairId": "V5-P01",
+      "taskId": "V5-P01-CALIBRATION-config",
+      "siblingRole": "calibration",
+      "arm": "A1",
+      "trial": 1,
+      "seed": 20260919,
+      "ordinal": 3,
+      "cellId": "003-V5-P01-CALIBRATION-config-A1"
+    },
+    {
+      "version": "AQB-V5-CALIBRATED-001",
+      "pairId": "V5-P01",
+      "taskId": "V5-P01-CALIBRATION-config",
+      "siblingRole": "calibration",
+      "arm": "A0",
+      "trial": 1,
+      "seed": 20260919,
+      "ordinal": 4,
+      "cellId": "004-V5-P01-CALIBRATION-config-A0"
+    },
+    {
+      "version": "AQB-V5-CALIBRATED-001",
+      "pairId": "V5-P07",
+      "taskId": "V5-P07-CALIBRATION-auth",
+      "siblingRole": "calibration",
+      "arm": "A0",
+      "trial": 1,
+      "seed": 20260919,
+      "ordinal": 5,
+      "cellId": "005-V5-P07-CALIBRATION-auth-A0"
+    },
+    {
+      "version": "AQB-V5-CALIBRATED-001",
+      "pairId": "V5-P06",
+      "taskId": "V5-P06-CALIBRATION-normalize",
+      "siblingRole": "calibration",
+      "arm": "A1",
+      "trial": 1,
+      "seed": 20260919,
+      "ordinal": 6,
+      "cellId": "006-V5-P06-CALIBRATION-normalize-A1"
+    },
+    {
+      "version": "AQB-V5-CALIBRATED-001",
+      "pairId": "V5-P05",
+      "taskId": "V5-P05-CALIBRATION-capability",
+      "siblingRole": "calibration",
+      "arm": "A0",
+      "trial": 1,
+      "seed": 20260919,
+      "ordinal": 7,
+      "cellId": "007-V5-P05-CALIBRATION-capability-A0"
+    },
+    {
+      "version": "AQB-V5-CALIBRATED-001",
+      "pairId": "V5-P03",
+      "taskId": "V5-P03-CALIBRATION-cache",
+      "siblingRole": "calibration",
+      "arm": "A0",
+      "trial": 1,
+      "seed": 20260919,
+      "ordinal": 8,
+      "cellId": "008-V5-P03-CALIBRATION-cache-A0"
+    },
+    {
+      "version": "AQB-V5-CALIBRATED-001",
+      "pairId": "V5-P03",
+      "taskId": "V5-P03-CALIBRATION-cache",
+      "siblingRole": "calibration",
+      "arm": "A1",
+      "trial": 1,
+      "seed": 20260919,
+      "ordinal": 9,
+      "cellId": "009-V5-P03-CALIBRATION-cache-A1"
+    },
+    {
+      "version": "AQB-V5-CALIBRATED-001",
+      "pairId": "V5-P04",
+      "taskId": "V5-P04-CALIBRATION-stream",
+      "siblingRole": "calibration",
+      "arm": "A1",
+      "trial": 1,
+      "seed": 20260919,
+      "ordinal": 10,
+      "cellId": "010-V5-P04-CALIBRATION-stream-A1"
+    },
+    {
+      "version": "AQB-V5-CALIBRATED-001",
+      "pairId": "V5-P06",
+      "taskId": "V5-P06-CALIBRATION-normalize",
+      "siblingRole": "calibration",
+      "arm": "A0",
+      "trial": 1,
+      "seed": 20260919,
+      "ordinal": 11,
+      "cellId": "011-V5-P06-CALIBRATION-normalize-A0"
+    },
+    {
+      "version": "AQB-V5-CALIBRATED-001",
+      "pairId": "V5-P02",
+      "taskId": "V5-P02-CALIBRATION-migration",
+      "siblingRole": "calibration",
+      "arm": "A0",
+      "trial": 1,
+      "seed": 20260919,
+      "ordinal": 12,
+      "cellId": "012-V5-P02-CALIBRATION-migration-A0"
+    },
+    {
+      "version": "AQB-V5-CALIBRATED-001",
+      "pairId": "V5-P02",
+      "taskId": "V5-P02-CALIBRATION-migration",
+      "siblingRole": "calibration",
+      "arm": "A1",
+      "trial": 1,
+      "seed": 20260919,
+      "ordinal": 13,
+      "cellId": "013-V5-P02-CALIBRATION-migration-A1"
+    },
+    {
+      "version": "AQB-V5-CALIBRATED-001",
+      "pairId": "V5-P05",
+      "taskId": "V5-P05-CALIBRATION-capability",
+      "siblingRole": "calibration",
+      "arm": "A1",
+      "trial": 1,
+      "seed": 20260919,
+      "ordinal": 14,
+      "cellId": "014-V5-P05-CALIBRATION-capability-A1"
+    },
+    {
+      "version": "AQB-V5-CALIBRATED-001",
+      "pairId": "V5-P07",
+      "taskId": "V5-P07-CALIBRATION-auth",
+      "siblingRole": "calibration",
+      "arm": "A1",
+      "trial": 1,
+      "seed": 20260919,
+      "ordinal": 15,
+      "cellId": "015-V5-P07-CALIBRATION-auth-A1"
+    },
+    {
+      "version": "AQB-V5-CALIBRATED-001",
+      "pairId": "V5-P04",
+      "taskId": "V5-P04-CALIBRATION-stream",
+      "siblingRole": "calibration",
+      "arm": "A0",
+      "trial": 1,
+      "seed": 20260919,
+      "ordinal": 16,
+      "cellId": "016-V5-P04-CALIBRATION-stream-A0"
+    }
+  ],
+  "planHash": "cda2bdace12918a49787334651bcbf56ca404b7890e233aa4c5ae3f1d5d58118"
+}

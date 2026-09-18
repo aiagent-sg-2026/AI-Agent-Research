@@ -1,0 +1,26 @@
+{
+  "version": "v5-contract-1",
+  "taskId": "V5-P04-CALIBRATION-stream",
+  "rules": [
+    {
+      "id": "C1",
+      "text": "await each onValue before pulling the next item"
+    },
+    {
+      "id": "C2",
+      "text": "if signal is aborted, stop before another pull"
+    },
+    {
+      "id": "C3",
+      "text": "call iterator.return exactly once on completion, cancellation, or handler error when available"
+    },
+    {
+      "id": "C4",
+      "text": "return {closed,count}; closed is true iff iterator.return was called"
+    },
+    {
+      "id": "C5",
+      "text": "handler errors are rethrown after cleanup"
+    }
+  ]
+}

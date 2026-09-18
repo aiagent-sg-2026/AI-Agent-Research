@@ -1,0 +1,281 @@
+{
+  "version": "benchmark-v5-scaffold",
+  "pairs": [
+    {
+      "id": "V5-P01",
+      "family": "versioned configuration merge",
+      "calibration": {
+        "id": "V5-P01-CALIBRATION-config",
+        "pairId": "V5-P01",
+        "role": "calibration",
+        "family": "versioned configuration merge",
+        "task": "Implement resolveSettings from docs/contract.json.",
+        "fixture": "dataset-v5/fixtures/V5-P01-CALIBRATION-config",
+        "contract": "dataset-v5/fixtures/V5-P01-CALIBRATION-config/docs/contract.json",
+        "grader": "dataset-v5/evaluator/V5-P01-CALIBRATION-config/grader.mjs",
+        "reference": "dataset-v5/evaluator/V5-P01-CALIBRATION-config/reference.mjs",
+        "mutants": "dataset-v5/evaluator/V5-P01-CALIBRATION-config/mutants.json",
+        "allowedTarget": [
+          "src/solution.mjs"
+        ]
+      },
+      "formal": {
+        "id": "V5-P01-FORMAL-config",
+        "pairId": "V5-P01",
+        "role": "formal",
+        "family": "versioned configuration merge",
+        "task": "Implement buildThrottle from docs/contract.json.",
+        "fixture": "dataset-v5/fixtures/V5-P01-FORMAL-config",
+        "contract": "dataset-v5/fixtures/V5-P01-FORMAL-config/docs/contract.json",
+        "grader": "dataset-v5/evaluator/V5-P01-FORMAL-config/grader.mjs",
+        "reference": "dataset-v5/evaluator/V5-P01-FORMAL-config/reference.mjs",
+        "mutants": "dataset-v5/evaluator/V5-P01-FORMAL-config/mutants.json",
+        "allowedTarget": [
+          "src/solution.mjs"
+        ]
+      }
+    },
+    {
+      "id": "V5-P02",
+      "family": "transactional migration",
+      "calibration": {
+        "id": "V5-P02-CALIBRATION-migration",
+        "pairId": "V5-P02",
+        "role": "calibration",
+        "family": "transactional migration",
+        "task": "Implement applyBatch from the explicit transaction contract.",
+        "fixture": "dataset-v5/fixtures/V5-P02-CALIBRATION-migration",
+        "contract": "dataset-v5/fixtures/V5-P02-CALIBRATION-migration/docs/contract.json",
+        "grader": "dataset-v5/evaluator/V5-P02-CALIBRATION-migration/grader.mjs",
+        "reference": "dataset-v5/evaluator/V5-P02-CALIBRATION-migration/reference.mjs",
+        "mutants": "dataset-v5/evaluator/V5-P02-CALIBRATION-migration/mutants.json",
+        "allowedTarget": [
+          "src/solution.mjs",
+          "src/journal.mjs"
+        ]
+      },
+      "formal": {
+        "id": "V5-P02-FORMAL-migration",
+        "pairId": "V5-P02",
+        "role": "formal",
+        "family": "transactional migration",
+        "task": "Implement runUpgrade from the explicit rollback contract.",
+        "fixture": "dataset-v5/fixtures/V5-P02-FORMAL-migration",
+        "contract": "dataset-v5/fixtures/V5-P02-FORMAL-migration/docs/contract.json",
+        "grader": "dataset-v5/evaluator/V5-P02-FORMAL-migration/grader.mjs",
+        "reference": "dataset-v5/evaluator/V5-P02-FORMAL-migration/reference.mjs",
+        "mutants": "dataset-v5/evaluator/V5-P02-FORMAL-migration/mutants.json",
+        "allowedTarget": [
+          "src/solution.mjs",
+          "src/ledger.mjs"
+        ]
+      }
+    },
+    {
+      "id": "V5-P03",
+      "family": "generation-aware async cache",
+      "calibration": {
+        "id": "V5-P03-CALIBRATION-cache",
+        "pairId": "V5-P03",
+        "role": "calibration",
+        "family": "generation-aware async cache",
+        "task": "Implement readGeneration using the generation contract.",
+        "fixture": "dataset-v5/fixtures/V5-P03-CALIBRATION-cache",
+        "contract": "dataset-v5/fixtures/V5-P03-CALIBRATION-cache/docs/contract.json",
+        "grader": "dataset-v5/evaluator/V5-P03-CALIBRATION-cache/grader.mjs",
+        "reference": "dataset-v5/evaluator/V5-P03-CALIBRATION-cache/reference.mjs",
+        "mutants": "dataset-v5/evaluator/V5-P03-CALIBRATION-cache/mutants.json",
+        "allowedTarget": [
+          "src/solution.mjs"
+        ]
+      },
+      "formal": {
+        "id": "V5-P03-FORMAL-cache",
+        "pairId": "V5-P03",
+        "role": "formal",
+        "family": "generation-aware async cache",
+        "task": "Implement getSnapshot using revision-aware cache semantics.",
+        "fixture": "dataset-v5/fixtures/V5-P03-FORMAL-cache",
+        "contract": "dataset-v5/fixtures/V5-P03-FORMAL-cache/docs/contract.json",
+        "grader": "dataset-v5/evaluator/V5-P03-FORMAL-cache/grader.mjs",
+        "reference": "dataset-v5/evaluator/V5-P03-FORMAL-cache/reference.mjs",
+        "mutants": "dataset-v5/evaluator/V5-P03-FORMAL-cache/mutants.json",
+        "allowedTarget": [
+          "src/solution.mjs"
+        ]
+      }
+    },
+    {
+      "id": "V5-P04",
+      "family": "closable stream pipeline",
+      "calibration": {
+        "id": "V5-P04-CALIBRATION-stream",
+        "pairId": "V5-P04",
+        "role": "calibration",
+        "family": "closable stream pipeline",
+        "task": "Implement drain using the explicit lifecycle contract.",
+        "fixture": "dataset-v5/fixtures/V5-P04-CALIBRATION-stream",
+        "contract": "dataset-v5/fixtures/V5-P04-CALIBRATION-stream/docs/contract.json",
+        "grader": "dataset-v5/evaluator/V5-P04-CALIBRATION-stream/grader.mjs",
+        "reference": "dataset-v5/evaluator/V5-P04-CALIBRATION-stream/reference.mjs",
+        "mutants": "dataset-v5/evaluator/V5-P04-CALIBRATION-stream/mutants.json",
+        "allowedTarget": [
+          "src/solution.mjs"
+        ]
+      },
+      "formal": {
+        "id": "V5-P04-FORMAL-stream",
+        "pairId": "V5-P04",
+        "role": "formal",
+        "family": "closable stream pipeline",
+        "task": "Implement pipePackets using the reader lifecycle contract.",
+        "fixture": "dataset-v5/fixtures/V5-P04-FORMAL-stream",
+        "contract": "dataset-v5/fixtures/V5-P04-FORMAL-stream/docs/contract.json",
+        "grader": "dataset-v5/evaluator/V5-P04-FORMAL-stream/grader.mjs",
+        "reference": "dataset-v5/evaluator/V5-P04-FORMAL-stream/reference.mjs",
+        "mutants": "dataset-v5/evaluator/V5-P04-FORMAL-stream/mutants.json",
+        "allowedTarget": [
+          "src/solution.mjs"
+        ]
+      }
+    },
+    {
+      "id": "V5-P05",
+      "family": "capability negotiation",
+      "calibration": {
+        "id": "V5-P05-CALIBRATION-capability",
+        "pairId": "V5-P05",
+        "role": "calibration",
+        "family": "capability negotiation",
+        "task": "Implement connectPeer from the advertised-version contract.",
+        "fixture": "dataset-v5/fixtures/V5-P05-CALIBRATION-capability",
+        "contract": "dataset-v5/fixtures/V5-P05-CALIBRATION-capability/docs/contract.json",
+        "grader": "dataset-v5/evaluator/V5-P05-CALIBRATION-capability/grader.mjs",
+        "reference": "dataset-v5/evaluator/V5-P05-CALIBRATION-capability/reference.mjs",
+        "mutants": "dataset-v5/evaluator/V5-P05-CALIBRATION-capability/mutants.json",
+        "allowedTarget": [
+          "src/solution.mjs",
+          "src/protocol.mjs"
+        ]
+      },
+      "formal": {
+        "id": "V5-P05-FORMAL-capability",
+        "pairId": "V5-P05",
+        "role": "formal",
+        "family": "capability negotiation",
+        "task": "Implement openCodec from the codec negotiation contract.",
+        "fixture": "dataset-v5/fixtures/V5-P05-FORMAL-capability",
+        "contract": "dataset-v5/fixtures/V5-P05-FORMAL-capability/docs/contract.json",
+        "grader": "dataset-v5/evaluator/V5-P05-FORMAL-capability/grader.mjs",
+        "reference": "dataset-v5/evaluator/V5-P05-FORMAL-capability/reference.mjs",
+        "mutants": "dataset-v5/evaluator/V5-P05-FORMAL-capability/mutants.json",
+        "allowedTarget": [
+          "src/solution.mjs",
+          "src/codecs.mjs"
+        ]
+      }
+    },
+    {
+      "id": "V5-P06",
+      "family": "schema compatibility normalization",
+      "calibration": {
+        "id": "V5-P06-CALIBRATION-normalize",
+        "pairId": "V5-P06",
+        "role": "calibration",
+        "family": "schema compatibility normalization",
+        "task": "Implement normalizeRecord from the explicit schema contract.",
+        "fixture": "dataset-v5/fixtures/V5-P06-CALIBRATION-normalize",
+        "contract": "dataset-v5/fixtures/V5-P06-CALIBRATION-normalize/docs/contract.json",
+        "grader": "dataset-v5/evaluator/V5-P06-CALIBRATION-normalize/grader.mjs",
+        "reference": "dataset-v5/evaluator/V5-P06-CALIBRATION-normalize/reference.mjs",
+        "mutants": "dataset-v5/evaluator/V5-P06-CALIBRATION-normalize/mutants.json",
+        "allowedTarget": [
+          "src/solution.mjs"
+        ]
+      },
+      "formal": {
+        "id": "V5-P06-FORMAL-normalize",
+        "pairId": "V5-P06",
+        "role": "formal",
+        "family": "schema compatibility normalization",
+        "task": "Implement normalizeItem from the explicit item schema contract.",
+        "fixture": "dataset-v5/fixtures/V5-P06-FORMAL-normalize",
+        "contract": "dataset-v5/fixtures/V5-P06-FORMAL-normalize/docs/contract.json",
+        "grader": "dataset-v5/evaluator/V5-P06-FORMAL-normalize/grader.mjs",
+        "reference": "dataset-v5/evaluator/V5-P06-FORMAL-normalize/reference.mjs",
+        "mutants": "dataset-v5/evaluator/V5-P06-FORMAL-normalize/mutants.json",
+        "allowedTarget": [
+          "src/solution.mjs"
+        ]
+      }
+    },
+    {
+      "id": "V5-P07",
+      "family": "authorization precedence",
+      "calibration": {
+        "id": "V5-P07-CALIBRATION-auth",
+        "pairId": "V5-P07",
+        "role": "calibration",
+        "family": "authorization precedence",
+        "task": "Implement decideAccess using the stated precedence.",
+        "fixture": "dataset-v5/fixtures/V5-P07-CALIBRATION-auth",
+        "contract": "dataset-v5/fixtures/V5-P07-CALIBRATION-auth/docs/contract.json",
+        "grader": "dataset-v5/evaluator/V5-P07-CALIBRATION-auth/grader.mjs",
+        "reference": "dataset-v5/evaluator/V5-P07-CALIBRATION-auth/reference.mjs",
+        "mutants": "dataset-v5/evaluator/V5-P07-CALIBRATION-auth/mutants.json",
+        "allowedTarget": [
+          "src/solution.mjs"
+        ]
+      },
+      "formal": {
+        "id": "V5-P07-FORMAL-auth",
+        "pairId": "V5-P07",
+        "role": "formal",
+        "family": "authorization precedence",
+        "task": "Implement authorizeAction using role/action precedence.",
+        "fixture": "dataset-v5/fixtures/V5-P07-FORMAL-auth",
+        "contract": "dataset-v5/fixtures/V5-P07-FORMAL-auth/docs/contract.json",
+        "grader": "dataset-v5/evaluator/V5-P07-FORMAL-auth/grader.mjs",
+        "reference": "dataset-v5/evaluator/V5-P07-FORMAL-auth/reference.mjs",
+        "mutants": "dataset-v5/evaluator/V5-P07-FORMAL-auth/mutants.json",
+        "allowedTarget": [
+          "src/solution.mjs"
+        ]
+      }
+    },
+    {
+      "id": "V5-P08",
+      "family": "retry and circuit recovery",
+      "calibration": {
+        "id": "V5-P08-CALIBRATION-retry",
+        "pairId": "V5-P08",
+        "role": "calibration",
+        "family": "retry and circuit recovery",
+        "task": "Implement requestWithPolicy from the retry contract.",
+        "fixture": "dataset-v5/fixtures/V5-P08-CALIBRATION-retry",
+        "contract": "dataset-v5/fixtures/V5-P08-CALIBRATION-retry/docs/contract.json",
+        "grader": "dataset-v5/evaluator/V5-P08-CALIBRATION-retry/grader.mjs",
+        "reference": "dataset-v5/evaluator/V5-P08-CALIBRATION-retry/reference.mjs",
+        "mutants": "dataset-v5/evaluator/V5-P08-CALIBRATION-retry/mutants.json",
+        "allowedTarget": [
+          "src/solution.mjs"
+        ]
+      },
+      "formal": {
+        "id": "V5-P08-FORMAL-circuit",
+        "pairId": "V5-P08",
+        "role": "formal",
+        "family": "retry and circuit recovery",
+        "task": "Implement callWithBreaker from the circuit-state contract.",
+        "fixture": "dataset-v5/fixtures/V5-P08-FORMAL-circuit",
+        "contract": "dataset-v5/fixtures/V5-P08-FORMAL-circuit/docs/contract.json",
+        "grader": "dataset-v5/evaluator/V5-P08-FORMAL-circuit/grader.mjs",
+        "reference": "dataset-v5/evaluator/V5-P08-FORMAL-circuit/reference.mjs",
+        "mutants": "dataset-v5/evaluator/V5-P08-FORMAL-circuit/mutants.json",
+        "allowedTarget": [
+          "src/solution.mjs"
+        ]
+      }
+    }
+  ]
+}

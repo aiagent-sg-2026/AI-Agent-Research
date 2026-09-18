@@ -1,0 +1,22 @@
+{
+  "version": "v5-contract-1",
+  "taskId": "V5-P03-CALIBRATION-cache",
+  "rules": [
+    {
+      "id": "C1",
+      "text": "cache identity is key plus generation"
+    },
+    {
+      "id": "C2",
+      "text": "concurrent misses for the same key+generation share one in-flight load"
+    },
+    {
+      "id": "C3",
+      "text": "different generations never share values or in-flight loads"
+    },
+    {
+      "id": "C4",
+      "text": "rejected loads are not cached and a later call may retry"
+    }
+  ]
+}

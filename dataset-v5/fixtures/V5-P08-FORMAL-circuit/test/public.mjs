@@ -1,0 +1,1 @@
+import test from 'node:test';import assert from 'node:assert/strict';import {callWithBreaker} from '../src/solution.mjs';test('success resets',async()=>{const s={failures:1,open:false};assert.equal(await callWithBreaker(async()=>7,s),7);assert.equal(s.failures,0)});

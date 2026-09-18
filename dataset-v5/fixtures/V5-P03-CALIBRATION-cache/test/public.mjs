@@ -1,0 +1,1 @@
+import test from 'node:test';import assert from 'node:assert/strict';import {readGeneration} from '../src/solution.mjs';test('generation hit',async()=>assert.equal(await readGeneration(new Map([['x@1',2]]),'x',1,async()=>3),2));

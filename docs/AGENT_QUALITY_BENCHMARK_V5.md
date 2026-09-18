@@ -1,6 +1,12 @@
 # Agent Quality Benchmark V5 — Calibrated Held-Out Design
 
-Status: **DESIGN PROPOSAL. No V5 model run is authorized by this document.**
+Status: **IMPLEMENTED SCAFFOLD. Calibration and formal model execution remain unauthorized.**
+
+## Implemented scaffold
+
+V5 now contains eight frozen calibration/formal sibling pairs (16 fixtures) across configuration merge, migration, async cache, stream lifecycle, capability negotiation, schema normalization, authorization precedence, and retry/circuit recovery. Every sibling has a candidate-visible rule-ID contract, evaluator-owned hidden grader metadata, an executable reference implementation, and at least three incomplete mutants.
+
+Non-model commands: `npm run v5:validate`, `npm run v5:plan`, `npm run v5:freeze`, and `npm run v5:verify`. The calibration plan is exactly 16 cells (8 calibration siblings × A0/A1 × one trial). There is intentionally no V5 formal run script.
 
 ## Goal
 

@@ -1,0 +1,43 @@
+{
+  "version": "benchmark-v5-scaffold",
+  "protocol": "AQB-V5-CALIBRATED-001",
+  "pairCount": 8,
+  "siblingCount": 16,
+  "calibration": {
+    "arms": ["A0", "A1"],
+    "trials": 1,
+    "cells": 16,
+    "seed": 20260919,
+    "randomization": "seeded paired-blocked"
+  },
+  "formal": {
+    "selectedPairs": 6,
+    "arms": ["A0", "A1", "A2", "A3"],
+    "trials": 3,
+    "cells": 72,
+    "authorized": false
+  },
+  "method": {
+    "a0": "plain task and scope only",
+    "treatedArms": ["A1", "A2", "A3"],
+    "a3Asymmetry": "explicit invocation directive because pinned adapter has no native custom-skill API"
+  },
+  "selectionPolicy": {
+    "version": "v5-selection-1",
+    "qualifyingPattern": "exactly-one-of-A0-A1-passes",
+    "rejectPatterns": ["both-pass", "both-fail", "any-invalid", "missing"],
+    "tieBreak": "registry-pair-order",
+    "requiredQualifiedPairs": 6,
+    "ifInsufficient": "stop"
+  },
+  "adapter": {
+    "config": "config/adapter.codex-luna.vm.json",
+    "model": "gpt-5.6-luna",
+    "reasoningEffort": "medium",
+    "cliVersion": "0.153.4"
+  },
+  "execution": {
+    "calibrationAuthorized": false,
+    "formalAuthorized": false
+  }
+}

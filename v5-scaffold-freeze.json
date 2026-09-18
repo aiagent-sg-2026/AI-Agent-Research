@@ -1,0 +1,799 @@
+{
+  "version": "AQB-V5-CALIBRATED-001",
+  "pairs": [
+    "V5-P01",
+    "V5-P02",
+    "V5-P03",
+    "V5-P04",
+    "V5-P05",
+    "V5-P06",
+    "V5-P07",
+    "V5-P08"
+  ],
+  "siblings": [
+    "V5-P01-CALIBRATION-config",
+    "V5-P01-FORMAL-config",
+    "V5-P02-CALIBRATION-migration",
+    "V5-P02-FORMAL-migration",
+    "V5-P03-CALIBRATION-cache",
+    "V5-P03-FORMAL-cache",
+    "V5-P04-CALIBRATION-stream",
+    "V5-P04-FORMAL-stream",
+    "V5-P05-CALIBRATION-capability",
+    "V5-P05-FORMAL-capability",
+    "V5-P06-CALIBRATION-normalize",
+    "V5-P06-FORMAL-normalize",
+    "V5-P07-CALIBRATION-auth",
+    "V5-P07-FORMAL-auth",
+    "V5-P08-CALIBRATION-retry",
+    "V5-P08-FORMAL-circuit"
+  ],
+  "methodHash": "ff4348c42d9d6d6ce8d9075d5b5cc72694e8acf793a660443d90db2c56de3b79",
+  "delivery": {
+    "version": "AQB-V5-CALIBRATED-001",
+    "methodHash": "ff4348c42d9d6d6ce8d9075d5b5cc72694e8acf793a660443d90db2c56de3b79",
+    "arms": [
+      {
+        "id": "A0",
+        "semantics": null,
+        "channel": "plain task prompt"
+      },
+      {
+        "id": "A1",
+        "semantics": "ff4348c42d9d6d6ce8d9075d5b5cc72694e8acf793a660443d90db2c56de3b79",
+        "channel": "user prompt"
+      },
+      {
+        "id": "A2",
+        "semantics": "ff4348c42d9d6d6ce8d9075d5b5cc72694e8acf793a660443d90db2c56de3b79",
+        "channel": "candidate AGENTS.md"
+      },
+      {
+        "id": "A3",
+        "semantics": "ff4348c42d9d6d6ce8d9075d5b5cc72694e8acf793a660443d90db2c56de3b79",
+        "channel": "candidate-visible skill plus explicit invocation directive"
+      }
+    ]
+  },
+  "selectionPolicy": {
+    "version": "v5-selection-1",
+    "qualifyingPattern": "exactly-one-of-A0-A1-passes",
+    "rejectPatterns": [
+      "both-pass",
+      "both-fail",
+      "any-invalid",
+      "missing"
+    ],
+    "tieBreak": "registry-pair-order",
+    "requiredQualifiedPairs": 6,
+    "ifInsufficient": "stop"
+  },
+  "adapter": {
+    "file": "config/adapter.codex-luna.vm.json",
+    "sha256": "d383d3c46f18302e72f13d590368453b87d74979031707f1ca138ea88ae9ad82",
+    "model": "gpt-5.6-luna",
+    "reasoningEffort": "medium",
+    "cliVersion": "0.153.4"
+  },
+  "validation": {
+    "version": "AQB-V5-CALIBRATED-001",
+    "pairs": 8,
+    "siblings": 16,
+    "tasks": 16,
+    "baselines": 16,
+    "references": 16,
+    "mutants": 48,
+    "modelCalls": 0
+  },
+  "entries": [
+    {
+      "file": "config/adapter.codex-luna.vm.json",
+      "sha256": "d383d3c46f18302e72f13d590368453b87d74979031707f1ca138ea88ae9ad82"
+    },
+    {
+      "file": "dataset-v5/evaluator/V5-P01-CALIBRATION-config/grader.mjs",
+      "sha256": "99857709ddbb12a0dfebbb416f025770fcb90c7920503385c84f8e8ae5a16a02"
+    },
+    {
+      "file": "dataset-v5/evaluator/V5-P01-CALIBRATION-config/mutants.json",
+      "sha256": "40b7e241da4bc76481ecc54cc84d8a869ee4b427d3cf4d85ab9d0fa4a3cbd946"
+    },
+    {
+      "file": "dataset-v5/evaluator/V5-P01-CALIBRATION-config/mutants/01.mjs",
+      "sha256": "fe6dfd6cd42fe7651ac2205f7ecc5c27da9ba95a3507d8ab78d1f75fb8e1652f"
+    },
+    {
+      "file": "dataset-v5/evaluator/V5-P01-CALIBRATION-config/mutants/02.mjs",
+      "sha256": "4428704d5fce5c33d370c13338d270cbb6e9c93ba44de9c85f9dc4c2f9f660d2"
+    },
+    {
+      "file": "dataset-v5/evaluator/V5-P01-CALIBRATION-config/mutants/03.mjs",
+      "sha256": "e9f4cbca7496e97c78a6d8f99ba1f2b723a907ddac1a03f7ba901f3ca927e9a6"
+    },
+    {
+      "file": "dataset-v5/evaluator/V5-P01-CALIBRATION-config/reference.mjs",
+      "sha256": "6fc8dc30dd75c83a05062da0b96af34b11d42b266d73d09c951dcc5a637d2760"
+    },
+    {
+      "file": "dataset-v5/evaluator/V5-P01-FORMAL-config/grader.mjs",
+      "sha256": "01969318cb903bc0201c83af5badaa84520f7edeb27bdf43854144a4b6227c6b"
+    },
+    {
+      "file": "dataset-v5/evaluator/V5-P01-FORMAL-config/mutants.json",
+      "sha256": "40b7e241da4bc76481ecc54cc84d8a869ee4b427d3cf4d85ab9d0fa4a3cbd946"
+    },
+    {
+      "file": "dataset-v5/evaluator/V5-P01-FORMAL-config/mutants/01.mjs",
+      "sha256": "62a18a75a7687a00838ff0cf4dd4a9ed3e141ed54c8295664a70e7f4c26a399d"
+    },
+    {
+      "file": "dataset-v5/evaluator/V5-P01-FORMAL-config/mutants/02.mjs",
+      "sha256": "92f94cbb600b02ad837468ad2cf8bfcc351965f783e465fd9850246de5106dd5"
+    },
+    {
+      "file": "dataset-v5/evaluator/V5-P01-FORMAL-config/mutants/03.mjs",
+      "sha256": "fa5c541e66bb381c720d2fc5b6d61998555c3e31678bbfde97ca408b622abbeb"
+    },
+    {
+      "file": "dataset-v5/evaluator/V5-P01-FORMAL-config/reference.mjs",
+      "sha256": "f7280e630972b0b483984f82b8a545565fcca631cab9b9eb14e9bfcc45d0143d"
+    },
+    {
+      "file": "dataset-v5/evaluator/V5-P02-CALIBRATION-migration/grader.mjs",
+      "sha256": "93a4ded5e16e99b27b64d25aa083e1694e7c4a61e36eca8c961d2ebb8624fa05"
+    },
+    {
+      "file": "dataset-v5/evaluator/V5-P02-CALIBRATION-migration/mutants.json",
+      "sha256": "c97c9d76b0aeeaa5824f06d25f2f0868ee385e45d5a39e976699b6949d622e53"
+    },
+    {
+      "file": "dataset-v5/evaluator/V5-P02-CALIBRATION-migration/mutants/01.mjs",
+      "sha256": "02f0dafc5640cdd7af58e604f5cc4b33dd84d20274bb850f393e345c102668a6"
+    },
+    {
+      "file": "dataset-v5/evaluator/V5-P02-CALIBRATION-migration/mutants/02.mjs",
+      "sha256": "63cba85b23615af469edb789f373e1c212482f67a4cf6a1c5776e8fc8f5c66c1"
+    },
+    {
+      "file": "dataset-v5/evaluator/V5-P02-CALIBRATION-migration/mutants/03.mjs",
+      "sha256": "31cf7b4de55cd7dbc25797ffe63f2e151c94d1e8f805a695d0f1c413e6d48a01"
+    },
+    {
+      "file": "dataset-v5/evaluator/V5-P02-CALIBRATION-migration/reference.mjs",
+      "sha256": "fde8166820c953c5fe742ebf7b2bb4dd1afc975e735c79e9114d494223cfe780"
+    },
+    {
+      "file": "dataset-v5/evaluator/V5-P02-FORMAL-migration/grader.mjs",
+      "sha256": "f8604959e987ad60624da4ef0142c9679f58d4a7c06a914620854871b3974563"
+    },
+    {
+      "file": "dataset-v5/evaluator/V5-P02-FORMAL-migration/mutants.json",
+      "sha256": "bb85607662dc22191822feee69b952b85f56500c8a31ff6483fb3dba430fdc07"
+    },
+    {
+      "file": "dataset-v5/evaluator/V5-P02-FORMAL-migration/mutants/01.mjs",
+      "sha256": "2253a161f53263a60a2d3f0ab2e088f114d67f43950f1a2ec216ca3586725190"
+    },
+    {
+      "file": "dataset-v5/evaluator/V5-P02-FORMAL-migration/mutants/02.mjs",
+      "sha256": "920419da1cbba670be930d0909858a06dc4eaafc1786c4f796f25ae8bc483e51"
+    },
+    {
+      "file": "dataset-v5/evaluator/V5-P02-FORMAL-migration/mutants/03.mjs",
+      "sha256": "fcb91553ec7bf18517dd7a8b6bf75be2cba6c046deb948acc045c31d7db218e3"
+    },
+    {
+      "file": "dataset-v5/evaluator/V5-P02-FORMAL-migration/reference.mjs",
+      "sha256": "5acd0c3f5c09a2bc15aae223e7eb11d6469453491eaff4907189e13791349c8e"
+    },
+    {
+      "file": "dataset-v5/evaluator/V5-P03-CALIBRATION-cache/grader.mjs",
+      "sha256": "49e828c9c12f6735d82341da453e5732692817fef259933bcbf056ab2761bef0"
+    },
+    {
+      "file": "dataset-v5/evaluator/V5-P03-CALIBRATION-cache/mutants.json",
+      "sha256": "ee3a2ee2d143595c2bae3b1cdfed48270ace991d6db1cc2db2201e6918b60852"
+    },
+    {
+      "file": "dataset-v5/evaluator/V5-P03-CALIBRATION-cache/mutants/01.mjs",
+      "sha256": "c7f85d0b65d8f4ec64278aa847f50ff541401af5c99d7cdd2178e18984fd768b"
+    },
+    {
+      "file": "dataset-v5/evaluator/V5-P03-CALIBRATION-cache/mutants/02.mjs",
+      "sha256": "60ad709747ddd0933a4f3e1321e1058f273557d915cc505c6bddec1c9d702e3c"
+    },
+    {
+      "file": "dataset-v5/evaluator/V5-P03-CALIBRATION-cache/mutants/03.mjs",
+      "sha256": "f6210896f3cbcac8398a0a43534f0bd8e31cb5b38ff9ff195aed8bc9c28c2363"
+    },
+    {
+      "file": "dataset-v5/evaluator/V5-P03-CALIBRATION-cache/reference.mjs",
+      "sha256": "f5d2337719b5f8fe9d2d7e76a806b542445babc9d943b8194f9f9f5bde29b6a5"
+    },
+    {
+      "file": "dataset-v5/evaluator/V5-P03-FORMAL-cache/grader.mjs",
+      "sha256": "d16ffd84f06b674eaa0712b0bc04e803ed8a8d1a60623048f554fb67d18e08cd"
+    },
+    {
+      "file": "dataset-v5/evaluator/V5-P03-FORMAL-cache/mutants.json",
+      "sha256": "ee3a2ee2d143595c2bae3b1cdfed48270ace991d6db1cc2db2201e6918b60852"
+    },
+    {
+      "file": "dataset-v5/evaluator/V5-P03-FORMAL-cache/mutants/01.mjs",
+      "sha256": "6cb37926bebc9936b2752dd168c0503547b4c0b99958f015f1e52b60f72d998f"
+    },
+    {
+      "file": "dataset-v5/evaluator/V5-P03-FORMAL-cache/mutants/02.mjs",
+      "sha256": "a3f08806fc6bf50e69cdd6365bd3374e7ff02704532a9cad7b8c5c9c85775c89"
+    },
+    {
+      "file": "dataset-v5/evaluator/V5-P03-FORMAL-cache/mutants/03.mjs",
+      "sha256": "6a30e0652895396f00faea0c8978ffd9555f98df39cf977ab681290c8840f4da"
+    },
+    {
+      "file": "dataset-v5/evaluator/V5-P03-FORMAL-cache/reference.mjs",
+      "sha256": "e00a33f6e80038b9697f989b8010ffa3b1d7a8b6de77a386c97bff44498bfb41"
+    },
+    {
+      "file": "dataset-v5/evaluator/V5-P04-CALIBRATION-stream/grader.mjs",
+      "sha256": "b9f3ad9a141f43bba2e8df30d8e6cb392943d70828c52c7243f2f7ab2d730344"
+    },
+    {
+      "file": "dataset-v5/evaluator/V5-P04-CALIBRATION-stream/mutants.json",
+      "sha256": "470f8a5b270ec334a2f945b162e03e7e7aa3c89b2250cd713a6c6a2613f755cc"
+    },
+    {
+      "file": "dataset-v5/evaluator/V5-P04-CALIBRATION-stream/mutants/01.mjs",
+      "sha256": "1618cb56fc30c99bf7fb17ed96c45cd7e839c2d139395758652fde5c2ef42c37"
+    },
+    {
+      "file": "dataset-v5/evaluator/V5-P04-CALIBRATION-stream/mutants/02.mjs",
+      "sha256": "66d56ac419d224e4d40e91f624c397fdb1325298c9895cdc85e4262d7a5c5395"
+    },
+    {
+      "file": "dataset-v5/evaluator/V5-P04-CALIBRATION-stream/mutants/03.mjs",
+      "sha256": "a6f05d7fec87eea81de3db75fae27ef04f2c962e340b989c943ac239eeb0aa1d"
+    },
+    {
+      "file": "dataset-v5/evaluator/V5-P04-CALIBRATION-stream/reference.mjs",
+      "sha256": "35cea5f43838ef4aa25c180b73b3267caa92f6688ca7aa094dc0d542b2dfd1a7"
+    },
+    {
+      "file": "dataset-v5/evaluator/V5-P04-FORMAL-stream/grader.mjs",
+      "sha256": "cab0ee720bd555a64c52465962686af17e8220a9aa9172bf15955e835a8b7825"
+    },
+    {
+      "file": "dataset-v5/evaluator/V5-P04-FORMAL-stream/mutants.json",
+      "sha256": "470f8a5b270ec334a2f945b162e03e7e7aa3c89b2250cd713a6c6a2613f755cc"
+    },
+    {
+      "file": "dataset-v5/evaluator/V5-P04-FORMAL-stream/mutants/01.mjs",
+      "sha256": "96448a571ff7a4286246bd8119b3b88ca93ab090e356acd49d3e1e360ec32b57"
+    },
+    {
+      "file": "dataset-v5/evaluator/V5-P04-FORMAL-stream/mutants/02.mjs",
+      "sha256": "0d8fe3a379ad48b29418f4af62c97b092b2af7d93a8de8ac46c0522a0b8322ea"
+    },
+    {
+      "file": "dataset-v5/evaluator/V5-P04-FORMAL-stream/mutants/03.mjs",
+      "sha256": "2bffb149b2af6590485ada85208b3bd1feb031fc175c87738b785e8f70282eb3"
+    },
+    {
+      "file": "dataset-v5/evaluator/V5-P04-FORMAL-stream/reference.mjs",
+      "sha256": "4f8f8c70168139105d0f962ee4226d9b3ba16c153d7c068eaaa9e6b078ff7de8"
+    },
+    {
+      "file": "dataset-v5/evaluator/V5-P05-CALIBRATION-capability/grader.mjs",
+      "sha256": "51f3d8345ef5d3a7f57cc0fd23ca21d2a68d8a29fe4977e2aa0c54d821e060af"
+    },
+    {
+      "file": "dataset-v5/evaluator/V5-P05-CALIBRATION-capability/mutants.json",
+      "sha256": "8e910baa6e7d942c36b325d4d744e783518b9f235b0fbd0e326decaeb30f5777"
+    },
+    {
+      "file": "dataset-v5/evaluator/V5-P05-CALIBRATION-capability/mutants/01.mjs",
+      "sha256": "7ad5f280d327eb30b967681131b9efe973fe87bf0c2eb04c7f82148ebb637719"
+    },
+    {
+      "file": "dataset-v5/evaluator/V5-P05-CALIBRATION-capability/mutants/02.mjs",
+      "sha256": "9fe46467128401432f0f153f7a684385565f126d1a6cb33cac84c8b284f4d509"
+    },
+    {
+      "file": "dataset-v5/evaluator/V5-P05-CALIBRATION-capability/mutants/03.mjs",
+      "sha256": "a0e835d72eb60efe819daf3aa7496bb8bacf4337b4bdf352b48bd2c99d6d77a0"
+    },
+    {
+      "file": "dataset-v5/evaluator/V5-P05-CALIBRATION-capability/reference.mjs",
+      "sha256": "6b15896e168b9891f6f5dbe39ed7f8e9e09043889cd1a24468abc3649aeb4829"
+    },
+    {
+      "file": "dataset-v5/evaluator/V5-P05-FORMAL-capability/grader.mjs",
+      "sha256": "c9077eec126863f78503ad22572204a79bd7163a59eecd3f1e399a1a2705eb9f"
+    },
+    {
+      "file": "dataset-v5/evaluator/V5-P05-FORMAL-capability/mutants.json",
+      "sha256": "8e910baa6e7d942c36b325d4d744e783518b9f235b0fbd0e326decaeb30f5777"
+    },
+    {
+      "file": "dataset-v5/evaluator/V5-P05-FORMAL-capability/mutants/01.mjs",
+      "sha256": "75e0dd47bc5ec032a620e13e2531a0b0616f7a253174f14c3d6ba25d0eb37458"
+    },
+    {
+      "file": "dataset-v5/evaluator/V5-P05-FORMAL-capability/mutants/02.mjs",
+      "sha256": "772168982d379d3a1f00478cd9e3841b1da97e5c20fd58ed373e7cc1e581118d"
+    },
+    {
+      "file": "dataset-v5/evaluator/V5-P05-FORMAL-capability/mutants/03.mjs",
+      "sha256": "824db62dac366179411ae18f7e4787305560fdaadf441b36fc0b07ec7098484b"
+    },
+    {
+      "file": "dataset-v5/evaluator/V5-P05-FORMAL-capability/reference.mjs",
+      "sha256": "142fe6b84edc0825c612f09a9324c959d8095c6aad315e1249475fd4c070ebfe"
+    },
+    {
+      "file": "dataset-v5/evaluator/V5-P06-CALIBRATION-normalize/grader.mjs",
+      "sha256": "19020df101d506729dbe88cd93752b02eab1fe8380071023d3b0f78533363e1e"
+    },
+    {
+      "file": "dataset-v5/evaluator/V5-P06-CALIBRATION-normalize/mutants.json",
+      "sha256": "1ffc2c84dcf87f7c9beb3d64525916329e8fc0bd3959917691c0b8b25500fd9c"
+    },
+    {
+      "file": "dataset-v5/evaluator/V5-P06-CALIBRATION-normalize/mutants/01.mjs",
+      "sha256": "33487b21c102df176485235edfe1cc315e83c3f6f8a6a349abb531bd3a06ea44"
+    },
+    {
+      "file": "dataset-v5/evaluator/V5-P06-CALIBRATION-normalize/mutants/02.mjs",
+      "sha256": "606e27c77065532e798984b8d86c31278c94655f1d48ed023d84df77f0789613"
+    },
+    {
+      "file": "dataset-v5/evaluator/V5-P06-CALIBRATION-normalize/mutants/03.mjs",
+      "sha256": "76798a3f49d47406ce96efa5494eee5612c4af21fa3e1e4f5a077e81e3efc7fa"
+    },
+    {
+      "file": "dataset-v5/evaluator/V5-P06-CALIBRATION-normalize/reference.mjs",
+      "sha256": "49afa7d0573014ee07c6052ce8a96d892e162a954dc2dcb2a20e35b2fd8766a9"
+    },
+    {
+      "file": "dataset-v5/evaluator/V5-P06-FORMAL-normalize/grader.mjs",
+      "sha256": "0f1dc4a3929bfb0119abbe1024877f75e17d3ce343c002218bf4a3359cd3c4a7"
+    },
+    {
+      "file": "dataset-v5/evaluator/V5-P06-FORMAL-normalize/mutants.json",
+      "sha256": "1ffc2c84dcf87f7c9beb3d64525916329e8fc0bd3959917691c0b8b25500fd9c"
+    },
+    {
+      "file": "dataset-v5/evaluator/V5-P06-FORMAL-normalize/mutants/01.mjs",
+      "sha256": "de03cbb88269f460226a05864484a4c381a405bafe35f4e445abd99abdbff27f"
+    },
+    {
+      "file": "dataset-v5/evaluator/V5-P06-FORMAL-normalize/mutants/02.mjs",
+      "sha256": "a788ecd5f4ad6293288a04f97bed0290c77299a47a9bcc37572fd8b441e4d178"
+    },
+    {
+      "file": "dataset-v5/evaluator/V5-P06-FORMAL-normalize/mutants/03.mjs",
+      "sha256": "d39177da529b67df888205db0fc195a83e0dd4e7762aa11d00f48fb2035330c2"
+    },
+    {
+      "file": "dataset-v5/evaluator/V5-P06-FORMAL-normalize/reference.mjs",
+      "sha256": "3ea2233af163127ed6789dd6713ef371e944ec6009a090975b0ee353cab24f39"
+    },
+    {
+      "file": "dataset-v5/evaluator/V5-P07-CALIBRATION-auth/grader.mjs",
+      "sha256": "6335d42f31ac29124be02d663d4054e373deaf5e17f721a436499ccb20f1c440"
+    },
+    {
+      "file": "dataset-v5/evaluator/V5-P07-CALIBRATION-auth/mutants.json",
+      "sha256": "9d43f7b1b5472925d93faae9a0665af139ebd950b3da5c769668b6bf7b516f7d"
+    },
+    {
+      "file": "dataset-v5/evaluator/V5-P07-CALIBRATION-auth/mutants/01.mjs",
+      "sha256": "a8a396d1ac9ef30046c005fd879aa7eb93bfb18f622662be1d78a5f16da50bda"
+    },
+    {
+      "file": "dataset-v5/evaluator/V5-P07-CALIBRATION-auth/mutants/02.mjs",
+      "sha256": "28d8377faa310d42a3fd0ed71b4a3e43fb4d6496a5da611df06ab01ca11e8807"
+    },
+    {
+      "file": "dataset-v5/evaluator/V5-P07-CALIBRATION-auth/mutants/03.mjs",
+      "sha256": "c1dcc0ec7f894c737e924b67d6897bdb80a76fdcda1e82b62950ef28676ede2f"
+    },
+    {
+      "file": "dataset-v5/evaluator/V5-P07-CALIBRATION-auth/reference.mjs",
+      "sha256": "aad80b47d2e259b5912f0691f3629981c3a03af2429f9ec50e4e29d6b1ffce09"
+    },
+    {
+      "file": "dataset-v5/evaluator/V5-P07-FORMAL-auth/grader.mjs",
+      "sha256": "074eace70373154cdde3cb933195d28319f1f5de638f4ffbf7df90275d7d9f7d"
+    },
+    {
+      "file": "dataset-v5/evaluator/V5-P07-FORMAL-auth/mutants.json",
+      "sha256": "8e910baa6e7d942c36b325d4d744e783518b9f235b0fbd0e326decaeb30f5777"
+    },
+    {
+      "file": "dataset-v5/evaluator/V5-P07-FORMAL-auth/mutants/01.mjs",
+      "sha256": "2a8c073d9987be51de39b599871a3239222cb99a68782b3f078b753cc107c0fd"
+    },
+    {
+      "file": "dataset-v5/evaluator/V5-P07-FORMAL-auth/mutants/02.mjs",
+      "sha256": "05912c9f951508d140865d5ddfe906886b058fca0e79c2616f2387ac654f5d9e"
+    },
+    {
+      "file": "dataset-v5/evaluator/V5-P07-FORMAL-auth/mutants/03.mjs",
+      "sha256": "43c72c1835b3ba4368acfd441bdaacc9849666a5ca07a6c8dae101d1459ed2c6"
+    },
+    {
+      "file": "dataset-v5/evaluator/V5-P07-FORMAL-auth/reference.mjs",
+      "sha256": "b19864edc4320713e1173f5e4fe8357b8e36b50c85d1badf0cccaa1ebd2ce1b4"
+    },
+    {
+      "file": "dataset-v5/evaluator/V5-P08-CALIBRATION-retry/grader.mjs",
+      "sha256": "602072b987c503611002524e65faa371b4fa1119f1a16c9d2875dc57f344064a"
+    },
+    {
+      "file": "dataset-v5/evaluator/V5-P08-CALIBRATION-retry/mutants.json",
+      "sha256": "74fed41ca526e2ea336d692ef9332e226b95c2ccc24fb842bb902fef0560fdbc"
+    },
+    {
+      "file": "dataset-v5/evaluator/V5-P08-CALIBRATION-retry/mutants/01.mjs",
+      "sha256": "81787aaaaf9a040df98f1e4faa7fe19a621a24bb9e4c21558633419f4d9d1a75"
+    },
+    {
+      "file": "dataset-v5/evaluator/V5-P08-CALIBRATION-retry/mutants/02.mjs",
+      "sha256": "9cf121dfb6ed879bda868e9090ff86548732fc609d5e997cb213db3056f028ce"
+    },
+    {
+      "file": "dataset-v5/evaluator/V5-P08-CALIBRATION-retry/mutants/03.mjs",
+      "sha256": "7795f0c44ce32021f8509e9333d018f912f0307b5608f4bc0d9ee9f5e5e3918f"
+    },
+    {
+      "file": "dataset-v5/evaluator/V5-P08-CALIBRATION-retry/reference.mjs",
+      "sha256": "1c36a4fe98331162e448ab3e98b8b5e98467c4a5dfe876ef9c1f608f3f63c105"
+    },
+    {
+      "file": "dataset-v5/evaluator/V5-P08-FORMAL-circuit/grader.mjs",
+      "sha256": "2e7a817ec42f34a35b4695c4e988e044f012f11af2ed6b915f3dba702eceffe4"
+    },
+    {
+      "file": "dataset-v5/evaluator/V5-P08-FORMAL-circuit/mutants.json",
+      "sha256": "40b7e241da4bc76481ecc54cc84d8a869ee4b427d3cf4d85ab9d0fa4a3cbd946"
+    },
+    {
+      "file": "dataset-v5/evaluator/V5-P08-FORMAL-circuit/mutants/01.mjs",
+      "sha256": "817578567df0cd0eef6ac65614d0f0c8173b8db94b0e31cec038e987b9477533"
+    },
+    {
+      "file": "dataset-v5/evaluator/V5-P08-FORMAL-circuit/mutants/02.mjs",
+      "sha256": "bd327dd20c7f23df86c741772108b5e384f04f1b3a9a2b88507fcffb9ac3c375"
+    },
+    {
+      "file": "dataset-v5/evaluator/V5-P08-FORMAL-circuit/mutants/03.mjs",
+      "sha256": "8cf991c21a7d41c4651bbf61465a3045b86d59b260e308e3d9a2dfbcbd604864"
+    },
+    {
+      "file": "dataset-v5/evaluator/V5-P08-FORMAL-circuit/reference.mjs",
+      "sha256": "bd5248018a92522606163d08144ecfed65a83ebff0810b940fd5bcadb9004efd"
+    },
+    {
+      "file": "dataset-v5/fixtures/V5-P01-CALIBRATION-config/docs/contract.json",
+      "sha256": "eccbb1c154b9b030c2cc021e3c381c475f92ecdac2b808b4b8d1d805fb1b43a4"
+    },
+    {
+      "file": "dataset-v5/fixtures/V5-P01-CALIBRATION-config/package.json",
+      "sha256": "1ec9f9e8f642d3b9571c94781d8b12ac6adcf868c29b9cb82ff469f23ca25555"
+    },
+    {
+      "file": "dataset-v5/fixtures/V5-P01-CALIBRATION-config/src/solution.mjs",
+      "sha256": "c0d1127d15074ae513b6b17b0a54d82f4bb19aa974739c293aed9143a380325a"
+    },
+    {
+      "file": "dataset-v5/fixtures/V5-P01-CALIBRATION-config/test/public.mjs",
+      "sha256": "1cbab1d22705145536071bf9d417af82c04be0f54a16c969eaca67ecb2eca6d8"
+    },
+    {
+      "file": "dataset-v5/fixtures/V5-P01-FORMAL-config/docs/contract.json",
+      "sha256": "60f9f8bbc8bd29c2c86ef6af2085e0e08e02bde515073a7d18b45b0ae05c6fe5"
+    },
+    {
+      "file": "dataset-v5/fixtures/V5-P01-FORMAL-config/package.json",
+      "sha256": "1ec9f9e8f642d3b9571c94781d8b12ac6adcf868c29b9cb82ff469f23ca25555"
+    },
+    {
+      "file": "dataset-v5/fixtures/V5-P01-FORMAL-config/src/solution.mjs",
+      "sha256": "99fe7bd668cb07cd17caf8960c1e201915b53ebd2e7606bfa15f228b3f915214"
+    },
+    {
+      "file": "dataset-v5/fixtures/V5-P01-FORMAL-config/test/public.mjs",
+      "sha256": "8ec301a5ef562faa2ce474977f44c10c6da0137a1fbb75edbb6a946657aa009c"
+    },
+    {
+      "file": "dataset-v5/fixtures/V5-P02-CALIBRATION-migration/docs/contract.json",
+      "sha256": "8c57933af79bdb35b752c4da3ba3993a0525f61de24d79bfd2b35c6aad9edd78"
+    },
+    {
+      "file": "dataset-v5/fixtures/V5-P02-CALIBRATION-migration/package.json",
+      "sha256": "1ec9f9e8f642d3b9571c94781d8b12ac6adcf868c29b9cb82ff469f23ca25555"
+    },
+    {
+      "file": "dataset-v5/fixtures/V5-P02-CALIBRATION-migration/src/journal.mjs",
+      "sha256": "2963152e28ce5bc47b57da6b405bba8f3eb0cb6f26ea20bcb88d0748c26bafce"
+    },
+    {
+      "file": "dataset-v5/fixtures/V5-P02-CALIBRATION-migration/src/solution.mjs",
+      "sha256": "5f5a4de4db2df9365adefc49ad8cb11004c5d3e4f391f01d9b94cd95370751ce"
+    },
+    {
+      "file": "dataset-v5/fixtures/V5-P02-CALIBRATION-migration/test/public.mjs",
+      "sha256": "bdf5056aec964eefa5ea8eb40740aae5937f11ce0824c265915acd0db3b868d0"
+    },
+    {
+      "file": "dataset-v5/fixtures/V5-P02-FORMAL-migration/docs/contract.json",
+      "sha256": "e383b70db9d65a134bb1bda7cdda52d85596c03adb388deb532b7733fbda33d9"
+    },
+    {
+      "file": "dataset-v5/fixtures/V5-P02-FORMAL-migration/package.json",
+      "sha256": "1ec9f9e8f642d3b9571c94781d8b12ac6adcf868c29b9cb82ff469f23ca25555"
+    },
+    {
+      "file": "dataset-v5/fixtures/V5-P02-FORMAL-migration/src/ledger.mjs",
+      "sha256": "f37baf4873c4746a77a4c98d872d97d43f482fbcaf11fa68a15fac5524246758"
+    },
+    {
+      "file": "dataset-v5/fixtures/V5-P02-FORMAL-migration/src/solution.mjs",
+      "sha256": "dedfb192f49029db65a6ec1eb9f8387d2127ee16f25a514d11244f74abb4f2d3"
+    },
+    {
+      "file": "dataset-v5/fixtures/V5-P02-FORMAL-migration/test/public.mjs",
+      "sha256": "ec5c9a257d9b32abc81f0bd7a1b6506f2394ce5e226ff95a1fdb8ca3a83e968e"
+    },
+    {
+      "file": "dataset-v5/fixtures/V5-P03-CALIBRATION-cache/docs/contract.json",
+      "sha256": "70c58c0544f4aa03fa8128bb8e8336cf9e0249390160b06fad68c6632789b5e4"
+    },
+    {
+      "file": "dataset-v5/fixtures/V5-P03-CALIBRATION-cache/package.json",
+      "sha256": "1ec9f9e8f642d3b9571c94781d8b12ac6adcf868c29b9cb82ff469f23ca25555"
+    },
+    {
+      "file": "dataset-v5/fixtures/V5-P03-CALIBRATION-cache/src/solution.mjs",
+      "sha256": "c7f85d0b65d8f4ec64278aa847f50ff541401af5c99d7cdd2178e18984fd768b"
+    },
+    {
+      "file": "dataset-v5/fixtures/V5-P03-CALIBRATION-cache/test/public.mjs",
+      "sha256": "be9606d6b9435ec188bd88f9e4a87f2eb6cb6d5bb9ed58c3fd2e169749d8be2b"
+    },
+    {
+      "file": "dataset-v5/fixtures/V5-P03-FORMAL-cache/docs/contract.json",
+      "sha256": "37be08ff39dc132b3818f9361ab86416fe580dfd2e13928f845c3e678178b3fa"
+    },
+    {
+      "file": "dataset-v5/fixtures/V5-P03-FORMAL-cache/package.json",
+      "sha256": "1ec9f9e8f642d3b9571c94781d8b12ac6adcf868c29b9cb82ff469f23ca25555"
+    },
+    {
+      "file": "dataset-v5/fixtures/V5-P03-FORMAL-cache/src/solution.mjs",
+      "sha256": "6cb37926bebc9936b2752dd168c0503547b4c0b99958f015f1e52b60f72d998f"
+    },
+    {
+      "file": "dataset-v5/fixtures/V5-P03-FORMAL-cache/test/public.mjs",
+      "sha256": "8916a1bae679eabfcc6ac2eb14b95bfd33575fdd1e037c79c908c938c9bb8c55"
+    },
+    {
+      "file": "dataset-v5/fixtures/V5-P04-CALIBRATION-stream/docs/contract.json",
+      "sha256": "15f7b60677eea0eaf89017443946d4ea35988f7b0528011c3ec363f0fd310c64"
+    },
+    {
+      "file": "dataset-v5/fixtures/V5-P04-CALIBRATION-stream/package.json",
+      "sha256": "1ec9f9e8f642d3b9571c94781d8b12ac6adcf868c29b9cb82ff469f23ca25555"
+    },
+    {
+      "file": "dataset-v5/fixtures/V5-P04-CALIBRATION-stream/src/solution.mjs",
+      "sha256": "1618cb56fc30c99bf7fb17ed96c45cd7e839c2d139395758652fde5c2ef42c37"
+    },
+    {
+      "file": "dataset-v5/fixtures/V5-P04-CALIBRATION-stream/test/public.mjs",
+      "sha256": "a3e9e72048462f831babfd4463ba6b946b7089834a651e41235832663b5c3c78"
+    },
+    {
+      "file": "dataset-v5/fixtures/V5-P04-FORMAL-stream/docs/contract.json",
+      "sha256": "6dcea5be7082288945b2e384c028aa2d33835d3897df5d5f596db80e613e94e6"
+    },
+    {
+      "file": "dataset-v5/fixtures/V5-P04-FORMAL-stream/package.json",
+      "sha256": "1ec9f9e8f642d3b9571c94781d8b12ac6adcf868c29b9cb82ff469f23ca25555"
+    },
+    {
+      "file": "dataset-v5/fixtures/V5-P04-FORMAL-stream/src/solution.mjs",
+      "sha256": "96448a571ff7a4286246bd8119b3b88ca93ab090e356acd49d3e1e360ec32b57"
+    },
+    {
+      "file": "dataset-v5/fixtures/V5-P04-FORMAL-stream/test/public.mjs",
+      "sha256": "d38768f1969a84aee30328f50cf4342a4faf03e3e374df80899c1d4ee7aa127a"
+    },
+    {
+      "file": "dataset-v5/fixtures/V5-P05-CALIBRATION-capability/docs/contract.json",
+      "sha256": "424506602846f74a661ba7a43d4e8dc6ab59c6b145ddf8f2a35ede9b53ebd8f9"
+    },
+    {
+      "file": "dataset-v5/fixtures/V5-P05-CALIBRATION-capability/package.json",
+      "sha256": "1ec9f9e8f642d3b9571c94781d8b12ac6adcf868c29b9cb82ff469f23ca25555"
+    },
+    {
+      "file": "dataset-v5/fixtures/V5-P05-CALIBRATION-capability/src/protocol.mjs",
+      "sha256": "7391e6f4b634237c32f2901508703f5b7226920f9fb2b45163749320d8993c48"
+    },
+    {
+      "file": "dataset-v5/fixtures/V5-P05-CALIBRATION-capability/src/solution.mjs",
+      "sha256": "bdc65d0e85be9c065aff9384a8e561df45b7889b8547f8eb03b3dae28bdcde60"
+    },
+    {
+      "file": "dataset-v5/fixtures/V5-P05-CALIBRATION-capability/test/public.mjs",
+      "sha256": "29cd54d5a70e31ee8d8eeef419d996c3d4c7d0f9e434d82e041d87910f6f6930"
+    },
+    {
+      "file": "dataset-v5/fixtures/V5-P05-FORMAL-capability/docs/contract.json",
+      "sha256": "7cff969e0efd20c6cdedd038f214f0d08b9bc1dc8d8c221b8a8b8958981e87e1"
+    },
+    {
+      "file": "dataset-v5/fixtures/V5-P05-FORMAL-capability/package.json",
+      "sha256": "1ec9f9e8f642d3b9571c94781d8b12ac6adcf868c29b9cb82ff469f23ca25555"
+    },
+    {
+      "file": "dataset-v5/fixtures/V5-P05-FORMAL-capability/src/codecs.mjs",
+      "sha256": "c193274a2084b068f60fe02baf6cf3d76929a8612b0b7930587bf6199d6b2849"
+    },
+    {
+      "file": "dataset-v5/fixtures/V5-P05-FORMAL-capability/src/solution.mjs",
+      "sha256": "32f46e01e1cb2d74f3f51fa3a41ea561c2baa902ac56c376c01495a2c9bd8712"
+    },
+    {
+      "file": "dataset-v5/fixtures/V5-P05-FORMAL-capability/test/public.mjs",
+      "sha256": "39e56da546a6d5d78c02ee269bed134d4e29ff67166a28816e7b9f4c0cafdf17"
+    },
+    {
+      "file": "dataset-v5/fixtures/V5-P06-CALIBRATION-normalize/docs/contract.json",
+      "sha256": "c283f9bb1ee6b3efe90cc747667039029ef555f0e2ba677230a0adb30138c984"
+    },
+    {
+      "file": "dataset-v5/fixtures/V5-P06-CALIBRATION-normalize/package.json",
+      "sha256": "1ec9f9e8f642d3b9571c94781d8b12ac6adcf868c29b9cb82ff469f23ca25555"
+    },
+    {
+      "file": "dataset-v5/fixtures/V5-P06-CALIBRATION-normalize/src/solution.mjs",
+      "sha256": "8965fe353a80e218f8feb04bffa4df952f6c585b41c972975a6d1b91c2368965"
+    },
+    {
+      "file": "dataset-v5/fixtures/V5-P06-CALIBRATION-normalize/test/public.mjs",
+      "sha256": "a3ded523bc7f69ab06197fbd9f25f5b8baf59df6da4103f90b9f1e3b8a8ce737"
+    },
+    {
+      "file": "dataset-v5/fixtures/V5-P06-FORMAL-normalize/docs/contract.json",
+      "sha256": "1413ba87bcd14240febc90dc4268b657016028451987afd5bf8a2f88e40e1075"
+    },
+    {
+      "file": "dataset-v5/fixtures/V5-P06-FORMAL-normalize/package.json",
+      "sha256": "1ec9f9e8f642d3b9571c94781d8b12ac6adcf868c29b9cb82ff469f23ca25555"
+    },
+    {
+      "file": "dataset-v5/fixtures/V5-P06-FORMAL-normalize/src/solution.mjs",
+      "sha256": "6fbea50c9368a0d47a09bc5d1e12d7fa3d52faeddee694b48e2ae47b46ac5dfb"
+    },
+    {
+      "file": "dataset-v5/fixtures/V5-P06-FORMAL-normalize/test/public.mjs",
+      "sha256": "0fce3a3056ffaa00784c8fed3991dd05c4962226be1710e25abdbc0dc9393ec4"
+    },
+    {
+      "file": "dataset-v5/fixtures/V5-P07-CALIBRATION-auth/docs/contract.json",
+      "sha256": "acc909fb3cbf878644674cdfb90343fb20a18cd8700d223e877db4818ad96f5f"
+    },
+    {
+      "file": "dataset-v5/fixtures/V5-P07-CALIBRATION-auth/package.json",
+      "sha256": "1ec9f9e8f642d3b9571c94781d8b12ac6adcf868c29b9cb82ff469f23ca25555"
+    },
+    {
+      "file": "dataset-v5/fixtures/V5-P07-CALIBRATION-auth/src/solution.mjs",
+      "sha256": "edab80a4ecdcbbc0cfdd5f4496c1e00d3ea8ee8453693ccc714f987a1571e56d"
+    },
+    {
+      "file": "dataset-v5/fixtures/V5-P07-CALIBRATION-auth/test/public.mjs",
+      "sha256": "7312008c2676ef94069586c4dc3dee8fd53967cfa5fd4d45a819c97f74312bd7"
+    },
+    {
+      "file": "dataset-v5/fixtures/V5-P07-FORMAL-auth/docs/contract.json",
+      "sha256": "19c7b6d57bfef37c3c967a0f82a2077dfa37da4b32229d02a31946dd10d19492"
+    },
+    {
+      "file": "dataset-v5/fixtures/V5-P07-FORMAL-auth/package.json",
+      "sha256": "1ec9f9e8f642d3b9571c94781d8b12ac6adcf868c29b9cb82ff469f23ca25555"
+    },
+    {
+      "file": "dataset-v5/fixtures/V5-P07-FORMAL-auth/src/solution.mjs",
+      "sha256": "1ba08c25992f09fb4a8599f5b24087bbc57a2d09c99b21cdc9009dce120787fe"
+    },
+    {
+      "file": "dataset-v5/fixtures/V5-P07-FORMAL-auth/test/public.mjs",
+      "sha256": "a12a466925798606be911eedb850455e92bdadd72814ee1aad257bcd291c4fc1"
+    },
+    {
+      "file": "dataset-v5/fixtures/V5-P08-CALIBRATION-retry/docs/contract.json",
+      "sha256": "782701fa679f4de4bb1b8c1ba20fd713e25b8dcff1bb5978c1107aa8e263cf9f"
+    },
+    {
+      "file": "dataset-v5/fixtures/V5-P08-CALIBRATION-retry/package.json",
+      "sha256": "1ec9f9e8f642d3b9571c94781d8b12ac6adcf868c29b9cb82ff469f23ca25555"
+    },
+    {
+      "file": "dataset-v5/fixtures/V5-P08-CALIBRATION-retry/src/solution.mjs",
+      "sha256": "d822c19b2b61ffb17d6bfb6a7b6e549eb5dd1b9e5b0b7a7a5468b492246c3642"
+    },
+    {
+      "file": "dataset-v5/fixtures/V5-P08-CALIBRATION-retry/test/public.mjs",
+      "sha256": "4acfe21d781497435c9cb511757e9ce396f146561d35c2e86aae490c6bdd2985"
+    },
+    {
+      "file": "dataset-v5/fixtures/V5-P08-FORMAL-circuit/docs/contract.json",
+      "sha256": "c673c3586b8040451c31857ac11d26ed8d415c141af6333bc09460ec4cc3754e"
+    },
+    {
+      "file": "dataset-v5/fixtures/V5-P08-FORMAL-circuit/package.json",
+      "sha256": "1ec9f9e8f642d3b9571c94781d8b12ac6adcf868c29b9cb82ff469f23ca25555"
+    },
+    {
+      "file": "dataset-v5/fixtures/V5-P08-FORMAL-circuit/src/solution.mjs",
+      "sha256": "f364291c8b17fac6c6af0cbdbfe6e149a236e0969e84d974d38038f2490c4c5d"
+    },
+    {
+      "file": "dataset-v5/fixtures/V5-P08-FORMAL-circuit/test/public.mjs",
+      "sha256": "8114b220ff3cbeab2e4571c7ff53d12c015b23987d527ccbf1f3159d5f862d7d"
+    },
+    {
+      "file": "dataset-v5/manifest.json",
+      "sha256": "452b19d029def9d7f473ff8c2fc84058f7de05722dc3b26dbbbe05c503705e92"
+    },
+    {
+      "file": "docs/AGENT_QUALITY_BENCHMARK_V5.md",
+      "sha256": "71cceaaee89dfdddd3659bf48bcd75674f7fcf50812c6a3ec9dc7594f72206cf"
+    },
+    {
+      "file": "docs/BENCHMARK_PROTOCOL.md",
+      "sha256": "87c050560089ea1a367e6177dd6847e40360c723109f852288a9cdd2be5337a2"
+    },
+    {
+      "file": "package.json",
+      "sha256": "a2e247940930da3a35eef493f566a56b8134adaf0243110a5fe182d96b460563"
+    },
+    {
+      "file": "registry/benchmark-v5.json",
+      "sha256": "107c89bdadfa133b48c1ec811bfc13d627ae4fcf9c80f5e3e94de93f34e8008b"
+    },
+    {
+      "file": "schemas/benchmark-v5.schema.json",
+      "sha256": "b05a9d16554c8e6675c41b07018b8c03bc69c6f8917bc754336390db572c703e"
+    },
+    {
+      "file": "scripts/v5-run-grader.mjs",
+      "sha256": "b0c2d3ecb3d61d564672c036562dc8a2758c7a5cea6fc723dff2a412e79f0097"
+    },
+    {
+      "file": "src/benchmark-v5.mjs",
+      "sha256": "6ed321ed734b32ce016e5614d9d33998fd0ae1ea8c02a4878b91066076b4c76e"
+    },
+    {
+      "file": "src/codex-luna-adapter.mjs",
+      "sha256": "53d4208cd5042223c899b8b54140ce71c35a368fcc2899d757b06d2c8092bf88"
+    },
+    {
+      "file": "src/hash.mjs",
+      "sha256": "ddcb996da5fceabcf70d389ef1a7725f72b081da3214600b371dcff8d0b35343"
+    },
+    {
+      "file": "src/pilot.mjs",
+      "sha256": "7fee27e38863ab8f1540c40ff174feba7a0807df617c03b7d5ab40818192a905"
+    },
+    {
+      "file": "src/registry.mjs",
+      "sha256": "1749950cac0fc037e7037c8258439a32404a6e0489137ad92d8545e6e268d0b9"
+    }
+  ],
+  "manifestSha256": "4d8f2b19200f803e5e30aabdb7629adedeacdd842a8d328b9b659e9f11707100"
+}

@@ -1,0 +1,1 @@
+import test from 'node:test';import assert from 'node:assert/strict';import {decideAccess} from '../src/solution.mjs';test('inactive denial',()=>assert.deepEqual(decideAccess({active:false,decision:'allow',role:'auditor'}),{allowed:false,reason:'inactive'}));

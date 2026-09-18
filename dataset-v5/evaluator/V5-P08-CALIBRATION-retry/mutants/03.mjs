@@ -1,0 +1,1 @@
+export async function requestWithPolicy(op,o={}){const max=o.maxAttempts??3;let last;for(let a=1;a<=max;a++){try{return await op(a)}catch(e){last=e;if(!e?.transient||a===max)throw e;await o.onDelay?.(a+1)}}throw last}

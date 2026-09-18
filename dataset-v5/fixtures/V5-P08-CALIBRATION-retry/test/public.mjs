@@ -1,0 +1,1 @@
+import test from 'node:test';import assert from 'node:assert/strict';import {requestWithPolicy} from '../src/solution.mjs';test('first attempt success',async()=>assert.equal(await requestWithPolicy(async a=>'ok'+a),'ok1'));

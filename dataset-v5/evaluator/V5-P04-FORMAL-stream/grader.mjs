@@ -1,0 +1,7 @@
+import assert from 'node:assert/strict';
+import {pathToFileURL} from 'node:url';
+export const assertions=[{"id": "H1", "ruleIds": ["C1"]}, {"id": "H2", "ruleIds": ["C2", "C3", "C4"]}, {"id": "H3", "ruleIds": ["C3", "C5"]}];
+export const coveredRuleIds=["C1", "C2", "C3", "C4", "C5"];
+export async function grade(root){const u=pathToFileURL(root+'/src/solution.mjs');u.searchParams.set('v',String(Date.now())+Math.random());const m=await import(u.href);
+let released0=0;const finite={i:0,async next(){return this.i++?{done:true}:{value:'x',done:false}},async release(){released0++}};assert.deepEqual(await m.pipePackets(finite,{write:async()=>{}}),{released:true,count:1});assert.equal(released0,1);let events=[];const r={i:0,async next(){events.push('pull'+this.i);return this.i++<2?{value:this.i,done:false}:{done:true}}};await m.pipePackets(r,{write:async v=>{events.push('w'+v);await new Promise(x=>setTimeout(x,2));events.push('a'+v)}});assert.deepEqual(events.slice(0,4),['pull0','w1','a1','pull1']);let pulls=0,rel=0;const ac=new AbortController();const r2={async next(){pulls++;return {value:pulls,done:false}},async release(){rel++}};assert.deepEqual(await m.pipePackets(r2,{write:async v=>{if(v===2)ac.abort()}},ac.signal),{released:true,count:2});assert.equal(rel,1);assert.equal(pulls,2);const r3={async next(){return {value:1,done:false}},async release(){rel++}};await assert.rejects(()=>m.pipePackets(r3,{write:async()=>{throw Error('sink')}}),/sink/);
+}

@@ -1,0 +1,26 @@
+{
+  "version": "v5-contract-1",
+  "taskId": "V5-P08-FORMAL-circuit",
+  "rules": [
+    {
+      "id": "C1",
+      "text": "when state.open is true throw CircuitOpen before calling operation"
+    },
+    {
+      "id": "C2",
+      "text": "successful operation resets state.failures to 0 and returns its value"
+    },
+    {
+      "id": "C3",
+      "text": "each operation failure increments state.failures by one"
+    },
+    {
+      "id": "C4",
+      "text": "when failures reaches threshold (default 2), set state.open=true"
+    },
+    {
+      "id": "C5",
+      "text": "operation errors are rethrown unchanged after state update"
+    }
+  ]
+}

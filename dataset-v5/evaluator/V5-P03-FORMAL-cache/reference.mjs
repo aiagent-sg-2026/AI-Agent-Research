@@ -1,0 +1,1 @@
+const flights=new WeakMap();export async function getSnapshot(store,name,revision,loader){const ck=name+'#'+revision;if(store.has(ck))return store.get(ck);let m=flights.get(store);if(!m){m=new Map();flights.set(store,m)}if(m.has(ck))return m.get(ck);const p=(async()=>{try{const v=await loader();store.set(ck,v);return v}finally{m.delete(ck)}})();m.set(ck,p);return p}

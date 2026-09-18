@@ -27,7 +27,11 @@
     "v4:plan": "node src/benchmark-v4.mjs --plan v4-heldout-plan --seed 20260918",
     "v4:run": "node src/benchmark-v4.mjs --run v4-heldout-out --seed 20260918 --freeze v4-heldout-freeze.json --adapter config/adapter.codex-luna.vm.json",
     "v4:summary": "node src/benchmark-v4.mjs --summary v4-heldout-out",
-    "site:check": "node scripts/site-check.mjs"
+    "site:check": "node scripts/site-check.mjs",
+    "v5:validate": "node src/benchmark-v5.mjs --validate",
+    "v5:plan": "node src/benchmark-v5.mjs --plan v5-calibration-plan --seed 20260919",
+    "v5:freeze": "node src/benchmark-v5.mjs --freeze v5-scaffold-freeze.json",
+    "v5:verify": "node src/benchmark-v5.mjs --verify v5-scaffold-freeze.json"
   },
   "engines": {
     "node": ">=20"

@@ -1,0 +1,26 @@
+{
+  "version": "v5-contract-1",
+  "taskId": "V5-P01-CALIBRATION-config",
+  "rules": [
+    {
+      "id": "C1",
+      "text": "mode is safe or fast; missing/unknown mode falls back to safe"
+    },
+    {
+      "id": "C2",
+      "text": "safe defaults are burst 4/windowMs 1000; fast defaults are burst 7/windowMs 1000"
+    },
+    {
+      "id": "C3",
+      "text": "region sg overrides burst to 6 before user limits"
+    },
+    {
+      "id": "C4",
+      "text": "positive integer input.limits values override inherited limits"
+    },
+    {
+      "id": "C5",
+      "text": "result is {mode,limits,region}; limits is a fresh object"
+    }
+  ]
+}
