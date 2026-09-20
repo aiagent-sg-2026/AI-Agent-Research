@@ -1,0 +1,1 @@
+import test from 'node:test';import assert from 'node:assert/strict';import {loadEpoch} from '../src/solution.mjs';test('public hit',async()=>assert.equal(await loadEpoch(new Map([['n#4',5]]),'n',4,async()=>9),5));

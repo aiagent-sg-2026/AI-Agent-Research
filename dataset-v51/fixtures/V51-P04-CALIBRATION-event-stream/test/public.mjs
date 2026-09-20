@@ -1,0 +1,1 @@
+import test from 'node:test';import assert from 'node:assert/strict';import {drainEvents} from '../src/solution.mjs';test('public array',async()=>assert.deepEqual(await drainEvents([1,2],async()=>{}),{closed:false,count:2}));

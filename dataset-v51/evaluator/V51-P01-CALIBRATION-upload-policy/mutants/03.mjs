@@ -1,0 +1,1 @@
+const D={normal:{chunks:4,timeoutMs:900},rapid:{chunks:8,timeoutMs:500}};export function resolveUploadPolicy(input={},zone='core'){const mode=['normal','rapid'].includes(input?.mode)?input.mode:'normal';const limits={...D[mode],...(zone==='edge'?{timeoutMs:300}:{})};return {mode,limits,zone}}

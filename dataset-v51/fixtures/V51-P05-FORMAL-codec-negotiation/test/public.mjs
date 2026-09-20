@@ -1,0 +1,1 @@
+import test from 'node:test';import assert from 'node:assert/strict';import {openCodec} from '../src/solution.mjs';test('public c2',async()=>assert.equal((await openCodec({versions:['c2'],capabilities:[]},{open:async v=>({version:v})})).version,'c2'));

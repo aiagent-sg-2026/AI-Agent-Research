@@ -1,0 +1,60 @@
+{
+  "version": "v5.1-contract-1",
+  "taskId": "V51-P03-FORMAL-epoch-cache",
+  "rules": [
+    {
+      "id": "C1",
+      "text": "cache key is exact string name+'#'+epoch"
+    },
+    {
+      "id": "C2",
+      "text": "same name+epoch concurrent misses share one in-flight loader"
+    },
+    {
+      "id": "C3",
+      "text": "different epochs never share values or in-flight loaders"
+    },
+    {
+      "id": "C4",
+      "text": "rejected loader leaves no cached value and no in-flight entry"
+    }
+  ],
+  "returnSchema": {
+    "type": "integer"
+  },
+  "observationSchema": {
+    "type": "object",
+    "required": [
+      "loads",
+      "peerReturns",
+      "keys",
+      "errors"
+    ],
+    "properties": {
+      "loads": {
+        "type": "integer",
+        "minimum": 0
+      },
+      "peerReturns": {
+        "type": "array",
+        "items": {
+          "type": "integer"
+        }
+      },
+      "keys": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      },
+      "errors": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      }
+    },
+    "additionalProperties": false
+  },
+  "errorVariants": []
+}

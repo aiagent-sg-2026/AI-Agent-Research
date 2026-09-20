@@ -1,0 +1,1 @@
+export async function callBreaker(op,state,o={}){if(state.open){const e=Error('CircuitOpen');e.name='CircuitOpen';throw e}try{const v=await op();state.failures=0;return v}catch(e){state.failures=(state.failures??0)+1;if(state.failures>=(o.threshold??2))state.open=true;throw e}}

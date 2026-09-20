@@ -1,0 +1,82 @@
+{
+  "exportName": "normalizeLine",
+  "cases": [
+    {
+      "id": "H1",
+      "ruleIds": [
+        "C2",
+        "C3"
+      ],
+      "args": [
+        {
+          "code": "A",
+          "qty": "2"
+        }
+      ],
+      "expected": {
+        "return": {
+          "code": "A",
+          "qty": 2,
+          "active": false
+        },
+        "observations": {}
+      }
+    },
+    {
+      "id": "H2",
+      "ruleIds": [
+        "C4"
+      ],
+      "args": [
+        {
+          "code": "A",
+          "qty": 0,
+          "active": false,
+          "junk": 1
+        }
+      ],
+      "expected": {
+        "return": {
+          "code": "A",
+          "qty": 0,
+          "active": false
+        },
+        "observations": {}
+      }
+    },
+    {
+      "id": "H3",
+      "ruleIds": [
+        "C1",
+        "C5"
+      ],
+      "args": [
+        {
+          "code": "",
+          "qty": 1
+        }
+      ],
+      "expected": {
+        "return": null,
+        "observations": {}
+      }
+    },
+    {
+      "id": "H4",
+      "ruleIds": [
+        "C2",
+        "C5"
+      ],
+      "args": [
+        {
+          "code": "A",
+          "qty": "2x"
+        }
+      ],
+      "expected": {
+        "return": null,
+        "observations": {}
+      }
+    }
+  ]
+}

@@ -1,0 +1,851 @@
+{
+  "version": "AQB-V5.1-CALIBRATED-001",
+  "pairs": [
+    "V51-P01",
+    "V51-P06",
+    "V51-P07",
+    "V51-P08",
+    "V51-P02",
+    "V51-P03",
+    "V51-P05",
+    "V51-P04"
+  ],
+  "siblings": [
+    "V51-P01-CALIBRATION-upload-policy",
+    "V51-P01-FORMAL-render-policy",
+    "V51-P06-CALIBRATION-normalize-line",
+    "V51-P06-FORMAL-normalize-party",
+    "V51-P07-CALIBRATION-portal-access",
+    "V51-P07-FORMAL-report-access",
+    "V51-P08-CALIBRATION-retry-upload",
+    "V51-P08-FORMAL-circuit",
+    "V51-P02-CALIBRATION-stock-moves",
+    "V51-P02-FORMAL-ledger-post",
+    "V51-P03-CALIBRATION-version-cache",
+    "V51-P03-FORMAL-epoch-cache",
+    "V51-P05-CALIBRATION-peer-negotiation",
+    "V51-P05-FORMAL-codec-negotiation",
+    "V51-P04-CALIBRATION-event-stream",
+    "V51-P04-FORMAL-chunk-stream"
+  ],
+  "methodHash": "e0054a92619eabd4d5194533ca34523c59cb83c53fd1ea7a7ea680bbc241af03",
+  "delivery": {
+    "version": "AQB-V5.1-CALIBRATED-001",
+    "methodHash": "e0054a92619eabd4d5194533ca34523c59cb83c53fd1ea7a7ea680bbc241af03",
+    "arms": [
+      {
+        "id": "A0",
+        "semantics": null,
+        "channel": "plain task prompt"
+      },
+      {
+        "id": "A1",
+        "semantics": "e0054a92619eabd4d5194533ca34523c59cb83c53fd1ea7a7ea680bbc241af03",
+        "channel": "user prompt"
+      },
+      {
+        "id": "A2",
+        "semantics": "e0054a92619eabd4d5194533ca34523c59cb83c53fd1ea7a7ea680bbc241af03",
+        "channel": "candidate AGENTS.md"
+      },
+      {
+        "id": "A3",
+        "semantics": "e0054a92619eabd4d5194533ca34523c59cb83c53fd1ea7a7ea680bbc241af03",
+        "channel": "candidate-visible skill plus explicit invocation directive"
+      }
+    ]
+  },
+  "selectionPolicy": {
+    "version": "v5.1-selection-1",
+    "principle": "treatment-blind aggregate difficulty",
+    "qualifyCombinedSuccessMin": 1,
+    "qualifyCombinedSuccessMax": 3,
+    "cellsPerPair": 4,
+    "rank": [
+      "distance-to-2-successes",
+      "registry-pair-order"
+    ],
+    "requiredQualifiedPairs": 6,
+    "ifInsufficient": "stop"
+  },
+  "adapter": {
+    "file": "config/adapter.codex-luna.vm.json",
+    "sha256": "d383d3c46f18302e72f13d590368453b87d74979031707f1ca138ea88ae9ad82",
+    "model": "gpt-5.6-luna",
+    "reasoningEffort": "medium",
+    "cliVersion": "0.153.4"
+  },
+  "validation": {
+    "version": "AQB-V5.1-CALIBRATED-001",
+    "pairs": 8,
+    "siblings": 16,
+    "tasks": 16,
+    "baselines": 16,
+    "references": 16,
+    "mutants": 48,
+    "modelCalls": 0
+  },
+  "entries": [
+    {
+      "file": "config/adapter.codex-luna.vm.json",
+      "sha256": "d383d3c46f18302e72f13d590368453b87d74979031707f1ca138ea88ae9ad82"
+    },
+    {
+      "file": "dataset-v51/evaluator/V51-P01-CALIBRATION-upload-policy/cases.json",
+      "sha256": "2951bef3db21ded23b383fc4cfc65576141d9755c3e169a10919daa3f152f7ed"
+    },
+    {
+      "file": "dataset-v51/evaluator/V51-P01-CALIBRATION-upload-policy/driver.mjs",
+      "sha256": "136f81f62d0b8b0c14eb49beef0bfb6a126e1556160b2594c9311689838b9d8c"
+    },
+    {
+      "file": "dataset-v51/evaluator/V51-P01-CALIBRATION-upload-policy/mutants.json",
+      "sha256": "40b7e241da4bc76481ecc54cc84d8a869ee4b427d3cf4d85ab9d0fa4a3cbd946"
+    },
+    {
+      "file": "dataset-v51/evaluator/V51-P01-CALIBRATION-upload-policy/mutants/01.mjs",
+      "sha256": "2fd630229d286127b5b83f6604ce34ffc7ddcd013c28a21bb484ea2e3c07c73a"
+    },
+    {
+      "file": "dataset-v51/evaluator/V51-P01-CALIBRATION-upload-policy/mutants/02.mjs",
+      "sha256": "ba61a7e0cf5f223459845535548d7104c5d15b80708842d403bb29f1ec8411e4"
+    },
+    {
+      "file": "dataset-v51/evaluator/V51-P01-CALIBRATION-upload-policy/mutants/03.mjs",
+      "sha256": "7303675d390f563c159b5d51a62b8ef490973e8c7029d9b1a4b3e0af4b4ff415"
+    },
+    {
+      "file": "dataset-v51/evaluator/V51-P01-CALIBRATION-upload-policy/reference.mjs",
+      "sha256": "65d9fcace9279c7fe68a81d36959131c05a76d6e917c2c2b45e3927b85a0591a"
+    },
+    {
+      "file": "dataset-v51/evaluator/V51-P01-FORMAL-render-policy/cases.json",
+      "sha256": "b4ff55d6f6e5217ea278693503c54f5172cd037f38395b3bed83fa0e5c11e98d"
+    },
+    {
+      "file": "dataset-v51/evaluator/V51-P01-FORMAL-render-policy/driver.mjs",
+      "sha256": "136f81f62d0b8b0c14eb49beef0bfb6a126e1556160b2594c9311689838b9d8c"
+    },
+    {
+      "file": "dataset-v51/evaluator/V51-P01-FORMAL-render-policy/mutants.json",
+      "sha256": "40b7e241da4bc76481ecc54cc84d8a869ee4b427d3cf4d85ab9d0fa4a3cbd946"
+    },
+    {
+      "file": "dataset-v51/evaluator/V51-P01-FORMAL-render-policy/mutants/01.mjs",
+      "sha256": "bb1807e85edd4f1f4946b9787da6798421b35ccf083ea8cd5a45a4b820e1ee17"
+    },
+    {
+      "file": "dataset-v51/evaluator/V51-P01-FORMAL-render-policy/mutants/02.mjs",
+      "sha256": "5ee2841c4d6a17eca1d8f8a40baef2dd440767a7cd07628af8885577f07cd752"
+    },
+    {
+      "file": "dataset-v51/evaluator/V51-P01-FORMAL-render-policy/mutants/03.mjs",
+      "sha256": "7fa23d727147cf626fb6b874a577af184d0f4e05fc064794e93a2f6170781af2"
+    },
+    {
+      "file": "dataset-v51/evaluator/V51-P01-FORMAL-render-policy/reference.mjs",
+      "sha256": "a9d0318be187d4870c9e3a8cd8463bbe9270f2ed982092445e52a05a0b2e801f"
+    },
+    {
+      "file": "dataset-v51/evaluator/V51-P02-CALIBRATION-stock-moves/cases.json",
+      "sha256": "2a862348eb7dd2d7e8de1610f47ad0333808bac32d5accd1cc1decb28fe407b9"
+    },
+    {
+      "file": "dataset-v51/evaluator/V51-P02-CALIBRATION-stock-moves/driver.mjs",
+      "sha256": "c8ec44c26fe605b3020ebda8b81880a4f2ab51db132e0ec7ef0244e10f287e54"
+    },
+    {
+      "file": "dataset-v51/evaluator/V51-P02-CALIBRATION-stock-moves/mutants.json",
+      "sha256": "bb85607662dc22191822feee69b952b85f56500c8a31ff6483fb3dba430fdc07"
+    },
+    {
+      "file": "dataset-v51/evaluator/V51-P02-CALIBRATION-stock-moves/mutants/01.mjs",
+      "sha256": "67d5818ad31e7aec8e8d40d0a9873c6daa89e43bf3ce055f13a7603a5360e132"
+    },
+    {
+      "file": "dataset-v51/evaluator/V51-P02-CALIBRATION-stock-moves/mutants/02.mjs",
+      "sha256": "2af5062b76a73482ec017401ae409e33bc3c8d463365556d4b0f3e93146f8654"
+    },
+    {
+      "file": "dataset-v51/evaluator/V51-P02-CALIBRATION-stock-moves/mutants/03.mjs",
+      "sha256": "7267b2f2dc94e0055ca3c8a92d7ff3b66d2966d7bb25c82664dc42afc2317799"
+    },
+    {
+      "file": "dataset-v51/evaluator/V51-P02-CALIBRATION-stock-moves/reference.mjs",
+      "sha256": "72ab06490a40e29308606d542c8b0d9c21e9a3772e8b4e1d2e7bb1f1bf343b0c"
+    },
+    {
+      "file": "dataset-v51/evaluator/V51-P02-FORMAL-ledger-post/cases.json",
+      "sha256": "e904a1a87da863985a3782690bc1c23897d28b63e66fd309fa378de9a2bce669"
+    },
+    {
+      "file": "dataset-v51/evaluator/V51-P02-FORMAL-ledger-post/driver.mjs",
+      "sha256": "84e7f0fa0a8608234834520fe60d28737a62b5f43bfee7343a4a54b8c3a3854f"
+    },
+    {
+      "file": "dataset-v51/evaluator/V51-P02-FORMAL-ledger-post/mutants.json",
+      "sha256": "bb85607662dc22191822feee69b952b85f56500c8a31ff6483fb3dba430fdc07"
+    },
+    {
+      "file": "dataset-v51/evaluator/V51-P02-FORMAL-ledger-post/mutants/01.mjs",
+      "sha256": "778a5b3b2d7c47caa08746d29e6c38b38f10c6a2db49fe5ae4fa7f446f48e50b"
+    },
+    {
+      "file": "dataset-v51/evaluator/V51-P02-FORMAL-ledger-post/mutants/02.mjs",
+      "sha256": "6f36e2fa711241bbbf4d25eeef9c157cc32d693e8852c50aea6bef7160be833f"
+    },
+    {
+      "file": "dataset-v51/evaluator/V51-P02-FORMAL-ledger-post/mutants/03.mjs",
+      "sha256": "7913f5330766a917abafea8197421de458c8a7fbdfa017524be03354f95ae696"
+    },
+    {
+      "file": "dataset-v51/evaluator/V51-P02-FORMAL-ledger-post/reference.mjs",
+      "sha256": "a904156f14682c62891900f1f3a9cefe5697f80d29920ab76d2248d2e54b13bf"
+    },
+    {
+      "file": "dataset-v51/evaluator/V51-P03-CALIBRATION-version-cache/cases.json",
+      "sha256": "abe0b08c7b5701d438d19b20495bb1f0e187cfdeaa6fce15e53263f2c8839e7f"
+    },
+    {
+      "file": "dataset-v51/evaluator/V51-P03-CALIBRATION-version-cache/driver.mjs",
+      "sha256": "f9d7a021588b7f25d01e53131d2cbd41499f8b7ed569725d24981bafb06a1fb3"
+    },
+    {
+      "file": "dataset-v51/evaluator/V51-P03-CALIBRATION-version-cache/mutants.json",
+      "sha256": "ee3a2ee2d143595c2bae3b1cdfed48270ace991d6db1cc2db2201e6918b60852"
+    },
+    {
+      "file": "dataset-v51/evaluator/V51-P03-CALIBRATION-version-cache/mutants/01.mjs",
+      "sha256": "5cbbda14d3a8f135c45f288440d559ff509535404856da06fb8c16ef8f3708c6"
+    },
+    {
+      "file": "dataset-v51/evaluator/V51-P03-CALIBRATION-version-cache/mutants/02.mjs",
+      "sha256": "10c71bb48ac5b77316c9a3da2a0106a7b2fb36705a3fe943f700fc901ddc2b57"
+    },
+    {
+      "file": "dataset-v51/evaluator/V51-P03-CALIBRATION-version-cache/mutants/03.mjs",
+      "sha256": "2de28e7d7d5aa4717da6524f415658c009b69b512637baff2cf86f59bf283ed2"
+    },
+    {
+      "file": "dataset-v51/evaluator/V51-P03-CALIBRATION-version-cache/reference.mjs",
+      "sha256": "ebb12d7f62a01ea835c5df0d2e21aba8f4508a654d6b27f068cebbeaabaca4a1"
+    },
+    {
+      "file": "dataset-v51/evaluator/V51-P03-FORMAL-epoch-cache/cases.json",
+      "sha256": "287ada463c6932a5b3cd84318fdef59ed839f8466d1fb2f347569847f9c9e905"
+    },
+    {
+      "file": "dataset-v51/evaluator/V51-P03-FORMAL-epoch-cache/driver.mjs",
+      "sha256": "3bfa6f6e567e2ceeb481a03d18d15730cc095454df2b249f1d0b467d8c7afa9a"
+    },
+    {
+      "file": "dataset-v51/evaluator/V51-P03-FORMAL-epoch-cache/mutants.json",
+      "sha256": "ee3a2ee2d143595c2bae3b1cdfed48270ace991d6db1cc2db2201e6918b60852"
+    },
+    {
+      "file": "dataset-v51/evaluator/V51-P03-FORMAL-epoch-cache/mutants/01.mjs",
+      "sha256": "257c249b4aef75305aa644fc7911933167ca3b92141c07e32f4b6b7717ac273d"
+    },
+    {
+      "file": "dataset-v51/evaluator/V51-P03-FORMAL-epoch-cache/mutants/02.mjs",
+      "sha256": "25b54e71e4c9606d6e34534648ead9f77d5ce4f212f593639deddb1b3dd02295"
+    },
+    {
+      "file": "dataset-v51/evaluator/V51-P03-FORMAL-epoch-cache/mutants/03.mjs",
+      "sha256": "f700a4928dd64cac5e57cf6d643b498bc6c49b10340c29129362583ae3d0842b"
+    },
+    {
+      "file": "dataset-v51/evaluator/V51-P03-FORMAL-epoch-cache/reference.mjs",
+      "sha256": "6b869ab073971e6ff02ce2b942ff727736783be1f9aff163ca056b64b0cdce22"
+    },
+    {
+      "file": "dataset-v51/evaluator/V51-P04-CALIBRATION-event-stream/cases.json",
+      "sha256": "44f10a0a8cac1cedc8351cdebfd97911caee3fa0ca3594481c259411746d7bb1"
+    },
+    {
+      "file": "dataset-v51/evaluator/V51-P04-CALIBRATION-event-stream/driver.mjs",
+      "sha256": "8bdce53020b05466b10cc5457d953b9d3ce3b9cf3727ea877225194f14b6ea4e"
+    },
+    {
+      "file": "dataset-v51/evaluator/V51-P04-CALIBRATION-event-stream/mutants.json",
+      "sha256": "470f8a5b270ec334a2f945b162e03e7e7aa3c89b2250cd713a6c6a2613f755cc"
+    },
+    {
+      "file": "dataset-v51/evaluator/V51-P04-CALIBRATION-event-stream/mutants/01.mjs",
+      "sha256": "50338132b6f59e6ca3f6a5c26efdfc470ca438a928d54a9928fc3600d6380147"
+    },
+    {
+      "file": "dataset-v51/evaluator/V51-P04-CALIBRATION-event-stream/mutants/02.mjs",
+      "sha256": "3e5ec8c4769435ff9c11d818f3394cb9276fc1d927ad97f3b16b35cdd6cfb45b"
+    },
+    {
+      "file": "dataset-v51/evaluator/V51-P04-CALIBRATION-event-stream/mutants/03.mjs",
+      "sha256": "d0558534cd650c572ad14f308181588b851d6ac3d7d90fc8b12ce7b57e0b91e7"
+    },
+    {
+      "file": "dataset-v51/evaluator/V51-P04-CALIBRATION-event-stream/reference.mjs",
+      "sha256": "4d5a83a3904965a3b72b94da1f95a27632b98550220f1060a5354b9792e4f428"
+    },
+    {
+      "file": "dataset-v51/evaluator/V51-P04-FORMAL-chunk-stream/cases.json",
+      "sha256": "9967eb433b863f580a0192f60dee8c7e97ff79a7414d5a2b7b3f22e8214e18c1"
+    },
+    {
+      "file": "dataset-v51/evaluator/V51-P04-FORMAL-chunk-stream/driver.mjs",
+      "sha256": "525874eef7b64d71ed6c5268847838c33cb0129fb73b2d8d5c70518c7fed68f0"
+    },
+    {
+      "file": "dataset-v51/evaluator/V51-P04-FORMAL-chunk-stream/mutants.json",
+      "sha256": "470f8a5b270ec334a2f945b162e03e7e7aa3c89b2250cd713a6c6a2613f755cc"
+    },
+    {
+      "file": "dataset-v51/evaluator/V51-P04-FORMAL-chunk-stream/mutants/01.mjs",
+      "sha256": "daa28e22852a0ddc1cdc533d99ecde8eb4467fa06b294ac88a2b6288f9725982"
+    },
+    {
+      "file": "dataset-v51/evaluator/V51-P04-FORMAL-chunk-stream/mutants/02.mjs",
+      "sha256": "e9501e6f5929ab36985cbd9acf6fee65b183d392b17b022302741316556b755f"
+    },
+    {
+      "file": "dataset-v51/evaluator/V51-P04-FORMAL-chunk-stream/mutants/03.mjs",
+      "sha256": "38e8993bd500adc5a76608075a78af9567bb1e91f4b8520cdb5404d57cc6a8a5"
+    },
+    {
+      "file": "dataset-v51/evaluator/V51-P04-FORMAL-chunk-stream/reference.mjs",
+      "sha256": "bd19d28bd35340ce829bcbbce7cc1c1fa3a37626df1d732e66123e85cefc2bd1"
+    },
+    {
+      "file": "dataset-v51/evaluator/V51-P05-CALIBRATION-peer-negotiation/cases.json",
+      "sha256": "bbfd23b5cde4491c6c8419205d847a697ff022f74cb68237b3b2c4132c569ac3"
+    },
+    {
+      "file": "dataset-v51/evaluator/V51-P05-CALIBRATION-peer-negotiation/driver.mjs",
+      "sha256": "8f83817820338fb505d248d3faa80d840a681cdd571860637d01addc09b40e71"
+    },
+    {
+      "file": "dataset-v51/evaluator/V51-P05-CALIBRATION-peer-negotiation/mutants.json",
+      "sha256": "8e910baa6e7d942c36b325d4d744e783518b9f235b0fbd0e326decaeb30f5777"
+    },
+    {
+      "file": "dataset-v51/evaluator/V51-P05-CALIBRATION-peer-negotiation/mutants/01.mjs",
+      "sha256": "c2e690ea7124b3084d7a99eb0128bd7fe125595455d53642f27c68d2832f2c8f"
+    },
+    {
+      "file": "dataset-v51/evaluator/V51-P05-CALIBRATION-peer-negotiation/mutants/02.mjs",
+      "sha256": "99cc45e5450b3e03bd833fcd71304fb42d8a482ea5e06d1e021b82137abc8b09"
+    },
+    {
+      "file": "dataset-v51/evaluator/V51-P05-CALIBRATION-peer-negotiation/mutants/03.mjs",
+      "sha256": "538265469f21625703bc2cc1f6f6786c697da734bc52b5b00da6c151ecf586a4"
+    },
+    {
+      "file": "dataset-v51/evaluator/V51-P05-CALIBRATION-peer-negotiation/reference.mjs",
+      "sha256": "83aafa73b8c2d4cfe0d990c82c7465aa1814a6cd04cde52187c4c90e606e2677"
+    },
+    {
+      "file": "dataset-v51/evaluator/V51-P05-FORMAL-codec-negotiation/cases.json",
+      "sha256": "b47e451463d470687266800972944e162cbb6801aa5b8888f5fc737da6d12e3b"
+    },
+    {
+      "file": "dataset-v51/evaluator/V51-P05-FORMAL-codec-negotiation/driver.mjs",
+      "sha256": "8f83817820338fb505d248d3faa80d840a681cdd571860637d01addc09b40e71"
+    },
+    {
+      "file": "dataset-v51/evaluator/V51-P05-FORMAL-codec-negotiation/mutants.json",
+      "sha256": "8e910baa6e7d942c36b325d4d744e783518b9f235b0fbd0e326decaeb30f5777"
+    },
+    {
+      "file": "dataset-v51/evaluator/V51-P05-FORMAL-codec-negotiation/mutants/01.mjs",
+      "sha256": "78ba44727f6328236c624d8324063bdedc557dc132cf6b5a9acc112426951926"
+    },
+    {
+      "file": "dataset-v51/evaluator/V51-P05-FORMAL-codec-negotiation/mutants/02.mjs",
+      "sha256": "bc6e8ad7d4c4e42f9395d2626d08198fdf14c652ce9aa63c800bc304de2763d4"
+    },
+    {
+      "file": "dataset-v51/evaluator/V51-P05-FORMAL-codec-negotiation/mutants/03.mjs",
+      "sha256": "38b161f1dc4b1702bad624df6743db443ff417179d56dfe9ee28430ffea2aff2"
+    },
+    {
+      "file": "dataset-v51/evaluator/V51-P05-FORMAL-codec-negotiation/reference.mjs",
+      "sha256": "45dc5d559fd822a9207a8457e4a744742557b8fafa720a1eb3bd3e91fb5606dc"
+    },
+    {
+      "file": "dataset-v51/evaluator/V51-P06-CALIBRATION-normalize-line/cases.json",
+      "sha256": "69a9c910e07ad10e896fdaca46c22bc263c6fddb0a91775ad283c95fc42d441a"
+    },
+    {
+      "file": "dataset-v51/evaluator/V51-P06-CALIBRATION-normalize-line/driver.mjs",
+      "sha256": "136f81f62d0b8b0c14eb49beef0bfb6a126e1556160b2594c9311689838b9d8c"
+    },
+    {
+      "file": "dataset-v51/evaluator/V51-P06-CALIBRATION-normalize-line/mutants.json",
+      "sha256": "1ffc2c84dcf87f7c9beb3d64525916329e8fc0bd3959917691c0b8b25500fd9c"
+    },
+    {
+      "file": "dataset-v51/evaluator/V51-P06-CALIBRATION-normalize-line/mutants/01.mjs",
+      "sha256": "2851299fa88a8638c8cdc92b0d960e80560c1fb69f25d8c273d9ad79aadd3d47"
+    },
+    {
+      "file": "dataset-v51/evaluator/V51-P06-CALIBRATION-normalize-line/mutants/02.mjs",
+      "sha256": "915041039fa5f01fe00749d06ba9f14005bf1d1fcc05aa12cdb5f038d31a250c"
+    },
+    {
+      "file": "dataset-v51/evaluator/V51-P06-CALIBRATION-normalize-line/mutants/03.mjs",
+      "sha256": "83a47e01fe32d1598151bfe36443b32d7a2d7f1ad11cebc0f772405057b9632f"
+    },
+    {
+      "file": "dataset-v51/evaluator/V51-P06-CALIBRATION-normalize-line/reference.mjs",
+      "sha256": "9b0ea6993dd08a90eab2f40b0d535b1e0693601183cf72e7885ac6288b986e1e"
+    },
+    {
+      "file": "dataset-v51/evaluator/V51-P06-FORMAL-normalize-party/cases.json",
+      "sha256": "95e2a6995a46e5bd8e3beec3ce5fdc1c20158c1ed37f94bd7d3569420cdca310"
+    },
+    {
+      "file": "dataset-v51/evaluator/V51-P06-FORMAL-normalize-party/driver.mjs",
+      "sha256": "136f81f62d0b8b0c14eb49beef0bfb6a126e1556160b2594c9311689838b9d8c"
+    },
+    {
+      "file": "dataset-v51/evaluator/V51-P06-FORMAL-normalize-party/mutants.json",
+      "sha256": "1ffc2c84dcf87f7c9beb3d64525916329e8fc0bd3959917691c0b8b25500fd9c"
+    },
+    {
+      "file": "dataset-v51/evaluator/V51-P06-FORMAL-normalize-party/mutants/01.mjs",
+      "sha256": "631205508329578349a5ca51531751e2e7bf3d4a617643191141a4d8025aead3"
+    },
+    {
+      "file": "dataset-v51/evaluator/V51-P06-FORMAL-normalize-party/mutants/02.mjs",
+      "sha256": "9cc6bc327b7d63a78d8ec837b0d4e517a328d4b6766dac3bf3ae811fb8b50246"
+    },
+    {
+      "file": "dataset-v51/evaluator/V51-P06-FORMAL-normalize-party/mutants/03.mjs",
+      "sha256": "d45c886c0b06e9ee00c92b4831312e464fed7b910de5595c0b3d16fd78eda7a7"
+    },
+    {
+      "file": "dataset-v51/evaluator/V51-P06-FORMAL-normalize-party/reference.mjs",
+      "sha256": "44d2c4e8ffa03d5945ba6d2de40212c30ab70b747428df8e772672841e3fc432"
+    },
+    {
+      "file": "dataset-v51/evaluator/V51-P07-CALIBRATION-portal-access/cases.json",
+      "sha256": "b03b4ca96c88e76da3697b29c867bf7b012f08280b72507fc2a60f8a2eb35223"
+    },
+    {
+      "file": "dataset-v51/evaluator/V51-P07-CALIBRATION-portal-access/driver.mjs",
+      "sha256": "136f81f62d0b8b0c14eb49beef0bfb6a126e1556160b2594c9311689838b9d8c"
+    },
+    {
+      "file": "dataset-v51/evaluator/V51-P07-CALIBRATION-portal-access/mutants.json",
+      "sha256": "9d43f7b1b5472925d93faae9a0665af139ebd950b3da5c769668b6bf7b516f7d"
+    },
+    {
+      "file": "dataset-v51/evaluator/V51-P07-CALIBRATION-portal-access/mutants/01.mjs",
+      "sha256": "3d58f421c253b6f4f49f7ea4249eab730ca257dc4c05889e6260b8f956730d4c"
+    },
+    {
+      "file": "dataset-v51/evaluator/V51-P07-CALIBRATION-portal-access/mutants/02.mjs",
+      "sha256": "61d4f7d937627b5ab52bb93944eb5f15b46f7ffac59466f1d18a039b845923d5"
+    },
+    {
+      "file": "dataset-v51/evaluator/V51-P07-CALIBRATION-portal-access/mutants/03.mjs",
+      "sha256": "70d9c736b7446409a44eb9e6f749ca9d76899c912e3a952c7988d0620a3434fc"
+    },
+    {
+      "file": "dataset-v51/evaluator/V51-P07-CALIBRATION-portal-access/reference.mjs",
+      "sha256": "34ca0ee2273b72d71928079253b853c0ff772c613fd157ef82e3d59f346a563d"
+    },
+    {
+      "file": "dataset-v51/evaluator/V51-P07-FORMAL-report-access/cases.json",
+      "sha256": "c36b74b95a5895451c3ebd90848327f065736833f0a94cafd60c7239f6b93059"
+    },
+    {
+      "file": "dataset-v51/evaluator/V51-P07-FORMAL-report-access/driver.mjs",
+      "sha256": "136f81f62d0b8b0c14eb49beef0bfb6a126e1556160b2594c9311689838b9d8c"
+    },
+    {
+      "file": "dataset-v51/evaluator/V51-P07-FORMAL-report-access/mutants.json",
+      "sha256": "8e910baa6e7d942c36b325d4d744e783518b9f235b0fbd0e326decaeb30f5777"
+    },
+    {
+      "file": "dataset-v51/evaluator/V51-P07-FORMAL-report-access/mutants/01.mjs",
+      "sha256": "9bfcb55ca0203e11da2e829dc4ee88e5612fe7514c193403097b4d2974903671"
+    },
+    {
+      "file": "dataset-v51/evaluator/V51-P07-FORMAL-report-access/mutants/02.mjs",
+      "sha256": "200bee7d6ccfc63e61011e40aee672d0e75326daf24b514a5ebacd7cd08a4b18"
+    },
+    {
+      "file": "dataset-v51/evaluator/V51-P07-FORMAL-report-access/mutants/03.mjs",
+      "sha256": "5db30a7f9ddef3b1bf41c10941435a2572e148b83056e8195e91e9cbd75cdcd1"
+    },
+    {
+      "file": "dataset-v51/evaluator/V51-P07-FORMAL-report-access/reference.mjs",
+      "sha256": "083767beb7a703d6f13c5f4844849022c0c7d7ad2d5f29aaa87bf2bf42ac961a"
+    },
+    {
+      "file": "dataset-v51/evaluator/V51-P08-CALIBRATION-retry-upload/cases.json",
+      "sha256": "8d0c7f05b4618dd7a7b07f143bc9a286fc1887059319a0c91c75c8f652ff5e3e"
+    },
+    {
+      "file": "dataset-v51/evaluator/V51-P08-CALIBRATION-retry-upload/driver.mjs",
+      "sha256": "43dca622e303d632aa49310b29476e3f5b746a9096ab5387cfd6b136ab3b5ca5"
+    },
+    {
+      "file": "dataset-v51/evaluator/V51-P08-CALIBRATION-retry-upload/mutants.json",
+      "sha256": "74fed41ca526e2ea336d692ef9332e226b95c2ccc24fb842bb902fef0560fdbc"
+    },
+    {
+      "file": "dataset-v51/evaluator/V51-P08-CALIBRATION-retry-upload/mutants/01.mjs",
+      "sha256": "1466d67e03bde849d3baf4a871120d37b267af5151163ab8c038238be7447438"
+    },
+    {
+      "file": "dataset-v51/evaluator/V51-P08-CALIBRATION-retry-upload/mutants/02.mjs",
+      "sha256": "099787f011822a1758cefc095ea19bd3b2ca57a5cf1f09e2d4136d2157abe7bc"
+    },
+    {
+      "file": "dataset-v51/evaluator/V51-P08-CALIBRATION-retry-upload/mutants/03.mjs",
+      "sha256": "762fb19b56bf0109b3f6ce2a8dd1433d855fe2aa37d54f400b02aa461716508c"
+    },
+    {
+      "file": "dataset-v51/evaluator/V51-P08-CALIBRATION-retry-upload/reference.mjs",
+      "sha256": "be9c68560c9262c4af32c576e12cd71c3024f759e04e4ae7b5d9323fd97e9bd6"
+    },
+    {
+      "file": "dataset-v51/evaluator/V51-P08-FORMAL-circuit/cases.json",
+      "sha256": "6131e200d430fee18af09be3865cd23110ccc3ef98dc847c816a265839118850"
+    },
+    {
+      "file": "dataset-v51/evaluator/V51-P08-FORMAL-circuit/driver.mjs",
+      "sha256": "6cec9cc6936a225302372e1a548fada59a254864241c77546523a542fa73f21b"
+    },
+    {
+      "file": "dataset-v51/evaluator/V51-P08-FORMAL-circuit/mutants.json",
+      "sha256": "40b7e241da4bc76481ecc54cc84d8a869ee4b427d3cf4d85ab9d0fa4a3cbd946"
+    },
+    {
+      "file": "dataset-v51/evaluator/V51-P08-FORMAL-circuit/mutants/01.mjs",
+      "sha256": "8c475aa6cb213aea51cdde749a397d5ada6f9dc4a692237d42f9bb2fb76a96b3"
+    },
+    {
+      "file": "dataset-v51/evaluator/V51-P08-FORMAL-circuit/mutants/02.mjs",
+      "sha256": "03a48aa9fb0a03cb537986756a4f26e1359f36728fae0b406efd4d90a78361fd"
+    },
+    {
+      "file": "dataset-v51/evaluator/V51-P08-FORMAL-circuit/mutants/03.mjs",
+      "sha256": "6af1e40ce02f85b1258c6741d5a75b7f5a62bf3e92382d2397d66122d5618728"
+    },
+    {
+      "file": "dataset-v51/evaluator/V51-P08-FORMAL-circuit/reference.mjs",
+      "sha256": "cff6f2734ba9f5505b287bb1ebe775b61d145e5b22064406c22aabe9fd82a543"
+    },
+    {
+      "file": "dataset-v51/fixtures/V51-P01-CALIBRATION-upload-policy/docs/contract.json",
+      "sha256": "704063cddaafb14eb39aeb6de06ca8889038ec05cfc4838bb1dc8f76bf9f1075"
+    },
+    {
+      "file": "dataset-v51/fixtures/V51-P01-CALIBRATION-upload-policy/package.json",
+      "sha256": "5849ff10001dd33a39e9e267ede592af625691ea4e171f3d092b8b6b64de6ec5"
+    },
+    {
+      "file": "dataset-v51/fixtures/V51-P01-CALIBRATION-upload-policy/src/solution.mjs",
+      "sha256": "dc23a393eedd9643d715c3ebafa5c233d973e7cdb849e57e8388322da0b1b119"
+    },
+    {
+      "file": "dataset-v51/fixtures/V51-P01-CALIBRATION-upload-policy/test/public.mjs",
+      "sha256": "36e2a7bb4c02fe290050fe3f853caa80a8ea9b84c8f2f48b8299515dbbf4c794"
+    },
+    {
+      "file": "dataset-v51/fixtures/V51-P01-FORMAL-render-policy/docs/contract.json",
+      "sha256": "25aff945a080c74d3d36bd8d4f8d99b645d43875221ecdbc39d3dba4176dd4e5"
+    },
+    {
+      "file": "dataset-v51/fixtures/V51-P01-FORMAL-render-policy/package.json",
+      "sha256": "5849ff10001dd33a39e9e267ede592af625691ea4e171f3d092b8b6b64de6ec5"
+    },
+    {
+      "file": "dataset-v51/fixtures/V51-P01-FORMAL-render-policy/src/solution.mjs",
+      "sha256": "b6946b1ecd65f1955b9655ab4fb671779901604f7237d033f70f7ff286e2802f"
+    },
+    {
+      "file": "dataset-v51/fixtures/V51-P01-FORMAL-render-policy/test/public.mjs",
+      "sha256": "3e16ae83df95ca66d6ea969fcf685eb3e226a019eff9fedabe806c9854cc1285"
+    },
+    {
+      "file": "dataset-v51/fixtures/V51-P02-CALIBRATION-stock-moves/docs/contract.json",
+      "sha256": "714a2ecf1c4519fd88fd2be6f465b02c705fa6e1ada4014e3e02342c70469bd9"
+    },
+    {
+      "file": "dataset-v51/fixtures/V51-P02-CALIBRATION-stock-moves/package.json",
+      "sha256": "5849ff10001dd33a39e9e267ede592af625691ea4e171f3d092b8b6b64de6ec5"
+    },
+    {
+      "file": "dataset-v51/fixtures/V51-P02-CALIBRATION-stock-moves/src/solution.mjs",
+      "sha256": "b9f3876d7a8ef8a9756afe90e6fd684487df6caaef64bb05be77717898cf37ec"
+    },
+    {
+      "file": "dataset-v51/fixtures/V51-P02-CALIBRATION-stock-moves/test/public.mjs",
+      "sha256": "e561e88431a6226432c20c2dbeca0493cfc20e2cf86febf5f839caa47329a4a0"
+    },
+    {
+      "file": "dataset-v51/fixtures/V51-P02-FORMAL-ledger-post/docs/contract.json",
+      "sha256": "665a53852441e8d4aacff2117956a08d35a17c8a803f783130b6971b75f93220"
+    },
+    {
+      "file": "dataset-v51/fixtures/V51-P02-FORMAL-ledger-post/package.json",
+      "sha256": "5849ff10001dd33a39e9e267ede592af625691ea4e171f3d092b8b6b64de6ec5"
+    },
+    {
+      "file": "dataset-v51/fixtures/V51-P02-FORMAL-ledger-post/src/solution.mjs",
+      "sha256": "eb15ace9e2e13b6cfc4caf1dfa6d03fd588fcce25e6cffc94ee539c9520f70ae"
+    },
+    {
+      "file": "dataset-v51/fixtures/V51-P02-FORMAL-ledger-post/test/public.mjs",
+      "sha256": "22a559d5b9241c897dcba654882dbea96911f08116b0a660106f27df0218e616"
+    },
+    {
+      "file": "dataset-v51/fixtures/V51-P03-CALIBRATION-version-cache/docs/contract.json",
+      "sha256": "1a96da8b4c7c89eb0422849dc8cb6371e837b71bfb1c6e551d63169eba7e8c02"
+    },
+    {
+      "file": "dataset-v51/fixtures/V51-P03-CALIBRATION-version-cache/package.json",
+      "sha256": "5849ff10001dd33a39e9e267ede592af625691ea4e171f3d092b8b6b64de6ec5"
+    },
+    {
+      "file": "dataset-v51/fixtures/V51-P03-CALIBRATION-version-cache/src/solution.mjs",
+      "sha256": "5cbbda14d3a8f135c45f288440d559ff509535404856da06fb8c16ef8f3708c6"
+    },
+    {
+      "file": "dataset-v51/fixtures/V51-P03-CALIBRATION-version-cache/test/public.mjs",
+      "sha256": "4ea6d96723dc47ede445b120f3777bc31d493137236223e1299932437e60d743"
+    },
+    {
+      "file": "dataset-v51/fixtures/V51-P03-FORMAL-epoch-cache/docs/contract.json",
+      "sha256": "5b53e4163aa519b51e8216a993262031a59aee3df2132c6af2a498ebf16cf164"
+    },
+    {
+      "file": "dataset-v51/fixtures/V51-P03-FORMAL-epoch-cache/package.json",
+      "sha256": "5849ff10001dd33a39e9e267ede592af625691ea4e171f3d092b8b6b64de6ec5"
+    },
+    {
+      "file": "dataset-v51/fixtures/V51-P03-FORMAL-epoch-cache/src/solution.mjs",
+      "sha256": "257c249b4aef75305aa644fc7911933167ca3b92141c07e32f4b6b7717ac273d"
+    },
+    {
+      "file": "dataset-v51/fixtures/V51-P03-FORMAL-epoch-cache/test/public.mjs",
+      "sha256": "9908a66b5b9a9acf299a47f55290572aeec85a5b581f64eebce1aefe504a97c1"
+    },
+    {
+      "file": "dataset-v51/fixtures/V51-P04-CALIBRATION-event-stream/docs/contract.json",
+      "sha256": "84e8e9da0295fdd1b67451fed12f27b1435db396dc0c6d4374022da5b51b3839"
+    },
+    {
+      "file": "dataset-v51/fixtures/V51-P04-CALIBRATION-event-stream/package.json",
+      "sha256": "5849ff10001dd33a39e9e267ede592af625691ea4e171f3d092b8b6b64de6ec5"
+    },
+    {
+      "file": "dataset-v51/fixtures/V51-P04-CALIBRATION-event-stream/src/solution.mjs",
+      "sha256": "50338132b6f59e6ca3f6a5c26efdfc470ca438a928d54a9928fc3600d6380147"
+    },
+    {
+      "file": "dataset-v51/fixtures/V51-P04-CALIBRATION-event-stream/test/public.mjs",
+      "sha256": "91c82a8d9eed3e50a3522915a441bd02b1134fb98fc43a8a8c1831d290d56f92"
+    },
+    {
+      "file": "dataset-v51/fixtures/V51-P04-FORMAL-chunk-stream/docs/contract.json",
+      "sha256": "aa90edcda7ce2680849fe068ee8a3fa7615d67975ada84340488ac8dd2544ee5"
+    },
+    {
+      "file": "dataset-v51/fixtures/V51-P04-FORMAL-chunk-stream/package.json",
+      "sha256": "5849ff10001dd33a39e9e267ede592af625691ea4e171f3d092b8b6b64de6ec5"
+    },
+    {
+      "file": "dataset-v51/fixtures/V51-P04-FORMAL-chunk-stream/src/solution.mjs",
+      "sha256": "daa28e22852a0ddc1cdc533d99ecde8eb4467fa06b294ac88a2b6288f9725982"
+    },
+    {
+      "file": "dataset-v51/fixtures/V51-P04-FORMAL-chunk-stream/test/public.mjs",
+      "sha256": "2a56582350ace3173693fcf52186260fe519d48d9dd5dcdadee3f8e182f64ac1"
+    },
+    {
+      "file": "dataset-v51/fixtures/V51-P05-CALIBRATION-peer-negotiation/docs/contract.json",
+      "sha256": "71ac4b58e142ae43629ab9b62ed6c4cb20192b56446a9f895e390bd803a578b7"
+    },
+    {
+      "file": "dataset-v51/fixtures/V51-P05-CALIBRATION-peer-negotiation/package.json",
+      "sha256": "5849ff10001dd33a39e9e267ede592af625691ea4e171f3d092b8b6b64de6ec5"
+    },
+    {
+      "file": "dataset-v51/fixtures/V51-P05-CALIBRATION-peer-negotiation/src/solution.mjs",
+      "sha256": "b5495d109da58653e535ebf56e158d95bc0068739ae6ad6283a62392f573c0cc"
+    },
+    {
+      "file": "dataset-v51/fixtures/V51-P05-CALIBRATION-peer-negotiation/test/public.mjs",
+      "sha256": "e30f8f656840f57308d0d1cb90c5edb68658cb2214b06be7be4eaf63ef38acd4"
+    },
+    {
+      "file": "dataset-v51/fixtures/V51-P05-FORMAL-codec-negotiation/docs/contract.json",
+      "sha256": "e8fe022f67e5c7e1f305242c01db3a133b033ebf4ac305f05ce818685153f684"
+    },
+    {
+      "file": "dataset-v51/fixtures/V51-P05-FORMAL-codec-negotiation/package.json",
+      "sha256": "5849ff10001dd33a39e9e267ede592af625691ea4e171f3d092b8b6b64de6ec5"
+    },
+    {
+      "file": "dataset-v51/fixtures/V51-P05-FORMAL-codec-negotiation/src/solution.mjs",
+      "sha256": "5c258b56aabba884103ad8b56342b2712e1af40ac80fcb0bb4047a2063bb19ed"
+    },
+    {
+      "file": "dataset-v51/fixtures/V51-P05-FORMAL-codec-negotiation/test/public.mjs",
+      "sha256": "7f9b78dcfcf0f1685fef78f6c8055e1cba0424a7156dcf2f4fc28d083d8b5eb9"
+    },
+    {
+      "file": "dataset-v51/fixtures/V51-P06-CALIBRATION-normalize-line/docs/contract.json",
+      "sha256": "59d641d4cbc15ae669f9cb87e994d65481ab5fbd7b125d543c88851fef82413f"
+    },
+    {
+      "file": "dataset-v51/fixtures/V51-P06-CALIBRATION-normalize-line/package.json",
+      "sha256": "5849ff10001dd33a39e9e267ede592af625691ea4e171f3d092b8b6b64de6ec5"
+    },
+    {
+      "file": "dataset-v51/fixtures/V51-P06-CALIBRATION-normalize-line/src/solution.mjs",
+      "sha256": "4c8e65566b32fbe1db93d7edf29cc705100ee0a05847bd59992a6f5726498ec8"
+    },
+    {
+      "file": "dataset-v51/fixtures/V51-P06-CALIBRATION-normalize-line/test/public.mjs",
+      "sha256": "a64eeb153a39a2c2b4203b0c7c7ab5712db2bd067c267f59a263b5fdd4f052f9"
+    },
+    {
+      "file": "dataset-v51/fixtures/V51-P06-FORMAL-normalize-party/docs/contract.json",
+      "sha256": "d7bfbb0c29d2478d3cb02752fac84376efdfbbd810b56df1cd5deaa385725e45"
+    },
+    {
+      "file": "dataset-v51/fixtures/V51-P06-FORMAL-normalize-party/package.json",
+      "sha256": "5849ff10001dd33a39e9e267ede592af625691ea4e171f3d092b8b6b64de6ec5"
+    },
+    {
+      "file": "dataset-v51/fixtures/V51-P06-FORMAL-normalize-party/src/solution.mjs",
+      "sha256": "608c946d37e47b97d54b254360ad464e271f2370948a7fc5fa4aac5cef6ea151"
+    },
+    {
+      "file": "dataset-v51/fixtures/V51-P06-FORMAL-normalize-party/test/public.mjs",
+      "sha256": "2dc4244900ad395681532a8eea485e2757bdfaaff812c4808220881dd7a21068"
+    },
+    {
+      "file": "dataset-v51/fixtures/V51-P07-CALIBRATION-portal-access/docs/contract.json",
+      "sha256": "e81ecca7e9fb10aec643fd770947e79098c1f21f8eef2f4d4dc1797a0eaa6db9"
+    },
+    {
+      "file": "dataset-v51/fixtures/V51-P07-CALIBRATION-portal-access/package.json",
+      "sha256": "5849ff10001dd33a39e9e267ede592af625691ea4e171f3d092b8b6b64de6ec5"
+    },
+    {
+      "file": "dataset-v51/fixtures/V51-P07-CALIBRATION-portal-access/src/solution.mjs",
+      "sha256": "bd184ec419444aaaa2f91bbcdc84ad167b279fae004015a32cdcb53efc8a1fcf"
+    },
+    {
+      "file": "dataset-v51/fixtures/V51-P07-CALIBRATION-portal-access/test/public.mjs",
+      "sha256": "e586a5b3b01c19251d8c78053371426cdf6af537d96a363445a3e9f9c5abf8d1"
+    },
+    {
+      "file": "dataset-v51/fixtures/V51-P07-FORMAL-report-access/docs/contract.json",
+      "sha256": "38f78b255b51dc6e3e0c34dc131a191e36c6b91028166d2d045652cd41da9004"
+    },
+    {
+      "file": "dataset-v51/fixtures/V51-P07-FORMAL-report-access/package.json",
+      "sha256": "5849ff10001dd33a39e9e267ede592af625691ea4e171f3d092b8b6b64de6ec5"
+    },
+    {
+      "file": "dataset-v51/fixtures/V51-P07-FORMAL-report-access/src/solution.mjs",
+      "sha256": "9683807d8b097efc0e441fd4487ab3b8b08d8e78971a90f48ab20e2ae9643561"
+    },
+    {
+      "file": "dataset-v51/fixtures/V51-P07-FORMAL-report-access/test/public.mjs",
+      "sha256": "644a1931a56363472d97c0bc5d316566499aeb99b74975548a1315c810ee9c61"
+    },
+    {
+      "file": "dataset-v51/fixtures/V51-P08-CALIBRATION-retry-upload/docs/contract.json",
+      "sha256": "ce9f502a8687321f36775fe74a3ecf853526780e2f29727240268eee8d472d43"
+    },
+    {
+      "file": "dataset-v51/fixtures/V51-P08-CALIBRATION-retry-upload/package.json",
+      "sha256": "5849ff10001dd33a39e9e267ede592af625691ea4e171f3d092b8b6b64de6ec5"
+    },
+    {
+      "file": "dataset-v51/fixtures/V51-P08-CALIBRATION-retry-upload/src/solution.mjs",
+      "sha256": "b2bd3f949f2bb252902fe939c0cb368e8b166eb35f309226d6082dab20fafb84"
+    },
+    {
+      "file": "dataset-v51/fixtures/V51-P08-CALIBRATION-retry-upload/test/public.mjs",
+      "sha256": "a4b5464ab549ba677dbff0e96e4ac7ac768e0ad660d8303b33a02d6a1eae0e5a"
+    },
+    {
+      "file": "dataset-v51/fixtures/V51-P08-FORMAL-circuit/docs/contract.json",
+      "sha256": "9ec1ce76684733cce3bd0e00d0f258d2a693091ff056b9f5523ac09ab099cb8e"
+    },
+    {
+      "file": "dataset-v51/fixtures/V51-P08-FORMAL-circuit/package.json",
+      "sha256": "5849ff10001dd33a39e9e267ede592af625691ea4e171f3d092b8b6b64de6ec5"
+    },
+    {
+      "file": "dataset-v51/fixtures/V51-P08-FORMAL-circuit/src/solution.mjs",
+      "sha256": "653a856c7818669ec3ae3479c74473bb90aa2412b57ecb628e7ce051211479c3"
+    },
+    {
+      "file": "dataset-v51/fixtures/V51-P08-FORMAL-circuit/test/public.mjs",
+      "sha256": "bb7095a9663fef4ad671802350d395dd44579b975f62c3b28eef235f16b67d2a"
+    },
+    {
+      "file": "dataset-v51/manifest.json",
+      "sha256": "a15b94374afef06eb42490615801a1a91bd5c19e62929cc183bc5bf9dc1348b0"
+    },
+    {
+      "file": "docs/AGENT_QUALITY_BENCHMARK_V5_1.md",
+      "sha256": "c1d604e85ac937ad0324ff63a56a4183be5ee820ee36b9efac24a65c9602ec25"
+    },
+    {
+      "file": "docs/BENCHMARK_PROTOCOL.md",
+      "sha256": "580d7e8881aaa9651160b045cfdea8f8d765785ed4d62789837d25bfced322c9"
+    },
+    {
+      "file": "docs/experiments/V5-calibration-retrospective.md",
+      "sha256": "bdb5a495d7beb919064af49dbeb35f4db613b4c57c1c9025f82a28b1efbaa0c3"
+    },
+    {
+      "file": "package.json",
+      "sha256": "2ad9daa59ed34a0730a61067fa50c8a111c96e01fcaf5ff4064f015acf1056fc"
+    },
+    {
+      "file": "registry/benchmark-v51.json",
+      "sha256": "357a770ba7e68d4c852c4d427ab31393441920886d44dc634e74ad060e54c857"
+    },
+    {
+      "file": "schemas/benchmark-v51.schema.json",
+      "sha256": "c9c58e321574922121ffcd7b7152479927e64ca52b3cae4ea41585109e0672eb"
+    },
+    {
+      "file": "scripts/v51-run-cases.mjs",
+      "sha256": "5d7a1e9fa0ca60e7f556da08c773e79dd57248ca5fe667516574382578fcd6f3"
+    },
+    {
+      "file": "src/benchmark-v51.mjs",
+      "sha256": "8ad18925485017d8a2e348e9ffe2e145657ebe53600c35ebff05eaf9aefc687b"
+    },
+    {
+      "file": "src/codex-luna-adapter.mjs",
+      "sha256": "53d4208cd5042223c899b8b54140ce71c35a368fcc2899d757b06d2c8092bf88"
+    },
+    {
+      "file": "src/hash.mjs",
+      "sha256": "ddcb996da5fceabcf70d389ef1a7725f72b081da3214600b371dcff8d0b35343"
+    },
+    {
+      "file": "src/pilot.mjs",
+      "sha256": "7fee27e38863ab8f1540c40ff174feba7a0807df617c03b7d5ab40818192a905"
+    },
+    {
+      "file": "src/registry.mjs",
+      "sha256": "1749950cac0fc037e7037c8258439a32404a6e0489137ad92d8545e6e268d0b9"
+    }
+  ],
+  "manifestSha256": "812f41a0885f2b1cd1179e2e7e892db62f358c14cc3ab541ce9f42eb4c9bff9b"
+}

@@ -1,0 +1,1 @@
+export async function retryUpload(op,o={}){const max=o.maxAttempts??3;let last;for(let a=1;a<=max;a++){if(o.signal?.aborted){const e=Error('Aborted');e.name='AbortError';throw e}try{return await op()}catch(e){last=e;if(!e?.transient||a===max)throw e;if(o.signal?.aborted){const x=Error('Aborted');x.name='AbortError';throw x}await o.onDelay?.(a+1)}}throw last}

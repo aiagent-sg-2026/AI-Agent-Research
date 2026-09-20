@@ -1,0 +1,293 @@
+{
+  "version": "benchmark-v5.1-scaffold",
+  "pairs": [
+    {
+      "id": "V51-P01",
+      "family": "strict versioned policy merge",
+      "calibration": {
+        "id": "V51-P01-CALIBRATION-upload-policy",
+        "pairId": "V51-P01",
+        "role": "calibration",
+        "family": "strict versioned policy merge",
+        "task": "Implement resolveUploadPolicy exactly from docs/contract.json.",
+        "fixture": "dataset-v51/fixtures/V51-P01-CALIBRATION-upload-policy",
+        "contract": "dataset-v51/fixtures/V51-P01-CALIBRATION-upload-policy/docs/contract.json",
+        "driver": "dataset-v51/evaluator/V51-P01-CALIBRATION-upload-policy/driver.mjs",
+        "cases": "dataset-v51/evaluator/V51-P01-CALIBRATION-upload-policy/cases.json",
+        "reference": "dataset-v51/evaluator/V51-P01-CALIBRATION-upload-policy/reference.mjs",
+        "mutants": "dataset-v51/evaluator/V51-P01-CALIBRATION-upload-policy/mutants.json",
+        "allowedTarget": [
+          "src/solution.mjs"
+        ]
+      },
+      "formal": {
+        "id": "V51-P01-FORMAL-render-policy",
+        "pairId": "V51-P01",
+        "role": "formal",
+        "family": "strict versioned policy merge",
+        "task": "Implement resolveRenderPolicy exactly from docs/contract.json.",
+        "fixture": "dataset-v51/fixtures/V51-P01-FORMAL-render-policy",
+        "contract": "dataset-v51/fixtures/V51-P01-FORMAL-render-policy/docs/contract.json",
+        "driver": "dataset-v51/evaluator/V51-P01-FORMAL-render-policy/driver.mjs",
+        "cases": "dataset-v51/evaluator/V51-P01-FORMAL-render-policy/cases.json",
+        "reference": "dataset-v51/evaluator/V51-P01-FORMAL-render-policy/reference.mjs",
+        "mutants": "dataset-v51/evaluator/V51-P01-FORMAL-render-policy/mutants.json",
+        "allowedTarget": [
+          "src/solution.mjs"
+        ]
+      }
+    },
+    {
+      "id": "V51-P06",
+      "family": "strict schema normalization",
+      "calibration": {
+        "id": "V51-P06-CALIBRATION-normalize-line",
+        "pairId": "V51-P06",
+        "role": "calibration",
+        "family": "strict schema normalization",
+        "task": "Implement normalizeLine exactly from docs/contract.json.",
+        "fixture": "dataset-v51/fixtures/V51-P06-CALIBRATION-normalize-line",
+        "contract": "dataset-v51/fixtures/V51-P06-CALIBRATION-normalize-line/docs/contract.json",
+        "driver": "dataset-v51/evaluator/V51-P06-CALIBRATION-normalize-line/driver.mjs",
+        "cases": "dataset-v51/evaluator/V51-P06-CALIBRATION-normalize-line/cases.json",
+        "reference": "dataset-v51/evaluator/V51-P06-CALIBRATION-normalize-line/reference.mjs",
+        "mutants": "dataset-v51/evaluator/V51-P06-CALIBRATION-normalize-line/mutants.json",
+        "allowedTarget": [
+          "src/solution.mjs"
+        ]
+      },
+      "formal": {
+        "id": "V51-P06-FORMAL-normalize-party",
+        "pairId": "V51-P06",
+        "role": "formal",
+        "family": "strict schema normalization",
+        "task": "Implement normalizeParty exactly from docs/contract.json.",
+        "fixture": "dataset-v51/fixtures/V51-P06-FORMAL-normalize-party",
+        "contract": "dataset-v51/fixtures/V51-P06-FORMAL-normalize-party/docs/contract.json",
+        "driver": "dataset-v51/evaluator/V51-P06-FORMAL-normalize-party/driver.mjs",
+        "cases": "dataset-v51/evaluator/V51-P06-FORMAL-normalize-party/cases.json",
+        "reference": "dataset-v51/evaluator/V51-P06-FORMAL-normalize-party/reference.mjs",
+        "mutants": "dataset-v51/evaluator/V51-P06-FORMAL-normalize-party/mutants.json",
+        "allowedTarget": [
+          "src/solution.mjs"
+        ]
+      }
+    },
+    {
+      "id": "V51-P07",
+      "family": "strict authorization precedence",
+      "calibration": {
+        "id": "V51-P07-CALIBRATION-portal-access",
+        "pairId": "V51-P07",
+        "role": "calibration",
+        "family": "strict authorization precedence",
+        "task": "Implement decidePortalAccess exactly from docs/contract.json, including exact reason literals.",
+        "fixture": "dataset-v51/fixtures/V51-P07-CALIBRATION-portal-access",
+        "contract": "dataset-v51/fixtures/V51-P07-CALIBRATION-portal-access/docs/contract.json",
+        "driver": "dataset-v51/evaluator/V51-P07-CALIBRATION-portal-access/driver.mjs",
+        "cases": "dataset-v51/evaluator/V51-P07-CALIBRATION-portal-access/cases.json",
+        "reference": "dataset-v51/evaluator/V51-P07-CALIBRATION-portal-access/reference.mjs",
+        "mutants": "dataset-v51/evaluator/V51-P07-CALIBRATION-portal-access/mutants.json",
+        "allowedTarget": [
+          "src/solution.mjs"
+        ]
+      },
+      "formal": {
+        "id": "V51-P07-FORMAL-report-access",
+        "pairId": "V51-P07",
+        "role": "formal",
+        "family": "strict authorization precedence",
+        "task": "Implement authorizeReport exactly from docs/contract.json, including exact reason literals.",
+        "fixture": "dataset-v51/fixtures/V51-P07-FORMAL-report-access",
+        "contract": "dataset-v51/fixtures/V51-P07-FORMAL-report-access/docs/contract.json",
+        "driver": "dataset-v51/evaluator/V51-P07-FORMAL-report-access/driver.mjs",
+        "cases": "dataset-v51/evaluator/V51-P07-FORMAL-report-access/cases.json",
+        "reference": "dataset-v51/evaluator/V51-P07-FORMAL-report-access/reference.mjs",
+        "mutants": "dataset-v51/evaluator/V51-P07-FORMAL-report-access/mutants.json",
+        "allowedTarget": [
+          "src/solution.mjs"
+        ]
+      }
+    },
+    {
+      "id": "V51-P08",
+      "family": "strict retry and circuit recovery",
+      "calibration": {
+        "id": "V51-P08-CALIBRATION-retry-upload",
+        "pairId": "V51-P08",
+        "role": "calibration",
+        "family": "strict retry and circuit recovery",
+        "task": "Implement retryUpload exactly from docs/contract.json, including exact error representation.",
+        "fixture": "dataset-v51/fixtures/V51-P08-CALIBRATION-retry-upload",
+        "contract": "dataset-v51/fixtures/V51-P08-CALIBRATION-retry-upload/docs/contract.json",
+        "driver": "dataset-v51/evaluator/V51-P08-CALIBRATION-retry-upload/driver.mjs",
+        "cases": "dataset-v51/evaluator/V51-P08-CALIBRATION-retry-upload/cases.json",
+        "reference": "dataset-v51/evaluator/V51-P08-CALIBRATION-retry-upload/reference.mjs",
+        "mutants": "dataset-v51/evaluator/V51-P08-CALIBRATION-retry-upload/mutants.json",
+        "allowedTarget": [
+          "src/solution.mjs"
+        ]
+      },
+      "formal": {
+        "id": "V51-P08-FORMAL-circuit",
+        "pairId": "V51-P08",
+        "role": "formal",
+        "family": "strict retry and circuit recovery",
+        "task": "Implement callBreaker exactly from docs/contract.json, including exact error representation.",
+        "fixture": "dataset-v51/fixtures/V51-P08-FORMAL-circuit",
+        "contract": "dataset-v51/fixtures/V51-P08-FORMAL-circuit/docs/contract.json",
+        "driver": "dataset-v51/evaluator/V51-P08-FORMAL-circuit/driver.mjs",
+        "cases": "dataset-v51/evaluator/V51-P08-FORMAL-circuit/cases.json",
+        "reference": "dataset-v51/evaluator/V51-P08-FORMAL-circuit/reference.mjs",
+        "mutants": "dataset-v51/evaluator/V51-P08-FORMAL-circuit/mutants.json",
+        "allowedTarget": [
+          "src/solution.mjs"
+        ]
+      }
+    },
+    {
+      "id": "V51-P02",
+      "family": "strict transactional rollback",
+      "calibration": {
+        "id": "V51-P02-CALIBRATION-stock-moves",
+        "pairId": "V51-P02",
+        "role": "calibration",
+        "family": "strict transactional rollback",
+        "task": "Implement applyStockMoves exactly from docs/contract.json.",
+        "fixture": "dataset-v51/fixtures/V51-P02-CALIBRATION-stock-moves",
+        "contract": "dataset-v51/fixtures/V51-P02-CALIBRATION-stock-moves/docs/contract.json",
+        "driver": "dataset-v51/evaluator/V51-P02-CALIBRATION-stock-moves/driver.mjs",
+        "cases": "dataset-v51/evaluator/V51-P02-CALIBRATION-stock-moves/cases.json",
+        "reference": "dataset-v51/evaluator/V51-P02-CALIBRATION-stock-moves/reference.mjs",
+        "mutants": "dataset-v51/evaluator/V51-P02-CALIBRATION-stock-moves/mutants.json",
+        "allowedTarget": [
+          "src/solution.mjs"
+        ]
+      },
+      "formal": {
+        "id": "V51-P02-FORMAL-ledger-post",
+        "pairId": "V51-P02",
+        "role": "formal",
+        "family": "strict transactional rollback",
+        "task": "Implement postLedgerBatch exactly from docs/contract.json.",
+        "fixture": "dataset-v51/fixtures/V51-P02-FORMAL-ledger-post",
+        "contract": "dataset-v51/fixtures/V51-P02-FORMAL-ledger-post/docs/contract.json",
+        "driver": "dataset-v51/evaluator/V51-P02-FORMAL-ledger-post/driver.mjs",
+        "cases": "dataset-v51/evaluator/V51-P02-FORMAL-ledger-post/cases.json",
+        "reference": "dataset-v51/evaluator/V51-P02-FORMAL-ledger-post/reference.mjs",
+        "mutants": "dataset-v51/evaluator/V51-P02-FORMAL-ledger-post/mutants.json",
+        "allowedTarget": [
+          "src/solution.mjs"
+        ]
+      }
+    },
+    {
+      "id": "V51-P03",
+      "family": "strict generation-aware async cache",
+      "calibration": {
+        "id": "V51-P03-CALIBRATION-version-cache",
+        "pairId": "V51-P03",
+        "role": "calibration",
+        "family": "strict generation-aware async cache",
+        "task": "Implement readVersion exactly from docs/contract.json.",
+        "fixture": "dataset-v51/fixtures/V51-P03-CALIBRATION-version-cache",
+        "contract": "dataset-v51/fixtures/V51-P03-CALIBRATION-version-cache/docs/contract.json",
+        "driver": "dataset-v51/evaluator/V51-P03-CALIBRATION-version-cache/driver.mjs",
+        "cases": "dataset-v51/evaluator/V51-P03-CALIBRATION-version-cache/cases.json",
+        "reference": "dataset-v51/evaluator/V51-P03-CALIBRATION-version-cache/reference.mjs",
+        "mutants": "dataset-v51/evaluator/V51-P03-CALIBRATION-version-cache/mutants.json",
+        "allowedTarget": [
+          "src/solution.mjs"
+        ]
+      },
+      "formal": {
+        "id": "V51-P03-FORMAL-epoch-cache",
+        "pairId": "V51-P03",
+        "role": "formal",
+        "family": "strict generation-aware async cache",
+        "task": "Implement loadEpoch exactly from docs/contract.json.",
+        "fixture": "dataset-v51/fixtures/V51-P03-FORMAL-epoch-cache",
+        "contract": "dataset-v51/fixtures/V51-P03-FORMAL-epoch-cache/docs/contract.json",
+        "driver": "dataset-v51/evaluator/V51-P03-FORMAL-epoch-cache/driver.mjs",
+        "cases": "dataset-v51/evaluator/V51-P03-FORMAL-epoch-cache/cases.json",
+        "reference": "dataset-v51/evaluator/V51-P03-FORMAL-epoch-cache/reference.mjs",
+        "mutants": "dataset-v51/evaluator/V51-P03-FORMAL-epoch-cache/mutants.json",
+        "allowedTarget": [
+          "src/solution.mjs"
+        ]
+      }
+    },
+    {
+      "id": "V51-P05",
+      "family": "strict capability negotiation",
+      "calibration": {
+        "id": "V51-P05-CALIBRATION-peer-negotiation",
+        "pairId": "V51-P05",
+        "role": "calibration",
+        "family": "strict capability negotiation",
+        "task": "Implement negotiatePeer exactly from docs/contract.json.",
+        "fixture": "dataset-v51/fixtures/V51-P05-CALIBRATION-peer-negotiation",
+        "contract": "dataset-v51/fixtures/V51-P05-CALIBRATION-peer-negotiation/docs/contract.json",
+        "driver": "dataset-v51/evaluator/V51-P05-CALIBRATION-peer-negotiation/driver.mjs",
+        "cases": "dataset-v51/evaluator/V51-P05-CALIBRATION-peer-negotiation/cases.json",
+        "reference": "dataset-v51/evaluator/V51-P05-CALIBRATION-peer-negotiation/reference.mjs",
+        "mutants": "dataset-v51/evaluator/V51-P05-CALIBRATION-peer-negotiation/mutants.json",
+        "allowedTarget": [
+          "src/solution.mjs"
+        ]
+      },
+      "formal": {
+        "id": "V51-P05-FORMAL-codec-negotiation",
+        "pairId": "V51-P05",
+        "role": "formal",
+        "family": "strict capability negotiation",
+        "task": "Implement openCodec exactly from docs/contract.json.",
+        "fixture": "dataset-v51/fixtures/V51-P05-FORMAL-codec-negotiation",
+        "contract": "dataset-v51/fixtures/V51-P05-FORMAL-codec-negotiation/docs/contract.json",
+        "driver": "dataset-v51/evaluator/V51-P05-FORMAL-codec-negotiation/driver.mjs",
+        "cases": "dataset-v51/evaluator/V51-P05-FORMAL-codec-negotiation/cases.json",
+        "reference": "dataset-v51/evaluator/V51-P05-FORMAL-codec-negotiation/reference.mjs",
+        "mutants": "dataset-v51/evaluator/V51-P05-FORMAL-codec-negotiation/mutants.json",
+        "allowedTarget": [
+          "src/solution.mjs"
+        ]
+      }
+    },
+    {
+      "id": "V51-P04",
+      "family": "strict closable stream lifecycle",
+      "calibration": {
+        "id": "V51-P04-CALIBRATION-event-stream",
+        "pairId": "V51-P04",
+        "role": "calibration",
+        "family": "strict closable stream lifecycle",
+        "task": "Implement drainEvents exactly from docs/contract.json.",
+        "fixture": "dataset-v51/fixtures/V51-P04-CALIBRATION-event-stream",
+        "contract": "dataset-v51/fixtures/V51-P04-CALIBRATION-event-stream/docs/contract.json",
+        "driver": "dataset-v51/evaluator/V51-P04-CALIBRATION-event-stream/driver.mjs",
+        "cases": "dataset-v51/evaluator/V51-P04-CALIBRATION-event-stream/cases.json",
+        "reference": "dataset-v51/evaluator/V51-P04-CALIBRATION-event-stream/reference.mjs",
+        "mutants": "dataset-v51/evaluator/V51-P04-CALIBRATION-event-stream/mutants.json",
+        "allowedTarget": [
+          "src/solution.mjs"
+        ]
+      },
+      "formal": {
+        "id": "V51-P04-FORMAL-chunk-stream",
+        "pairId": "V51-P04",
+        "role": "formal",
+        "family": "strict closable stream lifecycle",
+        "task": "Implement forwardChunks exactly from docs/contract.json.",
+        "fixture": "dataset-v51/fixtures/V51-P04-FORMAL-chunk-stream",
+        "contract": "dataset-v51/fixtures/V51-P04-FORMAL-chunk-stream/docs/contract.json",
+        "driver": "dataset-v51/evaluator/V51-P04-FORMAL-chunk-stream/driver.mjs",
+        "cases": "dataset-v51/evaluator/V51-P04-FORMAL-chunk-stream/cases.json",
+        "reference": "dataset-v51/evaluator/V51-P04-FORMAL-chunk-stream/reference.mjs",
+        "mutants": "dataset-v51/evaluator/V51-P04-FORMAL-chunk-stream/mutants.json",
+        "allowedTarget": [
+          "src/solution.mjs"
+        ]
+      }
+    }
+  ]
+}

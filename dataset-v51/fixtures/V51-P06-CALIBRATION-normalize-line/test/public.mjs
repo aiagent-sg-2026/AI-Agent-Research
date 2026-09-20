@@ -1,0 +1,1 @@
+import test from 'node:test';import assert from 'node:assert/strict';import {normalizeLine} from '../src/solution.mjs';test('current line',()=>assert.deepEqual(normalizeLine({code:'A',qty:2,active:true}),{code:'A',qty:2,active:true}));

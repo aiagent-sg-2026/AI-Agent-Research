@@ -1,0 +1,1 @@
+import test from 'node:test';import assert from 'node:assert/strict';import {retryUpload} from '../src/solution.mjs';test('first success',async()=>assert.equal(await retryUpload(async()=> 'OK'),'OK'));

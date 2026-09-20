@@ -1,0 +1,1 @@
+const flights=new WeakMap();export async function readVersion(cache,key,generation,load){const ck=key+'@'+generation;if(cache.has(ck))return cache.get(ck);let m=flights.get(cache);if(!m){m=new Map();flights.set(cache,m)}if(m.has(ck))return m.get(ck);const p=(async()=>{try{const v=await load();cache.set(ck,v);return v}finally{}})();m.set(ck,p);return p}

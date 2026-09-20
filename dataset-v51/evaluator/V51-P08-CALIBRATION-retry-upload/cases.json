@@ -1,0 +1,112 @@
+{
+  "exportName": "retryUpload",
+  "cases": [
+    {
+      "id": "H1",
+      "ruleIds": [
+        "C1",
+        "C2",
+        "C3"
+      ],
+      "setup": {
+        "failuresBeforeSuccess": 2,
+        "error": {
+          "name": "Error",
+          "message": "TEMP",
+          "transient": true
+        }
+      },
+      "expected": {
+        "return": "OK",
+        "observations": {
+          "calls": 3,
+          "delays": [
+            2,
+            3
+          ]
+        }
+      }
+    },
+    {
+      "id": "H2",
+      "ruleIds": [
+        "C2",
+        "C5"
+      ],
+      "setup": {
+        "failuresBeforeSuccess": 5,
+        "error": {
+          "name": "Error",
+          "message": "PERM",
+          "transient": false
+        }
+      },
+      "expected": {
+        "error": {
+          "variant": "permanent",
+          "name": "Error",
+          "message": "PERM"
+        },
+        "observations": {
+          "calls": 1,
+          "delays": []
+        }
+      }
+    },
+    {
+      "id": "H3",
+      "ruleIds": [
+        "C1",
+        "C5"
+      ],
+      "setup": {
+        "failuresBeforeSuccess": 5,
+        "maxAttempts": 2,
+        "error": {
+          "name": "Error",
+          "message": "TEMP",
+          "transient": true
+        }
+      },
+      "expected": {
+        "error": {
+          "variant": "transient-final",
+          "name": "Error",
+          "message": "TEMP"
+        },
+        "observations": {
+          "calls": 2,
+          "delays": [
+            2
+          ]
+        }
+      }
+    },
+    {
+      "id": "H4",
+      "ruleIds": [
+        "C4"
+      ],
+      "setup": {
+        "failuresBeforeSuccess": 5,
+        "error": {
+          "name": "Error",
+          "message": "TEMP",
+          "transient": true
+        },
+        "abortAfterFailure": 1
+      },
+      "expected": {
+        "error": {
+          "variant": "abort",
+          "name": "AbortError",
+          "message": "Aborted"
+        },
+        "observations": {
+          "calls": 1,
+          "delays": []
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,108 @@
+{
+  "exportName": "authorizeReport",
+  "cases": [
+    {
+      "id": "H0",
+      "ruleIds": [
+        "C1"
+      ],
+      "args": [
+        {
+          "locked": true,
+          "effect": "allow",
+          "role": "admin",
+          "action": "delete"
+        }
+      ],
+      "expected": {
+        "return": {
+          "allowed": false,
+          "reason": "locked"
+        },
+        "observations": {}
+      }
+    },
+    {
+      "id": "H1",
+      "ruleIds": [
+        "C2"
+      ],
+      "args": [
+        {
+          "effect": "deny",
+          "role": "admin",
+          "action": "read"
+        }
+      ],
+      "expected": {
+        "return": {
+          "allowed": false,
+          "reason": "explicit-deny"
+        },
+        "observations": {}
+      }
+    },
+    {
+      "id": "H2",
+      "ruleIds": [
+        "C3",
+        "C4"
+      ],
+      "args": [
+        {
+          "effect": "allow",
+          "role": "viewer",
+          "action": "write"
+        }
+      ],
+      "expected": {
+        "return": {
+          "allowed": false,
+          "reason": "role-deny"
+        },
+        "observations": {}
+      }
+    },
+    {
+      "id": "H3",
+      "ruleIds": [
+        "C3",
+        "C4"
+      ],
+      "args": [
+        {
+          "effect": "allow",
+          "role": "editor",
+          "action": "write"
+        }
+      ],
+      "expected": {
+        "return": {
+          "allowed": true,
+          "reason": "explicit-allow"
+        },
+        "observations": {}
+      }
+    },
+    {
+      "id": "H4",
+      "ruleIds": [
+        "C3",
+        "C5"
+      ],
+      "args": [
+        {
+          "role": "viewer",
+          "action": "read"
+        }
+      ],
+      "expected": {
+        "return": {
+          "allowed": true,
+          "reason": "role-default"
+        },
+        "observations": {}
+      }
+    }
+  ]
+}

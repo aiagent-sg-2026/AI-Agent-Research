@@ -1,0 +1,83 @@
+{
+  "exportName": "loadEpoch",
+  "cases": [
+    {
+      "id": "H1",
+      "ruleIds": [
+        "C2"
+      ],
+      "kind": "share",
+      "name": "n",
+      "epoch": 4,
+      "values": [
+        11,
+        12
+      ],
+      "expected": {
+        "return": 11,
+        "observations": {
+          "loads": 1,
+          "peerReturns": [
+            11,
+            11
+          ],
+          "keys": [
+            "n#4"
+          ],
+          "errors": []
+        }
+      }
+    },
+    {
+      "id": "H2",
+      "ruleIds": [
+        "C1",
+        "C3"
+      ],
+      "kind": "different",
+      "name": "n",
+      "epoch": 4,
+      "values": [
+        5,
+        8
+      ],
+      "expected": {
+        "return": 8,
+        "observations": {
+          "loads": 2,
+          "peerReturns": [],
+          "keys": [
+            "n#4",
+            "n#5"
+          ],
+          "errors": []
+        }
+      }
+    },
+    {
+      "id": "H3",
+      "ruleIds": [
+        "C4"
+      ],
+      "kind": "retry",
+      "name": "bad",
+      "epoch": 2,
+      "values": [
+        10
+      ],
+      "expected": {
+        "return": 10,
+        "observations": {
+          "loads": 2,
+          "peerReturns": [],
+          "keys": [
+            "bad#2"
+          ],
+          "errors": [
+            "TEMP"
+          ]
+        }
+      }
+    }
+  ]
+}

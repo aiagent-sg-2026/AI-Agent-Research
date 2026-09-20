@@ -1,0 +1,120 @@
+{
+  "exportName": "applyStockMoves",
+  "cases": [
+    {
+      "id": "H1",
+      "ruleIds": [
+        "C1",
+        "C2"
+      ],
+      "moves": [
+        {
+          "id": "a"
+        },
+        {
+          "id": "a"
+        },
+        {
+          "id": "b"
+        }
+      ],
+      "setup": {},
+      "expected": {
+        "return": {
+          "status": "committed",
+          "count": 2
+        },
+        "observations": {
+          "applied": [
+            "a",
+            "b"
+          ],
+          "undone": []
+        }
+      }
+    },
+    {
+      "id": "H2",
+      "ruleIds": [
+        "C3",
+        "C4"
+      ],
+      "moves": [
+        {
+          "id": "a"
+        },
+        {
+          "id": "b"
+        },
+        {
+          "id": "c"
+        },
+        {
+          "id": "d"
+        }
+      ],
+      "setup": {
+        "failId": "c"
+      },
+      "expected": {
+        "return": {
+          "status": "rolled-back",
+          "count": 2,
+          "errorCode": "APPLY_FAIL",
+          "undoErrors": []
+        },
+        "observations": {
+          "applied": [
+            "a",
+            "b",
+            "c"
+          ],
+          "undone": [
+            "b",
+            "a"
+          ]
+        }
+      }
+    },
+    {
+      "id": "H3",
+      "ruleIds": [
+        "C3",
+        "C5"
+      ],
+      "moves": [
+        {
+          "id": "a"
+        },
+        {
+          "id": "b"
+        }
+      ],
+      "setup": {
+        "failId": "b",
+        "undoFailIds": [
+          "a"
+        ]
+      },
+      "expected": {
+        "return": {
+          "status": "rolled-back",
+          "count": 1,
+          "errorCode": "APPLY_FAIL",
+          "undoErrors": [
+            "UNDO_FAIL"
+          ]
+        },
+        "observations": {
+          "applied": [
+            "a",
+            "b"
+          ],
+          "undone": [
+            "a"
+          ]
+        }
+      }
+    }
+  ]
+}

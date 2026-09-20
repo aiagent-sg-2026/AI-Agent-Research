@@ -1,0 +1,81 @@
+{
+  "exportName": "resolveRenderPolicy",
+  "cases": [
+    {
+      "id": "H1",
+      "ruleIds": [
+        "C1",
+        "C2"
+      ],
+      "args": [
+        {
+          "profile": "oops"
+        },
+        "global"
+      ],
+      "expected": {
+        "return": {
+          "profile": "eco",
+          "tuning": {
+            "batch": 3,
+            "deadlineMs": 1200
+          },
+          "region": "global"
+        },
+        "observations": {}
+      }
+    },
+    {
+      "id": "H2",
+      "ruleIds": [
+        "C2",
+        "C3"
+      ],
+      "args": [
+        {
+          "profile": "max"
+        },
+        "apac"
+      ],
+      "expected": {
+        "return": {
+          "profile": "max",
+          "tuning": {
+            "batch": 9,
+            "deadlineMs": 400
+          },
+          "region": "apac"
+        },
+        "observations": {}
+      }
+    },
+    {
+      "id": "H3",
+      "ruleIds": [
+        "C3",
+        "C4",
+        "C5"
+      ],
+      "args": [
+        {
+          "profile": "max",
+          "tuning": {
+            "batch": 11
+          }
+        },
+        "apac"
+      ],
+      "expected": {
+        "return": {
+          "profile": "max",
+          "tuning": {
+            "batch": 11,
+            "deadlineMs": 400
+          },
+          "region": "apac"
+        },
+        "observations": {}
+      }
+    }
+  ]
+}

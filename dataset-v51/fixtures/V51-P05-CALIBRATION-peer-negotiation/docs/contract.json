@@ -1,0 +1,71 @@
+{
+  "version": "v5.1-contract-1",
+  "taskId": "V51-P05-CALIBRATION-peer-negotiation",
+  "rules": [
+    {
+      "id": "C1",
+      "text": "consider only peer-advertised versions in local order v3 then v2"
+    },
+    {
+      "id": "C2",
+      "text": "v3 requires capability 'stream'; v2 requires none"
+    },
+    {
+      "id": "C3",
+      "text": "open failure of compatible version falls through to next compatible advertised version"
+    },
+    {
+      "id": "C4",
+      "text": "if opened session.version differs from requested version, close it and continue"
+    },
+    {
+      "id": "C5",
+      "text": "if none succeeds throw name NoCompatibleVersion with exact message 'No compatible version'"
+    }
+  ],
+  "returnSchema": {
+    "type": "object",
+    "required": [
+      "version"
+    ],
+    "properties": {
+      "version": {
+        "type": "string",
+        "enum": [
+          "v3",
+          "v2"
+        ]
+      }
+    },
+    "additionalProperties": false
+  },
+  "observationSchema": {
+    "type": "object",
+    "required": [
+      "opened",
+      "closed"
+    ],
+    "properties": {
+      "opened": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      },
+      "closed": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      }
+    },
+    "additionalProperties": false
+  },
+  "errorVariants": [
+    {
+      "id": "none",
+      "name": "NoCompatibleVersion",
+      "message": "No compatible version"
+    }
+  ]
+}

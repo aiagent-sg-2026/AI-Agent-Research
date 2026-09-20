@@ -1,0 +1,1 @@
+export function decidePortalAccess(i={}){if(i.inactive===true)return {allowed:false,reason:'inactive'};if(i.decision==='deny')return {allowed:false,reason:'explicit-deny'};if(i.role==='guest')return {allowed:false,reason:'role-deny'};if(i.decision==='allow')return {allowed:true,reason:'explicit-allow'};return {allowed:false,reason:'default-deny'}}

@@ -1,0 +1,84 @@
+{
+  "exportName": "drainEvents",
+  "cases": [
+    {
+      "id": "H1",
+      "ruleIds": [
+        "C1",
+        "C3",
+        "C4"
+      ],
+      "setup": {
+        "n": 2
+      },
+      "expected": {
+        "return": {
+          "closed": true,
+          "count": 2
+        },
+        "observations": {
+          "values": [
+            1,
+            2
+          ],
+          "pulls": 3,
+          "closes": 1,
+          "acks": 2
+        }
+      }
+    },
+    {
+      "id": "H2",
+      "ruleIds": [
+        "C2",
+        "C3",
+        "C4"
+      ],
+      "setup": {
+        "n": 8,
+        "abortAt": 2
+      },
+      "expected": {
+        "return": {
+          "closed": true,
+          "count": 2
+        },
+        "observations": {
+          "values": [
+            1,
+            2
+          ],
+          "pulls": 2,
+          "closes": 1,
+          "acks": 2
+        }
+      }
+    },
+    {
+      "id": "H3",
+      "ruleIds": [
+        "C3",
+        "C5"
+      ],
+      "setup": {
+        "n": 3,
+        "failAt": 1
+      },
+      "expected": {
+        "error": {
+          "variant": "handler",
+          "name": "Error",
+          "message": "HANDLER"
+        },
+        "observations": {
+          "values": [
+            1
+          ],
+          "pulls": 1,
+          "closes": 1,
+          "acks": 0
+        }
+      }
+    }
+  ]
+}

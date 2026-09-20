@@ -1,0 +1,72 @@
+{
+  "version": "v5.1-contract-1",
+  "taskId": "V51-P08-FORMAL-circuit",
+  "rules": [
+    {
+      "id": "C1",
+      "text": "if state.open is true, do not call operation; throw CircuitOpen with exact name/message 'CircuitOpen'"
+    },
+    {
+      "id": "C2",
+      "text": "success returns integer result and resets state.failures to 0 without changing open=false"
+    },
+    {
+      "id": "C3",
+      "text": "operation failure increments state.failures by exactly 1"
+    },
+    {
+      "id": "C4",
+      "text": "when failures reaches threshold (default 2), set state.open=true"
+    },
+    {
+      "id": "C5",
+      "text": "after state update, rethrow operation error unchanged"
+    }
+  ],
+  "returnSchema": {
+    "type": "integer"
+  },
+  "observationSchema": {
+    "type": "object",
+    "required": [
+      "calls",
+      "state"
+    ],
+    "properties": {
+      "calls": {
+        "type": "integer",
+        "minimum": 0
+      },
+      "state": {
+        "type": "object",
+        "required": [
+          "open",
+          "failures"
+        ],
+        "properties": {
+          "open": {
+            "type": "boolean"
+          },
+          "failures": {
+            "type": "integer",
+            "minimum": 0
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "additionalProperties": false
+  },
+  "errorVariants": [
+    {
+      "id": "open",
+      "name": "CircuitOpen",
+      "message": "CircuitOpen"
+    },
+    {
+      "id": "operation",
+      "name": "Error",
+      "message": "BOOM"
+    }
+  ]
+}

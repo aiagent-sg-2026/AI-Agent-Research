@@ -1,0 +1,70 @@
+{
+  "version": "v5.1-contract-1",
+  "taskId": "V51-P08-CALIBRATION-retry-upload",
+  "rules": [
+    {
+      "id": "C1",
+      "text": "maxAttempts defaults to 3 and is the maximum operation-call count"
+    },
+    {
+      "id": "C2",
+      "text": "retry only errors whose transient property is true"
+    },
+    {
+      "id": "C3",
+      "text": "before each retry await onDelay(nextAttempt), where nextAttempt is 2 then 3"
+    },
+    {
+      "id": "C4",
+      "text": "if signal becomes aborted before another operation call, throw AbortError with exact message 'Aborted'"
+    },
+    {
+      "id": "C5",
+      "text": "return first success; rethrow non-transient/final operation error unchanged"
+    }
+  ],
+  "returnSchema": {
+    "type": "string",
+    "enum": [
+      "OK"
+    ]
+  },
+  "observationSchema": {
+    "type": "object",
+    "required": [
+      "calls",
+      "delays"
+    ],
+    "properties": {
+      "calls": {
+        "type": "integer",
+        "minimum": 0
+      },
+      "delays": {
+        "type": "array",
+        "items": {
+          "type": "integer",
+          "minimum": 1
+        }
+      }
+    },
+    "additionalProperties": false
+  },
+  "errorVariants": [
+    {
+      "id": "abort",
+      "name": "AbortError",
+      "message": "Aborted"
+    },
+    {
+      "id": "permanent",
+      "name": "Error",
+      "message": "PERM"
+    },
+    {
+      "id": "transient-final",
+      "name": "Error",
+      "message": "TEMP"
+    }
+  ]
+}

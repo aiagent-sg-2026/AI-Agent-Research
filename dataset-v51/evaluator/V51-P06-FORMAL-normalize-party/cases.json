@@ -1,0 +1,99 @@
+{
+  "exportName": "normalizeParty",
+  "cases": [
+    {
+      "id": "H1",
+      "ruleIds": [
+        "C2",
+        "C3"
+      ],
+      "args": [
+        {
+          "party": "P",
+          "credit": "3"
+        }
+      ],
+      "expected": {
+        "return": {
+          "party": "P",
+          "credit": 3,
+          "enabled": true
+        },
+        "observations": {}
+      }
+    },
+    {
+      "id": "H2",
+      "ruleIds": [
+        "C4"
+      ],
+      "args": [
+        {
+          "party": "P",
+          "credit": 0,
+          "enabled": false,
+          "extra": "x"
+        }
+      ],
+      "expected": {
+        "return": {
+          "party": "P",
+          "credit": 0,
+          "enabled": false
+        },
+        "observations": {}
+      }
+    },
+    {
+      "id": "H3",
+      "ruleIds": [
+        "C1",
+        "C5"
+      ],
+      "args": [
+        {
+          "party": "",
+          "credit": 1
+        }
+      ],
+      "expected": {
+        "return": null,
+        "observations": {}
+      }
+    },
+    {
+      "id": "H4",
+      "ruleIds": [
+        "C2",
+        "C5"
+      ],
+      "args": [
+        {
+          "party": "P",
+          "credit": -1
+        }
+      ],
+      "expected": {
+        "return": null,
+        "observations": {}
+      }
+    },
+    {
+      "id": "H5",
+      "ruleIds": [
+        "C2",
+        "C5"
+      ],
+      "args": [
+        {
+          "party": "P",
+          "credit": "3x"
+        }
+      ],
+      "expected": {
+        "return": null,
+        "observations": {}
+      }
+    }
+  ]
+}

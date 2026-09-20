@@ -1,0 +1,1 @@
+import test from 'node:test';import assert from 'node:assert/strict';import {normalizeParty} from '../src/solution.mjs';test('current party',()=>assert.deepEqual(normalizeParty({party:'P',credit:3,enabled:false}),{party:'P',credit:3,enabled:false}));

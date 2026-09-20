@@ -43,3 +43,7 @@ V4 is an isolated six-fixture held-out benchmark (`AQB-V4-HELDOUT-001`), exactly
 ## V5 calibrated held-out proposal
 
 V5 now implements the pre-formal corpus-validity and difficulty-calibration scaffold. Model calibration and formal execution remain unauthorized. It adds Every hidden assertion must trace to a candidate-visible public rule; an evaluator-owned reference solution must pass visible and hidden suites; the untouched baseline must pass visible and fail hidden; and plausible partial mutants must fail the intended hidden rule groups. Difficulty is calibrated only on separate frozen sibling fixtures, never on the held-out formal siblings. The proposed formal matrix remains 6 tasks × 4 delivery arms × 3 trials = 72 cells. See `docs/AGENT_QUALITY_BENCHMARK_V5.md`.
+
+## V5.1 strict-contract calibration
+
+V5.1 replaces the V5 calibration corpus with 8 fresh calibration/formal sibling pairs. Public contracts now include closed return/observation schemas and exact error variants. Hidden case expectations are machine-validated against those candidate-visible contracts before reference/baseline/mutant replay. Calibration uses 2 trials per A0/A1 arm (32 cells) and treatment-blind aggregate-difficulty selection: qualify only 1–3 successes across the four cells, rank by closeness to 2/4 and registry order, and stop if fewer than six pairs qualify. No V5.1 model execution is authorized by the scaffold.

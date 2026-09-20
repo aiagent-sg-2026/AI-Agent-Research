@@ -1,0 +1,1 @@
+import test from 'node:test';import assert from 'node:assert/strict';import {forwardChunks} from '../src/solution.mjs';test('public one',async()=>{let i=0;const r={async next(){return i++?{done:true}:{value:1,done:false}}};assert.deepEqual(await forwardChunks(r,{write:async()=>{}}),{released:false,count:1})});

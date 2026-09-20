@@ -1,0 +1,81 @@
+{
+  "version": "v5.1-contract-1",
+  "taskId": "V51-P04-CALIBRATION-event-stream",
+  "rules": [
+    {
+      "id": "C1",
+      "text": "await each handler acknowledgement before requesting the next item"
+    },
+    {
+      "id": "C2",
+      "text": "when signal is aborted, do not request another item"
+    },
+    {
+      "id": "C3",
+      "text": "if iterator.return exists, call it exactly once after normal completion, abort, or handler error"
+    },
+    {
+      "id": "C4",
+      "text": "successful return is exactly {closed,count}; closed is true iff iterator.return was called"
+    },
+    {
+      "id": "C5",
+      "text": "handler Error('HANDLER') is rethrown unchanged after cleanup"
+    }
+  ],
+  "returnSchema": {
+    "type": "object",
+    "required": [
+      "closed",
+      "count"
+    ],
+    "properties": {
+      "closed": {
+        "type": "boolean"
+      },
+      "count": {
+        "type": "integer",
+        "minimum": 0
+      }
+    },
+    "additionalProperties": false
+  },
+  "observationSchema": {
+    "type": "object",
+    "required": [
+      "values",
+      "pulls",
+      "closes",
+      "acks"
+    ],
+    "properties": {
+      "values": {
+        "type": "array",
+        "items": {
+          "type": "integer",
+          "minimum": 0
+        }
+      },
+      "pulls": {
+        "type": "integer",
+        "minimum": 0
+      },
+      "closes": {
+        "type": "integer",
+        "minimum": 0
+      },
+      "acks": {
+        "type": "integer",
+        "minimum": 0
+      }
+    },
+    "additionalProperties": false
+  },
+  "errorVariants": [
+    {
+      "id": "handler",
+      "name": "Error",
+      "message": "HANDLER"
+    }
+  ]
+}

@@ -1,0 +1,125 @@
+{
+  "exportName": "openCodec",
+  "cases": [
+    {
+      "id": "H1",
+      "ruleIds": [
+        "C1",
+        "C2"
+      ],
+      "peer": {
+        "versions": [
+          "c4",
+          "c2"
+        ],
+        "capabilities": [
+          "binary"
+        ]
+      },
+      "setup": {},
+      "expected": {
+        "return": {
+          "version": "c4"
+        },
+        "observations": {
+          "opened": [
+            "c4"
+          ],
+          "closed": []
+        }
+      }
+    },
+    {
+      "id": "H2",
+      "ruleIds": [
+        "C1",
+        "C3"
+      ],
+      "peer": {
+        "versions": [
+          "c4",
+          "c2"
+        ],
+        "capabilities": [
+          "binary"
+        ]
+      },
+      "setup": {
+        "failVersions": [
+          "c4"
+        ]
+      },
+      "expected": {
+        "return": {
+          "version": "c2"
+        },
+        "observations": {
+          "opened": [
+            "c4",
+            "c2"
+          ],
+          "closed": []
+        }
+      }
+    },
+    {
+      "id": "H3",
+      "ruleIds": [
+        "C4"
+      ],
+      "peer": {
+        "versions": [
+          "c4",
+          "c2"
+        ],
+        "capabilities": [
+          "binary"
+        ]
+      },
+      "setup": {
+        "mismatchVersion": {
+          "c4": "c2"
+        }
+      },
+      "expected": {
+        "return": {
+          "version": "c2"
+        },
+        "observations": {
+          "opened": [
+            "c4",
+            "c2"
+          ],
+          "closed": [
+            "c2"
+          ]
+        }
+      }
+    },
+    {
+      "id": "H4",
+      "ruleIds": [
+        "C2",
+        "C5"
+      ],
+      "peer": {
+        "versions": [
+          "c4"
+        ],
+        "capabilities": []
+      },
+      "setup": {},
+      "expected": {
+        "error": {
+          "variant": "none",
+          "name": "NoCompatibleCodec",
+          "message": "No compatible codec"
+        },
+        "observations": {
+          "opened": [],
+          "closed": []
+        }
+      }
+    }
+  ]
+}

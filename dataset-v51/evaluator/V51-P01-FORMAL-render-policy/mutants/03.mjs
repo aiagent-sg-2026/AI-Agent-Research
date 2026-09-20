@@ -1,0 +1,1 @@
+const D={eco:{batch:3,deadlineMs:1200},max:{batch:9,deadlineMs:650}};export function resolveRenderPolicy(input={},region='global'){const profile=['eco','max'].includes(input?.profile)?input.profile:'eco';const tuning={...D[profile],...(region==='apac'?{deadlineMs:400}:{})};return {profile,tuning,region}}

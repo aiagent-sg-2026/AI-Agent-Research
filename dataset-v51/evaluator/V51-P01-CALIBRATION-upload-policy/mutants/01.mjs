@@ -1,0 +1,1 @@
+const D={normal:{chunks:4,timeoutMs:900},rapid:{chunks:8,timeoutMs:500}};export function resolveUploadPolicy(input={},zone='core'){const mode=input?.mode??'normal';const limits={...D[mode],...(zone==='edge'?{timeoutMs:300}:{})};for(const k of ['chunks','timeoutMs'])if(Number.isInteger(input?.limits?.[k])&&input.limits[k]>0)limits[k]=input.limits[k];return {mode,limits,zone}}

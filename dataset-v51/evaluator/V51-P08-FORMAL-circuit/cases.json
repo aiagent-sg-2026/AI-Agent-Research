@@ -1,0 +1,105 @@
+{
+  "exportName": "callBreaker",
+  "cases": [
+    {
+      "id": "H1",
+      "ruleIds": [
+        "C1"
+      ],
+      "setup": {
+        "open": true,
+        "failures": 2
+      },
+      "expected": {
+        "error": {
+          "variant": "open",
+          "name": "CircuitOpen",
+          "message": "CircuitOpen"
+        },
+        "observations": {
+          "calls": 0,
+          "state": {
+            "open": true,
+            "failures": 2
+          }
+        }
+      }
+    },
+    {
+      "id": "H2",
+      "ruleIds": [
+        "C2"
+      ],
+      "setup": {
+        "open": false,
+        "failures": 1,
+        "value": 9
+      },
+      "expected": {
+        "return": 9,
+        "observations": {
+          "calls": 1,
+          "state": {
+            "open": false,
+            "failures": 0
+          }
+        }
+      }
+    },
+    {
+      "id": "H3",
+      "ruleIds": [
+        "C3",
+        "C5"
+      ],
+      "setup": {
+        "open": false,
+        "failures": 0,
+        "fail": true,
+        "threshold": 2
+      },
+      "expected": {
+        "error": {
+          "variant": "operation",
+          "name": "Error",
+          "message": "BOOM"
+        },
+        "observations": {
+          "calls": 1,
+          "state": {
+            "open": false,
+            "failures": 1
+          }
+        }
+      }
+    },
+    {
+      "id": "H4",
+      "ruleIds": [
+        "C3",
+        "C4",
+        "C5"
+      ],
+      "setup": {
+        "open": false,
+        "failures": 1,
+        "fail": true,
+        "threshold": 2
+      },
+      "expected": {
+        "error": {
+          "variant": "operation",
+          "name": "Error",
+          "message": "BOOM"
+        },
+        "observations": {
+          "calls": 1,
+          "state": {
+            "open": true,
+            "failures": 2
+          }
+        }
+      }
+    }
+  ]
+}

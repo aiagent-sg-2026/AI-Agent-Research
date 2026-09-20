@@ -1,0 +1,56 @@
+{
+  "version": "v5.1-contract-1",
+  "taskId": "V51-P07-FORMAL-report-access",
+  "rules": [
+    {
+      "id": "C1",
+      "text": "locked=true denies first with exact reason 'locked'"
+    },
+    {
+      "id": "C2",
+      "text": "effect='deny' denies next with exact reason 'explicit-deny'"
+    },
+    {
+      "id": "C3",
+      "text": "viewer permits read; editor permits read/write; admin permits read/write/delete"
+    },
+    {
+      "id": "C4",
+      "text": "effect='allow' succeeds only when role permits action; success reason is 'explicit-allow', otherwise 'role-deny'"
+    },
+    {
+      "id": "C5",
+      "text": "without effect, permitted action allows with 'role-default'; otherwise deny with 'role-deny'"
+    }
+  ],
+  "returnSchema": {
+    "type": "object",
+    "required": [
+      "allowed",
+      "reason"
+    ],
+    "properties": {
+      "allowed": {
+        "type": "boolean"
+      },
+      "reason": {
+        "type": "string",
+        "enum": [
+          "locked",
+          "explicit-deny",
+          "role-deny",
+          "explicit-allow",
+          "role-default"
+        ]
+      }
+    },
+    "additionalProperties": false
+  },
+  "observationSchema": {
+    "type": "object",
+    "required": [],
+    "properties": {},
+    "additionalProperties": false
+  },
+  "errorVariants": []
+}

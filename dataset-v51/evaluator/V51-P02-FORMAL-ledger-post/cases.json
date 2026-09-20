@@ -1,0 +1,120 @@
+{
+  "exportName": "postLedgerBatch",
+  "cases": [
+    {
+      "id": "H1",
+      "ruleIds": [
+        "C1",
+        "C2"
+      ],
+      "entries": [
+        {
+          "ref": "x"
+        },
+        {
+          "ref": "x"
+        },
+        {
+          "ref": "y"
+        }
+      ],
+      "setup": {},
+      "expected": {
+        "return": {
+          "status": "posted",
+          "count": 2
+        },
+        "observations": {
+          "applied": [
+            "x",
+            "y"
+          ],
+          "undone": []
+        }
+      }
+    },
+    {
+      "id": "H2",
+      "ruleIds": [
+        "C3",
+        "C4"
+      ],
+      "entries": [
+        {
+          "ref": "x"
+        },
+        {
+          "ref": "y"
+        },
+        {
+          "ref": "z"
+        },
+        {
+          "ref": "w"
+        }
+      ],
+      "setup": {
+        "failRef": "z"
+      },
+      "expected": {
+        "return": {
+          "status": "reverted",
+          "count": 2,
+          "errorCode": "POST_FAIL",
+          "undoErrors": []
+        },
+        "observations": {
+          "applied": [
+            "x",
+            "y",
+            "z"
+          ],
+          "undone": [
+            "y",
+            "x"
+          ]
+        }
+      }
+    },
+    {
+      "id": "H3",
+      "ruleIds": [
+        "C3",
+        "C5"
+      ],
+      "entries": [
+        {
+          "ref": "x"
+        },
+        {
+          "ref": "y"
+        }
+      ],
+      "setup": {
+        "failRef": "y",
+        "revertFailRefs": [
+          "x"
+        ]
+      },
+      "expected": {
+        "return": {
+          "status": "reverted",
+          "count": 1,
+          "errorCode": "POST_FAIL",
+          "undoErrors": [
+            "REVERT_FAIL"
+          ]
+        },
+        "observations": {
+          "applied": [
+            "x",
+            "y"
+          ],
+          "undone": [
+            "x"
+          ]
+        }
+      }
+    }
+  ]
+}

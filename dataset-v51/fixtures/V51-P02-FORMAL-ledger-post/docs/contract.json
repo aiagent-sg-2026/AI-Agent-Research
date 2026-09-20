@@ -1,0 +1,110 @@
+{
+  "version": "v5.1-contract-1",
+  "taskId": "V51-P02-FORMAL-ledger-post",
+  "rules": [
+    {
+      "id": "C1",
+      "text": "duplicate entry refs post at most once per invocation"
+    },
+    {
+      "id": "C2",
+      "text": "success returns exactly {status:'posted',count}"
+    },
+    {
+      "id": "C3",
+      "text": "post failure stops later entries and returns exactly {status:'reverted',count,errorCode:'POST_FAIL',undoErrors}"
+    },
+    {
+      "id": "C4",
+      "text": "successfully posted entries revert in reverse order"
+    },
+    {
+      "id": "C5",
+      "text": "each revert failure contributes exact string 'REVERT_FAIL' to undoErrors"
+    }
+  ],
+  "returnSchema": {
+    "anyOf": [
+      {
+        "type": "object",
+        "required": [
+          "status",
+          "count"
+        ],
+        "properties": {
+          "status": {
+            "type": "string",
+            "enum": [
+              "posted"
+            ]
+          },
+          "count": {
+            "type": "integer",
+            "minimum": 0
+          }
+        },
+        "additionalProperties": false
+      },
+      {
+        "type": "object",
+        "required": [
+          "status",
+          "count",
+          "errorCode",
+          "undoErrors"
+        ],
+        "properties": {
+          "status": {
+            "type": "string",
+            "enum": [
+              "reverted"
+            ]
+          },
+          "count": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "errorCode": {
+            "type": "string",
+            "enum": [
+              "POST_FAIL"
+            ]
+          },
+          "undoErrors": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": [
+                "REVERT_FAIL"
+              ]
+            }
+          }
+        },
+        "additionalProperties": false
+      }
+    ]
+  },
+  "observationSchema": {
+    "type": "object",
+    "required": [
+      "applied",
+      "undone"
+    ],
+    "properties": {
+      "applied": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      },
+      "undone": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      }
+    },
+    "additionalProperties": false
+  },
+  "errorVariants": []
+}

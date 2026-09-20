@@ -1,0 +1,1 @@
+import test from 'node:test';import assert from 'node:assert/strict';import {applyStockMoves} from '../src/solution.mjs';test('empty commit',async()=>assert.deepEqual(await applyStockMoves([],{apply:async()=>{}}),{status:'committed',count:0}));

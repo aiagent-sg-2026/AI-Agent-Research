@@ -1,0 +1,1 @@
+import test from 'node:test';import assert from 'node:assert/strict';import {decidePortalAccess} from '../src/solution.mjs';test('inactive wins',()=>assert.deepEqual(decidePortalAccess({inactive:true,decision:'allow',role:'auditor'}),{allowed:false,reason:'inactive'}));

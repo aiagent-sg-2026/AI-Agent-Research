@@ -1,0 +1,110 @@
+{
+  "version": "v5.1-contract-1",
+  "taskId": "V51-P02-CALIBRATION-stock-moves",
+  "rules": [
+    {
+      "id": "C1",
+      "text": "duplicate move ids apply at most once per invocation"
+    },
+    {
+      "id": "C2",
+      "text": "success returns exactly {status:'committed',count}"
+    },
+    {
+      "id": "C3",
+      "text": "apply failure stops later moves and returns exactly {status:'rolled-back',count,errorCode:'APPLY_FAIL',undoErrors}"
+    },
+    {
+      "id": "C4",
+      "text": "successfully applied moves are undone in reverse order"
+    },
+    {
+      "id": "C5",
+      "text": "each undo failure contributes exact string 'UNDO_FAIL' to undoErrors without replacing errorCode"
+    }
+  ],
+  "returnSchema": {
+    "anyOf": [
+      {
+        "type": "object",
+        "required": [
+          "status",
+          "count"
+        ],
+        "properties": {
+          "status": {
+            "type": "string",
+            "enum": [
+              "committed"
+            ]
+          },
+          "count": {
+            "type": "integer",
+            "minimum": 0
+          }
+        },
+        "additionalProperties": false
+      },
+      {
+        "type": "object",
+        "required": [
+          "status",
+          "count",
+          "errorCode",
+          "undoErrors"
+        ],
+        "properties": {
+          "status": {
+            "type": "string",
+            "enum": [
+              "rolled-back"
+            ]
+          },
+          "count": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "errorCode": {
+            "type": "string",
+            "enum": [
+              "APPLY_FAIL"
+            ]
+          },
+          "undoErrors": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": [
+                "UNDO_FAIL"
+              ]
+            }
+          }
+        },
+        "additionalProperties": false
+      }
+    ]
+  },
+  "observationSchema": {
+    "type": "object",
+    "required": [
+      "applied",
+      "undone"
+    ],
+    "properties": {
+      "applied": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      },
+      "undone": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      }
+    },
+    "additionalProperties": false
+  },
+  "errorVariants": []
+}

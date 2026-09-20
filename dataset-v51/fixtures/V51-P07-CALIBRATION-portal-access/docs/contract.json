@@ -1,0 +1,57 @@
+{
+  "version": "v5.1-contract-1",
+  "taskId": "V51-P07-CALIBRATION-portal-access",
+  "rules": [
+    {
+      "id": "C1",
+      "text": "inactive=true denies first with exact reason 'inactive'"
+    },
+    {
+      "id": "C2",
+      "text": "decision='deny' denies next with exact reason 'explicit-deny'"
+    },
+    {
+      "id": "C3",
+      "text": "role='guest' denies next with exact reason 'role-deny'"
+    },
+    {
+      "id": "C4",
+      "text": "decision='allow' permits active non-guest with exact reason 'explicit-allow'"
+    },
+    {
+      "id": "C5",
+      "text": "without decision, auditor allows with exact reason 'role-default'; all other roles deny with exact reason 'default-deny'"
+    }
+  ],
+  "returnSchema": {
+    "type": "object",
+    "required": [
+      "allowed",
+      "reason"
+    ],
+    "properties": {
+      "allowed": {
+        "type": "boolean"
+      },
+      "reason": {
+        "type": "string",
+        "enum": [
+          "inactive",
+          "explicit-deny",
+          "role-deny",
+          "explicit-allow",
+          "role-default",
+          "default-deny"
+        ]
+      }
+    },
+    "additionalProperties": false
+  },
+  "observationSchema": {
+    "type": "object",
+    "required": [],
+    "properties": {},
+    "additionalProperties": false
+  },
+  "errorVariants": []
+}

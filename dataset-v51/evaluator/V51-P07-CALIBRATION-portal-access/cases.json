@@ -1,0 +1,101 @@
+{
+  "exportName": "decidePortalAccess",
+  "cases": [
+    {
+      "id": "H0",
+      "ruleIds": [
+        "C1"
+      ],
+      "args": [
+        {
+          "inactive": true,
+          "decision": "allow",
+          "role": "auditor"
+        }
+      ],
+      "expected": {
+        "return": {
+          "allowed": false,
+          "reason": "inactive"
+        },
+        "observations": {}
+      }
+    },
+    {
+      "id": "H1",
+      "ruleIds": [
+        "C2"
+      ],
+      "args": [
+        {
+          "decision": "deny",
+          "role": "auditor"
+        }
+      ],
+      "expected": {
+        "return": {
+          "allowed": false,
+          "reason": "explicit-deny"
+        },
+        "observations": {}
+      }
+    },
+    {
+      "id": "H2",
+      "ruleIds": [
+        "C3",
+        "C4"
+      ],
+      "args": [
+        {
+          "decision": "allow",
+          "role": "guest"
+        }
+      ],
+      "expected": {
+        "return": {
+          "allowed": false,
+          "reason": "role-deny"
+        },
+        "observations": {}
+      }
+    },
+    {
+      "id": "H3",
+      "ruleIds": [
+        "C4"
+      ],
+      "args": [
+        {
+          "decision": "allow",
+          "role": "member"
+        }
+      ],
+      "expected": {
+        "return": {
+          "allowed": true,
+          "reason": "explicit-allow"
+        },
+        "observations": {}
+      }
+    },
+    {
+      "id": "H4",
+      "ruleIds": [
+        "C5"
+      ],
+      "args": [
+        {
+          "role": "auditor"
+        }
+      ],
+      "expected": {
+        "return": {
+          "allowed": true,
+          "reason": "role-default"
+        },
+        "observations": {}
+      }
+    }
+  ]
+}

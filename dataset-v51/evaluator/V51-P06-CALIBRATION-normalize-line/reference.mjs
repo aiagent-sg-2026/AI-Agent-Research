@@ -1,0 +1,1 @@
+export function normalizeLine(v){if(!v||typeof v!=='object'||Array.isArray(v)||typeof v.code!=='string'||!v.code)return null;let qty=v.qty;if(typeof qty==='string'&&/^\d+$/.test(qty))qty=Number(qty);if(!Number.isInteger(qty)||qty<0)return null;const active=v.active===undefined?false:v.active;if(typeof active!=='boolean')return null;return {code:v.code,qty,active}}

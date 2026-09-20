@@ -1,0 +1,1 @@
+import test from 'node:test';import assert from 'node:assert/strict';import {readVersion} from '../src/solution.mjs';test('public hit',async()=>assert.equal(await readVersion(new Map([['a@1',4]]),'a',1,async()=>9),4));

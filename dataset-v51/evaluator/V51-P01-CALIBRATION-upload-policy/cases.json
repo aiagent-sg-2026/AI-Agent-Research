@@ -1,0 +1,83 @@
+{
+  "exportName": "resolveUploadPolicy",
+  "cases": [
+    {
+      "id": "H1",
+      "ruleIds": [
+        "C1",
+        "C2"
+      ],
+      "args": [
+        {
+          "mode": "bad"
+        },
+        "core"
+      ],
+      "expected": {
+        "return": {
+          "mode": "normal",
+          "limits": {
+            "chunks": 4,
+            "timeoutMs": 900
+          },
+          "zone": "core"
+        },
+        "observations": {}
+      }
+    },
+    {
+      "id": "H2",
+      "ruleIds": [
+        "C2",
+        "C3"
+      ],
+      "args": [
+        {
+          "mode": "rapid"
+        },
+        "edge"
+      ],
+      "expected": {
+        "return": {
+          "mode": "rapid",
+          "limits": {
+            "chunks": 8,
+            "timeoutMs": 300
+          },
+          "zone": "edge"
+        },
+        "observations": {}
+      }
+    },
+    {
+      "id": "H3",
+      "ruleIds": [
+        "C3",
+        "C4",
+        "C5"
+      ],
+      "args": [
+        {
+          "mode": "rapid",
+          "limits": {
+            "chunks": 10,
+            "timeoutMs": 700
+          },
+          "extra": 1
+        },
+        "edge"
+      ],
+      "expected": {
+        "return": {
+          "mode": "rapid",
+          "limits": {
+            "chunks": 10,
+            "timeoutMs": 700
+          },
+          "zone": "edge"
+        },
+        "observations": {}
+      }
+    }
+  ]
+}

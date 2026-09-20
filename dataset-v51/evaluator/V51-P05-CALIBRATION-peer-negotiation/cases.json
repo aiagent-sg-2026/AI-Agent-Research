@@ -1,0 +1,125 @@
+{
+  "exportName": "negotiatePeer",
+  "cases": [
+    {
+      "id": "H1",
+      "ruleIds": [
+        "C1",
+        "C2"
+      ],
+      "peer": {
+        "versions": [
+          "v3",
+          "v2"
+        ],
+        "capabilities": [
+          "stream"
+        ]
+      },
+      "setup": {},
+      "expected": {
+        "return": {
+          "version": "v3"
+        },
+        "observations": {
+          "opened": [
+            "v3"
+          ],
+          "closed": []
+        }
+      }
+    },
+    {
+      "id": "H2",
+      "ruleIds": [
+        "C1",
+        "C3"
+      ],
+      "peer": {
+        "versions": [
+          "v3",
+          "v2"
+        ],
+        "capabilities": [
+          "stream"
+        ]
+      },
+      "setup": {
+        "failVersions": [
+          "v3"
+        ]
+      },
+      "expected": {
+        "return": {
+          "version": "v2"
+        },
+        "observations": {
+          "opened": [
+            "v3",
+            "v2"
+          ],
+          "closed": []
+        }
+      }
+    },
+    {
+      "id": "H3",
+      "ruleIds": [
+        "C4"
+      ],
+      "peer": {
+        "versions": [
+          "v3",
+          "v2"
+        ],
+        "capabilities": [
+          "stream"
+        ]
+      },
+      "setup": {
+        "mismatchVersion": {
+          "v3": "v2"
+        }
+      },
+      "expected": {
+        "return": {
+          "version": "v2"
+        },
+        "observations": {
+          "opened": [
+            "v3",
+            "v2"
+          ],
+          "closed": [
+            "v2"
+          ]
+        }
+      }
+    },
+    {
+      "id": "H4",
+      "ruleIds": [
+        "C2",
+        "C5"
+      ],
+      "peer": {
+        "versions": [
+          "v3"
+        ],
+        "capabilities": []
+      },
+      "setup": {},
+      "expected": {
+        "error": {
+          "variant": "none",
+          "name": "NoCompatibleVersion",
+          "message": "No compatible version"
+        },
+        "observations": {
+          "opened": [],
+          "closed": []
+        }
+      }
+    }
+  ]
+}

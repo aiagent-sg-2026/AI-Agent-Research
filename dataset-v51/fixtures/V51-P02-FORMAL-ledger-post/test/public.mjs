@@ -1,0 +1,1 @@
+import test from 'node:test';import assert from 'node:assert/strict';import {postLedgerBatch} from '../src/solution.mjs';test('empty post',async()=>assert.deepEqual(await postLedgerBatch([],{post:async()=>{}}),{status:'posted',count:0}));

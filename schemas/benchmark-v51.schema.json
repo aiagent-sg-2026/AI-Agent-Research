@@ -1,0 +1,15 @@
+{
+  "$schema":"https://json-schema.org/draft/2020-12/schema",
+  "type":"object",
+  "required":["version","protocol","pairCount","siblingCount","calibration","formal","selectionPolicy","contractPolicy","adapter","execution"],
+  "properties":{
+    "version":{"const":"benchmark-v5.1-scaffold"},
+    "protocol":{"const":"AQB-V5.1-CALIBRATED-001"},
+    "pairCount":{"const":8},
+    "siblingCount":{"const":16},
+    "calibration":{"type":"object","required":["arms","trials","cells","seed","randomization"]},
+    "formal":{"type":"object","required":["selectedPairs","arms","trials","cells","authorized"]},
+    "selectionPolicy":{"type":"object","required":["principle","qualifyCombinedSuccessMin","qualifyCombinedSuccessMax","cellsPerPair","rank","requiredQualifiedPairs","ifInsufficient"]},
+    "contractPolicy":{"type":"object","required":["candidateVisibleRuleIdsRequired","closedReturnSchemaRequired","closedObservationSchemaRequired","exactErrorVariantsRequired","hiddenExpectedValuesMustValidateAgainstPublicSchemas","allPublicRulesMustBeCoveredByHiddenCases"]}
+  }
+}

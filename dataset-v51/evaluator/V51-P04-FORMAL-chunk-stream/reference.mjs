@@ -1,0 +1,1 @@
+export async function forwardChunks(reader,sink,signal){let count=0,released=false,error;try{while(true){if(signal?.aborted)break;const r=await reader.next();if(r.done)break;if(signal?.aborted)break;await sink.write(r.value);count++}}catch(e){error=e}finally{if(typeof reader.release==='function'){await reader.release();released=true}}if(error)throw error;return {released,count}}

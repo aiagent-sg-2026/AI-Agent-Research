@@ -1,0 +1,22 @@
+{
+  "mutants": [
+    {
+      "file": "mutants/01.mjs",
+      "targetRuleIds": [
+        "C1"
+      ]
+    },
+    {
+      "file": "mutants/02.mjs",
+      "targetRuleIds": [
+        "C3"
+      ]
+    },
+    {
+      "file": "mutants/03.mjs",
+      "targetRuleIds": [
+        "C4"
+      ]
+    }
+  ]
+}

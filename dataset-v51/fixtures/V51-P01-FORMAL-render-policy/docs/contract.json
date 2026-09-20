@@ -1,0 +1,72 @@
+{
+  "version": "v5.1-contract-1",
+  "taskId": "V51-P01-FORMAL-render-policy",
+  "rules": [
+    {
+      "id": "C1",
+      "text": "profile is 'eco' or 'max'; missing/unknown profile becomes 'eco'"
+    },
+    {
+      "id": "C2",
+      "text": "eco defaults are batch=3 deadlineMs=1200; max defaults are batch=9 deadlineMs=650"
+    },
+    {
+      "id": "C3",
+      "text": "region 'apac' sets deadlineMs=400 before explicit tuning"
+    },
+    {
+      "id": "C4",
+      "text": "positive integer tuning.batch/deadlineMs overrides inherited values"
+    },
+    {
+      "id": "C5",
+      "text": "return object has exactly profile,tuning,region; tuning has exactly batch,deadlineMs"
+    }
+  ],
+  "returnSchema": {
+    "type": "object",
+    "required": [
+      "profile",
+      "tuning",
+      "region"
+    ],
+    "properties": {
+      "profile": {
+        "type": "string",
+        "enum": [
+          "eco",
+          "max"
+        ]
+      },
+      "tuning": {
+        "type": "object",
+        "required": [
+          "batch",
+          "deadlineMs"
+        ],
+        "properties": {
+          "batch": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "deadlineMs": {
+            "type": "integer",
+            "minimum": 1
+          }
+        },
+        "additionalProperties": false
+      },
+      "region": {
+        "type": "string"
+      }
+    },
+    "additionalProperties": false
+  },
+  "observationSchema": {
+    "type": "object",
+    "required": [],
+    "properties": {},
+    "additionalProperties": false
+  },
+  "errorVariants": []
+}

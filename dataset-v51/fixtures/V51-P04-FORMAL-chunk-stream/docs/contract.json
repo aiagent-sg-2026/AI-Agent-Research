@@ -1,0 +1,81 @@
+{
+  "version": "v5.1-contract-1",
+  "taskId": "V51-P04-FORMAL-chunk-stream",
+  "rules": [
+    {
+      "id": "C1",
+      "text": "await each sink.write acknowledgement before reader.next again"
+    },
+    {
+      "id": "C2",
+      "text": "when signal is aborted, do not call reader.next again"
+    },
+    {
+      "id": "C3",
+      "text": "if reader.release exists, call it exactly once after normal completion, abort, or sink error"
+    },
+    {
+      "id": "C4",
+      "text": "successful return is exactly {released,count}; released is true iff release was called"
+    },
+    {
+      "id": "C5",
+      "text": "sink Error('SINK') is rethrown unchanged after release"
+    }
+  ],
+  "returnSchema": {
+    "type": "object",
+    "required": [
+      "released",
+      "count"
+    ],
+    "properties": {
+      "released": {
+        "type": "boolean"
+      },
+      "count": {
+        "type": "integer",
+        "minimum": 0
+      }
+    },
+    "additionalProperties": false
+  },
+  "observationSchema": {
+    "type": "object",
+    "required": [
+      "values",
+      "pulls",
+      "closes",
+      "acks"
+    ],
+    "properties": {
+      "values": {
+        "type": "array",
+        "items": {
+          "type": "integer",
+          "minimum": 0
+        }
+      },
+      "pulls": {
+        "type": "integer",
+        "minimum": 0
+      },
+      "closes": {
+        "type": "integer",
+        "minimum": 0
+      },
+      "acks": {
+        "type": "integer",
+        "minimum": 0
+      }
+    },
+    "additionalProperties": false
+  },
+  "errorVariants": [
+    {
+      "id": "sink",
+      "name": "Error",
+      "message": "SINK"
+    }
+  ]
+}

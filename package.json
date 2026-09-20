@@ -31,7 +31,11 @@
     "v5:validate": "node src/benchmark-v5.mjs --validate",
     "v5:plan": "node src/benchmark-v5.mjs --plan v5-calibration-plan --seed 20260919",
     "v5:freeze": "node src/benchmark-v5.mjs --freeze v5-scaffold-freeze.json",
-    "v5:verify": "node src/benchmark-v5.mjs --verify v5-scaffold-freeze.json"
+    "v5:verify": "node src/benchmark-v5.mjs --verify v5-scaffold-freeze.json",
+    "v51:validate": "node src/benchmark-v51.mjs --validate",
+    "v51:plan": "node src/benchmark-v51.mjs --plan v51-calibration-plan --seed 20260920",
+    "v51:freeze": "node src/benchmark-v51.mjs --freeze v51-scaffold-freeze.json",
+    "v51:verify": "node src/benchmark-v51.mjs --verify v51-scaffold-freeze.json"
   },
   "engines": {
     "node": ">=20"

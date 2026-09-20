@@ -1,0 +1,72 @@
+{
+  "version": "v5.1-contract-1",
+  "taskId": "V51-P01-CALIBRATION-upload-policy",
+  "rules": [
+    {
+      "id": "C1",
+      "text": "mode is 'normal' or 'rapid'; missing/unknown mode becomes 'normal'"
+    },
+    {
+      "id": "C2",
+      "text": "normal defaults are chunks=4 timeoutMs=900; rapid defaults are chunks=8 timeoutMs=500"
+    },
+    {
+      "id": "C3",
+      "text": "zone 'edge' sets timeoutMs=300 before explicit limits"
+    },
+    {
+      "id": "C4",
+      "text": "positive integer input.limits.chunks/timeoutMs override inherited values"
+    },
+    {
+      "id": "C5",
+      "text": "return object has exactly keys mode,limits,zone; limits has exactly chunks,timeoutMs"
+    }
+  ],
+  "returnSchema": {
+    "type": "object",
+    "required": [
+      "mode",
+      "limits",
+      "zone"
+    ],
+    "properties": {
+      "mode": {
+        "type": "string",
+        "enum": [
+          "normal",
+          "rapid"
+        ]
+      },
+      "limits": {
+        "type": "object",
+        "required": [
+          "chunks",
+          "timeoutMs"
+        ],
+        "properties": {
+          "chunks": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "timeoutMs": {
+            "type": "integer",
+            "minimum": 1
+          }
+        },
+        "additionalProperties": false
+      },
+      "zone": {
+        "type": "string"
+      }
+    },
+    "additionalProperties": false
+  },
+  "observationSchema": {
+    "type": "object",
+    "required": [],
+    "properties": {},
+    "additionalProperties": false
+  },
+  "errorVariants": []
+}

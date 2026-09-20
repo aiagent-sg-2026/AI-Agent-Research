@@ -1,0 +1,1 @@
+import test from 'node:test';import assert from 'node:assert/strict';import {resolveRenderPolicy} from '../src/solution.mjs';test('public default',()=>assert.deepEqual(resolveRenderPolicy({},'global'),{profile:'eco',tuning:{batch:3,deadlineMs:1200},region:'global'}));

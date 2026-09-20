@@ -1,0 +1,62 @@
+{
+  "version": "v5.1-contract-1",
+  "taskId": "V51-P06-CALIBRATION-normalize-line",
+  "rules": [
+    {
+      "id": "C1",
+      "text": "input must be non-array object with non-empty string code"
+    },
+    {
+      "id": "C2",
+      "text": "qty accepts non-negative integer or digit-only string and returns integer"
+    },
+    {
+      "id": "C3",
+      "text": "active defaults false and otherwise must be boolean"
+    },
+    {
+      "id": "C4",
+      "text": "unknown fields are omitted"
+    },
+    {
+      "id": "C5",
+      "text": "malformed input returns null"
+    }
+  ],
+  "returnSchema": {
+    "anyOf": [
+      {
+        "type": "object",
+        "required": [
+          "code",
+          "qty",
+          "active"
+        ],
+        "properties": {
+          "code": {
+            "type": "string",
+            "minLength": 1
+          },
+          "qty": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "active": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      {
+        "type": "null"
+      }
+    ]
+  },
+  "observationSchema": {
+    "type": "object",
+    "required": [],
+    "properties": {},
+    "additionalProperties": false
+  },
+  "errorVariants": []
+}

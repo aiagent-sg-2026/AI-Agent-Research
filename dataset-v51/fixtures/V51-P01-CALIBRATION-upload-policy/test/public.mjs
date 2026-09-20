@@ -1,0 +1,1 @@
+import test from 'node:test';import assert from 'node:assert/strict';import {resolveUploadPolicy} from '../src/solution.mjs';test('public default',()=>assert.deepEqual(resolveUploadPolicy({},'core'),{mode:'normal',limits:{chunks:4,timeoutMs:900},zone:'core'}));

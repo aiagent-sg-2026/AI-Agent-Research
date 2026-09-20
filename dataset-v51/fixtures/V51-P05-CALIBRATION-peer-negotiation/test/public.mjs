@@ -1,0 +1,1 @@
+import test from 'node:test';import assert from 'node:assert/strict';import {negotiatePeer} from '../src/solution.mjs';test('public v2',async()=>assert.equal((await negotiatePeer({versions:['v2'],capabilities:[]},{open:async v=>({version:v})})).version,'v2'));

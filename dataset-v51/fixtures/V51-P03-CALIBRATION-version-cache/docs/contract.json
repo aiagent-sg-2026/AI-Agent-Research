@@ -1,0 +1,60 @@
+{
+  "version": "v5.1-contract-1",
+  "taskId": "V51-P03-CALIBRATION-version-cache",
+  "rules": [
+    {
+      "id": "C1",
+      "text": "cache key is exact string key+'@'+generation"
+    },
+    {
+      "id": "C2",
+      "text": "concurrent misses for same key and generation share one in-flight loader"
+    },
+    {
+      "id": "C3",
+      "text": "different generations never share cache values or in-flight loaders"
+    },
+    {
+      "id": "C4",
+      "text": "loader rejection is neither cached nor left in-flight; a later call retries"
+    }
+  ],
+  "returnSchema": {
+    "type": "integer"
+  },
+  "observationSchema": {
+    "type": "object",
+    "required": [
+      "loads",
+      "peerReturns",
+      "keys",
+      "errors"
+    ],
+    "properties": {
+      "loads": {
+        "type": "integer",
+        "minimum": 0
+      },
+      "peerReturns": {
+        "type": "array",
+        "items": {
+          "type": "integer"
+        }
+      },
+      "keys": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      },
+      "errors": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      }
+    },
+    "additionalProperties": false
+  },
+  "errorVariants": []
+}

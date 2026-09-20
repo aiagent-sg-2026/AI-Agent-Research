@@ -1,0 +1,83 @@
+{
+  "exportName": "readVersion",
+  "cases": [
+    {
+      "id": "H1",
+      "ruleIds": [
+        "C2"
+      ],
+      "kind": "share",
+      "key": "k",
+      "generation": 2,
+      "values": [
+        9,
+        8
+      ],
+      "expected": {
+        "return": 9,
+        "observations": {
+          "loads": 1,
+          "peerReturns": [
+            9,
+            9
+          ],
+          "keys": [
+            "k@2"
+          ],
+          "errors": []
+        }
+      }
+    },
+    {
+      "id": "H2",
+      "ruleIds": [
+        "C1",
+        "C3"
+      ],
+      "kind": "different",
+      "key": "k",
+      "generation": 2,
+      "values": [
+        3,
+        7
+      ],
+      "expected": {
+        "return": 7,
+        "observations": {
+          "loads": 2,
+          "peerReturns": [],
+          "keys": [
+            "k@2",
+            "k@3"
+          ],
+          "errors": []
+        }
+      }
+    },
+    {
+      "id": "H3",
+      "ruleIds": [
+        "C4"
+      ],
+      "kind": "retry",
+      "key": "e",
+      "generation": 1,
+      "values": [
+        6
+      ],
+      "expected": {
+        "return": 6,
+        "observations": {
+          "loads": 2,
+          "peerReturns": [],
+          "keys": [
+            "e@1"
+          ],
+          "errors": [
+            "TEMP"
+          ]
+        }
+      }
+    }
+  ]
+}
