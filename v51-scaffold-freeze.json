@@ -823,16 +823,24 @@
       "sha256": "c9c58e321574922121ffcd7b7152479927e64ca52b3cae4ea41585109e0672eb"
     },
     {
+      "file": "scripts/v51-calibrate.mjs",
+      "sha256": "54df51f35022b19fb461d30e65fe4e2bcca43c930f075117d4bfeee03799ea36"
+    },
+    {
       "file": "scripts/v51-run-cases.mjs",
       "sha256": "5d7a1e9fa0ca60e7f556da08c773e79dd57248ca5fe667516574382578fcd6f3"
     },
     {
       "file": "src/benchmark-v51.mjs",
-      "sha256": "8ad18925485017d8a2e348e9ffe2e145657ebe53600c35ebff05eaf9aefc687b"
+      "sha256": "d0e6e08da73f4c5f419b6a2fdf0d77d058a4300091039ee6017e6de47939592a"
     },
     {
       "file": "src/codex-luna-adapter.mjs",
       "sha256": "53d4208cd5042223c899b8b54140ce71c35a368fcc2899d757b06d2c8092bf88"
+    },
+    {
+      "file": "src/execute.mjs",
+      "sha256": "b201eb499d8020cbd6474f2efb214dfebda9dfbfb668e557099abd16ef0dfc7c"
     },
     {
       "file": "src/hash.mjs",
@@ -847,5 +855,5 @@
       "sha256": "1749950cac0fc037e7037c8258439a32404a6e0489137ad92d8545e6e268d0b9"
     }
   ],
-  "manifestSha256": "812f41a0885f2b1cd1179e2e7e892db62f358c14cc3ab541ce9f42eb4c9bff9b"
+  "manifestSha256": "574ff0fb9f4fda57d93bfd2d3b2277197edcbf8883e6391d223c9c2a17cd8b19"
 }
