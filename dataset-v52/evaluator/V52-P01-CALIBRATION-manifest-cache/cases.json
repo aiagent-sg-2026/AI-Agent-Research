@@ -1,0 +1,195 @@
+{
+  "exportName": "createManifestCache",
+  "cases": [
+    {
+      "id": "H1",
+      "ruleIds": [
+        "C1",
+        "C2",
+        "C6"
+      ],
+      "kind": "share",
+      "expected": {
+        "return": {
+          "value": "a"
+        },
+        "observations": {
+          "loads": 1,
+          "values": [
+            "a",
+            "a"
+          ],
+          "cacheKeys": [
+            "asset#1"
+          ],
+          "trace": [
+            "get",
+            "load",
+            "get",
+            "settle"
+          ]
+        }
+      }
+    },
+    {
+      "id": "H2",
+      "ruleIds": [
+        "C3",
+        "C4",
+        "C6"
+      ],
+      "kind": "invalidate",
+      "expected": {
+        "return": {
+          "value": "new"
+        },
+        "observations": {
+          "loads": 2,
+          "values": [
+            "old",
+            "new"
+          ],
+          "cacheKeys": [
+            "asset#1"
+          ],
+          "trace": [
+            "get",
+            "load",
+            "invalidate",
+            "settle",
+            "get",
+            "load",
+            "settle"
+          ]
+        }
+      }
+    },
+    {
+      "id": "H3",
+      "ruleIds": [
+        "C5",
+        "C6"
+      ],
+      "kind": "retry",
+      "expected": {
+        "return": {
+          "value": "ok"
+        },
+        "observations": {
+          "loads": 2,
+          "values": [
+            "ok"
+          ],
+          "cacheKeys": [
+            "retry#1"
+          ],
+          "trace": [
+            "get",
+            "load",
+            "reject",
+            "get",
+            "load",
+            "settle"
+          ]
+        }
+      }
+    },
+    {
+      "id": "H4",
+      "ruleIds": [
+        "C2",
+        "C6"
+      ],
+      "kind": "generation",
+      "expected": {
+        "return": {
+          "value": "g2"
+        },
+        "observations": {
+          "loads": 2,
+          "values": [
+            "g1",
+            "g2"
+          ],
+          "cacheKeys": [
+            "asset#1",
+            "asset#2"
+          ],
+          "trace": [
+            "get",
+            "load",
+            "settle",
+            "get",
+            "load",
+            "settle"
+          ]
+        }
+      }
+    },
+    {
+      "id": "H5",
+      "ruleIds": [
+        "C2",
+        "C3",
+        "C6"
+      ],
+      "kind": "ready-invalidate",
+      "expected": {
+        "return": {
+          "value": "fresh"
+        },
+        "observations": {
+          "loads": 2,
+          "values": [
+            "cached",
+            "fresh"
+          ],
+          "cacheKeys": [
+            "ready#1"
+          ],
+          "trace": [
+            "get",
+            "load",
+            "settle",
+            "invalidate",
+            "get",
+            "load",
+            "settle"
+          ]
+        }
+      }
+    },
+    {
+      "id": "H6",
+      "ruleIds": [
+        "C1",
+        "C5",
+        "C6"
+      ],
+      "kind": "reject-share",
+      "expected": {
+        "return": {
+          "value": "ok"
+        },
+        "observations": {
+          "loads": 2,
+          "values": [
+            "ok"
+          ],
+          "cacheKeys": [
+            "shared#1"
+          ],
+          "trace": [
+            "get",
+            "load",
+            "get",
+            "reject",
+            "get",
+            "load",
+            "settle"
+          ]
+        }
+      }
+    }
+  ]
+}

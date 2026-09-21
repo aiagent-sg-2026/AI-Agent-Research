@@ -1,0 +1,85 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": [
+    "version",
+    "protocol",
+    "pairCount",
+    "siblingCount",
+    "tranche",
+    "fullDesign",
+    "calibration",
+    "formal",
+    "selectionPolicy",
+    "execution"
+  ],
+  "properties": {
+    "version": {
+      "const": "benchmark-v5.2-tranche"
+    },
+    "protocol": {
+      "const": "AQB-V5.2-TRANCHE-001"
+    },
+    "pairCount": {
+      "const": 3
+    },
+    "siblingCount": {
+      "const": 6
+    },
+    "tranche": {
+      "type": "object",
+      "required": [
+        "pairCount",
+        "siblingCount",
+        "calibrationCellsIfEverAuthorized"
+      ]
+    },
+    "fullDesign": {
+      "type": "object",
+      "required": [
+        "pairCount",
+        "calibrationCells",
+        "formalSelectedPairs",
+        "formalCells"
+      ]
+    },
+    "calibration": {
+      "type": "object",
+      "required": [
+        "arms",
+        "trials",
+        "cells",
+        "seed",
+        "randomization",
+        "authorized"
+      ]
+    },
+    "formal": {
+      "type": "object",
+      "required": [
+        "selectedPairs",
+        "arms",
+        "trials",
+        "cells",
+        "authorized"
+      ]
+    },
+    "selectionPolicy": {
+      "type": "object",
+      "required": [
+        "principle",
+        "qualifyCombinedSuccessMin",
+        "qualifyCombinedSuccessMax",
+        "requiredQualifiedPairs",
+        "ifInsufficient"
+      ]
+    },
+    "execution": {
+      "type": "object",
+      "required": [
+        "calibrationAuthorized",
+        "formalAuthorized"
+      ]
+    }
+  }
+}

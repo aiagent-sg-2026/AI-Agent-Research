@@ -35,7 +35,8 @@
     "v51:validate": "node src/benchmark-v51.mjs --validate",
     "v51:plan": "node src/benchmark-v51.mjs --plan v51-calibration-plan --seed 20260920",
     "v51:freeze": "node src/benchmark-v51.mjs --freeze v51-scaffold-freeze.json",
-    "v51:verify": "node src/benchmark-v51.mjs --verify v51-scaffold-freeze.json"
+    "v51:verify": "node src/benchmark-v51.mjs --verify v51-scaffold-freeze.json",
+    "v52:tranche:validate": "node scripts/v52-validate.mjs"
   },
   "engines": {
     "node": ">=20"

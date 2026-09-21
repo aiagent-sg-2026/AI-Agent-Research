@@ -1,0 +1,1 @@
+import test from 'node:test';import assert from 'node:assert/strict';import {createPaymentBreaker} from '../src/solution.mjs';test('success stays closed',async()=>{const clock={now:()=>0},b=createPaymentBreaker({clock});const value={ok:true};assert.strictEqual(await b.call(async()=>value),value);assert.equal(b.state(),'closed')});

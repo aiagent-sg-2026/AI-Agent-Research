@@ -1,0 +1,195 @@
+{
+  "exportName": "createRouteCache",
+  "cases": [
+    {
+      "id": "H1",
+      "ruleIds": [
+        "C1",
+        "C2",
+        "C6"
+      ],
+      "kind": "share",
+      "expected": {
+        "return": {
+          "value": "x"
+        },
+        "observations": {
+          "loads": 1,
+          "values": [
+            "x",
+            "x"
+          ],
+          "keys": [
+            "/home@3"
+          ],
+          "trace": [
+            "resolve",
+            "fetch",
+            "resolve",
+            "settle"
+          ]
+        }
+      }
+    },
+    {
+      "id": "H2",
+      "ruleIds": [
+        "C3",
+        "C4",
+        "C6"
+      ],
+      "kind": "invalidate",
+      "expected": {
+        "return": {
+          "value": "fresh"
+        },
+        "observations": {
+          "loads": 2,
+          "values": [
+            "old",
+            "fresh"
+          ],
+          "keys": [
+            "/home@3"
+          ],
+          "trace": [
+            "resolve",
+            "fetch",
+            "evict",
+            "settle",
+            "resolve",
+            "fetch",
+            "settle"
+          ]
+        }
+      }
+    },
+    {
+      "id": "H3",
+      "ruleIds": [
+        "C5",
+        "C6"
+      ],
+      "kind": "retry",
+      "expected": {
+        "return": {
+          "value": "ok"
+        },
+        "observations": {
+          "loads": 2,
+          "values": [
+            "ok"
+          ],
+          "keys": [
+            "/retry@1"
+          ],
+          "trace": [
+            "resolve",
+            "fetch",
+            "reject",
+            "resolve",
+            "fetch",
+            "settle"
+          ]
+        }
+      }
+    },
+    {
+      "id": "H4",
+      "ruleIds": [
+        "C2",
+        "C6"
+      ],
+      "kind": "generation",
+      "expected": {
+        "return": {
+          "value": "r2"
+        },
+        "observations": {
+          "loads": 2,
+          "values": [
+            "r1",
+            "r2"
+          ],
+          "keys": [
+            "/home@1",
+            "/home@2"
+          ],
+          "trace": [
+            "resolve",
+            "fetch",
+            "settle",
+            "resolve",
+            "fetch",
+            "settle"
+          ]
+        }
+      }
+    },
+    {
+      "id": "H5",
+      "ruleIds": [
+        "C2",
+        "C3",
+        "C6"
+      ],
+      "kind": "ready-invalidate",
+      "expected": {
+        "return": {
+          "value": "fresh"
+        },
+        "observations": {
+          "loads": 2,
+          "values": [
+            "cached",
+            "fresh"
+          ],
+          "keys": [
+            "/ready@1"
+          ],
+          "trace": [
+            "resolve",
+            "fetch",
+            "settle",
+            "evict",
+            "resolve",
+            "fetch",
+            "settle"
+          ]
+        }
+      }
+    },
+    {
+      "id": "H6",
+      "ruleIds": [
+        "C1",
+        "C5",
+        "C6"
+      ],
+      "kind": "reject-share",
+      "expected": {
+        "return": {
+          "value": "ok"
+        },
+        "observations": {
+          "loads": 2,
+          "values": [
+            "ok"
+          ],
+          "keys": [
+            "/shared@1"
+          ],
+          "trace": [
+            "resolve",
+            "fetch",
+            "resolve",
+            "reject",
+            "resolve",
+            "fetch",
+            "settle"
+          ]
+        }
+      }
+    }
+  ]
+}

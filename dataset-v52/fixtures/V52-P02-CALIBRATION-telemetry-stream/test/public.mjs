@@ -1,0 +1,1 @@
+import test from 'node:test';import assert from 'node:assert/strict';import {createTelemetryStream} from '../src/solution.mjs';test('partial frame',()=>{const out=[],s=createTelemetryStream(v=>out.push(v));s.write('3:ab');s.write('c;');assert.deepEqual(out,['abc'])});

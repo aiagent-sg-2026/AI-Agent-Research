@@ -1,0 +1,231 @@
+{
+  "exportName": "createSearchGate",
+  "cases": [
+    {
+      "id": "H1",
+      "ruleIds": [
+        "C1",
+        "C2",
+        "C6"
+      ],
+      "kind": "open",
+      "expected": {
+        "return": {
+          "value": "ok"
+        },
+        "observations": {
+          "states": [
+            "closed",
+            "open",
+            "open"
+          ],
+          "results": [
+            "ok"
+          ],
+          "errors": [
+            "Error:DOWN",
+            "CircuitOpen:Circuit open"
+          ],
+          "events": [
+            "query",
+            "success",
+            "query",
+            "failure",
+            "open",
+            "reject"
+          ]
+        }
+      }
+    },
+    {
+      "id": "H2",
+      "ruleIds": [
+        "C2",
+        "C3",
+        "C4",
+        "C5",
+        "C6"
+      ],
+      "kind": "probe",
+      "expected": {
+        "return": {
+          "value": "ok"
+        },
+        "observations": {
+          "states": [
+            "open",
+            "open",
+            "closed"
+          ],
+          "results": [
+            "ok"
+          ],
+          "errors": [
+            "Error:DOWN",
+            "CircuitOpen:Circuit open"
+          ],
+          "events": [
+            "query",
+            "failure",
+            "open",
+            "reject",
+            "half-open",
+            "query",
+            "reset",
+            "success"
+          ]
+        }
+      }
+    },
+    {
+      "id": "H3",
+      "ruleIds": [
+        "C2",
+        "C4",
+        "C5",
+        "C6"
+      ],
+      "kind": "probe-fail",
+      "expected": {
+        "return": {
+          "value": "ok"
+        },
+        "observations": {
+          "states": [
+            "open",
+            "open",
+            "open",
+            "closed"
+          ],
+          "results": [
+            "ok"
+          ],
+          "errors": [
+            "Error:DOWN",
+            "Error:DOWN",
+            "CircuitOpen:Circuit open"
+          ],
+          "events": [
+            "query",
+            "failure",
+            "open",
+            "half-open",
+            "query",
+            "failure",
+            "open",
+            "reject",
+            "half-open",
+            "query",
+            "reset",
+            "success"
+          ]
+        }
+      }
+    },
+    {
+      "id": "H4",
+      "ruleIds": [
+        "C1",
+        "C2",
+        "C6"
+      ],
+      "kind": "consecutive",
+      "expected": {
+        "return": {
+          "value": "ok"
+        },
+        "observations": {
+          "states": [
+            "closed",
+            "closed",
+            "closed",
+            "closed"
+          ],
+          "results": [
+            "ok",
+            "ok"
+          ],
+          "errors": [
+            "Error:DOWN",
+            "Error:DOWN"
+          ],
+          "events": [
+            "query",
+            "failure",
+            "query",
+            "success",
+            "query",
+            "failure",
+            "query",
+            "success"
+          ]
+        }
+      }
+    },
+    {
+      "id": "H5",
+      "ruleIds": [
+        "C2",
+        "C4",
+        "C5",
+        "C6"
+      ],
+      "kind": "busy",
+      "expected": {
+        "return": {
+          "value": "ok"
+        },
+        "observations": {
+          "states": [
+            "open",
+            "half-open",
+            "closed"
+          ],
+          "results": [
+            "ok"
+          ],
+          "errors": [
+            "Error:DOWN",
+            "CircuitProbeBusy:Probe busy"
+          ],
+          "events": [
+            "query",
+            "failure",
+            "open",
+            "half-open",
+            "query",
+            "reject",
+            "reset",
+            "success"
+          ]
+        }
+      }
+    },
+    {
+      "id": "H6",
+      "ruleIds": [
+        "C1",
+        "C6"
+      ],
+      "kind": "copy",
+      "expected": {
+        "return": {
+          "value": "ok"
+        },
+        "observations": {
+          "states": [
+            "closed"
+          ],
+          "results": [
+            "ok"
+          ],
+          "errors": [],
+          "events": [
+            "query",
+            "success"
+          ]
+        }
+      }
+    }
+  ]
+}

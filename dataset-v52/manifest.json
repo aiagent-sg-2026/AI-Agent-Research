@@ -1,0 +1,152 @@
+{
+  "version": "benchmark-v5.2-tranche",
+  "protocol": "AQB-V5.2-TRANCHE-001",
+  "pairs": [
+    {
+      "id": "V52-P01",
+      "family": "generation-aware cache",
+      "calibration": {
+        "id": "V52-P01-CALIBRATION-manifest-cache",
+        "role": "calibration",
+        "family": "generation-aware cache",
+        "task": "Implement createManifestCache from docs/contract.json.",
+        "fixture": "dataset-v52/fixtures/V52-P01-CALIBRATION-manifest-cache",
+        "contract": "dataset-v52/fixtures/V52-P01-CALIBRATION-manifest-cache/docs/contract.json",
+        "driver": "dataset-v52/evaluator/V52-P01-CALIBRATION-manifest-cache/driver.mjs",
+        "cases": "dataset-v52/evaluator/V52-P01-CALIBRATION-manifest-cache/cases.json",
+        "reference": "dataset-v52/evaluator/V52-P01-CALIBRATION-manifest-cache/reference.mjs",
+        "mutants": "dataset-v52/evaluator/V52-P01-CALIBRATION-manifest-cache/mutants.json",
+        "allowedTarget": [
+          "src/solution.mjs"
+        ],
+        "pairId": "V52-P01"
+      },
+      "formal": {
+        "id": "V52-P01-FORMAL-route-cache",
+        "role": "formal",
+        "family": "generation-aware cache",
+        "task": "Implement createRouteCache from docs/contract.json.",
+        "fixture": "dataset-v52/fixtures/V52-P01-FORMAL-route-cache",
+        "contract": "dataset-v52/fixtures/V52-P01-FORMAL-route-cache/docs/contract.json",
+        "driver": "dataset-v52/evaluator/V52-P01-FORMAL-route-cache/driver.mjs",
+        "cases": "dataset-v52/evaluator/V52-P01-FORMAL-route-cache/cases.json",
+        "reference": "dataset-v52/evaluator/V52-P01-FORMAL-route-cache/reference.mjs",
+        "mutants": "dataset-v52/evaluator/V52-P01-FORMAL-route-cache/mutants.json",
+        "allowedTarget": [
+          "src/solution.mjs"
+        ],
+        "pairId": "V52-P01"
+      }
+    },
+    {
+      "id": "V52-P02",
+      "family": "framed stream lifecycle",
+      "calibration": {
+        "id": "V52-P02-CALIBRATION-telemetry-stream",
+        "role": "calibration",
+        "family": "framed stream lifecycle",
+        "task": "Implement createTelemetryStream from docs/contract.json.",
+        "fixture": "dataset-v52/fixtures/V52-P02-CALIBRATION-telemetry-stream",
+        "contract": "dataset-v52/fixtures/V52-P02-CALIBRATION-telemetry-stream/docs/contract.json",
+        "driver": "dataset-v52/evaluator/V52-P02-CALIBRATION-telemetry-stream/driver.mjs",
+        "cases": "dataset-v52/evaluator/V52-P02-CALIBRATION-telemetry-stream/cases.json",
+        "reference": "dataset-v52/evaluator/V52-P02-CALIBRATION-telemetry-stream/reference.mjs",
+        "mutants": "dataset-v52/evaluator/V52-P02-CALIBRATION-telemetry-stream/mutants.json",
+        "allowedTarget": [
+          "src/solution.mjs"
+        ],
+        "pairId": "V52-P02"
+      },
+      "formal": {
+        "id": "V52-P02-FORMAL-audit-stream",
+        "role": "formal",
+        "family": "framed stream lifecycle",
+        "task": "Implement createAuditStream from docs/contract.json.",
+        "fixture": "dataset-v52/fixtures/V52-P02-FORMAL-audit-stream",
+        "contract": "dataset-v52/fixtures/V52-P02-FORMAL-audit-stream/docs/contract.json",
+        "driver": "dataset-v52/evaluator/V52-P02-FORMAL-audit-stream/driver.mjs",
+        "cases": "dataset-v52/evaluator/V52-P02-FORMAL-audit-stream/cases.json",
+        "reference": "dataset-v52/evaluator/V52-P02-FORMAL-audit-stream/reference.mjs",
+        "mutants": "dataset-v52/evaluator/V52-P02-FORMAL-audit-stream/mutants.json",
+        "allowedTarget": [
+          "src/solution.mjs"
+        ],
+        "pairId": "V52-P02"
+      }
+    },
+    {
+      "id": "V52-P03",
+      "family": "virtual-clock circuit breaker",
+      "calibration": {
+        "id": "V52-P03-CALIBRATION-payment-breaker",
+        "role": "calibration",
+        "family": "virtual-clock circuit breaker",
+        "task": "Implement createPaymentBreaker from docs/contract.json.",
+        "fixture": "dataset-v52/fixtures/V52-P03-CALIBRATION-payment-breaker",
+        "contract": "dataset-v52/fixtures/V52-P03-CALIBRATION-payment-breaker/docs/contract.json",
+        "driver": "dataset-v52/evaluator/V52-P03-CALIBRATION-payment-breaker/driver.mjs",
+        "cases": "dataset-v52/evaluator/V52-P03-CALIBRATION-payment-breaker/cases.json",
+        "reference": "dataset-v52/evaluator/V52-P03-CALIBRATION-payment-breaker/reference.mjs",
+        "mutants": "dataset-v52/evaluator/V52-P03-CALIBRATION-payment-breaker/mutants.json",
+        "allowedTarget": [
+          "src/solution.mjs"
+        ],
+        "pairId": "V52-P03"
+      },
+      "formal": {
+        "id": "V52-P03-FORMAL-search-breaker",
+        "role": "formal",
+        "family": "virtual-clock circuit breaker",
+        "task": "Implement createSearchGate from docs/contract.json.",
+        "fixture": "dataset-v52/fixtures/V52-P03-FORMAL-search-breaker",
+        "contract": "dataset-v52/fixtures/V52-P03-FORMAL-search-breaker/docs/contract.json",
+        "driver": "dataset-v52/evaluator/V52-P03-FORMAL-search-breaker/driver.mjs",
+        "cases": "dataset-v52/evaluator/V52-P03-FORMAL-search-breaker/cases.json",
+        "reference": "dataset-v52/evaluator/V52-P03-FORMAL-search-breaker/reference.mjs",
+        "mutants": "dataset-v52/evaluator/V52-P03-FORMAL-search-breaker/mutants.json",
+        "allowedTarget": [
+          "src/solution.mjs"
+        ],
+        "pairId": "V52-P03"
+      }
+    }
+  ],
+  "calibration": {
+    "arms": [
+      "A0",
+      "A1"
+    ],
+    "trials": 2,
+    "cells": 12,
+    "seed": 20260921,
+    "randomization": "seeded paired-blocked",
+    "authorized": false
+  },
+  "formal": {
+    "selectedPairs": 6,
+    "arms": [
+      "A0",
+      "A1",
+      "A2",
+      "A3"
+    ],
+    "trials": 3,
+    "cells": 72,
+    "authorized": false
+  },
+  "execution": {
+    "calibrationAuthorized": false,
+    "formalAuthorized": false
+  },
+  "tranche": {
+    "pairCount": 3,
+    "siblingCount": 6,
+    "calibrationCellsIfEverAuthorized": 12
+  },
+  "fullDesign": {
+    "pairCount": 12,
+    "calibrationCells": 48,
+    "formalSelectedPairs": 6,
+    "formalCells": 72
+  }
+}

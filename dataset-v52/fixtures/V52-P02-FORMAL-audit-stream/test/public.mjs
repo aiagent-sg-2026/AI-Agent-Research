@@ -1,0 +1,1 @@
+import test from 'node:test';import assert from 'node:assert/strict';import {createAuditStream} from '../src/solution.mjs';test('partial record',()=>{const out=[],s=createAuditStream(v=>out.push(v));s.write('4:log');s.write('1;');assert.deepEqual(out,['log1'])});

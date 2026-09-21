@@ -1,0 +1,1 @@
+export function createPaymentBreaker({clock}){let open=false;return {call:async f=>{if(open)throw Object.assign(Error('Circuit open'),{name:'CircuitOpen'});try{return await f()}catch(e){open=true;throw e}},state:()=>open?'open':'closed',events:()=>[]}}

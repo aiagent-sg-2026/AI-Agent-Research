@@ -1,0 +1,1 @@
+export function createSearchGate(){let open=false;return {query:async f=>{if(open)throw Error('Circuit open');try{return await f()}catch(e){open=true;throw e}},state:()=>open?'open':'closed',events:()=>[]}}

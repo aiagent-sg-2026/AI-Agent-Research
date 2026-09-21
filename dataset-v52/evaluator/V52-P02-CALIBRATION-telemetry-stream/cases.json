@@ -1,0 +1,172 @@
+{
+  "exportName": "createTelemetryStream",
+  "cases": [
+    {
+      "id": "H1",
+      "ruleIds": [
+        "C1",
+        "C6"
+      ],
+      "kind": "partial",
+      "expected": {
+        "return": true,
+        "observations": {
+          "frames": [
+            "red",
+            "blue"
+          ],
+          "writes": 2,
+          "accepted": [
+            true,
+            true
+          ],
+          "trace": [
+            "chunk",
+            "chunk",
+            "frame",
+            "frame"
+          ],
+          "error": null
+        }
+      }
+    },
+    {
+      "id": "H2",
+      "ruleIds": [
+        "C2",
+        "C3",
+        "C6"
+      ],
+      "kind": "pressure",
+      "expected": {
+        "return": false,
+        "observations": {
+          "frames": [
+            "a",
+            "b"
+          ],
+          "writes": 2,
+          "accepted": [
+            false,
+            false
+          ],
+          "trace": [
+            "chunk",
+            "pause",
+            "drain",
+            "frame",
+            "frame",
+            "chunk",
+            "pause"
+          ],
+          "error": null
+        }
+      }
+    },
+    {
+      "id": "H3",
+      "ruleIds": [
+        "C4",
+        "C5",
+        "C6"
+      ],
+      "kind": "abort",
+      "expected": {
+        "return": true,
+        "observations": {
+          "frames": [],
+          "writes": 1,
+          "accepted": [
+            true
+          ],
+          "trace": [
+            "chunk",
+            "abort",
+            "close"
+          ],
+          "error": "AbortError:Aborted"
+        }
+      }
+    },
+    {
+      "id": "H4",
+      "ruleIds": [
+        "C1",
+        "C3",
+        "C6"
+      ],
+      "kind": "multi",
+      "expected": {
+        "return": true,
+        "observations": {
+          "frames": [
+            "a",
+            "b"
+          ],
+          "writes": 1,
+          "accepted": [
+            true
+          ],
+          "trace": [
+            "chunk",
+            "frame",
+            "frame"
+          ],
+          "error": null
+        }
+      }
+    },
+    {
+      "id": "H5",
+      "ruleIds": [
+        "C1",
+        "C5",
+        "C6"
+      ],
+      "kind": "close",
+      "expected": {
+        "return": true,
+        "observations": {
+          "frames": [
+            "x"
+          ],
+          "writes": 1,
+          "accepted": [
+            true
+          ],
+          "trace": [
+            "chunk",
+            "frame",
+            "close"
+          ],
+          "error": "Error:Closed"
+        }
+      }
+    },
+    {
+      "id": "H6",
+      "ruleIds": [
+        "C4",
+        "C5",
+        "C6"
+      ],
+      "kind": "signal",
+      "expected": {
+        "return": true,
+        "observations": {
+          "frames": [],
+          "writes": 1,
+          "accepted": [
+            true
+          ],
+          "trace": [
+            "chunk",
+            "abort",
+            "close"
+          ],
+          "error": "AbortError:Aborted"
+        }
+      }
+    }
+  ]
+}

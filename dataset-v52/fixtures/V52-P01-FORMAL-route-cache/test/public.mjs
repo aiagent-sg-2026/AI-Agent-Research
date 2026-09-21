@@ -1,0 +1,1 @@
+import test from 'node:test';import assert from 'node:assert/strict';import {createRouteCache} from '../src/solution.mjs';test('route hit',async()=>{const c=createRouteCache(),v={ok:true};assert.strictEqual(await c.resolve('/a',1,async()=>v),v)});

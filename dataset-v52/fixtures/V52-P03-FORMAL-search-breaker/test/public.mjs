@@ -1,0 +1,1 @@
+import test from 'node:test';import assert from 'node:assert/strict';import {createSearchGate} from '../src/solution.mjs';test('query success',async()=>{const g=createSearchGate({clock:{now:()=>0}});assert.deepEqual(await g.query(async()=>({hits:[]})),{hits:[]})});
