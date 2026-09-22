@@ -1,0 +1,185 @@
+{
+  "exportName": "createNotificationOutbox",
+  "cases": [
+    {
+      "id": "H1",
+      "ruleIds": [
+        "C1",
+        "C6"
+      ],
+      "kind": "dedupe",
+      "expected": {
+        "return": {
+          "value": "dedupe"
+        },
+        "observations": {
+          "states": [
+            "a"
+          ],
+          "errors": [],
+          "trace": [
+            "enqueue",
+            "dedupe"
+          ]
+        }
+      }
+    },
+    {
+      "id": "H2",
+      "ruleIds": [
+        "C2",
+        "C5",
+        "C6"
+      ],
+      "kind": "success",
+      "expected": {
+        "return": {
+          "value": "ok"
+        },
+        "observations": {
+          "states": [
+            "empty"
+          ],
+          "errors": [],
+          "trace": [
+            "enqueue",
+            "enqueue",
+            "persist",
+            "persist",
+            "publish",
+            "publish"
+          ]
+        }
+      }
+    },
+    {
+      "id": "H3",
+      "ruleIds": [
+        "C2",
+        "C3",
+        "C5",
+        "C6"
+      ],
+      "kind": "stage-fail",
+      "expected": {
+        "return": {
+          "value": "ERR"
+        },
+        "observations": {
+          "states": [
+            "a,b"
+          ],
+          "errors": [
+            "STAGE_FAIL"
+          ],
+          "trace": [
+            "enqueue",
+            "enqueue",
+            "persist",
+            "persist",
+            "compensate"
+          ]
+        }
+      }
+    },
+    {
+      "id": "H4",
+      "ruleIds": [
+        "C2",
+        "C3",
+        "C4",
+        "C5",
+        "C6"
+      ],
+      "kind": "send-fail",
+      "expected": {
+        "return": {
+          "value": "ERR"
+        },
+        "observations": {
+          "states": [
+            "a,b"
+          ],
+          "errors": [
+            "SEND_FAIL"
+          ],
+          "trace": [
+            "enqueue",
+            "enqueue",
+            "persist",
+            "persist",
+            "publish",
+            "publish",
+            "compensate",
+            "compensate"
+          ]
+        }
+      }
+    },
+    {
+      "id": "H5",
+      "ruleIds": [
+        "C3",
+        "C4",
+        "C5",
+        "C6"
+      ],
+      "kind": "rollback-fail",
+      "expected": {
+        "return": {
+          "value": "ERR"
+        },
+        "observations": {
+          "states": [
+            "a,b"
+          ],
+          "errors": [
+            "SEND_FAIL",
+            "ROLLBACK_FAIL"
+          ],
+          "trace": [
+            "enqueue",
+            "enqueue",
+            "persist",
+            "persist",
+            "publish",
+            "compensate",
+            "compensate-error",
+            "compensate"
+          ]
+        }
+      }
+    },
+    {
+      "id": "H6",
+      "ruleIds": [
+        "C2",
+        "C3",
+        "C5",
+        "C6"
+      ],
+      "kind": "retry",
+      "expected": {
+        "return": {
+          "value": "ok"
+        },
+        "observations": {
+          "states": [
+            "empty"
+          ],
+          "errors": [
+            "SEND_FAIL"
+          ],
+          "trace": [
+            "enqueue",
+            "persist",
+            "publish",
+            "compensate",
+            "persist",
+            "publish"
+          ]
+        }
+      }
+    }
+  ]
+}

@@ -109,6 +109,114 @@
         ],
         "pairId": "V52-P03"
       }
+    },
+    {
+      "id": "V52-P04",
+      "family": "lease/lock ownership",
+      "calibration": {
+        "id": "V52-P04-CALIBRATION-worker-lease",
+        "role": "calibration",
+        "family": "lease/lock ownership",
+        "task": "Implement createWorkerLease from docs/contract.json.",
+        "fixture": "dataset-v52/fixtures/V52-P04-CALIBRATION-worker-lease",
+        "contract": "dataset-v52/fixtures/V52-P04-CALIBRATION-worker-lease/docs/contract.json",
+        "driver": "dataset-v52/evaluator/V52-P04-CALIBRATION-worker-lease/driver.mjs",
+        "cases": "dataset-v52/evaluator/V52-P04-CALIBRATION-worker-lease/cases.json",
+        "reference": "dataset-v52/evaluator/V52-P04-CALIBRATION-worker-lease/reference.mjs",
+        "mutants": "dataset-v52/evaluator/V52-P04-CALIBRATION-worker-lease/mutants.json",
+        "allowedTarget": [
+          "src/solution.mjs"
+        ],
+        "pairId": "V52-P04"
+      },
+      "formal": {
+        "id": "V52-P04-FORMAL-document-lock",
+        "role": "formal",
+        "family": "lease/lock ownership",
+        "task": "Implement createDocumentLock from docs/contract.json.",
+        "fixture": "dataset-v52/fixtures/V52-P04-FORMAL-document-lock",
+        "contract": "dataset-v52/fixtures/V52-P04-FORMAL-document-lock/docs/contract.json",
+        "driver": "dataset-v52/evaluator/V52-P04-FORMAL-document-lock/driver.mjs",
+        "cases": "dataset-v52/evaluator/V52-P04-FORMAL-document-lock/cases.json",
+        "reference": "dataset-v52/evaluator/V52-P04-FORMAL-document-lock/reference.mjs",
+        "mutants": "dataset-v52/evaluator/V52-P04-FORMAL-document-lock/mutants.json",
+        "allowedTarget": [
+          "src/solution.mjs"
+        ],
+        "pairId": "V52-P04"
+      }
+    },
+    {
+      "id": "V52-P05",
+      "family": "transactional outbox",
+      "calibration": {
+        "id": "V52-P05-CALIBRATION-order-outbox",
+        "role": "calibration",
+        "family": "transactional outbox",
+        "task": "Implement createOrderOutbox from docs/contract.json.",
+        "fixture": "dataset-v52/fixtures/V52-P05-CALIBRATION-order-outbox",
+        "contract": "dataset-v52/fixtures/V52-P05-CALIBRATION-order-outbox/docs/contract.json",
+        "driver": "dataset-v52/evaluator/V52-P05-CALIBRATION-order-outbox/driver.mjs",
+        "cases": "dataset-v52/evaluator/V52-P05-CALIBRATION-order-outbox/cases.json",
+        "reference": "dataset-v52/evaluator/V52-P05-CALIBRATION-order-outbox/reference.mjs",
+        "mutants": "dataset-v52/evaluator/V52-P05-CALIBRATION-order-outbox/mutants.json",
+        "allowedTarget": [
+          "src/solution.mjs"
+        ],
+        "pairId": "V52-P05"
+      },
+      "formal": {
+        "id": "V52-P05-FORMAL-notification-outbox",
+        "role": "formal",
+        "family": "transactional outbox",
+        "task": "Implement createNotificationOutbox from docs/contract.json.",
+        "fixture": "dataset-v52/fixtures/V52-P05-FORMAL-notification-outbox",
+        "contract": "dataset-v52/fixtures/V52-P05-FORMAL-notification-outbox/docs/contract.json",
+        "driver": "dataset-v52/evaluator/V52-P05-FORMAL-notification-outbox/driver.mjs",
+        "cases": "dataset-v52/evaluator/V52-P05-FORMAL-notification-outbox/cases.json",
+        "reference": "dataset-v52/evaluator/V52-P05-FORMAL-notification-outbox/reference.mjs",
+        "mutants": "dataset-v52/evaluator/V52-P05-FORMAL-notification-outbox/mutants.json",
+        "allowedTarget": [
+          "src/solution.mjs"
+        ],
+        "pairId": "V52-P05"
+      }
+    },
+    {
+      "id": "V52-P06",
+      "family": "permission inheritance",
+      "calibration": {
+        "id": "V52-P06-CALIBRATION-workspace-permission",
+        "role": "calibration",
+        "family": "permission inheritance",
+        "task": "Implement createWorkspacePermission from docs/contract.json.",
+        "fixture": "dataset-v52/fixtures/V52-P06-CALIBRATION-workspace-permission",
+        "contract": "dataset-v52/fixtures/V52-P06-CALIBRATION-workspace-permission/docs/contract.json",
+        "driver": "dataset-v52/evaluator/V52-P06-CALIBRATION-workspace-permission/driver.mjs",
+        "cases": "dataset-v52/evaluator/V52-P06-CALIBRATION-workspace-permission/cases.json",
+        "reference": "dataset-v52/evaluator/V52-P06-CALIBRATION-workspace-permission/reference.mjs",
+        "mutants": "dataset-v52/evaluator/V52-P06-CALIBRATION-workspace-permission/mutants.json",
+        "allowedTarget": [
+          "src/solution.mjs"
+        ],
+        "pairId": "V52-P06"
+      },
+      "formal": {
+        "id": "V52-P06-FORMAL-report-permission",
+        "role": "formal",
+        "family": "permission inheritance",
+        "task": "Implement createReportPermission from docs/contract.json.",
+        "fixture": "dataset-v52/fixtures/V52-P06-FORMAL-report-permission",
+        "contract": "dataset-v52/fixtures/V52-P06-FORMAL-report-permission/docs/contract.json",
+        "driver": "dataset-v52/evaluator/V52-P06-FORMAL-report-permission/driver.mjs",
+        "cases": "dataset-v52/evaluator/V52-P06-FORMAL-report-permission/cases.json",
+        "reference": "dataset-v52/evaluator/V52-P06-FORMAL-report-permission/reference.mjs",
+        "mutants": "dataset-v52/evaluator/V52-P06-FORMAL-report-permission/mutants.json",
+        "allowedTarget": [
+          "src/solution.mjs"
+        ],
+        "pairId": "V52-P06"
+      }
     }
   ],
   "calibration": {
@@ -117,7 +225,7 @@
       "A1"
     ],
     "trials": 2,
-    "cells": 12,
+    "cells": 24,
     "seed": 20260921,
     "randomization": "seeded paired-blocked",
     "authorized": false
@@ -139,9 +247,9 @@
     "formalAuthorized": false
   },
   "tranche": {
-    "pairCount": 3,
-    "siblingCount": 6,
-    "calibrationCellsIfEverAuthorized": 12
+    "pairCount": 6,
+    "siblingCount": 12,
+    "calibrationCellsIfEverAuthorized": 24
   },
   "fullDesign": {
     "pairCount": 12,

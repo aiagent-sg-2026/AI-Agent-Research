@@ -1,0 +1,161 @@
+{
+  "exportName": "createReportPermission",
+  "cases": [
+    {
+      "id": "H1",
+      "ruleIds": [
+        "C1",
+        "C3",
+        "C6"
+      ],
+      "kind": "inherit",
+      "expected": {
+        "return": {
+          "value": "ok"
+        },
+        "observations": {
+          "states": [
+            "ALLOW:allow:root"
+          ],
+          "errors": [],
+          "trace": [
+            "link",
+            "grant",
+            "permit"
+          ]
+        }
+      }
+    },
+    {
+      "id": "H2",
+      "ruleIds": [
+        "C1",
+        "C2",
+        "C3",
+        "C6"
+      ],
+      "kind": "local-deny",
+      "expected": {
+        "return": {
+          "value": "DENY"
+        },
+        "observations": {
+          "states": [
+            "DENY:explicit-deny"
+          ],
+          "errors": [],
+          "trace": [
+            "link",
+            "grant",
+            "block",
+            "reject"
+          ]
+        }
+      }
+    },
+    {
+      "id": "H3",
+      "ruleIds": [
+        "C1",
+        "C2",
+        "C3",
+        "C6"
+      ],
+      "kind": "ancestor-deny",
+      "expected": {
+        "return": {
+          "value": "DENY"
+        },
+        "observations": {
+          "states": [
+            "DENY:explicit-deny"
+          ],
+          "errors": [],
+          "trace": [
+            "link",
+            "block",
+            "grant",
+            "reject"
+          ]
+        }
+      }
+    },
+    {
+      "id": "H4",
+      "ruleIds": [
+        "C1",
+        "C3",
+        "C5",
+        "C6"
+      ],
+      "kind": "local-allow",
+      "expected": {
+        "return": {
+          "value": "ok"
+        },
+        "observations": {
+          "states": [
+            "ALLOW:allow:section"
+          ],
+          "errors": [],
+          "trace": [
+            "link",
+            "grant",
+            "permit"
+          ]
+        }
+      }
+    },
+    {
+      "id": "H5",
+      "ruleIds": [
+        "C1",
+        "C3",
+        "C4",
+        "C6"
+      ],
+      "kind": "disabled",
+      "expected": {
+        "return": {
+          "value": "DENY"
+        },
+        "observations": {
+          "states": [
+            "DENY:disabled"
+          ],
+          "errors": [],
+          "trace": [
+            "link",
+            "grant",
+            "suspend",
+            "reject"
+          ]
+        }
+      }
+    },
+    {
+      "id": "H6",
+      "ruleIds": [
+        "C1",
+        "C5",
+        "C6"
+      ],
+      "kind": "default",
+      "expected": {
+        "return": {
+          "value": "DENY"
+        },
+        "observations": {
+          "states": [
+            "DENY:default-deny"
+          ],
+          "errors": [],
+          "trace": [
+            "link",
+            "reject"
+          ]
+        }
+      }
+    }
+  ]
+}

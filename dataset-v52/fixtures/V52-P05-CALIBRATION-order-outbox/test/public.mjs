@@ -1,0 +1,2 @@
+import test from 'node:test';import assert from 'node:assert/strict';import {createOrderOutbox} from '../src/solution.mjs';
+test('one event flushes successfully',async()=>{const x=createOrderOutbox();assert.equal(x.enqueue('a',{v:1}),true);const calls=[];await x.flush({stage:async i=>calls.push('stage:'+i.id),send:async i=>calls.push('send:'+i.id),rollback:async()=>{}});assert.deepEqual(calls,['stage:a','send:a']);assert.deepEqual(x.pending(),[])});

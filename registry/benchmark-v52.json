@@ -1,15 +1,15 @@
 {
   "version": "benchmark-v5.2-tranche",
   "protocol": "AQB-V5.2-TRANCHE-001",
-  "pairCount": 3,
-  "siblingCount": 6,
+  "pairCount": 6,
+  "siblingCount": 12,
   "calibration": {
     "arms": [
       "A0",
       "A1"
     ],
     "trials": 2,
-    "cells": 12,
+    "cells": 24,
     "seed": 20260921,
     "randomization": "seeded paired-blocked",
     "authorized": false
@@ -38,9 +38,9 @@
     "formalAuthorized": false
   },
   "tranche": {
-    "pairCount": 3,
-    "siblingCount": 6,
-    "calibrationCellsIfEverAuthorized": 12
+    "pairCount": 6,
+    "siblingCount": 12,
+    "calibrationCellsIfEverAuthorized": 24
   },
   "fullDesign": {
     "pairCount": 12,

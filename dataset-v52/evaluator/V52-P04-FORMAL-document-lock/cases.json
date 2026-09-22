@@ -1,0 +1,159 @@
+{
+  "exportName": "createDocumentLock",
+  "cases": [
+    {
+      "id": "H1",
+      "ruleIds": [
+        "C1",
+        "C6"
+      ],
+      "kind": "basic",
+      "expected": {
+        "return": {
+          "value": "ok"
+        },
+        "observations": {
+          "states": [
+            "active:alice"
+          ],
+          "errors": [],
+          "trace": [
+            "lock"
+          ]
+        }
+      }
+    },
+    {
+      "id": "H2",
+      "ruleIds": [
+        "C1",
+        "C2",
+        "C6"
+      ],
+      "kind": "busy",
+      "expected": {
+        "return": {
+          "value": "BUSY"
+        },
+        "observations": {
+          "states": [
+            "active:alice"
+          ],
+          "errors": [
+            "BUSY"
+          ],
+          "trace": [
+            "lock",
+            "deny"
+          ]
+        }
+      }
+    },
+    {
+      "id": "H3",
+      "ruleIds": [
+        "C2",
+        "C3",
+        "C4",
+        "C6"
+      ],
+      "kind": "renew",
+      "expected": {
+        "return": {
+          "value": "ok"
+        },
+        "observations": {
+          "states": [
+            "active:alice"
+          ],
+          "errors": [
+            "NOT_OWNER"
+          ],
+          "trace": [
+            "lock",
+            "deny",
+            "extend"
+          ]
+        }
+      }
+    },
+    {
+      "id": "H4",
+      "ruleIds": [
+        "C1",
+        "C3",
+        "C5",
+        "C6"
+      ],
+      "kind": "reclaim",
+      "expected": {
+        "return": {
+          "value": "ok"
+        },
+        "observations": {
+          "states": [
+            "stale:alice",
+            "active:bob"
+          ],
+          "errors": [],
+          "trace": [
+            "lock",
+            "reclaim"
+          ]
+        }
+      }
+    },
+    {
+      "id": "H5",
+      "ruleIds": [
+        "C2",
+        "C3",
+        "C5",
+        "C6"
+      ],
+      "kind": "old-owner",
+      "expected": {
+        "return": {
+          "value": "NOT_OWNER"
+        },
+        "observations": {
+          "states": [
+            "active:alice"
+          ],
+          "errors": [
+            "NOT_OWNER"
+          ],
+          "trace": [
+            "lock",
+            "reclaim",
+            "deny"
+          ]
+        }
+      }
+    },
+    {
+      "id": "H6",
+      "ruleIds": [
+        "C2",
+        "C4",
+        "C6"
+      ],
+      "kind": "release",
+      "expected": {
+        "return": {
+          "value": "ok"
+        },
+        "observations": {
+          "states": [
+            "empty"
+          ],
+          "errors": [],
+          "trace": [
+            "lock",
+            "unlock"
+          ]
+        }
+      }
+    }
+  ]
+}

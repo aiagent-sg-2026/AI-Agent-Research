@@ -1,0 +1,132 @@
+{
+  "version": "v5.2-contract-1",
+  "taskId": "V52-P06-CALIBRATION-workspace-permission",
+  "rules": [
+    {
+      "id": "C1",
+      "text": "Decision traversal starts at the requested workspace scope and follows parent links toward the root. Parent links are read-only during decide."
+    },
+    {
+      "id": "C2",
+      "text": "Any explicit deny for the subject at the requested scope or any ancestor wins over every allow in that chain."
+    },
+    {
+      "id": "C3",
+      "text": "If the chain contains no explicit deny, an allow at the requested scope or any ancestor permits access. The closest allow to the requested scope supplies exact reason allow:<scope>."
+    },
+    {
+      "id": "C4",
+      "text": "A disabled subject is denied before rule traversal, even when allow rules exist. enable restores normal evaluation."
+    },
+    {
+      "id": "C5",
+      "text": "If no deny and no allow is found in the chain, decide returns DENY with exact reason default-deny."
+    },
+    {
+      "id": "C6",
+      "text": "Trace is append-only and copied on read. Configuration mutations emit parent/allow/deny/disable/enable; each decide emits exactly permit or reject after resolution."
+    }
+  ],
+  "callableSurface": {
+    "factory": "createWorkspacePermission()",
+    "ownership": "The workspace permission owns parent links, subject-scope rules, disabled state and trace. Callers supply immutable subject/scope strings.",
+    "methods": [
+      "parent(child:string,parent:string) -> void",
+      "allow(subject:string,scope:string) -> void",
+      "deny(subject:string,scope:string) -> void",
+      "disable(subject:string) -> void",
+      "enable(subject:string) -> void",
+      "decide(subject:string,scope:string) -> {value:'ALLOW'|'DENY',reason:string}",
+      "trace() -> copied event[]"
+    ]
+  },
+  "stateModel": {
+    "states": [
+      "no-rule",
+      "allowed",
+      "denied",
+      "disabled"
+    ],
+    "transitions": [
+      "parent/rule mutation changes future evaluation only",
+      "disable/suspend -> disabled",
+      "enable/resume -> normal rule evaluation",
+      "decision does not mutate rules or parent links"
+    ]
+  },
+  "eventOrdering": [
+    "configuration events are emitted after their mutation",
+    "disabled/suspended rejection is resolved before parent traversal",
+    "deny precedence is resolved before allow result",
+    "permit/reject is the final event for one decision"
+  ],
+  "abortErrorPrecedence": "There is no abort/error surface. disabled has first decision precedence, then explicit deny anywhere in the chain, then closest allow, then default deny.",
+  "identityMutation": {
+    "inputs": "subject and scope strings are read only",
+    "rules": "decide/check never mutates parent links or rules",
+    "trace": "trace returns a new array with new event objects"
+  },
+  "traceSchema": {
+    "type": "array",
+    "items": {
+      "type": "object",
+      "required": [
+        "type"
+      ],
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "parent",
+            "allow",
+            "deny",
+            "disable",
+            "enable",
+            "permit",
+            "reject"
+          ]
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "returnSchema": {
+    "type": "object",
+    "required": [
+      "value"
+    ],
+    "properties": {
+      "value": {}
+    },
+    "additionalProperties": false
+  },
+  "observationSchema": {
+    "type": "object",
+    "required": [
+      "states",
+      "errors",
+      "trace"
+    ],
+    "properties": {
+      "states": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      },
+      "errors": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      },
+      "trace": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      }
+    },
+    "additionalProperties": false
+  }
+}

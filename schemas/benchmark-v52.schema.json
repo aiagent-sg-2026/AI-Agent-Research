@@ -21,10 +21,10 @@
       "const": "AQB-V5.2-TRANCHE-001"
     },
     "pairCount": {
-      "const": 3
+      "const": 6
     },
     "siblingCount": {
-      "const": 6
+      "const": 12
     },
     "tranche": {
       "type": "object",

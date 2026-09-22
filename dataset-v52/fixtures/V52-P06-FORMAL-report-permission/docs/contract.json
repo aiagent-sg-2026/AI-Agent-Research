@@ -1,0 +1,132 @@
+{
+  "version": "v5.2-contract-1",
+  "taskId": "V52-P06-FORMAL-report-permission",
+  "rules": [
+    {
+      "id": "C1",
+      "text": "Decision traversal starts at the requested report section and follows link parentage toward the root. Links are read-only during check."
+    },
+    {
+      "id": "C2",
+      "text": "Any explicit block for the subject at the requested section or any ancestor wins over every grant in that chain."
+    },
+    {
+      "id": "C3",
+      "text": "If the chain contains no explicit block, a grant at the requested section or any ancestor permits access. The closest grant supplies exact reason allow:<scope>."
+    },
+    {
+      "id": "C4",
+      "text": "A suspended subject is denied before rule traversal, even when grants exist. resume restores normal evaluation."
+    },
+    {
+      "id": "C5",
+      "text": "If no block and no grant is found in the chain, check returns DENY with exact reason default-deny."
+    },
+    {
+      "id": "C6",
+      "text": "Trace is append-only and copied on read. Configuration mutations emit link/grant/block/suspend/resume; each check emits exactly permit or reject after resolution."
+    }
+  ],
+  "callableSurface": {
+    "factory": "createReportPermission()",
+    "ownership": "The report permission owns parent links, subject-scope rules, disabled state and trace. Callers supply immutable subject/scope strings.",
+    "methods": [
+      "link(child:string,parent:string) -> void",
+      "grant(subject:string,scope:string) -> void",
+      "block(subject:string,scope:string) -> void",
+      "suspend(subject:string) -> void",
+      "resume(subject:string) -> void",
+      "check(subject:string,scope:string) -> {value:'ALLOW'|'DENY',reason:string}",
+      "trace() -> copied event[]"
+    ]
+  },
+  "stateModel": {
+    "states": [
+      "no-rule",
+      "allowed",
+      "denied",
+      "disabled"
+    ],
+    "transitions": [
+      "parent/rule mutation changes future evaluation only",
+      "disable/suspend -> disabled",
+      "enable/resume -> normal rule evaluation",
+      "decision does not mutate rules or parent links"
+    ]
+  },
+  "eventOrdering": [
+    "configuration events are emitted after their mutation",
+    "disabled/suspended rejection is resolved before parent traversal",
+    "deny precedence is resolved before allow result",
+    "permit/reject is the final event for one decision"
+  ],
+  "abortErrorPrecedence": "There is no abort/error surface. suspended has first decision precedence, then explicit block anywhere in the chain, then closest grant, then default deny.",
+  "identityMutation": {
+    "inputs": "subject and scope strings are read only",
+    "rules": "decide/check never mutates parent links or rules",
+    "trace": "trace returns a new array with new event objects"
+  },
+  "traceSchema": {
+    "type": "array",
+    "items": {
+      "type": "object",
+      "required": [
+        "type"
+      ],
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "link",
+            "grant",
+            "block",
+            "suspend",
+            "resume",
+            "permit",
+            "reject"
+          ]
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "returnSchema": {
+    "type": "object",
+    "required": [
+      "value"
+    ],
+    "properties": {
+      "value": {}
+    },
+    "additionalProperties": false
+  },
+  "observationSchema": {
+    "type": "object",
+    "required": [
+      "states",
+      "errors",
+      "trace"
+    ],
+    "properties": {
+      "states": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      },
+      "errors": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      },
+      "trace": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      }
+    },
+    "additionalProperties": false
+  }
+}

@@ -1,0 +1,2 @@
+import test from 'node:test';import assert from 'node:assert/strict';import {createDocumentLock} from '../src/solution.mjs';
+test('valid holder can lock and unlock',()=>{let now=0;const x=createDocumentLock({clock:{now:()=>now}}),a=x.lock('doc','alice');assert.equal(a.ok,true);assert.equal(x.status('doc').state,'active');assert.equal(x.unlock('doc','alice',a.lockId).ok,true);assert.equal(x.status('doc').state,'empty')});

@@ -1,0 +1,2 @@
+import test from 'node:test';import assert from 'node:assert/strict';import {createWorkerLease} from '../src/solution.mjs';
+test('valid owner can acquire and release',()=>{let now=0;const x=createWorkerLease({clock:{now:()=>now}}),a=x.acquire('job','alice');assert.equal(a.ok,true);assert.equal(x.state('job').state,'active');assert.equal(x.release('job','alice',a.token).ok,true);assert.equal(x.state('job').state,'empty')});

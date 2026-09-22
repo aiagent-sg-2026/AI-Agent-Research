@@ -115,10 +115,10 @@ function validateRegistry(){
   check(registrySchema.properties?.version?.const==='benchmark-v5.2-tranche'&&registrySchema.properties?.protocol?.const==='AQB-V5.2-TRANCHE-001','registry schema identity');
   check(registry.version==='benchmark-v5.2-tranche','registry version');
   check(registry.protocol==='AQB-V5.2-TRANCHE-001','registry protocol');
-  check(registry.pairCount===3&&registry.siblingCount===6,'registry tranche size');
-  check(registry.tranche?.pairCount===3&&registry.tranche?.siblingCount===6&&registry.tranche?.calibrationCellsIfEverAuthorized===12,'registry tranche metadata');
+  check(registry.pairCount===6&&registry.siblingCount===12,'registry tranche size');
+  check(registry.tranche?.pairCount===6&&registry.tranche?.siblingCount===12&&registry.tranche?.calibrationCellsIfEverAuthorized===24,'registry tranche metadata');
   check(registry.fullDesign?.pairCount===12&&registry.fullDesign?.calibrationCells===48&&registry.fullDesign?.formalSelectedPairs===6&&registry.fullDesign?.formalCells===72,'registry full-design target');
-  check(JSON.stringify(registry.calibration?.arms)===JSON.stringify(['A0','A1'])&&registry.calibration?.trials===2&&registry.calibration?.cells===12&&registry.calibration?.authorized===false,'registry calibration boundary');
+  check(JSON.stringify(registry.calibration?.arms)===JSON.stringify(['A0','A1'])&&registry.calibration?.trials===2&&registry.calibration?.cells===24&&registry.calibration?.authorized===false,'registry calibration boundary');
   check(JSON.stringify(registry.formal?.arms)===JSON.stringify(['A0','A1','A2','A3'])&&registry.formal?.trials===3&&registry.formal?.cells===72&&registry.formal?.authorized===false,'registry formal boundary');
   check(registry.selectionPolicy?.principle==='treatment-blind aggregate difficulty'&&registry.selectionPolicy?.qualifyCombinedSuccessMin===1&&registry.selectionPolicy?.qualifyCombinedSuccessMax===3&&registry.selectionPolicy?.requiredQualifiedPairs===6&&registry.selectionPolicy?.ifInsufficient==='stop','registry selection policy');
   check(registry.execution?.calibrationAuthorized===false&&registry.execution?.formalAuthorized===false,'model execution must remain unauthorized');
@@ -236,8 +236,8 @@ async function validateTask(task,oldHashes){
 
 validateRegistry();
 check(manifest.version==='benchmark-v5.2-tranche'&&manifest.protocol==='AQB-V5.2-TRANCHE-001','manifest identity');
-check(Array.isArray(manifest.pairs)&&manifest.pairs.length===3,'manifest pair count');
-check(manifest.tranche?.pairCount===3&&manifest.fullDesign?.pairCount===12&&manifest.fullDesign?.calibrationCells===48,'manifest tranche/full design');
+check(Array.isArray(manifest.pairs)&&manifest.pairs.length===6,'manifest pair count');
+check(manifest.tranche?.pairCount===6&&manifest.fullDesign?.pairCount===12&&manifest.fullDesign?.calibrationCells===48,'manifest tranche/full design');
 check(manifest.execution?.calibrationAuthorized===false&&manifest.execution?.formalAuthorized===false,'manifest execution boundary');
 
 const oldHashes=new Set();
@@ -250,11 +250,19 @@ for(const prior of ['dataset-v5','dataset-v51']){
 
 const results=[];
 const ids=new Set();
+const v52ArtifactHashes=new Map();
 for(const pair of manifest.pairs){
   check(!ids.has(pair.id),'duplicate pair '+pair.id);ids.add(pair.id);
   check(pair.calibration?.role==='calibration'&&pair.formal?.role==='formal','sibling roles '+pair.id);
   check(pair.calibration?.pairId===pair.id&&pair.formal?.pairId===pair.id,'sibling pairId '+pair.id);
   check(pair.calibration?.family===pair.family&&pair.formal?.family===pair.family,'sibling family '+pair.id);
+  for(const task of [pair.calibration,pair.formal]){
+    for(const file of [task.contract,path.join(task.fixture,'src/solution.mjs')]){
+      const digest=hash(await fs.readFile(file));
+      check(!v52ArtifactHashes.has(digest),'duplicate V5.2 candidate artifact '+task.id+' matches '+v52ArtifactHashes.get(digest));
+      v52ArtifactHashes.set(digest,task.id);
+    }
+  }
   const a=await validateTask(pair.calibration,oldHashes);
   const b=await validateTask(pair.formal,oldHashes);
   check(Math.abs(a.baselineLOC-b.baselineLOC)<=15,'sibling complexity LOC mismatch '+pair.id);
@@ -270,6 +278,7 @@ console.log(JSON.stringify({
   structuralGate:true,
   protocolGate:true,
   visibleMutationGate:true,
+  intraV52FreshnessGate:true,
   modelCalls:0,
   formalExecuted:false,
   results

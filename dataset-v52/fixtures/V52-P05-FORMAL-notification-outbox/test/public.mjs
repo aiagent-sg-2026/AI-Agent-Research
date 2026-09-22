@@ -1,0 +1,2 @@
+import test from 'node:test';import assert from 'node:assert/strict';import {createNotificationOutbox} from '../src/solution.mjs';
+test('one event flushes successfully',async()=>{const x=createNotificationOutbox();assert.equal(x.enqueue('a',{v:1}),true);const calls=[];await x.flush({persist:async i=>calls.push('persist:'+i.id),publish:async i=>calls.push('publish:'+i.id),compensate:async()=>{}});assert.deepEqual(calls,['persist:a','publish:a']);assert.deepEqual(x.pending(),[])});

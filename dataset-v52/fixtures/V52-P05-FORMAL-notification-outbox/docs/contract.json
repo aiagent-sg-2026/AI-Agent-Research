@@ -1,0 +1,147 @@
+{
+  "version": "v5.2-contract-1",
+  "taskId": "V52-P05-FORMAL-notification-outbox",
+  "rules": [
+    {
+      "id": "C1",
+      "text": "enqueue is idempotent by notification id for the lifetime of the outbox. A duplicate returns false, does not change pending state, and emits dedupe."
+    },
+    {
+      "id": "C2",
+      "text": "flush calls transport.persist for every pending item in insertion order before the first transport.publish; then publish runs in the same insertion order."
+    },
+    {
+      "id": "C3",
+      "text": "On any persist or publish failure, every item whose persist completed successfully is passed to transport.compensate in exact reverse persist order."
+    },
+    {
+      "id": "C4",
+      "text": "The original persist/publish Error object is rethrown unchanged. compensate failures never replace it; their message strings are appended in occurrence order to error.rollbackErrors."
+    },
+    {
+      "id": "C5",
+      "text": "Successful flush clears pending. Failed flush preserves the full pending list and insertion order for retry. The supplied transport is responsible for idempotency by notification id across retries."
+    },
+    {
+      "id": "C6",
+      "text": "Trace is append-only and copied on read. It records enqueue/dedupe and each persist/publish/compensate/compensate-error attempt in exact execution order."
+    }
+  ],
+  "callableSurface": {
+    "factory": "createNotificationOutbox()",
+    "ownership": "The notification outbox owns dedupe history, pending order and trace. The caller owns transport side effects; transport methods are async and idempotent by item.id.",
+    "methods": [
+      "enqueue(id:string,payload:any) -> boolean",
+      "flush(transport:{persist(item),publish(item),compensate(item)}) -> Promise<{count:integer}>",
+      "pending() -> string[]",
+      "trace() -> copied event[]"
+    ]
+  },
+  "stateModel": {
+    "states": [
+      "empty",
+      "pending",
+      "flushing",
+      "failed",
+      "committed"
+    ],
+    "transitions": [
+      "unique enqueue -> pending",
+      "flush -> flushing",
+      "all stages and sends succeed -> committed/empty",
+      "stage/send failure -> reverse compensation then failed/pending",
+      "retry after failure -> flushing"
+    ]
+  },
+  "eventOrdering": [
+    "all persist events precede the first publish in a flush",
+    "compensate events occur in reverse successful-persist order",
+    "compensate-error immediately follows its failed compensate attempt",
+    "failure preserves pending order before the original error is rethrown"
+  ],
+  "abortErrorPrecedence": "There is no abort surface. The original persist/publish failure has precedence over compensation failures and is rethrown unchanged.",
+  "identityMutation": {
+    "inputs": "enqueue payload objects and transport are never mutated",
+    "ids": "dedupe is by exact id string and persists after success",
+    "trace": "trace returns a new array with new event objects"
+  },
+  "traceSchema": {
+    "type": "array",
+    "items": {
+      "type": "object",
+      "required": [
+        "type"
+      ],
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "enqueue",
+            "dedupe",
+            "persist",
+            "publish",
+            "compensate",
+            "compensate-error"
+          ]
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "returnSchema": {
+    "type": "object",
+    "required": [
+      "value"
+    ],
+    "properties": {
+      "value": {}
+    },
+    "additionalProperties": false
+  },
+  "observationSchema": {
+    "type": "object",
+    "required": [
+      "states",
+      "errors",
+      "trace"
+    ],
+    "properties": {
+      "states": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      },
+      "errors": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      },
+      "trace": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      }
+    },
+    "additionalProperties": false
+  },
+  "errorVariants": [
+    {
+      "id": "stage",
+      "name": "Error",
+      "message": "STAGE_FAIL"
+    },
+    {
+      "id": "send",
+      "name": "Error",
+      "message": "SEND_FAIL"
+    },
+    {
+      "id": "rollback",
+      "name": "Error",
+      "message": "ROLLBACK_FAIL"
+    }
+  ]
+}

@@ -1,0 +1,146 @@
+{
+  "version": "v5.2-contract-1",
+  "taskId": "V52-P04-CALIBRATION-worker-lease",
+  "rules": [
+    {
+      "id": "C1",
+      "text": "An empty or stale worker lease may be acquired; an active lease held by another owner returns exact error BUSY without mutation."
+    },
+    {
+      "id": "C2",
+      "text": "renew and release require both the current owner identity and exact token; mismatch returns NOT_OWNER without mutation."
+    },
+    {
+      "id": "C3",
+      "text": "Expiry uses the injected virtual clock. The lease is stale when clock.now() >= expiresAt; renew or release of that unreclaimed stale record returns STALE."
+    },
+    {
+      "id": "C4",
+      "text": "A valid renew sets expiresAt to clock.now()+ttl. A valid release removes the lease record completely."
+    },
+    {
+      "id": "C5",
+      "text": "Reclaiming a stale lease creates a fresh token. The former token cannot mutate the reclaimed active lease, even when the same owner reacquires it."
+    },
+    {
+      "id": "C6",
+      "text": "Trace is append-only and copied on read. Each operation emits exactly one of acquire, reclaim, renew, release, deny after its decision, in call order."
+    }
+  ],
+  "callableSurface": {
+    "factory": "createWorkerLease({clock,ttl=10})",
+    "ownership": "The factory owns worker lease state, token sequencing and trace; caller owns the read-only virtual clock.",
+    "methods": [
+      "acquire(key:string,owner:string) -> {ok:true,token:string,expiresAt:integer} or {ok:false,error:'BUSY'}",
+      "renew(key:string,owner:string,token:string) -> {ok:true,expiresAt:integer} or {ok:false,error:'STALE'|'NOT_OWNER'}",
+      "release(key:string,owner:string,token:string) -> {ok:true} or {ok:false,error:'STALE'|'NOT_OWNER'}",
+      "state(key:string) -> {state:'empty'|'stale'|'active',owner?:string,token?:string,expiresAt?:integer}",
+      "trace() -> copied event[]"
+    ]
+  },
+  "stateModel": {
+    "states": [
+      "empty",
+      "active",
+      "stale",
+      "released/reclaimed"
+    ],
+    "transitions": [
+      "empty acquire -> active",
+      "active at expiry boundary -> stale",
+      "stale acquire -> active with fresh token",
+      "valid renew -> active with new expiry",
+      "valid release -> empty"
+    ]
+  },
+  "eventOrdering": [
+    "one trace event is appended after each decision",
+    "failed operations append deny and do not mutate",
+    "reclaim replaces stale ownership before reclaim is observed",
+    "valid release removes state before release/unlock is observed"
+  ],
+  "abortErrorPrecedence": "Expiry is evaluated before owner/token validation on the current record. After reclaim, validation applies to the new active owner/token, so any former token is NOT_OWNER.",
+  "identityMutation": {
+    "inputs": "keys, owner identities, tokens and virtual clock are read only",
+    "tokens": "every successful fresh acquisition/reclaim gets a new token",
+    "trace": "trace returns a new array with new event objects"
+  },
+  "traceSchema": {
+    "type": "array",
+    "items": {
+      "type": "object",
+      "required": [
+        "type"
+      ],
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "acquire",
+            "reclaim",
+            "renew",
+            "release",
+            "deny"
+          ]
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "returnSchema": {
+    "type": "object",
+    "required": [
+      "value"
+    ],
+    "properties": {
+      "value": {}
+    },
+    "additionalProperties": false
+  },
+  "observationSchema": {
+    "type": "object",
+    "required": [
+      "states",
+      "errors",
+      "trace"
+    ],
+    "properties": {
+      "states": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      },
+      "errors": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      },
+      "trace": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      }
+    },
+    "additionalProperties": false
+  },
+  "errorVariants": [
+    {
+      "id": "busy",
+      "name": "LeaseError",
+      "message": "BUSY"
+    },
+    {
+      "id": "stale",
+      "name": "LeaseError",
+      "message": "STALE"
+    },
+    {
+      "id": "owner",
+      "name": "LeaseError",
+      "message": "NOT_OWNER"
+    }
+  ]
+}
