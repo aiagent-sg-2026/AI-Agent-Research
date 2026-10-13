@@ -1,0 +1,2 @@
+import test from 'node:test';import assert from 'node:assert/strict';import {createTopicSubscription} from '../src/solution.mjs';
+test('first topic activates and delivers',async()=>{let h;const got=[];const transport={attach:async(name,handler)=>(h={name,handler}),detach:async()=>{}};const x=createTopicSubscription(transport,v=>got.push(v));await x.replace('alpha');h.handler('x');assert.equal(x.active(),'alpha');assert.deepEqual(got,['x'])});

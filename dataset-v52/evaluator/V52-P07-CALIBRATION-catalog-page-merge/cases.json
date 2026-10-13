@@ -1,0 +1,191 @@
+{
+  "exportName": "createCatalogPageMerge",
+  "cases": [
+    {
+      "id": "H1",
+      "ruleIds": [
+        "C3",
+        "C4",
+        "C6"
+      ],
+      "kind": "basic",
+      "expected": {
+        "return": {
+          "value": "ok"
+        },
+        "observations": {
+          "states": [
+            "[{\"id\":\"a\",\"value\":1},{\"id\":\"b\",\"value\":2}]"
+          ],
+          "errors": [],
+          "trace": [
+            "page",
+            "add",
+            "add",
+            "stop"
+          ]
+        }
+      }
+    },
+    {
+      "id": "H2",
+      "ruleIds": [
+        "C2",
+        "C3",
+        "C4",
+        "C6"
+      ],
+      "kind": "replace",
+      "expected": {
+        "return": {
+          "value": "ok"
+        },
+        "observations": {
+          "states": [
+            "[{\"id\":\"a\",\"value\":9},{\"id\":\"b\",\"value\":2}]"
+          ],
+          "errors": [],
+          "trace": [
+            "page",
+            "add",
+            "add",
+            "page",
+            "update",
+            "stop"
+          ]
+        }
+      }
+    },
+    {
+      "id": "H3",
+      "ruleIds": [
+        "C1",
+        "C3",
+        "C4",
+        "C6"
+      ],
+      "kind": "repeat-next",
+      "expected": {
+        "return": {
+          "value": "done"
+        },
+        "observations": {
+          "states": [
+            "true"
+          ],
+          "errors": [],
+          "trace": [
+            "page",
+            "add",
+            "page",
+            "add",
+            "stop"
+          ]
+        }
+      }
+    },
+    {
+      "id": "H4",
+      "ruleIds": [
+        "C1",
+        "C5",
+        "C6"
+      ],
+      "kind": "repeat-page",
+      "expected": {
+        "return": {
+          "value": "done"
+        },
+        "observations": {
+          "states": [
+            "[{\"id\":\"a\",\"value\":1}]",
+            "false"
+          ],
+          "errors": [],
+          "trace": [
+            "page",
+            "add",
+            "stop"
+          ]
+        }
+      }
+    },
+    {
+      "id": "H5",
+      "ruleIds": [
+        "C2",
+        "C3",
+        "C5",
+        "C6"
+      ],
+      "kind": "stable",
+      "expected": {
+        "return": {
+          "value": "ok"
+        },
+        "observations": {
+          "states": [
+            "[{\"id\":\"a\",\"value\":1},{\"id\":\"b\",\"value\":7},{\"id\":\"c\",\"value\":3}]"
+          ],
+          "errors": [],
+          "trace": [
+            "page",
+            "add",
+            "add",
+            "page",
+            "update",
+            "add",
+            "stop"
+          ]
+        }
+      }
+    },
+    {
+      "id": "H6",
+      "ruleIds": [
+        "C2",
+        "C6"
+      ],
+      "kind": "immutable",
+      "expected": {
+        "return": {
+          "value": "ok"
+        },
+        "observations": {
+          "states": [
+            "true"
+          ],
+          "errors": [],
+          "trace": [
+            "page",
+            "add",
+            "stop"
+          ]
+        }
+      }
+    },
+    {
+      "id": "H7",
+      "ruleIds": [
+        "C6"
+      ],
+      "kind": "trace-copy",
+      "expected": {
+        "return": {
+          "value": "ok"
+        },
+        "observations": {
+          "states": [
+            "page"
+          ],
+          "errors": [],
+          "trace": [
+            "page",
+            "add",
+            "stop"
+          ]
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,136 @@
+{
+  "version": "v5.2-contract-1",
+  "taskId": "V52-P09-CALIBRATION-topic-subscription",
+  "rules": [
+    {
+      "id": "C1",
+      "text": "First replace attaches the requested topic and activates exactly that listener."
+    },
+    {
+      "id": "C2",
+      "text": "Replacing an active subscription must await detach of the old handle before attaching the new topic; old cleanup completes before new activation."
+    },
+    {
+      "id": "C3",
+      "text": "If old-handle detach fails, rethrow that exact error unchanged, emit cleanup-error, keep the old subscription active, and do not attach or activate the replacement."
+    },
+    {
+      "id": "C4",
+      "text": "Callbacks are generation-fenced. After successful replacement, a callback from any older handle is ignored and emits stale-drop; only current callback emits deliver."
+    },
+    {
+      "id": "C5",
+      "text": "stop is idempotent. First stop detaches the active handle then clears active state and emits stop; later stop calls perform no detach and no new trace event."
+    },
+    {
+      "id": "C6",
+      "text": "Trace is append-only/copied. attach precedes activate for first subscription; replacement orders detach -> attach -> activate; cleanup-error occurs after failed detach; delivery decisions are deliver/stale-drop."
+    }
+  ],
+  "callableSurface": {
+    "factory": "createTopicSubscription(transport,onValue)",
+    "ownership": "The subscription manager owns active handle, generation fence and trace. Caller owns transport and callback.",
+    "methods": [
+      "replace(name:string) -> Promise<{active:string}>",
+      "stop() -> Promise<void>",
+      "active() -> string|null",
+      "trace() -> copied event[]"
+    ]
+  },
+  "stateModel": {
+    "states": [
+      "idle",
+      "active",
+      "replacing",
+      "stopped"
+    ],
+    "transitions": [
+      "idle replace -> active",
+      "active replace -> replacing -> active",
+      "detach failure -> original active",
+      "stop -> idle/stopped"
+    ]
+  },
+  "eventOrdering": [
+    "first attach precedes activate",
+    "replacement cleanup detach completes before new attach",
+    "failed detach emits cleanup-error and prevents attach/activate",
+    "first stop detaches before stop event"
+  ],
+  "abortErrorPrecedence": "No abort surface. Old-handle cleanup failure has precedence over replacement attach and leaves old subscription active.",
+  "identityMutation": {
+    "inputs": "subscription names and callback payloads are read only",
+    "generation": "every successful activation gets a new generation; older callbacks cannot deliver",
+    "trace": "trace returns copied event objects"
+  },
+  "traceSchema": {
+    "type": "array",
+    "items": {
+      "type": "object",
+      "required": [
+        "type"
+      ],
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "attach",
+            "detach",
+            "activate",
+            "cleanup-error",
+            "deliver",
+            "stale-drop",
+            "stop"
+          ]
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "returnSchema": {
+    "type": "object",
+    "required": [
+      "value"
+    ],
+    "properties": {
+      "value": {}
+    },
+    "additionalProperties": false
+  },
+  "observationSchema": {
+    "type": "object",
+    "required": [
+      "states",
+      "errors",
+      "trace"
+    ],
+    "properties": {
+      "states": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      },
+      "errors": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      },
+      "trace": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      }
+    },
+    "additionalProperties": false
+  },
+  "errorVariants": [
+    {
+      "id": "cleanup",
+      "name": "Error",
+      "message": "DETACH_FAIL"
+    }
+  ]
+}

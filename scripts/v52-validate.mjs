@@ -115,10 +115,10 @@ function validateRegistry(){
   check(registrySchema.properties?.version?.const==='benchmark-v5.2-tranche'&&registrySchema.properties?.protocol?.const==='AQB-V5.2-TRANCHE-001','registry schema identity');
   check(registry.version==='benchmark-v5.2-tranche','registry version');
   check(registry.protocol==='AQB-V5.2-TRANCHE-001','registry protocol');
-  check(registry.pairCount===6&&registry.siblingCount===12,'registry tranche size');
-  check(registry.tranche?.pairCount===6&&registry.tranche?.siblingCount===12&&registry.tranche?.calibrationCellsIfEverAuthorized===24,'registry tranche metadata');
+  check(registry.pairCount===9&&registry.siblingCount===18,'registry tranche size');
+  check(registry.tranche?.pairCount===9&&registry.tranche?.siblingCount===18&&registry.tranche?.calibrationCellsIfEverAuthorized===36,'registry tranche metadata');
   check(registry.fullDesign?.pairCount===12&&registry.fullDesign?.calibrationCells===48&&registry.fullDesign?.formalSelectedPairs===6&&registry.fullDesign?.formalCells===72,'registry full-design target');
-  check(JSON.stringify(registry.calibration?.arms)===JSON.stringify(['A0','A1'])&&registry.calibration?.trials===2&&registry.calibration?.cells===24&&registry.calibration?.authorized===false,'registry calibration boundary');
+  check(JSON.stringify(registry.calibration?.arms)===JSON.stringify(['A0','A1'])&&registry.calibration?.trials===2&&registry.calibration?.cells===36&&registry.calibration?.authorized===false,'registry calibration boundary');
   check(JSON.stringify(registry.formal?.arms)===JSON.stringify(['A0','A1','A2','A3'])&&registry.formal?.trials===3&&registry.formal?.cells===72&&registry.formal?.authorized===false,'registry formal boundary');
   check(registry.selectionPolicy?.principle==='treatment-blind aggregate difficulty'&&registry.selectionPolicy?.qualifyCombinedSuccessMin===1&&registry.selectionPolicy?.qualifyCombinedSuccessMax===3&&registry.selectionPolicy?.requiredQualifiedPairs===6&&registry.selectionPolicy?.ifInsufficient==='stop','registry selection policy');
   check(registry.execution?.calibrationAuthorized===false&&registry.execution?.formalAuthorized===false,'model execution must remain unauthorized');
@@ -236,8 +236,8 @@ async function validateTask(task,oldHashes){
 
 validateRegistry();
 check(manifest.version==='benchmark-v5.2-tranche'&&manifest.protocol==='AQB-V5.2-TRANCHE-001','manifest identity');
-check(Array.isArray(manifest.pairs)&&manifest.pairs.length===6,'manifest pair count');
-check(manifest.tranche?.pairCount===6&&manifest.fullDesign?.pairCount===12&&manifest.fullDesign?.calibrationCells===48,'manifest tranche/full design');
+check(Array.isArray(manifest.pairs)&&manifest.pairs.length===9,'manifest pair count');
+check(manifest.tranche?.pairCount===9&&manifest.fullDesign?.pairCount===12&&manifest.fullDesign?.calibrationCells===48,'manifest tranche/full design');
 check(manifest.execution?.calibrationAuthorized===false&&manifest.execution?.formalAuthorized===false,'manifest execution boundary');
 
 const oldHashes=new Set();

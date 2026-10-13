@@ -1,0 +1,125 @@
+{
+  "version": "v5.2-contract-1",
+  "taskId": "V52-P07-FORMAL-activity-page-merge",
+  "rules": [
+    {
+      "id": "C1",
+      "text": "Each page is identified by exact cursor string. A page whose cursor was already processed is ignored, emits stop, returns accepted=false/done=true, and performs no item mutation."
+    },
+    {
+      "id": "C2",
+      "text": "Within and across pages, identity is exact eventId. The first occurrence fixes stable output position; a later duplicate replaces its stored payload/value without moving that position."
+    },
+    {
+      "id": "C3",
+      "text": "A previously unseen page is processed in input order and emits page first, then one append or replace event per entry/item."
+    },
+    {
+      "id": "C4",
+      "text": "After processing a new page, if nextCursor is null the merge is done. If nextCursor equals any already-processed cursor, emit stop and mark done to prevent a pagination loop."
+    },
+    {
+      "id": "C5",
+      "text": "Once done, later page calls are ignored with accepted=false/done=true and emit stop only. result/timeline preserves first-seen identity order with latest duplicate value."
+    },
+    {
+      "id": "C6",
+      "text": "Trace is append-only and copied on read. Public event order uses only page, append, replace, stop and exactly reflects page processing decisions."
+    }
+  ],
+  "callableSurface": {
+    "factory": "createActivityPageMerge()",
+    "ownership": "The merger owns processed-cursor state, stable identity order, latest values, done state and trace. Caller owns immutable page objects.",
+    "methods": [
+      "acceptPage(page:{cursor:string,nextCursor:string|null,entries:array}) -> {accepted:boolean,done:boolean}",
+      "timeline() -> copied array",
+      "state() -> {done:boolean,processed:string[]}",
+      "trace() -> copied event[]"
+    ]
+  },
+  "stateModel": {
+    "states": [
+      "empty",
+      "collecting",
+      "done"
+    ],
+    "transitions": [
+      "first unseen page -> collecting",
+      "unseen page with fresh nextCursor -> collecting",
+      "null/repeated nextCursor -> done",
+      "repeated/current page or any page after done -> done/no mutation"
+    ]
+  },
+  "eventOrdering": [
+    "page is emitted before item events for an accepted page",
+    "append/replace follow input order",
+    "stop is emitted after accepted-page item events when termination is discovered",
+    "ignored repeated/post-done page emits stop only"
+  ],
+  "abortErrorPrecedence": "There is no error/abort surface. Repeat-cursor and already-done termination checks prevent mutation before any page processing.",
+  "identityMutation": {
+    "inputs": "page and contained item/entry objects are read only",
+    "identity": "exact eventId controls replacement while first-seen order is immutable",
+    "trace": "trace and result/timeline return copied arrays and copied record objects"
+  },
+  "traceSchema": {
+    "type": "array",
+    "items": {
+      "type": "object",
+      "required": [
+        "type"
+      ],
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "page",
+            "append",
+            "replace",
+            "stop"
+          ]
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "returnSchema": {
+    "type": "object",
+    "required": [
+      "value"
+    ],
+    "properties": {
+      "value": {}
+    },
+    "additionalProperties": false
+  },
+  "observationSchema": {
+    "type": "object",
+    "required": [
+      "states",
+      "errors",
+      "trace"
+    ],
+    "properties": {
+      "states": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      },
+      "errors": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      },
+      "trace": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      }
+    },
+    "additionalProperties": false
+  }
+}

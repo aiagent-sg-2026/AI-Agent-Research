@@ -217,6 +217,114 @@
         ],
         "pairId": "V52-P06"
       }
+    },
+    {
+      "id": "V52-P07",
+      "family": "paginated merge",
+      "calibration": {
+        "id": "V52-P07-CALIBRATION-catalog-page-merge",
+        "role": "calibration",
+        "family": "paginated merge",
+        "task": "Implement createCatalogPageMerge from docs/contract.json.",
+        "fixture": "dataset-v52/fixtures/V52-P07-CALIBRATION-catalog-page-merge",
+        "contract": "dataset-v52/fixtures/V52-P07-CALIBRATION-catalog-page-merge/docs/contract.json",
+        "driver": "dataset-v52/evaluator/V52-P07-CALIBRATION-catalog-page-merge/driver.mjs",
+        "cases": "dataset-v52/evaluator/V52-P07-CALIBRATION-catalog-page-merge/cases.json",
+        "reference": "dataset-v52/evaluator/V52-P07-CALIBRATION-catalog-page-merge/reference.mjs",
+        "mutants": "dataset-v52/evaluator/V52-P07-CALIBRATION-catalog-page-merge/mutants.json",
+        "allowedTarget": [
+          "src/solution.mjs"
+        ],
+        "pairId": "V52-P07"
+      },
+      "formal": {
+        "id": "V52-P07-FORMAL-activity-page-merge",
+        "role": "formal",
+        "family": "paginated merge",
+        "task": "Implement createActivityPageMerge from docs/contract.json.",
+        "fixture": "dataset-v52/fixtures/V52-P07-FORMAL-activity-page-merge",
+        "contract": "dataset-v52/fixtures/V52-P07-FORMAL-activity-page-merge/docs/contract.json",
+        "driver": "dataset-v52/evaluator/V52-P07-FORMAL-activity-page-merge/driver.mjs",
+        "cases": "dataset-v52/evaluator/V52-P07-FORMAL-activity-page-merge/cases.json",
+        "reference": "dataset-v52/evaluator/V52-P07-FORMAL-activity-page-merge/reference.mjs",
+        "mutants": "dataset-v52/evaluator/V52-P07-FORMAL-activity-page-merge/mutants.json",
+        "allowedTarget": [
+          "src/solution.mjs"
+        ],
+        "pairId": "V52-P07"
+      }
+    },
+    {
+      "id": "V52-P08",
+      "family": "optimistic update",
+      "calibration": {
+        "id": "V52-P08-CALIBRATION-profile-version-update",
+        "role": "calibration",
+        "family": "optimistic update",
+        "task": "Implement createProfileVersionUpdate from docs/contract.json.",
+        "fixture": "dataset-v52/fixtures/V52-P08-CALIBRATION-profile-version-update",
+        "contract": "dataset-v52/fixtures/V52-P08-CALIBRATION-profile-version-update/docs/contract.json",
+        "driver": "dataset-v52/evaluator/V52-P08-CALIBRATION-profile-version-update/driver.mjs",
+        "cases": "dataset-v52/evaluator/V52-P08-CALIBRATION-profile-version-update/cases.json",
+        "reference": "dataset-v52/evaluator/V52-P08-CALIBRATION-profile-version-update/reference.mjs",
+        "mutants": "dataset-v52/evaluator/V52-P08-CALIBRATION-profile-version-update/mutants.json",
+        "allowedTarget": [
+          "src/solution.mjs"
+        ],
+        "pairId": "V52-P08"
+      },
+      "formal": {
+        "id": "V52-P08-FORMAL-inventory-version-update",
+        "role": "formal",
+        "family": "optimistic update",
+        "task": "Implement createInventoryVersionUpdate from docs/contract.json.",
+        "fixture": "dataset-v52/fixtures/V52-P08-FORMAL-inventory-version-update",
+        "contract": "dataset-v52/fixtures/V52-P08-FORMAL-inventory-version-update/docs/contract.json",
+        "driver": "dataset-v52/evaluator/V52-P08-FORMAL-inventory-version-update/driver.mjs",
+        "cases": "dataset-v52/evaluator/V52-P08-FORMAL-inventory-version-update/cases.json",
+        "reference": "dataset-v52/evaluator/V52-P08-FORMAL-inventory-version-update/reference.mjs",
+        "mutants": "dataset-v52/evaluator/V52-P08-FORMAL-inventory-version-update/mutants.json",
+        "allowedTarget": [
+          "src/solution.mjs"
+        ],
+        "pairId": "V52-P08"
+      }
+    },
+    {
+      "id": "V52-P09",
+      "family": "subscription replacement",
+      "calibration": {
+        "id": "V52-P09-CALIBRATION-topic-subscription",
+        "role": "calibration",
+        "family": "subscription replacement",
+        "task": "Implement createTopicSubscription from docs/contract.json.",
+        "fixture": "dataset-v52/fixtures/V52-P09-CALIBRATION-topic-subscription",
+        "contract": "dataset-v52/fixtures/V52-P09-CALIBRATION-topic-subscription/docs/contract.json",
+        "driver": "dataset-v52/evaluator/V52-P09-CALIBRATION-topic-subscription/driver.mjs",
+        "cases": "dataset-v52/evaluator/V52-P09-CALIBRATION-topic-subscription/cases.json",
+        "reference": "dataset-v52/evaluator/V52-P09-CALIBRATION-topic-subscription/reference.mjs",
+        "mutants": "dataset-v52/evaluator/V52-P09-CALIBRATION-topic-subscription/mutants.json",
+        "allowedTarget": [
+          "src/solution.mjs"
+        ],
+        "pairId": "V52-P09"
+      },
+      "formal": {
+        "id": "V52-P09-FORMAL-feed-subscription",
+        "role": "formal",
+        "family": "subscription replacement",
+        "task": "Implement createFeedSubscription from docs/contract.json.",
+        "fixture": "dataset-v52/fixtures/V52-P09-FORMAL-feed-subscription",
+        "contract": "dataset-v52/fixtures/V52-P09-FORMAL-feed-subscription/docs/contract.json",
+        "driver": "dataset-v52/evaluator/V52-P09-FORMAL-feed-subscription/driver.mjs",
+        "cases": "dataset-v52/evaluator/V52-P09-FORMAL-feed-subscription/cases.json",
+        "reference": "dataset-v52/evaluator/V52-P09-FORMAL-feed-subscription/reference.mjs",
+        "mutants": "dataset-v52/evaluator/V52-P09-FORMAL-feed-subscription/mutants.json",
+        "allowedTarget": [
+          "src/solution.mjs"
+        ],
+        "pairId": "V52-P09"
+      }
     }
   ],
   "calibration": {
@@ -225,7 +333,7 @@
       "A1"
     ],
     "trials": 2,
-    "cells": 24,
+    "cells": 36,
     "seed": 20260921,
     "randomization": "seeded paired-blocked",
     "authorized": false
@@ -247,9 +355,9 @@
     "formalAuthorized": false
   },
   "tranche": {
-    "pairCount": 6,
-    "siblingCount": 12,
-    "calibrationCellsIfEverAuthorized": 24
+    "pairCount": 9,
+    "siblingCount": 18,
+    "calibrationCellsIfEverAuthorized": 36
   },
   "fullDesign": {
     "pairCount": 12,

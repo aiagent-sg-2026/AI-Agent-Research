@@ -1,0 +1,122 @@
+{
+  "version": "v5.2-contract-1",
+  "taskId": "V52-P08-FORMAL-inventory-version-update",
+  "rules": [
+    {
+      "id": "C1",
+      "text": "Compare request.expectedVersion with the current revision before any patch mutation; mismatch performs no write."
+    },
+    {
+      "id": "C2",
+      "text": "On success shallow-merge the patch over current data, ignore a patch key named revision, and increment revision by exactly 1."
+    },
+    {
+      "id": "C3",
+      "text": "Conflict returns exact {ok:false,error:'VERSION_CONFLICT',currentVersion:<current revision>} with data and revision unchanged."
+    },
+    {
+      "id": "C4",
+      "text": "Successful return and snapshot/read contain copied data; request, patch, initial data and returned data are not shared or mutated."
+    },
+    {
+      "id": "C5",
+      "text": "After a successful update, a later request carrying the older expectedVersion is stale and cannot overwrite the newer state."
+    },
+    {
+      "id": "C6",
+      "text": "Trace is append-only/copied. Every call emits check first, then exactly one of apply or conflict; a conflict never emits apply."
+    }
+  ],
+  "callableSurface": {
+    "factory": "createInventoryVersionUpdate(initialData,initialVersion=1)",
+    "ownership": "The updater owns inventory data, revision, and trace. Caller owns immutable request/patch inputs.",
+    "methods": [
+      "commit({expectedVersion:integer,patch:object}) -> result",
+      "read() -> {version:integer,data:object}",
+      "trace() -> copied event[]"
+    ]
+  },
+  "stateModel": {
+    "states": [
+      "current",
+      "updated",
+      "conflict"
+    ],
+    "transitions": [
+      "matching expectedVersion -> updated with version+1",
+      "mismatch -> conflict/no mutation",
+      "later call compares against latest version"
+    ]
+  },
+  "eventOrdering": [
+    "check precedes every decision",
+    "apply occurs only after successful state mutation",
+    "conflict occurs with zero state mutation",
+    "exactly one decision event follows each check"
+  ],
+  "abortErrorPrecedence": "No thrown error/abort surface. Version conflict is resolved before patch application and has precedence over patch content.",
+  "identityMutation": {
+    "inputs": "initial data, request and patch are read only",
+    "state": "stored data is copied and patch cannot directly set revision",
+    "outputs": "result/snapshot data and trace entries are copied"
+  },
+  "traceSchema": {
+    "type": "array",
+    "items": {
+      "type": "object",
+      "required": [
+        "type"
+      ],
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "check",
+            "apply",
+            "conflict"
+          ]
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "returnSchema": {
+    "type": "object",
+    "required": [
+      "value"
+    ],
+    "properties": {
+      "value": {}
+    },
+    "additionalProperties": false
+  },
+  "observationSchema": {
+    "type": "object",
+    "required": [
+      "states",
+      "errors",
+      "trace"
+    ],
+    "properties": {
+      "states": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      },
+      "errors": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      },
+      "trace": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      }
+    },
+    "additionalProperties": false
+  }
+}

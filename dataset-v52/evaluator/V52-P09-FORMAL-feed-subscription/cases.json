@@ -1,0 +1,160 @@
+{
+  "exportName": "createFeedSubscription",
+  "cases": [
+    {
+      "id": "H1",
+      "ruleIds": [
+        "C1",
+        "C6"
+      ],
+      "kind": "first",
+      "expected": {
+        "return": {
+          "value": "ok"
+        },
+        "observations": {
+          "states": [
+            "a"
+          ],
+          "errors": [],
+          "trace": [
+            "attach",
+            "activate"
+          ]
+        }
+      }
+    },
+    {
+      "id": "H2",
+      "ruleIds": [
+        "C1",
+        "C2",
+        "C6"
+      ],
+      "kind": "replace",
+      "expected": {
+        "return": {
+          "value": "ok"
+        },
+        "observations": {
+          "states": [
+            "b"
+          ],
+          "errors": [],
+          "trace": [
+            "attach",
+            "activate",
+            "detach",
+            "attach",
+            "activate"
+          ]
+        }
+      }
+    },
+    {
+      "id": "H3",
+      "ruleIds": [
+        "C2",
+        "C3",
+        "C6"
+      ],
+      "kind": "cleanup-fail",
+      "expected": {
+        "return": {
+          "value": "ERR"
+        },
+        "observations": {
+          "states": [
+            "a",
+            "1"
+          ],
+          "errors": [
+            "DETACH_FAIL"
+          ],
+          "trace": [
+            "attach",
+            "activate",
+            "cleanup-error"
+          ]
+        }
+      }
+    },
+    {
+      "id": "H4",
+      "ruleIds": [
+        "C2",
+        "C4",
+        "C6"
+      ],
+      "kind": "stale",
+      "expected": {
+        "return": {
+          "value": "ok"
+        },
+        "observations": {
+          "states": [
+            "new"
+          ],
+          "errors": [],
+          "trace": [
+            "attach",
+            "activate",
+            "detach",
+            "attach",
+            "activate",
+            "stale-drop",
+            "deliver"
+          ]
+        }
+      }
+    },
+    {
+      "id": "H5",
+      "ruleIds": [
+        "C2",
+        "C5",
+        "C6"
+      ],
+      "kind": "stop",
+      "expected": {
+        "return": {
+          "value": "ok"
+        },
+        "observations": {
+          "states": [
+            "null"
+          ],
+          "errors": [],
+          "trace": [
+            "attach",
+            "activate",
+            "detach",
+            "stop"
+          ]
+        }
+      }
+    },
+    {
+      "id": "H6",
+      "ruleIds": [
+        "C6"
+      ],
+      "kind": "trace-copy",
+      "expected": {
+        "return": {
+          "value": "ok"
+        },
+        "observations": {
+          "states": [
+            "attach"
+          ],
+          "errors": [],
+          "trace": [
+            "attach",
+            "activate"
+          ]
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,2 @@
+import test from 'node:test';import assert from 'node:assert/strict';import {createFeedSubscription} from '../src/solution.mjs';
+test('first feed activates and delivers',async()=>{let h;const got=[];const transport={attach:async(name,handler)=>(h={name,handler}),detach:async()=>{}};const x=createFeedSubscription(transport,v=>got.push(v));await x.switchFeed('news');h.handler('x');assert.equal(x.active(),'news');assert.deepEqual(got,['x'])});

@@ -1,0 +1,159 @@
+{
+  "exportName": "createInventoryVersionUpdate",
+  "cases": [
+    {
+      "id": "H1",
+      "ruleIds": [
+        "C1",
+        "C2",
+        "C4",
+        "C6"
+      ],
+      "kind": "success",
+      "expected": {
+        "return": {
+          "value": "ok"
+        },
+        "observations": {
+          "states": [
+            "{\"version\":2,\"data\":{\"sku\":\"A\",\"qty\":6}}"
+          ],
+          "errors": [],
+          "trace": [
+            "check",
+            "apply"
+          ]
+        }
+      }
+    },
+    {
+      "id": "H2",
+      "ruleIds": [
+        "C1",
+        "C3",
+        "C6"
+      ],
+      "kind": "conflict",
+      "expected": {
+        "return": {
+          "value": "CONFLICT"
+        },
+        "observations": {
+          "states": [
+            "{\"version\":1,\"data\":{\"sku\":\"A\",\"qty\":5}}",
+            "cv:1"
+          ],
+          "errors": [
+            "VERSION_CONFLICT"
+          ],
+          "trace": [
+            "check",
+            "conflict"
+          ]
+        }
+      }
+    },
+    {
+      "id": "H3",
+      "ruleIds": [
+        "C1",
+        "C3",
+        "C5",
+        "C6"
+      ],
+      "kind": "sequential",
+      "expected": {
+        "return": {
+          "value": "CONFLICT"
+        },
+        "observations": {
+          "states": [
+            "{\"version\":2,\"data\":{\"sku\":\"A\",\"qty\":6}}",
+            "cv:2"
+          ],
+          "errors": [
+            "VERSION_CONFLICT"
+          ],
+          "trace": [
+            "check",
+            "apply",
+            "check",
+            "conflict"
+          ]
+        }
+      }
+    },
+    {
+      "id": "H4",
+      "ruleIds": [
+        "C2",
+        "C4",
+        "C6"
+      ],
+      "kind": "preserve",
+      "expected": {
+        "return": {
+          "value": "ok"
+        },
+        "observations": {
+          "states": [
+            "{\"version\":2,\"data\":{\"sku\":\"A\",\"qty\":6}}"
+          ],
+          "errors": [],
+          "trace": [
+            "check",
+            "apply"
+          ]
+        }
+      }
+    },
+    {
+      "id": "H5",
+      "ruleIds": [
+        "C2",
+        "C4",
+        "C6"
+      ],
+      "kind": "ignore-version",
+      "expected": {
+        "return": {
+          "value": "ok"
+        },
+        "observations": {
+          "states": [
+            "{\"version\":2,\"data\":{\"sku\":\"A\",\"qty\":7}}"
+          ],
+          "errors": [],
+          "trace": [
+            "check",
+            "apply"
+          ]
+        }
+      }
+    },
+    {
+      "id": "H6",
+      "ruleIds": [
+        "C4",
+        "C6"
+      ],
+      "kind": "immutable",
+      "expected": {
+        "return": {
+          "value": "ok"
+        },
+        "observations": {
+          "states": [
+            "true",
+            "true"
+          ],
+          "errors": [],
+          "trace": [
+            "check",
+            "apply"
+          ]
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,191 @@
+{
+  "exportName": "createActivityPageMerge",
+  "cases": [
+    {
+      "id": "H1",
+      "ruleIds": [
+        "C3",
+        "C4",
+        "C6"
+      ],
+      "kind": "basic",
+      "expected": {
+        "return": {
+          "value": "ok"
+        },
+        "observations": {
+          "states": [
+            "[{\"eventId\":\"a\",\"payload\":1},{\"eventId\":\"b\",\"payload\":2}]"
+          ],
+          "errors": [],
+          "trace": [
+            "page",
+            "append",
+            "append",
+            "stop"
+          ]
+        }
+      }
+    },
+    {
+      "id": "H2",
+      "ruleIds": [
+        "C2",
+        "C3",
+        "C4",
+        "C6"
+      ],
+      "kind": "replace",
+      "expected": {
+        "return": {
+          "value": "ok"
+        },
+        "observations": {
+          "states": [
+            "[{\"eventId\":\"a\",\"payload\":9},{\"eventId\":\"b\",\"payload\":2}]"
+          ],
+          "errors": [],
+          "trace": [
+            "page",
+            "append",
+            "append",
+            "page",
+            "replace",
+            "stop"
+          ]
+        }
+      }
+    },
+    {
+      "id": "H3",
+      "ruleIds": [
+        "C1",
+        "C3",
+        "C4",
+        "C6"
+      ],
+      "kind": "repeat-next",
+      "expected": {
+        "return": {
+          "value": "done"
+        },
+        "observations": {
+          "states": [
+            "true"
+          ],
+          "errors": [],
+          "trace": [
+            "page",
+            "append",
+            "page",
+            "append",
+            "stop"
+          ]
+        }
+      }
+    },
+    {
+      "id": "H4",
+      "ruleIds": [
+        "C1",
+        "C5",
+        "C6"
+      ],
+      "kind": "repeat-page",
+      "expected": {
+        "return": {
+          "value": "done"
+        },
+        "observations": {
+          "states": [
+            "[{\"eventId\":\"a\",\"payload\":1}]",
+            "false"
+          ],
+          "errors": [],
+          "trace": [
+            "page",
+            "append",
+            "stop"
+          ]
+        }
+      }
+    },
+    {
+      "id": "H5",
+      "ruleIds": [
+        "C2",
+        "C3",
+        "C5",
+        "C6"
+      ],
+      "kind": "stable",
+      "expected": {
+        "return": {
+          "value": "ok"
+        },
+        "observations": {
+          "states": [
+            "[{\"eventId\":\"a\",\"payload\":1},{\"eventId\":\"b\",\"payload\":7},{\"eventId\":\"c\",\"payload\":3}]"
+          ],
+          "errors": [],
+          "trace": [
+            "page",
+            "append",
+            "append",
+            "page",
+            "replace",
+            "append",
+            "stop"
+          ]
+        }
+      }
+    },
+    {
+      "id": "H6",
+      "ruleIds": [
+        "C2",
+        "C6"
+      ],
+      "kind": "immutable",
+      "expected": {
+        "return": {
+          "value": "ok"
+        },
+        "observations": {
+          "states": [
+            "true"
+          ],
+          "errors": [],
+          "trace": [
+            "page",
+            "append",
+            "stop"
+          ]
+        }
+      }
+    },
+    {
+      "id": "H7",
+      "ruleIds": [
+        "C6"
+      ],
+      "kind": "trace-copy",
+      "expected": {
+        "return": {
+          "value": "ok"
+        },
+        "observations": {
+          "states": [
+            "page"
+          ],
+          "errors": [],
+          "trace": [
+            "page",
+            "append",
+            "stop"
+          ]
+        }
+      }
+    }
+  ]
+}
